@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.env
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+
+# ML Model (large binary — optional: commit if small enough)
+ml/model/gold_model.pkl
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.env
+*.log
+npm-debug.log*
+
+# Environment files
+.env
+.env.local
+.env.production
+backend/.env
+
+# GCP credentials
+key.json
+*.json.b64
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Docker
+*.dockerignore
+
+# Jupyter Notebooks (if used for analysis)
+.ipynb_checkpoints/
+
+# Temporary files
+*.tmp
+*.bak
+
+
+CLAUDE.md
+devdocs.md

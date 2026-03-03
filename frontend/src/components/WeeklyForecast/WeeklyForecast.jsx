@@ -1,0 +1,181 @@
+import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import {
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
+  ResponsiveContainer, ReferenceLine, Area, AreaChart
+} from 'recharts'
+import { Calendar, TrendingUp } from 'lucide-react'
+import { getWeekForecast, getPredictionTomorrow } from '../../services/api'
+
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload?.length) {
+    const d = payload[0].payload
+    return (
+      <div className="bg-slate-900 border border-amber-500/30 rounded-xl p-4 shadow-xl">
+        <p className="text-amber-400 font-semibold mb-2">{d.day}, {label}</p>
+        <p className="text-white text-sm">USD: <span className="price-number font-bold">${d.usd?.toLocaleString()}</span></p>
+        <p className="text-slate-300 text-sm">24k/g: <span className="price-number">₹{d.price_24k_per_gram?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}</span></p>
+        <p className="text-slate-400 text-sm">22k/g: <span className="price-number">₹{d.price_22k_per_gram?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}</span></p>
+      </div>
+    )
+  }
+  return null
+}
+
+export default function WeeklyForecast() {
+  const [forecast, setForecast] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [lastActual, setLastActual] = useState(null)
+  const [view, setView] = useState('usd') // 'usd' | 'inr24k' | 'inr22k'
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const [weekData, todayData] = await Promise.all([
+          getWeekForecast(),
+          getPredictionTomorrow()
+        ])
+        setForecast(weekData.forecast || [])
+        setLastActual(todayData?.last_actual_usd)
+      } catch (err) {
+        console.error('Failed to load forecast', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+    load()
+  }, [])
+
+  const viewOptions = [
+    { key: 'usd', label: 'USD / oz', dataKey: 'usd', color: '#F59E0B', format: v => `$${v?.toLocaleString()}` },
+    { key: 'inr24k', label: '24k INR/g', dataKey: 'price_24k_per_gram', color: '#c084fc', format: v => `₹${v?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}` },
+    { key: 'inr22k', label: '22k INR/g', dataKey: 'price_22k_per_gram', color: '#60a5fa', format: v => `₹${v?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}` },
+  ]
+
+  const activeView = viewOptions.find(v => v.key === view)
+
+  if (loading) {
+    return (
+      <div className="glass-card rounded-2xl p-8 gold-border flex items-center justify-center h-64">
+        <div className="w-8 h-8 border-2 border-amber-500 border-t-transparent rounded-full animate-spin" />
+      </div>
+    )
+  }
+
+  const chartData = forecast.map(f => ({
+    ...f,
+    date_short: f.date?.slice(5), // MM-DD
+  }))
+
+  const minVal = Math.min(...chartData.map(d => d[activeView.dataKey] || Infinity)) * 0.998
+  const maxVal = Math.max(...chartData.map(d => d[activeView.dataKey] || 0)) * 1.002
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.1 }}
+      className="glass-card rounded-2xl p-6 md:p-8 gold-border"
+    >
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center gap-3">
+          <div className="w-9 h-9 bg-amber-500/15 rounded-lg flex items-center justify-center">
+            <Calendar size={18} className="text-amber-400" />
+          </div>
+          <div>
+            <h2 className="text-lg font-bold text-white">7-Day Forecast</h2>
+            <p className="text-xs text-slate-500">AI-generated price projection</p>
+          </div>
+        </div>
+
+        {/* View toggle */}
+        <div className="flex bg-slate-800/80 rounded-lg p-1 gap-1">
+          {viewOptions.map(opt => (
+            <button
+              key={opt.key}
+              onClick={() => setView(opt.key)}
+              className={`px-3 py-1 text-xs font-medium rounded-md transition-all ${
+                view === opt.key
+                  ? 'bg-amber-500 text-black'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              {opt.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Chart */}
+      <div className="h-52 sm:h-64">
+        <ResponsiveContainer width="100%" height="100%">
+          <AreaChart data={chartData} margin={{ top: 5, right: 5, bottom: 5, left: 0 }}>
+            <defs>
+              <linearGradient id="goldGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor={activeView.color} stopOpacity={0.25} />
+                <stop offset="95%" stopColor={activeView.color} stopOpacity={0} />
+              </linearGradient>
+            </defs>
+            <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
+            <XAxis
+              dataKey="date_short"
+              tick={{ fill: '#64748b', fontSize: 11 }}
+              tickLine={false}
+              axisLine={false}
+            />
+            <YAxis
+              domain={[minVal, maxVal]}
+              tick={{ fill: '#64748b', fontSize: 11 }}
+              tickLine={false}
+              axisLine={false}
+              tickFormatter={v => activeView.key === 'usd' ? `$${(v/1000).toFixed(1)}k` : `₹${(v/1000).toFixed(0)}k`}
+              width={55}
+            />
+            <Tooltip content={<CustomTooltip />} />
+            {lastActual && view === 'usd' && (
+              <ReferenceLine
+                y={lastActual}
+                stroke="#64748b"
+                strokeDasharray="4 4"
+                label={{ value: 'Last actual', fill: '#64748b', fontSize: 10, position: 'right' }}
+              />
+            )}
+            <Area
+              type="monotone"
+              dataKey={activeView.dataKey}
+              stroke={activeView.color}
+              strokeWidth={2}
+              fill="url(#goldGradient)"
+              dot={{ fill: activeView.color, r: 4, strokeWidth: 0 }}
+              activeDot={{ r: 6, fill: activeView.color, stroke: '#0f172a', strokeWidth: 2 }}
+            />
+          </AreaChart>
+        </ResponsiveContainer>
+      </div>
+
+      {/* Day pills */}
+      <div className="grid grid-cols-7 gap-1 mt-4">
+        {forecast.map((f, i) => {
+          const val = f[activeView.dataKey]
+          const prev = i > 0 ? forecast[i-1][activeView.dataKey] : val
+          const isUp = val > prev
+          return (
+            <div key={f.date} className="text-center">
+              <p className="text-xs text-slate-500 mb-1">{f.day}</p>
+              <p className={`text-xs font-semibold price-number ${isUp ? 'text-green-400' : 'text-red-400'}`}>
+                {activeView.key === 'usd'
+                  ? `$${(val/1000).toFixed(2)}k`
+                  : `₹${(val/1000).toFixed(0)}k`}
+              </p>
+            </div>
+          )
+        })}
+      </div>
+
+      <p className="text-xs text-slate-600 mt-4 text-center">
+        Recursive XGBoost forecast • Accuracy decreases for days 4–7 • Not financial advice
+      </p>
+    </motion.div>
+  )
+}
