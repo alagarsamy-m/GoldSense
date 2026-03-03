@@ -28,11 +28,11 @@ def load_gold(path: Path = GOLD_CSV) -> pd.DataFrame:
     """
     df = pd.read_csv(
         path,
-        skiprows=2,              # skip "# CSV-File created..." lines
-        encoding="utf-8-sig",    # handle BOM (\ufeff)
-        thousands=",",
+        skiprows=3,              # skip 2 comment lines + 1 empty line
+        encoding="utf-8",
     )
-    df.columns = df.columns.str.strip()
+    # Strip BOM (\ufeff) + surrounding quotes that appear on the header line
+    df.columns = df.columns.str.replace('\ufeff', '', regex=False).str.strip('"').str.strip()
 
     # Parse date
     df["Date"] = pd.to_datetime(df["Date"], format="%m/%d/%Y")
@@ -74,11 +74,11 @@ def load_usdinr(path: Path = USDINR_CSV) -> pd.DataFrame:
     """
     df = pd.read_csv(
         path,
-        skiprows=2,
-        encoding="utf-8-sig",
-        thousands=",",
+        skiprows=3,              # skip 2 comment lines + 1 empty line
+        encoding="utf-8",
     )
-    df.columns = df.columns.str.strip()
+    # Strip BOM (\ufeff) + surrounding quotes that appear on the header line
+    df.columns = df.columns.str.replace('\ufeff', '', regex=False).str.strip('"').str.strip()
 
     # Parse date — format differs from gold file
     df["Date"] = pd.to_datetime(df["Date"], format="%d-%m-%Y")

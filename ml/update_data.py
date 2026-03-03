@@ -24,8 +24,8 @@ USDINR_TICKER = "USDINR=X"  # USD/INR spot rate
 
 def read_last_date(csv_path: Path, date_col: str = "Date") -> date:
     """Read the last date in an existing CSV (accounting for comment lines + BOM)."""
-    df = pd.read_csv(csv_path, skiprows=2, encoding="utf-8-sig", nrows=5)
-    df.columns = df.columns.str.strip()
+    df = pd.read_csv(csv_path, skiprows=3, encoding="utf-8", nrows=5)
+    df.columns = df.columns.str.replace('\ufeff', '', regex=False).str.strip('"').str.strip()
 
     # Try MM/DD/YYYY (Gold) and DD-MM-YYYY (USD-INR)
     for fmt in ["%m/%d/%Y", "%d-%m-%Y"]:

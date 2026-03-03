@@ -13,8 +13,8 @@ build/
 .pytest_cache/
 .mypy_cache/
 
-# ML Model (large binary — optional: commit if small enough)
-ml/model/gold_model.pkl
+# ML Model — committed to repo so Render can access it
+# ml/model/gold_model.pkl
 
 # Node
 node_modules/

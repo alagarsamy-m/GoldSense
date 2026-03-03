@@ -1,0 +1,82 @@
+{
+  "trained_at": "2026-03-03T14:59:08.994226Z",
+  "training_rows": 5852,
+  "validation_rows": 365,
+  "train_date_range": {
+    "start": "2000-02-23",
+    "end": "2024-05-23"
+  },
+  "val_date_range": {
+    "start": "2024-05-28",
+    "end": "2026-03-02"
+  },
+  "metrics": {
+    "rmse": 1300.6038337883806,
+    "mae": 1010.908756287457,
+    "mape": 26.231544145988096,
+    "direction_accuracy_pct": 40.821917808219176
+  },
+  "model_params": {
+    "n_estimators": 221,
+    "max_depth": 6,
+    "learning_rate": 0.05
+  },
+  "features": [
+    "price_lag_1",
+    "price_lag_2",
+    "price_lag_3",
+    "price_lag_5",
+    "price_lag_7",
+    "price_lag_14",
+    "price_lag_21",
+    "price_lag_30",
+    "rolling_mean_7",
+    "rolling_mean_14",
+    "rolling_mean_30",
+    "rolling_std_7",
+    "rolling_std_14",
+    "rolling_std_30",
+    "rolling_min_7",
+    "rolling_max_7",
+    "rsi_14",
+    "macd",
+    "macd_signal",
+    "macd_diff",
+    "bb_upper",
+    "bb_lower",
+    "bb_width",
+    "bb_pct",
+    "atr_14",
+    "day_of_week",
+    "month",
+    "quarter",
+    "year",
+    "is_month_end",
+    "is_quarter_end",
+    "day_of_year",
+    "USD_INR",
+    "usd_inr_lag_1",
+    "usd_inr_lag_7",
+    "usd_inr_rolling_mean_7",
+    "usd_inr_rolling_std_7",
+    "usd_inr_pct_change",
+    "price_pct_change",
+    "price_pct_change_7",
+    "daily_range",
+    "daily_range_pct",
+    "volatility_5d",
+    "gold_inr_base"
+  ],
+  "top_features": [
+    "rolling_max_7",
+    "rolling_min_7",
+    "rolling_mean_7",
+    "price_lag_3",
+    "price_lag_1",
+    "rolling_mean_30",
+    "price_lag_2",
+    "gold_inr_base",
+    "bb_lower",
+    "rolling_mean_14"
+  ]
+}
