@@ -64,18 +64,27 @@ class GoldService:
         return cls._metadata
 
     @classmethod
+    def _get_feature_cols(cls) -> list:
+        """Get feature columns from saved metadata (most reliable source at inference time)."""
+        meta = cls.get_model_info()
+        saved_features = meta.get("features", [])
+        if saved_features:
+            return [c for c in saved_features if c in cls._df.columns]
+        # Fallback: derive from preprocess if metadata missing
+        from preprocess import get_feature_columns
+        return [c for c in get_feature_columns() if c in cls._df.columns]
+
+    @classmethod
     def get_tomorrow_prediction(cls) -> dict:
         """Return tomorrow's gold price prediction with India conversions."""
         cls._ensure_loaded()
 
         from predict import predict_tomorrow
-        from preprocess import get_feature_columns
 
-        feature_cols = [c for c in get_feature_columns() if c in cls._df.columns]
-        result = predict_tomorrow(cls._df, cls._model, feature_cols)
-
-        # Enrich with model metadata
         meta = cls.get_model_info()
+        feature_cols = cls._get_feature_cols()
+        result = predict_tomorrow(cls._df, cls._model, feature_cols, meta)
+
         result["model_rmse"] = meta.get("metrics", {}).get("rmse", 0)
         result["model_mae"] = meta.get("metrics", {}).get("mae", 0)
         result["model_mape"] = meta.get("metrics", {}).get("mape", 0)
@@ -89,10 +98,10 @@ class GoldService:
         cls._ensure_loaded()
 
         from predict import predict_week
-        from preprocess import get_feature_columns
 
-        feature_cols = [c for c in get_feature_columns() if c in cls._df.columns]
-        return predict_week(cls._df, cls._model, feature_cols)
+        meta = cls.get_model_info()
+        feature_cols = cls._get_feature_cols()
+        return predict_week(cls._df, cls._model, feature_cols, meta)
 
     @classmethod
     def get_accuracy_logs(cls, limit: int = 30) -> list:

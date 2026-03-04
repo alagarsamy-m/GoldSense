@@ -1,5 +1,5 @@
 {
-  "trained_at": "2026-03-03T14:59:08.994226Z",
+  "trained_at": "2026-03-04T10:40:10.125561Z",
   "training_rows": 5852,
   "validation_rows": 365,
   "train_date_range": {
@@ -11,16 +11,17 @@
     "end": "2026-03-02"
   },
   "metrics": {
-    "rmse": 1300.6038337883806,
-    "mae": 1010.908756287457,
-    "mape": 26.231544145988096,
-    "direction_accuracy_pct": 40.821917808219176
+    "rmse": 61.51279658747991,
+    "mae": 37.67554635463353,
+    "mape": 1.0626992941682016,
+    "direction_accuracy_pct": 59.178082191780824
   },
   "model_params": {
-    "n_estimators": 221,
+    "n_estimators": 24,
     "max_depth": 6,
     "learning_rate": 0.05
   },
+  "training_target": "log_return",
   "features": [
     "price_lag_1",
     "price_lag_2",
@@ -65,18 +66,24 @@
     "daily_range",
     "daily_range_pct",
     "volatility_5d",
-    "gold_inr_base"
+    "gold_inr_base",
+    "log_return_1",
+    "log_return_2",
+    "log_return_3",
+    "price_vs_mean_7",
+    "price_vs_mean_30",
+    "usd_inr_return"
   ],
   "top_features": [
-    "rolling_max_7",
-    "rolling_min_7",
-    "rolling_mean_7",
-    "price_lag_3",
     "price_lag_1",
-    "rolling_mean_30",
     "price_lag_2",
-    "gold_inr_base",
-    "bb_lower",
+    "price_lag_3",
+    "price_lag_5",
+    "price_lag_7",
+    "price_lag_14",
+    "price_lag_21",
+    "price_lag_30",
+    "rolling_mean_7",
     "rolling_mean_14"
   ]
 }

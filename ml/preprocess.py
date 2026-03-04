@@ -222,10 +222,28 @@ def add_features(df: pd.DataFrame) -> pd.DataFrame:
     # Volatility (realized 5-day)
     df["volatility_5d"] = price.pct_change().shift(1).rolling(5).std()
 
-    # Gold in INR (base, no duties) — informational feature
+    # Gold in INR (base, no duties)
     df["gold_inr_base"] = price * usd_inr / 31.1035
 
-    # ── Target variable ───────────────────────────────────────────────────────
+    # ── Log return features (key signals for predicting next-day direction) ───
+    price_returns = np.log(price / price.shift(1))
+    df["log_return_1"] = price_returns             # Today's log return
+    df["log_return_2"] = price_returns.shift(1)    # Yesterday's log return
+    df["log_return_3"] = price_returns.shift(2)    # 2 days ago
+
+    # ── Mean reversion signals (gold tends to revert to rolling mean) ─────────
+    # Positive value = price is above its historical average (may revert down)
+    df["price_vs_mean_7"] = price / df["rolling_mean_7"] - 1
+    df["price_vs_mean_30"] = price / df["rolling_mean_30"] - 1
+
+    # ── USD/INR log return (currency movement as signal) ─────────────────────
+    df["usd_inr_return"] = np.log(usd_inr / usd_inr.shift(1))
+
+    # ── Target variable: next-day log return (stationary — model learns ±% change)
+    # This dramatically improves accuracy: model only predicts small daily change,
+    # and at inference time, price = live_price * exp(pred_return)
+    df["next_day_return"] = np.log(price.shift(-1) / price)
+    # Keep absolute price for backward compatibility
     df["next_day_price"] = price.shift(-1)
 
     return df
@@ -254,6 +272,10 @@ def get_feature_columns() -> list:
         "price_pct_change", "price_pct_change_7",
         "daily_range", "daily_range_pct",
         "volatility_5d", "gold_inr_base",
+        # Log returns & mean reversion (new signals)
+        "log_return_1", "log_return_2", "log_return_3",
+        "price_vs_mean_7", "price_vs_mean_30",
+        "usd_inr_return",
     ]
 
 
@@ -279,7 +301,7 @@ def build_dataset() -> pd.DataFrame:
     # Drop rows where target or required features are NaN
     feature_cols = get_feature_columns()
     available_features = [c for c in feature_cols if c in df.columns]
-    df = df.dropna(subset=available_features + ["next_day_price"])
+    df = df.dropna(subset=available_features + ["next_day_price", "next_day_return"])
     print(f"  Final rows (after dropna): {len(df)}")
 
     return df

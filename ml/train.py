@@ -34,7 +34,7 @@ def train():
 
     feature_cols = [c for c in get_feature_columns() if c in df.columns]
     X = df[feature_cols]
-    y = df["next_day_price"]
+    y = df["next_day_return"]  # log(next_price / current_price) — stationary target
 
     # ── Time-based train/validation split ─────────────────────────
     split_idx = len(df) - VALIDATION_DAYS
@@ -74,16 +74,20 @@ def train():
     )
 
     # ── Evaluation ────────────────────────────────────────────────
-    val_preds = model.predict(X_val)
+    val_preds = model.predict(X_val)  # predicted log returns
 
-    rmse = float(np.sqrt(mean_squared_error(y_val, val_preds)))
-    mae = float(mean_absolute_error(y_val, val_preds))
-    mape = float(np.mean(np.abs((y_val.values - val_preds) / y_val.values)) * 100)
+    # Reconstruct actual prices from log returns for interpretable metrics
+    val_current_prices = df["Price"].iloc[split_idx:split_idx + len(y_val)].values
+    pred_next_prices = val_current_prices * np.exp(val_preds)
+    actual_next_prices = val_current_prices * np.exp(y_val.values)
 
-    # Direction accuracy (did we predict up/down correctly?)
-    # Exclude flat days (sign=0) to avoid artificially inflating the score
-    actual_direction = np.sign(y_val.values - df["Price"].iloc[split_idx:].values)
-    pred_direction = np.sign(val_preds - df["Price"].iloc[split_idx:].values)
+    rmse = float(np.sqrt(mean_squared_error(actual_next_prices, pred_next_prices)))
+    mae = float(mean_absolute_error(actual_next_prices, pred_next_prices))
+    mape = float(np.mean(np.abs((actual_next_prices - pred_next_prices) / actual_next_prices)) * 100)
+
+    # Direction accuracy: sign of log return = direction (exclude flat days)
+    actual_direction = np.sign(y_val.values)
+    pred_direction = np.sign(val_preds)
     non_flat = actual_direction != 0
     direction_accuracy = float(np.mean(actual_direction[non_flat] == pred_direction[non_flat]) * 100) if non_flat.any() else 0.0
 
@@ -131,6 +135,7 @@ def train():
             "max_depth": 6,
             "learning_rate": 0.05,
         },
+        "training_target": "log_return",
         "features": feature_cols,
         "top_features": [f[0] for f in top_features],
     }
