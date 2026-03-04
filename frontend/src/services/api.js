@@ -43,7 +43,7 @@ export const updateUserProfile = (data) =>
   api.put('/api/user/profile', data, { requiresAuth: true }).then(r => r.data)
 
 export const getRecommendations = () =>
-  api.get('/api/recommendations', { requiresAuth: true }).then(r => r.data)
+  api.get('/api/user/recommendations', { requiresAuth: true }).then(r => r.data)
 
 export const getDashboard = () =>
   api.get('/api/user/dashboard', { requiresAuth: true }).then(r => r.data)
