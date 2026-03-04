@@ -10,14 +10,9 @@ on:
 permissions:
   contents: write   # Required to commit updated dataset back to repo
 
-env:
-  GCP_REGION: asia-south1
-  IMAGE_NAME: goldsense-backend
-  ARTIFACT_REGISTRY: asia-south1-docker.pkg.dev
-
 jobs:
   update-data-and-retrain:
-    name: Update Dataset, Retrain Model & Deploy
+    name: Update Dataset, Retrain Model & Deploy to Render
     runs-on: ubuntu-latest
 
     steps:
@@ -46,8 +41,6 @@ jobs:
         run: |
           cd ml
           python update_data.py
-        env:
-          # No API key needed for yfinance
 
       # ── 5. Evaluate last prediction accuracy ─────────────────────────────
       - name: Log prediction accuracy
@@ -56,26 +49,24 @@ jobs:
           python evaluate.py
         continue-on-error: true   # Don't fail pipeline if evaluation fails
 
-      # ── 6. Commit updated datasets ───────────────────────────────────────
-      - name: Commit updated dataset to repository
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add dataset/Gold\ Rate.csv dataset/USD-INR.csv dataset/prediction_logs.csv 2>/dev/null || true
-          git diff --staged --quiet || git commit -m "data: weekly update $(date -u '+%Y-%m-%d') [skip ci]"
-          git push
-        continue-on-error: true   # Don't fail if no new data
-
-      # ── 7. Retrain XGBoost model ─────────────────────────────────────────
+      # ── 6. Retrain XGBoost model ─────────────────────────────────────────
       - name: Retrain XGBoost model
         run: |
           cd ml
           python train.py
-        env:
-          PYTHONPATH: ${{ github.workspace }}/ml
 
-      # ── 8. Upload trained model as artifact (for debugging) ───────────────
-      - name: Upload model artifacts
+      # ── 7. Commit updated dataset + model to repository ──────────────────
+      - name: Commit updated data and model
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add dataset/Gold\ Rate.csv dataset/USD-INR.csv dataset/prediction_logs.csv ml/model/gold_model.pkl ml/model/model_metadata.json 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "data: weekly update $(date -u '+%Y-%m-%d') [skip ci]"
+          git push
+        continue-on-error: true   # Don't fail if no new data
+
+      # ── 8. Upload model artifact (for debugging) ──────────────────────────
+      - name: Upload model artifact
         uses: actions/upload-artifact@v4
         with:
           name: trained-model-${{ github.run_number }}
@@ -84,60 +75,8 @@ jobs:
             ml/model/model_metadata.json
           retention-days: 30
 
-      # ── 9. Authenticate to Google Cloud ──────────────────────────────────
-      - name: Authenticate to Google Cloud
-        uses: google-github-actions/auth@v2
-        with:
-          credentials_json: ${{ secrets.GOOGLE_CREDENTIALS }}
-
-      # ── 10. Setup gcloud CLI ─────────────────────────────────────────────
-      - name: Set up Google Cloud SDK
-        uses: google-github-actions/setup-gcloud@v2
-        with:
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
-
-      # ── 11. Configure Docker for Artifact Registry ───────────────────────
-      - name: Configure Docker for Artifact Registry
+      # ── 9. Trigger Render redeploy ────────────────────────────────────────
+      - name: Trigger Render deployment
         run: |
-          gcloud auth configure-docker ${{ env.ARTIFACT_REGISTRY }} --quiet
-
-      # ── 12. Build Docker image ───────────────────────────────────────────
-      - name: Build Docker image
-        run: |
-          docker build \
-            -t ${{ env.ARTIFACT_REGISTRY }}/${{ secrets.GCP_PROJECT_ID }}/goldsense/${{ env.IMAGE_NAME }}:latest \
-            -t ${{ env.ARTIFACT_REGISTRY }}/${{ secrets.GCP_PROJECT_ID }}/goldsense/${{ env.IMAGE_NAME }}:${{ github.run_number }} \
-            -f backend/Dockerfile \
-            .
-
-      # ── 13. Push Docker image ────────────────────────────────────────────
-      - name: Push Docker image to Artifact Registry
-        run: |
-          docker push ${{ env.ARTIFACT_REGISTRY }}/${{ secrets.GCP_PROJECT_ID }}/goldsense/${{ env.IMAGE_NAME }}:latest
-          docker push ${{ env.ARTIFACT_REGISTRY }}/${{ secrets.GCP_PROJECT_ID }}/goldsense/${{ env.IMAGE_NAME }}:${{ github.run_number }}
-
-      # ── 14. Deploy to Cloud Run ──────────────────────────────────────────
-      - name: Deploy to Google Cloud Run
-        run: |
-          gcloud run deploy ${{ env.IMAGE_NAME }} \
-            --image=${{ env.ARTIFACT_REGISTRY }}/${{ secrets.GCP_PROJECT_ID }}/goldsense/${{ env.IMAGE_NAME }}:latest \
-            --platform=managed \
-            --region=${{ env.GCP_REGION }} \
-            --port=8080 \
-            --memory=512Mi \
-            --cpu=1 \
-            --min-instances=0 \
-            --max-instances=3 \
-            --allow-unauthenticated \
-            --set-env-vars="SUPABASE_URL=${{ secrets.SUPABASE_URL }},SUPABASE_SERVICE_KEY=${{ secrets.SUPABASE_SERVICE_KEY }},GROQ_API_KEY=${{ secrets.GROQ_API_KEY }}" \
-            --quiet
-
-      # ── 15. Print deployment URL ─────────────────────────────────────────
-      - name: Get deployment URL
-        run: |
-          URL=$(gcloud run services describe ${{ env.IMAGE_NAME }} \
-            --platform=managed \
-            --region=${{ env.GCP_REGION }} \
-            --format="value(status.url)")
-          echo "Backend deployed at: $URL"
-          echo "BACKEND_URL=$URL" >> $GITHUB_OUTPUT
+          curl -s "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
+          echo "Render deployment triggered successfully"
