@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { TrendingUp, ChevronDown, LogIn, LayoutDashboard, Sparkles } from 'lucide-react'
+import { TrendingUp, TrendingDown, ChevronDown, LogIn, LayoutDashboard, Sparkles } from 'lucide-react'
 import Navbar from '../components/Layout/Navbar'
 import PricePredictor from '../components/PricePredictor/PricePredictor'
 import WeeklyForecast from '../components/WeeklyForecast/WeeklyForecast'
@@ -9,6 +9,7 @@ import AccuracyLog from '../components/AccuracyLog/AccuracyLog'
 import EducationSection from '../components/Education/EducationSection'
 import DevDocs from '../components/Education/DevDocs'
 import { useAuth } from '../hooks/useAuth'
+import { getPredictionTomorrow } from '../services/api'
 import toast from 'react-hot-toast'
 
 // Animated hero background particles
@@ -66,6 +67,11 @@ function HeroParticles() {
 
 export default function Home() {
   const { user, signInWithGoogle } = useAuth()
+  const [heroPrediction, setHeroPrediction] = useState(null)
+
+  useEffect(() => {
+    getPredictionTomorrow().then(setHeroPrediction).catch(() => {})
+  }, [])
 
   const handleLogin = async () => {
     try {
@@ -116,7 +122,7 @@ export default function Home() {
                   className="flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-xl hover:from-amber-400 hover:to-orange-500 transition-all shadow-lg shadow-amber-500/25"
                 >
                   <TrendingUp size={18} />
-                  See Today's Prediction
+                  See Tomorrow's Prediction
                 </a>
                 {user ? (
                   <Link
@@ -164,29 +170,47 @@ export default function Home() {
                 <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/20 to-orange-500/10 rounded-3xl blur-2xl" />
                 <div className="relative bg-gradient-to-br from-slate-900 to-slate-800 border border-amber-500/20 rounded-2xl p-6 shadow-2xl">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest">Live AI Prediction</span>
+                    <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest">Tomorrow's AI Prediction</span>
                     <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                   </div>
-                  <div className="space-y-4">
-                    <div>
-                      <p className="text-xs text-slate-500 mb-1">Gold USD / troy oz</p>
-                      <p className="price-number text-4xl font-black text-white">$5,340<span className="text-amber-400">.50</span></p>
-                    </div>
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="bg-slate-800/60 rounded-xl p-3">
-                        <p className="text-xs text-slate-500 mb-1">24k / gram</p>
-                        <p className="price-number text-lg font-bold text-amber-400">₹18,240</p>
+                  {heroPrediction ? (
+                    <div className="space-y-4">
+                      <div>
+                        <p className="text-xs text-slate-500 mb-1">Gold USD / troy oz — {heroPrediction.prediction_date}</p>
+                        <p className="price-number text-4xl font-black text-white">
+                          ${Math.floor(heroPrediction.tomorrow_usd).toLocaleString()}
+                          <span className="text-amber-400">.{String(heroPrediction.tomorrow_usd.toFixed(2)).split('.')[1]}</span>
+                        </p>
                       </div>
-                      <div className="bg-slate-800/60 rounded-xl p-3">
-                        <p className="text-xs text-slate-500 mb-1">22k / gram</p>
-                        <p className="price-number text-lg font-bold text-white">₹16,720</p>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="bg-slate-800/60 rounded-xl p-3">
+                          <p className="text-xs text-slate-500 mb-1">24k / gram</p>
+                          <p className="price-number text-lg font-bold text-amber-400">
+                            ₹{Number(heroPrediction.tomorrow_price_24k_per_gram).toLocaleString('en-IN', { maximumFractionDigits: 0 })}
+                          </p>
+                        </div>
+                        <div className="bg-slate-800/60 rounded-xl p-3">
+                          <p className="text-xs text-slate-500 mb-1">22k / gram</p>
+                          <p className="price-number text-lg font-bold text-white">
+                            ₹{Number(heroPrediction.tomorrow_price_22k_per_gram).toLocaleString('en-IN', { maximumFractionDigits: 0 })}
+                          </p>
+                        </div>
+                      </div>
+                      <div className={`flex items-center gap-2 text-sm ${heroPrediction.trend === 'up' ? 'text-green-400' : heroPrediction.trend === 'down' ? 'text-red-400' : 'text-slate-400'}`}>
+                        {heroPrediction.trend === 'up' ? <TrendingUp size={14} /> : heroPrediction.trend === 'down' ? <TrendingDown size={14} /> : null}
+                        <span className="font-medium">{heroPrediction.pct_change > 0 ? '+' : ''}{heroPrediction.pct_change?.toFixed(2)}% predicted {heroPrediction.trend}</span>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 text-green-400 text-sm">
-                      <TrendingUp size={14} />
-                      <span className="font-medium">+0.47% predicted rise</span>
+                  ) : (
+                    <div className="space-y-4">
+                      <div className="h-10 bg-slate-700/50 rounded-lg animate-pulse" />
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="h-16 bg-slate-800/60 rounded-xl animate-pulse" />
+                        <div className="h-16 bg-slate-800/60 rounded-xl animate-pulse" />
+                      </div>
+                      <div className="h-5 bg-slate-700/50 rounded animate-pulse w-2/3" />
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
             </motion.div>

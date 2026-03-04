@@ -8,7 +8,7 @@ const techStack = [
   { name: 'XGBoost', category: 'ML Model', color: 'text-amber-400', bg: 'bg-amber-500/10' },
   { name: 'Groq LLM (Llama 3.3)', category: 'AI', color: 'text-purple-400', bg: 'bg-purple-500/10' },
   { name: 'Supabase + Google OAuth', category: 'Auth & DB', color: 'text-orange-400', bg: 'bg-orange-500/10' },
-  { name: 'Google Cloud Run', category: 'Hosting', color: 'text-blue-400', bg: 'bg-blue-500/10' },
+  { name: 'Render', category: 'Backend Hosting', color: 'text-blue-400', bg: 'bg-blue-500/10' },
   { name: 'Vercel', category: 'Frontend CDN', color: 'text-white', bg: 'bg-slate-700/50' },
   { name: 'GitHub Actions', category: 'CI/CD', color: 'text-pink-400', bg: 'bg-pink-500/10' },
   { name: 'yfinance', category: 'Data Source', color: 'text-yellow-400', bg: 'bg-yellow-500/10' },
@@ -60,7 +60,7 @@ export default function DevDocs() {
               {[
                 { step: '01', title: 'Data Pipeline', desc: 'Historical data (2000–2026) + weekly yfinance updates via GitHub Actions' },
                 { step: '02', title: 'ML Model', desc: 'XGBoost trained on 30+ features: lag prices, RSI, MACD, Bollinger Bands, USD/INR' },
-                { step: '03', title: 'Prediction API', desc: 'FastAPI on Google Cloud Run — tomorrow + 7-day forecast + India conversions' },
+                { step: '03', title: 'Prediction API', desc: 'FastAPI on Render — tomorrow + 7-day forecast + India conversions, live-anchored via yfinance' },
                 { step: '04', title: 'Personalization', desc: 'Groq LLM (Llama 3.3 70B) generates tailored recommendations & chatbot responses' },
                 { step: '05', title: 'CI/CD', desc: 'Every Monday: fetch data → evaluate accuracy → retrain model → deploy' },
               ].map(item => (
@@ -135,7 +135,7 @@ export default function DevDocs() {
           className="text-center"
         >
           <a
-            href="https://github.com/YOUR_USERNAME/goldsense-project"
+            href="https://github.com/alagarsamy-m/GoldSense"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-6 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-amber-500/30 rounded-xl transition-all text-white font-medium"

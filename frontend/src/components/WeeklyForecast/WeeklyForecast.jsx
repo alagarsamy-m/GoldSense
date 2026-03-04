@@ -22,6 +22,25 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null
 }
 
+// Returns Mon–Fri of the current week (or next week if weekend)
+function getWeekToShow() {
+  const today = new Date()
+  const dow = today.getDay() // 0=Sun … 6=Sat
+  const monday = new Date(today)
+  if (dow === 0) monday.setDate(today.getDate() + 1)        // Sun → next Mon
+  else if (dow === 6) monday.setDate(today.getDate() + 2)  // Sat → next Mon
+  else monday.setDate(today.getDate() - (dow - 1))         // Mon–Fri → this Mon
+  return Array.from({ length: 5 }, (_, i) => {
+    const d = new Date(monday)
+    d.setDate(monday.getDate() + i)
+    return d
+  })
+}
+
+function toDateStr(d) {
+  return d.toISOString().split('T')[0]
+}
+
 export default function WeeklyForecast() {
   const [forecast, setForecast] = useState([])
   const [loading, setLoading] = useState(true)
@@ -62,13 +81,32 @@ export default function WeeklyForecast() {
     )
   }
 
-  const chartData = forecast.map(f => ({
-    ...f,
-    date_short: f.date?.slice(5), // MM-DD
-  }))
+  // Build a Mon–Fri week view, matching forecast entries to their dates
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  const weekDays = getWeekToShow()
 
-  const minVal = Math.min(...chartData.map(d => d[activeView.dataKey] || Infinity)) * 0.998
-  const maxVal = Math.max(...chartData.map(d => d[activeView.dataKey] || 0)) * 1.002
+  const chartData = weekDays.map(d => {
+    const dateStr = toDateStr(d)
+    const forecastEntry = forecast.find(f => f.date === dateStr)
+    const isPastOrToday = d <= today
+    return {
+      date: dateStr,
+      date_short: dateStr.slice(5),
+      day: d.toLocaleDateString('en-US', { weekday: 'short' }),
+      isForecast: !!forecastEntry,
+      isPast: isPastOrToday,
+      usd: forecastEntry?.usd ?? (isPastOrToday ? lastActual : null),
+      price_24k_per_gram: forecastEntry?.price_24k_per_gram ?? null,
+      price_22k_per_gram: forecastEntry?.price_22k_per_gram ?? null,
+      price_24k_per_10g: forecastEntry?.price_24k_per_10g ?? null,
+      price_22k_per_10g: forecastEntry?.price_22k_per_10g ?? null,
+    }
+  })
+
+  const validVals = chartData.map(d => d[activeView.dataKey]).filter(Boolean)
+  const minVal = validVals.length ? Math.min(...validVals) * 0.998 : 0
+  const maxVal = validVals.length ? Math.max(...validVals) * 1.002 : 100
 
   return (
     <motion.div
@@ -84,8 +122,8 @@ export default function WeeklyForecast() {
             <Calendar size={18} className="text-amber-400" />
           </div>
           <div>
-            <h2 className="text-lg font-bold text-white">7-Day Forecast</h2>
-            <p className="text-xs text-slate-500">AI-generated price projection</p>
+            <h2 className="text-lg font-bold text-white">This Week's Forecast</h2>
+            <p className="text-xs text-slate-500">Mon–Fri • Past = actual • Future = AI prediction</p>
           </div>
         </div>
 
@@ -154,20 +192,30 @@ export default function WeeklyForecast() {
         </ResponsiveContainer>
       </div>
 
-      {/* Day pills */}
-      <div className="grid grid-cols-7 gap-1 mt-4">
-        {forecast.map((f, i) => {
-          const val = f[activeView.dataKey]
-          const prev = i > 0 ? forecast[i-1][activeView.dataKey] : val
-          const isUp = val > prev
+      {/* Day pills — Mon to Fri of current week */}
+      <div className="grid grid-cols-5 gap-1 mt-4">
+        {chartData.map((d, i) => {
+          const val = d[activeView.dataKey]
+          const prev = i > 0 ? chartData[i-1][activeView.dataKey] : val
+          const isUp = val != null && prev != null && val > prev
           return (
-            <div key={f.date} className="text-center">
-              <p className="text-xs text-slate-500 mb-1">{f.day}</p>
-              <p className={`text-xs font-semibold price-number ${isUp ? 'text-green-400' : 'text-red-400'}`}>
-                {activeView.key === 'usd'
-                  ? `$${(val/1000).toFixed(2)}k`
-                  : `₹${(val/1000).toFixed(0)}k`}
-              </p>
+            <div key={d.date} className="text-center">
+              <p className={`text-xs mb-1 ${d.isPast && !d.isForecast ? 'text-slate-600' : 'text-slate-500'}`}>{d.day}</p>
+              {val != null ? (
+                <p className={`text-xs font-semibold price-number ${d.isPast && !d.isForecast ? 'text-slate-500' : isUp ? 'text-green-400' : 'text-red-400'}`}>
+                  {activeView.key === 'usd'
+                    ? `$${(val/1000).toFixed(2)}k`
+                    : `₹${(val/1000).toFixed(0)}k`}
+                </p>
+              ) : (
+                <p className="text-xs text-slate-700">—</p>
+              )}
+              {d.isPast && !d.isForecast && val != null && (
+                <p className="text-[10px] text-slate-600">actual</p>
+              )}
+              {d.isForecast && (
+                <p className="text-[10px] text-amber-600">AI</p>
+              )}
             </div>
           )
         })}

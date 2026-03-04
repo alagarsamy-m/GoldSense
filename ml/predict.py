@@ -7,13 +7,17 @@ Loads the trained XGBoost model and generates:
 """
 
 import json
+import logging
 import joblib
 import numpy as np
 import pandas as pd
 from pathlib import Path
 from datetime import date, timedelta
+from typing import Optional
 
 from preprocess import build_dataset, get_feature_columns, load_gold, load_usdinr
+
+logger = logging.getLogger(__name__)
 
 # ─── Paths ────────────────────────────────────────────────────────────────────
 MODEL_DIR = Path(__file__).parent / "model"
@@ -25,6 +29,22 @@ TROY_OZ_TO_GRAMS = 31.1035
 IMPORT_DUTY = 0.15      # 15%
 GST = 0.03              # 3%
 DUTY_MULTIPLIER = (1 + IMPORT_DUTY) * (1 + GST)   # ≈ 1.1545
+
+
+def fetch_live_gold_price() -> Optional[float]:
+    """
+    Fetch current live gold futures close price from Yahoo Finance.
+    Corrects prediction drift when CSV dataset is behind the market.
+    Returns None if fetch fails (network error, market closed, etc.).
+    """
+    try:
+        import yfinance as yf
+        hist = yf.Ticker("GC=F").history(period="2d")
+        if not hist.empty:
+            return float(hist["Close"].iloc[-1])
+    except Exception as e:
+        logger.warning(f"Live gold price fetch failed: {e}")
+    return None
 
 
 def usd_to_inr_gold(usd_per_oz: float, usd_inr_rate: float) -> dict:
@@ -80,26 +100,41 @@ def predict_tomorrow(df: pd.DataFrame, model, feature_cols: list) -> dict:
     """
     Predict tomorrow's gold price using the last available row.
 
+    Live correction: fetches current yfinance price and applies an additive
+    drift so the prediction is anchored to today's actual market price,
+    not the potentially stale CSV data.
+
     Returns:
         dict with USD price + India INR conversions
     """
     latest_features = get_latest_features(df, feature_cols)
     X = latest_features.values.reshape(1, -1)
-    pred_usd = float(model.predict(X)[0])
+    raw_pred_usd = float(model.predict(X)[0])
 
-    # Latest USD/INR rate
     latest_usd_inr = float(df["USD_INR"].iloc[-1])
+    csv_last_price = float(df["Price"].iloc[-1])
+
+    # ── Live price correction ──────────────────────────────────────────────────
+    # When the CSV is stale (e.g., last updated Monday, today is Friday),
+    # the model predicts movement FROM the stale CSV price. We add the
+    # gap (drift) between CSV and live so the output is market-accurate.
+    live_price = fetch_live_gold_price()
+    if live_price and csv_last_price > 0:
+        drift = live_price - csv_last_price
+        pred_usd = raw_pred_usd + drift   # anchor to live market
+        last_actual = live_price
+    else:
+        pred_usd = raw_pred_usd
+        last_actual = csv_last_price
 
     india_prices = usd_to_inr_gold(pred_usd, latest_usd_inr)
 
-    # Last actual price (for trend calculation)
-    last_actual = float(df["Price"].iloc[-1])
     trend = "up" if pred_usd > last_actual else "down" if pred_usd < last_actual else "stable"
     pct_change = ((pred_usd - last_actual) / last_actual) * 100
 
-    # Prediction date = next business day after last data point
+    # Always use today's actual date for correct "tomorrow" label
+    pred_date = _next_business_day(date.today())
     last_date = df["Date"].iloc[-1]
-    pred_date = _next_business_day(last_date.date())
 
     return {
         "prediction_date": str(pred_date),
@@ -116,36 +151,45 @@ def predict_tomorrow(df: pd.DataFrame, model, feature_cols: list) -> dict:
 def predict_week(df: pd.DataFrame, model, feature_cols: list) -> list:
     """
     Generate 7-day price forecast using recursive multi-step prediction.
-    Day+1: predict from actual data
-    Day+2..7: use predicted price as input for next step
+
+    Live correction: all 7 predictions are shifted by the same drift
+    (live_price - csv_last_price) to anchor the forecast to today's
+    actual market level.
+
+    Day+1: predict from actual data (anchored to live price)
+    Day+2..7: recursive, using raw CSV-space prices for feature engineering
     """
-    # Work on a copy with feature columns + raw data
     work_df = df.copy()
-
     latest_usd_inr = float(work_df["USD_INR"].iloc[-1])
-    last_date = work_df["Date"].iloc[-1]
+    csv_last_price = float(work_df["Price"].iloc[-1])
 
+    # ── Live price correction ──────────────────────────────────────────────────
+    live_price = fetch_live_gold_price()
+    drift = (live_price - csv_last_price) if live_price and csv_last_price > 0 else 0
+
+    # Use today's actual date — forecast starts from tomorrow
+    today = date.today()
     forecast = []
 
     for step in range(1, 8):
-        # Recompute features on work_df
         from preprocess import add_features
         temp_df = add_features(work_df)
         available = [c for c in feature_cols if c in temp_df.columns]
 
         latest_row = temp_df[available].iloc[-1].values.reshape(1, -1)
-        pred_usd = float(model.predict(latest_row)[0])
+        raw_pred_usd = float(model.predict(latest_row)[0])
+        pred_usd = raw_pred_usd + drift  # shift all outputs to live market space
 
-        # Get forecast date
+        # Dates anchored to today (not CSV last date)
         if step == 1:
-            pred_date = _next_business_day(last_date.date())
+            pred_date = _next_business_day(today)
         else:
             pred_date = _next_business_day(forecast[-1]["date_obj"])
 
         india = usd_to_inr_gold(pred_usd, latest_usd_inr)
 
         forecast.append({
-            "date_obj": pred_date,  # internal use
+            "date_obj": pred_date,  # internal use for next iteration
             "date": str(pred_date),
             "day": pred_date.strftime("%a"),
             "usd": round(pred_usd, 2),
@@ -155,15 +199,14 @@ def predict_week(df: pd.DataFrame, model, feature_cols: list) -> list:
             "price_22k_per_10g": india["price_22k_per_10g"],
         })
 
-        # Append predicted price as next "actual" row for recursive forecasting
-        # Build a synthetic row: use predicted price, forward-fill other columns
+        # Store RAW prediction (CSV-space) for correct recursive feature engineering
         new_row = work_df.iloc[-1].copy()
         new_row["Date"] = pd.Timestamp(pred_date)
-        new_row["Price"] = pred_usd
-        new_row["Open"] = pred_usd
-        new_row["High"] = pred_usd * 1.002  # Slight variance
-        new_row["Low"] = pred_usd * 0.998
-        new_row["Change %"] = ((pred_usd - work_df["Price"].iloc[-1]) / work_df["Price"].iloc[-1]) * 100
+        new_row["Price"] = raw_pred_usd        # CSV-space for recursion
+        new_row["Open"] = raw_pred_usd
+        new_row["High"] = raw_pred_usd * 1.002
+        new_row["Low"] = raw_pred_usd * 0.998
+        new_row["Change %"] = ((raw_pred_usd - work_df["Price"].iloc[-1]) / work_df["Price"].iloc[-1]) * 100
 
         work_df = pd.concat(
             [work_df, pd.DataFrame([new_row])],
