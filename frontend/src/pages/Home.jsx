@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { TrendingUp, TrendingDown, ChevronDown, LogIn, LayoutDashboard, Sparkles } from 'lucide-react'
+import { TrendingUp, ChevronDown, LogIn, LayoutDashboard, Sparkles, AlertCircle } from 'lucide-react'
 import Navbar from '../components/Layout/Navbar'
 import PricePredictor from '../components/PricePredictor/PricePredictor'
 import WeeklyForecast from '../components/WeeklyForecast/WeeklyForecast'
@@ -68,9 +68,12 @@ function HeroParticles() {
 export default function Home() {
   const { user, signInWithGoogle } = useAuth()
   const [heroPriceToday, setHeroPriceToday] = useState(null)
+  const [heroError, setHeroError] = useState(false)
 
   useEffect(() => {
-    getLiveTodayPrice().then(setHeroPriceToday).catch(() => {})
+    getLiveTodayPrice()
+      .then(data => { setHeroPriceToday(data); setHeroError(false) })
+      .catch(() => setHeroError(true))
   }, [])
 
   const handleLogin = async () => {
@@ -201,6 +204,12 @@ export default function Home() {
                         <span className="text-slate-600">•</span>
                         <span>Live via Yahoo Finance</span>
                       </div>
+                    </div>
+                  ) : heroError ? (
+                    <div className="flex flex-col items-center gap-3 py-4 text-center">
+                      <AlertCircle size={28} className="text-slate-600" />
+                      <p className="text-sm text-slate-500">Live price unavailable</p>
+                      <p className="text-xs text-slate-600">Market may be closed or backend is starting up</p>
                     </div>
                   ) : (
                     <div className="space-y-4">

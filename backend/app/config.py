@@ -20,8 +20,8 @@ class Settings(BaseSettings):
     metadata_path: str = str(Path(__file__).parent.parent.parent / "ml" / "model" / "model_metadata.json")
     logs_csv_path: str = str(Path(__file__).parent.parent.parent / "dataset" / "prediction_logs.csv")
 
-    # CORS
-    allowed_origins: str = "http://localhost:5173,http://localhost:3000"
+    # CORS — set ALLOWED_ORIGINS env var in production (comma-separated)
+    allowed_origins: str = "http://localhost:5173,http://localhost:3000,https://gold-sense-five.vercel.app"
 
     # API settings
     app_name: str = "GoldSense API"

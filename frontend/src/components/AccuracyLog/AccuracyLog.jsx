@@ -84,10 +84,10 @@ export default function AccuracyLog() {
                 return (
                   <tr key={i} className="border-b border-slate-800/30 hover:bg-slate-800/20 transition-colors">
                     <td className="py-2.5 pr-4 text-slate-300 price-number text-xs">{log.prediction_date}</td>
-                    <td className="py-2.5 pr-4 price-number text-white">${Number(log.predicted_price_usd).toLocaleString()}</td>
-                    <td className="py-2.5 pr-4 price-number text-white">${Number(log.actual_price_usd).toLocaleString()}</td>
+                    <td className="py-2.5 pr-4 price-number text-white">${Number(log.predicted_price_usd).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                    <td className="py-2.5 pr-4 price-number text-white">${Number(log.actual_price_usd).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                     <td className={`py-2.5 pr-4 price-number ${(log.difference || 0) >= 0 ? 'text-green-400' : 'text-red-400'}`}>
-                      {(log.difference || 0) >= 0 ? '+' : ''}${Number(log.difference).toLocaleString()}
+                      {(log.difference || 0) >= 0 ? '+' : ''}${Number(log.difference).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </td>
                     <td className="py-2.5">
                       <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${

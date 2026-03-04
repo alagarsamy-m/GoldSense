@@ -4,6 +4,7 @@ Handles database operations and JWT authentication.
 """
 
 import logging
+from datetime import datetime, timezone
 from typing import Optional
 from fastapi import HTTPException, Security
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
@@ -59,14 +60,18 @@ class UserProfileService:
     @staticmethod
     def get_profile(user_id: str) -> Optional[dict]:
         supabase = get_supabase()
-        response = supabase.table("user_profiles").select("*").eq("id", user_id).single().execute()
-        return response.data
+        try:
+            response = supabase.table("user_profiles").select("*").eq("id", user_id).maybe_single().execute()
+            return response.data
+        except Exception as e:
+            logger.warning(f"get_profile error for {user_id}: {e}")
+            return None
 
     @staticmethod
     def upsert_profile(user_id: str, profile_data: dict) -> dict:
         supabase = get_supabase()
         profile_data["id"] = user_id
-        profile_data["updated_at"] = "now()"
+        profile_data["updated_at"] = datetime.now(timezone.utc).isoformat()
 
         response = (
             supabase.table("user_profiles")
@@ -90,8 +95,9 @@ class ChatHistoryService:
             .limit(limit)
             .execute()
         )
-        # Return in chronological order
-        return list(reversed(response.data or []))
+        # Return in chronological order, only role+content (strip created_at)
+        rows = [{"role": r["role"], "content": r["content"]} for r in (response.data or [])]
+        return list(reversed(rows))
 
     @staticmethod
     def save_messages(user_id: str, user_message: str, assistant_response: str):

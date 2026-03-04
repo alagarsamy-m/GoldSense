@@ -81,9 +81,11 @@ def train():
     mape = float(np.mean(np.abs((y_val.values - val_preds) / y_val.values)) * 100)
 
     # Direction accuracy (did we predict up/down correctly?)
+    # Exclude flat days (sign=0) to avoid artificially inflating the score
     actual_direction = np.sign(y_val.values - df["Price"].iloc[split_idx:].values)
     pred_direction = np.sign(val_preds - df["Price"].iloc[split_idx:].values)
-    direction_accuracy = float(np.mean(actual_direction == pred_direction) * 100)
+    non_flat = actual_direction != 0
+    direction_accuracy = float(np.mean(actual_direction[non_flat] == pred_direction[non_flat]) * 100) if non_flat.any() else 0.0
 
     print(f"\n{'─' * 40}")
     print(f"Validation Metrics:")

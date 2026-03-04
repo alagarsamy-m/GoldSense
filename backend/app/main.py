@@ -23,8 +23,9 @@ async def lifespan(app: FastAPI):
     try:
         GoldService.preload()
         logger.info("ML model loaded successfully")
+        logger.info(f"CORS origins: {settings.cors_origins}")
     except Exception as e:
-        logger.warning(f"Could not preload model: {e}")
+        logger.warning(f"Could not preload model: {e} — predictions will load on first request")
     yield
     logger.info("GoldSense API shutting down...")
 
@@ -53,15 +54,18 @@ app.include_router(chatbot.router, prefix="/api/chatbot", tags=["Chatbot"])
 
 @app.get("/health", tags=["Health"])
 async def health_check():
-    """Health check endpoint for Cloud Run."""
+    """Health check endpoint for Render."""
     from app.services.gold_service import GoldService
     model_info = GoldService.get_model_info()
+    metrics = model_info.get("metrics", {})
     return {
         "status": "ok",
         "app": settings.app_name,
         "version": settings.app_version,
         "model_loaded": model_info.get("loaded", False),
-        "model_trained_at": model_info.get("trained_at", "unknown"),
+        "model_trained_at": model_info.get("trained_at", "not trained"),
+        "model_rmse": metrics.get("rmse"),
+        "model_mape": metrics.get("mape"),
     }
 
 

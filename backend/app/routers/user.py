@@ -57,9 +57,11 @@ async def update_profile(
     """Create or update the authenticated user's investment profile."""
     update_dict = profile_data.model_dump(exclude_none=True)
 
-    # Mark profile as complete if key fields are filled
+    # Mark profile as complete only when ALL required fields are actually present
+    # (either in this update or already saved in DB — fetch existing once, not per field)
     required_fields = ["investment_goal", "risk_appetite", "monthly_budget_inr"]
-    if all(update_dict.get(f) or UserProfileService.get_profile(current_user["id"]) for f in required_fields):
+    existing = UserProfileService.get_profile(current_user["id"]) or {}
+    if all(update_dict.get(f) or existing.get(f) for f in required_fields):
         update_dict["profile_complete"] = True
 
     updated = UserProfileService.upsert_profile(current_user["id"], update_dict)

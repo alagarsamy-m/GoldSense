@@ -4,7 +4,7 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
   ResponsiveContainer, ReferenceLine, Area, AreaChart
 } from 'recharts'
-import { Calendar, TrendingUp } from 'lucide-react'
+import { Calendar, TrendingUp, AlertCircle } from 'lucide-react'
 import { getWeekForecast, getPredictionTomorrow } from '../../services/api'
 
 const CustomTooltip = ({ active, payload, label }) => {
@@ -44,6 +44,7 @@ function toDateStr(d) {
 export default function WeeklyForecast() {
   const [forecast, setForecast] = useState([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
   const [lastActual, setLastActual] = useState(null)
   const [view, setView] = useState('usd') // 'usd' | 'inr24k' | 'inr22k'
 
@@ -56,8 +57,10 @@ export default function WeeklyForecast() {
         ])
         setForecast(weekData.forecast || [])
         setLastActual(todayData?.last_actual_usd)
+        setError(false)
       } catch (err) {
         console.error('Failed to load forecast', err)
+        setError(true)
       } finally {
         setLoading(false)
       }
@@ -77,6 +80,16 @@ export default function WeeklyForecast() {
     return (
       <div className="glass-card rounded-2xl p-8 gold-border flex items-center justify-center h-64">
         <div className="w-8 h-8 border-2 border-amber-500 border-t-transparent rounded-full animate-spin" />
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="glass-card rounded-2xl p-8 gold-border flex flex-col items-center justify-center h-64 gap-3">
+        <AlertCircle size={32} className="text-slate-600" />
+        <p className="text-slate-400 text-sm">Forecast unavailable</p>
+        <p className="text-slate-600 text-xs">Backend may be starting up — try refreshing in a moment</p>
       </div>
     )
   }

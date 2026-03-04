@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'backend/**'
+      - 'ml/*.py'
       - 'ml/model/**'
       - '.github/workflows/deploy-backend.yml'
   workflow_dispatch:
