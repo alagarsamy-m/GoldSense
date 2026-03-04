@@ -9,6 +9,20 @@ from app.services.gold_service import GoldService
 router = APIRouter()
 
 
+@router.get("/today")
+async def get_today_price():
+    """
+    Get today's live gold price from Yahoo Finance (GC=F + USDINR=X).
+
+    Returns current USD price, India 24k/22k prices (per gram and per 10g),
+    USD/INR rate, and today's date.
+    """
+    try:
+        return GoldService.get_today_price()
+    except Exception as e:
+        raise HTTPException(status_code=503, detail=str(e))
+
+
 @router.get("/tomorrow")
 async def get_tomorrow_prediction():
     """

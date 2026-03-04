@@ -42,6 +42,14 @@ function TrendBadge({ trend, pctChange }) {
   )
 }
 
+/** Compute the next business day (Mon–Fri) after today, in YYYY-MM-DD. */
+function getNextBusinessDay() {
+  const d = new Date()
+  d.setDate(d.getDate() + 1)
+  while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1)
+  return d.toISOString().split('T')[0]
+}
+
 export default function PricePredictor() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -112,7 +120,7 @@ export default function PricePredictor() {
         <div>
           <h2 className="text-xl font-bold text-white">Tomorrow's Gold Price</h2>
           <p className="text-sm text-slate-400 mt-0.5">
-            AI Prediction for {data?.prediction_date}
+            AI Prediction for {getNextBusinessDay()}
           </p>
         </div>
         <div className="flex items-center gap-3">

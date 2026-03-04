@@ -9,7 +9,7 @@ import AccuracyLog from '../components/AccuracyLog/AccuracyLog'
 import EducationSection from '../components/Education/EducationSection'
 import DevDocs from '../components/Education/DevDocs'
 import { useAuth } from '../hooks/useAuth'
-import { getPredictionTomorrow } from '../services/api'
+import { getLiveTodayPrice } from '../services/api'
 import toast from 'react-hot-toast'
 
 // Animated hero background particles
@@ -67,10 +67,10 @@ function HeroParticles() {
 
 export default function Home() {
   const { user, signInWithGoogle } = useAuth()
-  const [heroPrediction, setHeroPrediction] = useState(null)
+  const [heroPriceToday, setHeroPriceToday] = useState(null)
 
   useEffect(() => {
-    getPredictionTomorrow().then(setHeroPrediction).catch(() => {})
+    getLiveTodayPrice().then(setHeroPriceToday).catch(() => {})
   }, [])
 
   const handleLogin = async () => {
@@ -170,35 +170,36 @@ export default function Home() {
                 <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/20 to-orange-500/10 rounded-3xl blur-2xl" />
                 <div className="relative bg-gradient-to-br from-slate-900 to-slate-800 border border-amber-500/20 rounded-2xl p-6 shadow-2xl">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest">Tomorrow's AI Prediction</span>
+                    <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest">Today's Gold Price</span>
                     <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                   </div>
-                  {heroPrediction ? (
+                  {heroPriceToday ? (
                     <div className="space-y-4">
                       <div>
-                        <p className="text-xs text-slate-500 mb-1">Gold USD / troy oz — {heroPrediction.prediction_date}</p>
+                        <p className="text-xs text-slate-500 mb-1">Gold USD / troy oz — {heroPriceToday.date}</p>
                         <p className="price-number text-4xl font-black text-white">
-                          ${Math.floor(heroPrediction.tomorrow_usd).toLocaleString()}
-                          <span className="text-amber-400">.{String(heroPrediction.tomorrow_usd.toFixed(2)).split('.')[1]}</span>
+                          ${Math.floor(heroPriceToday.live_usd).toLocaleString()}
+                          <span className="text-amber-400">.{String(heroPriceToday.live_usd.toFixed(2)).split('.')[1]}</span>
                         </p>
                       </div>
                       <div className="grid grid-cols-2 gap-3">
                         <div className="bg-slate-800/60 rounded-xl p-3">
                           <p className="text-xs text-slate-500 mb-1">24k / gram</p>
                           <p className="price-number text-lg font-bold text-amber-400">
-                            ₹{Number(heroPrediction.tomorrow_price_24k_per_gram).toLocaleString('en-IN', { maximumFractionDigits: 0 })}
+                            ₹{Number(heroPriceToday.price_24k_per_gram).toLocaleString('en-IN', { maximumFractionDigits: 0 })}
                           </p>
                         </div>
                         <div className="bg-slate-800/60 rounded-xl p-3">
                           <p className="text-xs text-slate-500 mb-1">22k / gram</p>
                           <p className="price-number text-lg font-bold text-white">
-                            ₹{Number(heroPrediction.tomorrow_price_22k_per_gram).toLocaleString('en-IN', { maximumFractionDigits: 0 })}
+                            ₹{Number(heroPriceToday.price_22k_per_gram).toLocaleString('en-IN', { maximumFractionDigits: 0 })}
                           </p>
                         </div>
                       </div>
-                      <div className={`flex items-center gap-2 text-sm ${heroPrediction.trend === 'up' ? 'text-green-400' : heroPrediction.trend === 'down' ? 'text-red-400' : 'text-slate-400'}`}>
-                        {heroPrediction.trend === 'up' ? <TrendingUp size={14} /> : heroPrediction.trend === 'down' ? <TrendingDown size={14} /> : null}
-                        <span className="font-medium">{heroPrediction.pct_change > 0 ? '+' : ''}{heroPrediction.pct_change?.toFixed(2)}% predicted {heroPrediction.trend}</span>
+                      <div className="flex items-center gap-2 text-xs text-slate-500">
+                        <span>USD/INR: <span className="text-slate-300 price-number">₹{heroPriceToday.usd_inr_rate}</span></span>
+                        <span className="text-slate-600">•</span>
+                        <span>Live via Yahoo Finance</span>
                       </div>
                     </div>
                   ) : (

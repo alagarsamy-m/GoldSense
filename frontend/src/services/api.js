@@ -22,6 +22,9 @@ api.interceptors.request.use(async (config) => {
 
 // ── Public endpoints ──────────────────────────────────────────────────────────
 
+export const getLiveTodayPrice = () =>
+  api.get('/api/prediction/today').then(r => r.data)
+
 export const getPredictionTomorrow = () =>
   api.get('/api/prediction/tomorrow').then(r => r.data)
 

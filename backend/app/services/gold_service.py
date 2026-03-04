@@ -109,6 +109,15 @@ class GoldService:
         return df.to_dict(orient="records")
 
     @classmethod
+    def get_today_price(cls) -> dict:
+        """Return today's live gold price fetched from Yahoo Finance."""
+        from predict import get_today_live_price
+        result = get_today_live_price()
+        if not result:
+            raise Exception("Unable to fetch live gold price from Yahoo Finance")
+        return result
+
+    @classmethod
     def reload_dataset(cls):
         """Reload dataset from disk (called after data update)."""
         from preprocess import build_dataset

@@ -47,6 +47,42 @@ def fetch_live_gold_price() -> Optional[float]:
     return None
 
 
+def fetch_live_usd_inr() -> Optional[float]:
+    """Fetch current USD/INR exchange rate from Yahoo Finance."""
+    try:
+        import yfinance as yf
+        hist = yf.Ticker("USDINR=X").history(period="2d")
+        if not hist.empty:
+            return float(hist["Close"].iloc[-1])
+    except Exception as e:
+        logger.warning(f"Live USD/INR fetch failed: {e}")
+    return None
+
+
+def get_today_live_price() -> Optional[dict]:
+    """
+    Fetch today's live gold price from Yahoo Finance (GC=F + USDINR=X).
+    Returns USD price + India 24k/22k INR conversions with today's date.
+    """
+    live_usd = fetch_live_gold_price()
+    live_usd_inr = fetch_live_usd_inr()
+
+    if not live_usd or not live_usd_inr:
+        return None
+
+    india_prices = usd_to_inr_gold(live_usd, live_usd_inr)
+
+    return {
+        "date": str(date.today()),
+        "live_usd": round(live_usd, 2),
+        "usd_inr_rate": round(live_usd_inr, 3),
+        "price_24k_per_gram": india_prices["price_24k_per_gram"],
+        "price_22k_per_gram": india_prices["price_22k_per_gram"],
+        "price_24k_per_10g": india_prices["price_24k_per_10g"],
+        "price_22k_per_10g": india_prices["price_22k_per_10g"],
+    }
+
+
 def usd_to_inr_gold(usd_per_oz: float, usd_inr_rate: float) -> dict:
     """
     Convert gold price from USD/troy oz to INR/gram (Chennai market).
