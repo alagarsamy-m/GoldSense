@@ -1,0 +1,46 @@
+{
+  "score": 0.0539,
+  "label": "Bullish",
+  "confidence": "high",
+  "article_count": 29,
+  "top_headlines": [
+    {
+      "title": "These 3 \u2019forces\u2019 are hurting gold, strategist says",
+      "source": "RSS",
+      "sentiment": -0.857,
+      "label": "Bearish",
+      "url": "https://finance.yahoo.com/markets/commodities/articles/3-forces-hurting-gold-strategist-112508458.html?.tsrc=rss"
+    },
+    {
+      "title": "Why the Iran war is crashing gold prices - Asia Times",
+      "source": "Asia Times",
+      "sentiment": -0.832,
+      "label": "Bearish",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5xRkhBOGIyVXNzb1Y2SXJobHV3WkZhRG9qWTRzT1hqRnRwT1VYU1lnbzRmQU5vdDUwTlJhR2l3WUVMTm9hZFR6VktZNWV5SUNJNExlRV9FYU0xQUZNdS04YW1Wd0NoX2tZTnZhRGNhckJ6ZVdkY2I5MWR2cw?oc=5"
+    },
+    {
+      "title": "Morgan Stanley delivers stark take for gold, stock market investors",
+      "source": "RSS",
+      "sentiment": -0.791,
+      "label": "Bearish",
+      "url": "https://www.thestreet.com/investing/morgan-stanley-delivers-stark-take-for-gold-stock-market-investors?.tsrc=rss"
+    },
+    {
+      "title": "First Majestic (AG) Climbs 7% on Silver Rush",
+      "source": "RSS",
+      "sentiment": 0.572,
+      "label": "Bullish",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/first-majestic-ag-climbs-7-042141683.html?.tsrc=rss"
+    },
+    {
+      "title": "Gold Price Decline in 2026: Why It Fell During Middle East Conflict | Market Analysis - News and Statistics - IndexBox",
+      "source": "IndexBox",
+      "sentiment": -0.557,
+      "label": "Bearish",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNLXB5dnY0UEh3U2dsRjdmamRYZVVwbC1jeXZMUk45a0NpaHFYX1ZLWk0wb1lEVzl0N3BVaE5OSldrcDVkbk5IVEdycFdpcXpoUXA5OFg3VEdTMmdVZ2RzcnAwVF9tYnBoSk5ZTnYwQUVzdjI4WjloelJZeVFxYk13R0V0NnBQZE8wZ0FtTHllRk92UHlEWHdRZ3RjUWROWjFxZmdZ?oc=5"
+    }
+  ],
+  "source": "rss",
+  "fetched_at": "2026-03-29T07:47:27.887247",
+  "date": "2026-03-29"
+}

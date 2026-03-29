@@ -1,0 +1,35 @@
+{
+  "updated_at": "2026-03-29T10:39:00.293923Z",
+  "pipeline": "healthy",
+  "total_predictions_logged": 0,
+  "last_evaluation": null,
+  "streak": {
+    "type": null,
+    "count": 0
+  },
+  "rolling_metrics": {
+    "last_7": {},
+    "last_30": {}
+  },
+  "drift": {
+    "drift_detected": false,
+    "message": "Not enough data",
+    "avg_mape": 0,
+    "dir_accuracy": 0,
+    "mape_trend": 0,
+    "worsening": false,
+    "window": 7,
+    "retrain_recommended": false
+  },
+  "insights": [],
+  "next_prediction": {
+    "date": "2026-03-30",
+    "usd": 4525.95,
+    "trend": "up",
+    "confidence": 59.1
+  },
+  "data_freshness": {
+    "logs_csv": "/home/eswaran/alagar/GoldSense/dataset/prediction_logs.csv",
+    "last_modified": "2026-03-29T16:08:42.868974"
+  }
+}
