@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import { AuthProvider, useAuth } from './hooks/useAuth'
+import LiveTicker from './components/LiveTicker/LiveTicker'
 import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
 import AuthCallback from './pages/AuthCallback'
@@ -48,6 +49,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
+        <LiveTicker />
         <AppRoutes />
         <Toaster
           position="top-right"
