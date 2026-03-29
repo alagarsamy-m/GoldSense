@@ -14,3 +14,5 @@ python-multipart==0.0.20
 httpx>=0.26,<0.28
 pydantic==2.10.3
 pydantic-settings==2.7.0
+vaderSentiment==3.3.2
+feedparser==6.0.11

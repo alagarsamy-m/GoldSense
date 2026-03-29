@@ -3,9 +3,13 @@ GoldSense Backend — Chatbot Router
 Protected endpoint for AI chatbot powered by Groq LLM.
 """
 
+import asyncio
+import logging
 from typing import List
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
+
+logger = logging.getLogger(__name__)
 
 from app.services.supabase_service import get_current_user, UserProfileService, ChatHistoryService
 from app.services.groq_service import get_chatbot_response
@@ -43,8 +47,8 @@ async def chat(
 
     # Get context data
     try:
-        prediction = GoldService.get_tomorrow_prediction()
-        forecast = GoldService.get_week_forecast()
+        prediction = await asyncio.to_thread(GoldService.get_tomorrow_prediction)
+        forecast = await asyncio.to_thread(GoldService.get_week_forecast)
     except Exception:
         prediction = {}
         forecast = []
@@ -61,14 +65,16 @@ async def chat(
             messages = stored_history + messages
 
     try:
-        response_text = get_chatbot_response(
+        response_text = await asyncio.to_thread(
+            get_chatbot_response,
             messages=messages,
             prediction=prediction,
             forecast=forecast,
             user_profile=profile,
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Chatbot error: {str(e)}")
+        logger.error(f"Chatbot response failed: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail="Unable to generate response. Please try again later.")
 
     # Save to history
     if messages and messages[-1]["role"] == "user":
