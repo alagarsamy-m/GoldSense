@@ -1,51 +1,40 @@
 @import "tailwindcss";
 
-/* Custom design tokens */
+/* ─── Design Tokens ──────────────────────────────────────────────────────── */
 @layer base {
   :root {
     --gold-primary: #F59E0B;
     --gold-secondary: #D97706;
     --gold-bright: #FCD34D;
     --gold-dim: #78350F;
-    --bg-primary: #0f172a;
-    --bg-secondary: #1e293b;
-    --bg-card: #1e293b;
+    --bg-primary: #0a0f1e;
+    --bg-secondary: #111827;
+    --bg-card: #151d2e;
     --text-primary: #f1f5f9;
     --text-secondary: #94a3b8;
-    --border-subtle: #334155;
+    --border-subtle: #1e293b;
   }
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: #334155 #0f172a;
+    scrollbar-color: #1e293b #0a0f1e;
   }
+  *::-webkit-scrollbar { width: 5px; }
+  *::-webkit-scrollbar-track { background: #0a0f1e; }
+  *::-webkit-scrollbar-thumb { background-color: #1e293b; border-radius: 3px; }
 
-  *::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  *::-webkit-scrollbar-track {
-    background: #0f172a;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background-color: #334155;
-    border-radius: 3px;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
-    background-color: #0f172a;
-    color: #f1f5f9;
-    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-/* Gold shimmer animation */
+/* ─── Animations ─────────────────────────────────────────────────────────── */
 @keyframes gold-shimmer {
   0% { background-position: -200% center; }
   100% { background-position: 200% center; }
@@ -58,69 +47,141 @@
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-6px); }
 }
 
-@keyframes count-up {
-  from { opacity: 0; transform: translateY(10px); }
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes ticker-flash {
+  0% { background-color: rgba(245, 158, 11, 0.15); }
+  100% { background-color: transparent; }
+}
+
+/* ─── Gold Typography ────────────────────────────────────────────────────── */
 .gold-text {
-  background: linear-gradient(135deg, #F59E0B, #FCD34D, #D97706, #F59E0B);
-  background-size: 300% auto;
+  background: linear-gradient(135deg, #F59E0B, #FCD34D, #D97706, #FCD34D, #F59E0B);
+  background-size: 400% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gold-shimmer 4s linear infinite;
+  animation: gold-shimmer 6s ease-in-out infinite;
 }
 
-.gold-border {
-  border: 1px solid rgba(245, 158, 11, 0.3);
-}
-
-.gold-glow {
-  box-shadow: 0 0 30px rgba(245, 158, 11, 0.15), 0 0 60px rgba(245, 158, 11, 0.05);
-}
-
-.glass-card {
-  background: rgba(30, 41, 59, 0.8);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(245, 158, 11, 0.1);
+.gold-text-static {
+  background: linear-gradient(135deg, #F59E0B, #FCD34D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .price-number {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
   font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
 }
 
-.trend-up {
-  color: #4ade80;
+/* ─── Card Styles ────────────────────────────────────────────────────────── */
+.glass-card {
+  background: linear-gradient(135deg, rgba(21, 29, 46, 0.9), rgba(15, 23, 42, 0.95));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(245, 158, 11, 0.08);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.trend-down {
-  color: #f87171;
+.glass-card:hover {
+  border-color: rgba(245, 158, 11, 0.15);
 }
 
-.trend-stable {
-  color: #94a3b8;
+.gold-border {
+  border: 1px solid rgba(245, 158, 11, 0.15);
+  position: relative;
 }
 
-/* Particle canvas */
+.gold-border::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.4), transparent);
+}
+
+.gold-glow {
+  box-shadow:
+    0 0 20px rgba(245, 158, 11, 0.08),
+    0 0 60px rgba(245, 158, 11, 0.04),
+    0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.card-premium {
+  background: linear-gradient(160deg, rgba(21, 29, 46, 0.95), rgba(15, 23, 42, 0.98));
+  border: 1px solid rgba(245, 158, 11, 0.12);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+}
+
+/* ─── Karat Badge Styles ─────────────────────────────────────────────────── */
+.karat-24k {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(217, 119, 6, 0.08));
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  color: #FCD34D;
+}
+
+.karat-22k {
+  background: linear-gradient(135deg, rgba(192, 132, 252, 0.12), rgba(139, 92, 246, 0.06));
+  border: 1px solid rgba(192, 132, 252, 0.2);
+  color: #c4b5fd;
+}
+
+/* ─── Trend Colors ───────────────────────────────────────────────────────── */
+.trend-up { color: #4ade80; }
+.trend-down { color: #f87171; }
+.trend-stable { color: #94a3b8; }
+
+/* ─── Section Divider ────────────────────────────────────────────────────── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.2), transparent);
+  margin: 3rem 0;
+}
+
+/* ─── Particle canvas ────────────────────────────────────────────────────── */
 #gold-particles {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.4;
+  opacity: 0.3;
 }
 
-/* Chat bubble styles */
+/* ─── Chat bubble styles ─────────────────────────────────────────────────── */
 .chat-user {
   background: linear-gradient(135deg, #1d4ed8, #2563eb);
 }
 
 .chat-assistant {
-  background: linear-gradient(135deg, #1e293b, #334155);
-  border: 1px solid rgba(245, 158, 11, 0.15);
+  background: linear-gradient(135deg, #151d2e, #1e293b);
+  border: 1px solid rgba(245, 158, 11, 0.12);
+}
+
+/* ─── Responsive Helpers ─────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .price-number { font-size: 0.875rem; }
 }

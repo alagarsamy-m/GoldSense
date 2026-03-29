@@ -85,13 +85,13 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950">
+    <div className="min-h-screen bg-[#0a0f1e]">
       <Navbar />
 
       {/* ── Hero Section ──────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden pt-16">
+      <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0f1e] via-[#111827] to-[#0a0f1e]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(245,158,11,0.08),transparent_60%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(234,88,12,0.06),transparent_60%)]" />
         <HeroParticles />
@@ -151,8 +151,8 @@ export default function Home() {
                 {[
                   { label: 'Years of Data', value: '26+' },
                   { label: 'Trading Days', value: '6,500+' },
-                  { label: 'Retrained', value: 'Weekly' },
-                  { label: 'Forecast', value: '7-Day' },
+                  { label: 'Evaluated', value: 'Daily' },
+                  { label: 'Gold Types', value: '24k & 22k' },
                 ].map(stat => (
                   <div key={stat.label}>
                     <p className="price-number text-2xl font-bold text-amber-400">{stat.value}</p>
@@ -256,12 +256,16 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="section-divider max-w-3xl mx-auto" />
+
       {/* ── 7-Day Forecast ────────────────────────────────────────────────── */}
       <section className="pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <WeeklyForecast />
         </div>
       </section>
+
+      <div className="section-divider max-w-3xl mx-auto" />
 
       {/* ── Accuracy Log ─────────────────────────────────────────────────── */}
       <section id="accuracy" className="pb-20">
