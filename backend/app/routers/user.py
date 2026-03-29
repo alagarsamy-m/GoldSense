@@ -3,9 +3,13 @@ GoldSense Backend — User Router
 Protected endpoints for user profile and personalized recommendations.
 """
 
+import asyncio
+import logging
 from typing import Optional, List
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
+
+logger = logging.getLogger(__name__)
 
 from app.services.supabase_service import get_current_user, UserProfileService
 from app.services.groq_service import get_investment_recommendation
@@ -84,9 +88,11 @@ async def get_recommendations(current_user: dict = Depends(get_current_user)):
         )
 
     try:
-        prediction = GoldService.get_tomorrow_prediction()
-        forecast = GoldService.get_week_forecast()
-        recommendation = get_investment_recommendation(prediction, forecast, profile)
+        prediction = await asyncio.to_thread(GoldService.get_tomorrow_prediction)
+        forecast = await asyncio.to_thread(GoldService.get_week_forecast)
+        recommendation = await asyncio.to_thread(
+            get_investment_recommendation, prediction, forecast, profile
+        )
         return {
             "recommendation": recommendation,
             "prediction_used": {
@@ -96,9 +102,10 @@ async def get_recommendations(current_user: dict = Depends(get_current_user)):
             }
         }
     except Exception as e:
+        logger.error(f"Recommendation generation failed: {e}", exc_info=True)
         raise HTTPException(
             status_code=500,
-            detail=f"Could not generate recommendation: {str(e)}"
+            detail="Unable to generate recommendation. Please try again later."
         )
 
 
@@ -113,8 +120,8 @@ async def get_dashboard(current_user: dict = Depends(get_current_user)):
     profile = UserProfileService.get_profile(current_user["id"])
 
     try:
-        prediction = GoldService.get_tomorrow_prediction()
-        accuracy_logs = GoldService.get_accuracy_logs(limit=10)
+        prediction = await asyncio.to_thread(GoldService.get_tomorrow_prediction)
+        accuracy_logs = await asyncio.to_thread(GoldService.get_accuracy_logs, 10)
     except Exception:
         prediction = None
         accuracy_logs = []

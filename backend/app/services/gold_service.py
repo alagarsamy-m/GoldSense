@@ -6,6 +6,7 @@ Interfaces with the ML pipeline to serve predictions.
 import sys
 import json
 import logging
+import time
 from pathlib import Path
 from typing import Optional
 
@@ -17,15 +18,29 @@ sys.path.insert(0, str(ML_DIR))
 
 from app.config import settings
 
+# Prediction cache TTL in seconds (15 minutes)
+PREDICTION_CACHE_TTL = 900
+
 
 class GoldService:
-    _model = None
+    _model      = None
+    _model_q10  = None
+    _model_q90  = None
+    _dir_model  = None
     _metadata: dict = {}
     _df = None  # Cached dataset
 
+    # Prediction result caches with timestamps
+    _tomorrow_cache: dict = None
+    _tomorrow_cache_time: float = 0
+    _week_cache: list = None
+    _week_cache_time: float = 0
+    _sentiment_cache: dict = None
+    _sentiment_cache_time: float = 0
+
     @classmethod
     def preload(cls):
-        """Preload model and dataset on startup."""
+        """Preload model, quantile models, and dataset on startup."""
         import joblib
         from preprocess import build_dataset
 
@@ -35,6 +50,20 @@ class GoldService:
 
         cls._model = joblib.load(model_path)
         logger.info(f"Model loaded from {model_path}")
+
+        # Load quantile models if available
+        q10_path = model_path.parent / "gold_model_q10.pkl"
+        q90_path = model_path.parent / "gold_model_q90.pkl"
+        if q10_path.exists() and q90_path.exists():
+            cls._model_q10 = joblib.load(q10_path)
+            cls._model_q90 = joblib.load(q90_path)
+            logger.info("Quantile models (q10, q90) loaded")
+
+        # Load direction classifier if available
+        dir_path = model_path.parent / "gold_direction_model.pkl"
+        if dir_path.exists():
+            cls._dir_model = joblib.load(dir_path)
+            logger.info("Direction classifier loaded")
 
         metadata_path = Path(settings.metadata_path)
         if metadata_path.exists():
@@ -76,32 +105,55 @@ class GoldService:
 
     @classmethod
     def get_tomorrow_prediction(cls) -> dict:
-        """Return tomorrow's gold price prediction with India conversions."""
+        """Return tomorrow's gold price prediction with confidence intervals. Cached for 15 min."""
+        now = time.time()
+        if cls._tomorrow_cache and (now - cls._tomorrow_cache_time) < PREDICTION_CACHE_TTL:
+            return cls._tomorrow_cache
+
         cls._ensure_loaded()
 
         from predict import predict_tomorrow
 
         meta = cls.get_model_info()
         feature_cols = cls._get_feature_cols()
-        result = predict_tomorrow(cls._df, cls._model, feature_cols, meta)
+        result = predict_tomorrow(
+            cls._df, cls._model, feature_cols, meta,
+            cls._model_q10, cls._model_q90, cls._dir_model,
+        )
 
-        result["model_rmse"] = meta.get("metrics", {}).get("rmse", 0)
-        result["model_mae"] = meta.get("metrics", {}).get("mae", 0)
-        result["model_mape"] = meta.get("metrics", {}).get("mape", 0)
-        result["model_direction_accuracy"] = meta.get("metrics", {}).get("direction_accuracy_pct", 0)
+        metrics = meta.get("metrics", {})
+        result["model_rmse"]               = metrics.get("rmse", 0)
+        result["model_mae"]                = metrics.get("mae", 0)
+        result["model_mape"]               = metrics.get("mape", 0)
+        result["model_direction_accuracy"] = metrics.get("direction_accuracy_pct", 0)
+        result["model_cv_direction_accuracy"] = meta.get("cv_metrics", {}).get("cv_dir_accuracy", 0)
+        result["macro_features_active"]    = meta.get("macro_features", False)
 
+        cls._tomorrow_cache = result
+        cls._tomorrow_cache_time = now
         return result
 
     @classmethod
     def get_week_forecast(cls) -> list:
-        """Return 7-day price forecast."""
+        """Return 7-day price forecast with per-day confidence intervals. Cached for 15 min."""
+        now = time.time()
+        if cls._week_cache and (now - cls._week_cache_time) < PREDICTION_CACHE_TTL:
+            return cls._week_cache
+
         cls._ensure_loaded()
 
         from predict import predict_week
 
         meta = cls.get_model_info()
         feature_cols = cls._get_feature_cols()
-        return predict_week(cls._df, cls._model, feature_cols, meta)
+        result = predict_week(
+            cls._df, cls._model, feature_cols, meta,
+            cls._model_q10, cls._model_q90,
+        )
+
+        cls._week_cache = result
+        cls._week_cache_time = now
+        return result
 
     @classmethod
     def get_accuracy_logs(cls, limit: int = 30) -> list:
@@ -125,6 +177,43 @@ class GoldService:
         if not result:
             raise Exception("Unable to fetch live gold price from Yahoo Finance")
         return result
+
+    @classmethod
+    def get_sentiment(cls, force_refresh: bool = False) -> dict:
+        """
+        Return current gold market news sentiment from global sources.
+        Reads ALPHAVANTAGE_KEY and NEWSAPI_KEY from environment if set.
+        Falls back to free RSS feeds (Google News, Yahoo Finance) with VADER scoring.
+        """
+        from sentiment_service import get_gold_sentiment
+        import os
+        return get_gold_sentiment(
+            alpha_vantage_key=os.environ.get("ALPHAVANTAGE_KEY", ""),
+            newsapi_key=os.environ.get("NEWSAPI_KEY", ""),
+            force_refresh=force_refresh,
+        )
+
+    @classmethod
+    def get_system_status(cls) -> dict:
+        """Return MLOps system status: pipeline health, accuracy trends, drift, insights."""
+        status_path = Path(settings.model_path).parent / "system_status.json"
+        if status_path.exists():
+            with open(status_path) as f:
+                status = json.load(f)
+        else:
+            status = {"pipeline": "no_data", "message": "No evaluation has run yet"}
+
+        # Enrich with model metadata
+        meta = cls.get_model_info()
+        status["model"] = {
+            "trained_at": meta.get("trained_at"),
+            "has_direction_model": meta.get("has_direction_model", False),
+            "macro_features": meta.get("macro_features", False),
+            "mape": meta.get("metrics", {}).get("mape"),
+            "direction_accuracy": meta.get("metrics", {}).get("direction_accuracy_pct"),
+        }
+
+        return status
 
     @classmethod
     def reload_dataset(cls):

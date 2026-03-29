@@ -1,5 +1,7 @@
 {
-  "prediction_date": "2026-03-05",
-  "predicted_price_usd": 2360.68,
-  "created_at": "2026-03-04T09:30:43.236262+00:00"
+  "prediction_date": "2026-03-30",
+  "predicted_price_usd": 4525.95,
+  "predicted_trend": "up",
+  "direction_confidence": 59.1,
+  "created_at": "2026-03-29T10:39:00.291853"
 }

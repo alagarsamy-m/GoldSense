@@ -37,6 +37,9 @@ export const getAccuracyLogs = (limit = 30) =>
 export const getModelInfo = () =>
   api.get('/api/prediction/model-info').then(r => r.data)
 
+export const getSystemStatus = () =>
+  api.get('/api/prediction/status').then(r => r.data)
+
 // ── Protected endpoints (require auth) ───────────────────────────────────────
 
 export const getUserProfile = () =>

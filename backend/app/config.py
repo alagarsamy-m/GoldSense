@@ -14,6 +14,10 @@ class Settings(BaseSettings):
     # Groq LLM
     groq_api_key: str
 
+    # News Sentiment APIs (optional — RSS fallback used if not set)
+    alphavantage_key: str = ""   # https://www.alphavantage.co/support/#api-key (free)
+    newsapi_key: str = ""        # https://newsapi.org/register (free 100 req/day)
+
     # Paths
     dataset_path: str = str(Path(__file__).parent.parent.parent / "dataset")
     model_path: str = str(Path(__file__).parent.parent.parent / "ml" / "model" / "gold_model.pkl")
