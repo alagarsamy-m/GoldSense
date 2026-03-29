@@ -1,82 +1,130 @@
-name: Weekly Data Update & Model Retraining
+name: Weekly Model Retraining
+
+# ─────────────────────────────────────────────────────────────────────
+# Full model retrain with Optuna hyperparameter tuning.
+# Triggers:
+#   - Every Monday 6 AM UTC (scheduled)
+#   - When daily pipeline detects drift (workflow_call)
+#   - Manual trigger from GitHub Actions UI
+# ─────────────────────────────────────────────────────────────────────
 
 on:
-  # Run every Monday at 6:00 AM UTC (11:30 AM IST)
   schedule:
-    - cron: '0 6 * * 1'
-  # Allow manual trigger from GitHub Actions tab
+    - cron: '0 6 * * 1'  # Monday 6 AM UTC (11:30 AM IST)
   workflow_dispatch:
+  workflow_call:  # Allow daily pipeline to trigger this on drift
 
 permissions:
-  contents: write   # Required to commit updated dataset back to repo
+  contents: write
 
 jobs:
-  update-data-and-retrain:
-    name: Update Dataset, Retrain Model & Deploy to Render
+  retrain:
+    name: Retrain Model & Deploy
     runs-on: ubuntu-latest
 
     steps:
-      # ── 1. Checkout repo ────────────────────────────────────────────────
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 1
 
-      # ── 2. Setup Python ─────────────────────────────────────────────────
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
 
-      # ── 3. Install ML dependencies ───────────────────────────────────────
       - name: Install ML dependencies
         run: |
           pip install --upgrade pip
           pip install -r ml/requirements.txt
 
-      # ── 4. Update dataset via yfinance ───────────────────────────────────
-      - name: Fetch latest gold prices (yfinance)
+      # ── Update data (in case daily didn't run) ──────────────────────
+      - name: Fetch latest market data
         run: |
           cd ml
           python update_data.py
 
-      # ── 5. Evaluate last prediction accuracy ─────────────────────────────
-      - name: Log prediction accuracy
+      - name: Log sentiment
+        env:
+          ALPHAVANTAGE_KEY: ${{ secrets.ALPHAVANTAGE_KEY }}
+          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+        run: |
+          cd ml
+          python sentiment_service.py --refresh
+        continue-on-error: true
+
+      # ── Evaluate pending prediction ─────────────────────────────────
+      - name: Evaluate last prediction
         run: |
           cd ml
           python evaluate.py
-        continue-on-error: true   # Don't fail pipeline if evaluation fails
+        continue-on-error: true
 
-      # ── 6. Retrain XGBoost model ─────────────────────────────────────────
-      - name: Retrain XGBoost model
+      # ── Full Retrain with Optuna ────────────────────────────────────
+      - name: Retrain XGBoost model (full Optuna tuning)
         run: |
           cd ml
-          python train.py
+          python train.py  # Full tuning (no --no-tune flag)
 
-      # ── 7. Commit updated dataset + model to repository ──────────────────
-      - name: Commit updated data and model
+      # ── Commit Everything ───────────────────────────────────────────
+      - name: Commit updated model + data
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add dataset/Gold\ Rate.csv dataset/USD-INR.csv dataset/prediction_logs.csv ml/model/gold_model.pkl ml/model/model_metadata.json 2>/dev/null || true
-          git diff --staged --quiet || git commit -m "data: weekly update $(date -u '+%Y-%m-%d') [skip ci]"
+          git add \
+            "dataset/Gold Rate.csv" \
+            dataset/USD-INR.csv \
+            dataset/macro_data.csv \
+            dataset/prediction_logs.csv \
+            dataset/sentiment_logs.csv \
+            ml/model/gold_model.pkl \
+            ml/model/gold_model_q10.pkl \
+            ml/model/gold_model_q90.pkl \
+            ml/model/gold_direction_model.pkl \
+            ml/model/model_metadata.json \
+            ml/model/pending_prediction.json \
+            ml/model/system_status.json \
+            2>/dev/null || true
+          git diff --staged --quiet || git commit -m "retrain: model update $(date -u '+%Y-%m-%d') [skip ci]"
           git push
-        continue-on-error: true   # Don't fail if no new data
+        continue-on-error: true
 
-      # ── 8. Upload model artifact (for debugging) ──────────────────────────
       - name: Upload model artifact
         uses: actions/upload-artifact@v4
         with:
           name: trained-model-${{ github.run_number }}
           path: |
             ml/model/gold_model.pkl
+            ml/model/gold_model_q10.pkl
+            ml/model/gold_model_q90.pkl
+            ml/model/gold_direction_model.pkl
             ml/model/model_metadata.json
           retention-days: 30
 
-      # ── 9. Trigger Render redeploy ────────────────────────────────────────
       - name: Trigger Render deployment
         run: |
           curl -s "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
-          echo "Render deployment triggered successfully"
+          echo "Render deployment triggered"
+
+      - name: Write retrain summary
+        run: |
+          echo "## Model Retrained - $(date -u '+%Y-%m-%d')" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f ml/model/model_metadata.json ]; then
+            echo '```json' >> $GITHUB_STEP_SUMMARY
+            python3 -c "
+          import json
+          with open('ml/model/model_metadata.json') as f:
+              m = json.load(f)
+          print(json.dumps({
+              'trained_at': m['trained_at'],
+              'metrics': m['metrics'],
+              'features_count': len(m.get('features', [])),
+              'macro_features': m.get('macro_features', False),
+              'has_direction_model': m.get('has_direction_model', False),
+          }, indent=2))
+          " >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          fi
