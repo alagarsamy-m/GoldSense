@@ -1,15 +1,29 @@
 {
-  "updated_at": "2026-03-29T10:39:00.293923Z",
+  "updated_at": "2026-04-09T20:02:36.939136Z",
   "pipeline": "healthy",
-  "total_predictions_logged": 0,
-  "last_evaluation": null,
+  "total_predictions_logged": 1,
+  "last_evaluation": {
+    "date": "2026-03-30",
+    "predicted": 4525.95,
+    "actual": 4526.0,
+    "error_pct": 0.001,
+    "direction_correct": false
+  },
   "streak": {
-    "type": null,
-    "count": 0
+    "type": "incorrect",
+    "count": 1
   },
   "rolling_metrics": {
-    "last_7": {},
-    "last_30": {}
+    "last_7": {
+      "avg_mape": 0.001,
+      "direction_accuracy": 0.0,
+      "count": 1
+    },
+    "last_30": {
+      "avg_mape": 0.001,
+      "direction_accuracy": 0.0,
+      "count": 1
+    }
   },
   "drift": {
     "drift_detected": false,
@@ -22,14 +36,9 @@
     "retrain_recommended": false
   },
   "insights": [],
-  "next_prediction": {
-    "date": "2026-03-30",
-    "usd": 4525.95,
-    "trend": "up",
-    "confidence": 59.1
-  },
+  "next_prediction": null,
   "data_freshness": {
-    "logs_csv": "/home/eswaran/alagar/GoldSense/dataset/prediction_logs.csv",
-    "last_modified": "2026-03-29T16:08:42.868974"
+    "logs_csv": "/home/runner/work/GoldSense/GoldSense/dataset/prediction_logs.csv",
+    "last_modified": "2026-04-09T20:02:35.430853"
   }
 }
