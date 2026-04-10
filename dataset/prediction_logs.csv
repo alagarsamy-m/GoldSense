@@ -1,1 +1,2 @@
 prediction_date,predicted_price_usd,actual_price_usd,difference,pct_error,direction_correct,predicted_trend,actual_trend,market_volatility,created_at
+2026-03-30,4525.95,4526.0,0.05,0.001,0,up,unknown,3.661,2026-04-10T19:43:02.410444
