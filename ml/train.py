@@ -178,7 +178,7 @@ def tune_direction_model(X_train: pd.DataFrame, y_train: pd.Series, n_trials: in
 
 def train(tune: bool = True):
     print("=" * 60)
-    print("GoldSense — Dual Model Training")
+    print("GoldSense - Dual Model Training")
     print("  1. Direction classifier (UP/DOWN)")
     print("  2. Magnitude regressor (log return)")
     print("=" * 60)
@@ -201,17 +201,17 @@ def train(tune: bool = True):
     train_dates = df["Date"].iloc[:split_idx]
     val_dates   = df["Date"].iloc[split_idx:]
 
-    print(f"\nTrain: {train_dates.iloc[0].date()} → {train_dates.iloc[-1].date()} ({len(X_train)} rows)")
-    print(f"Valid: {val_dates.iloc[0].date()} → {val_dates.iloc[-1].date()} ({len(X_val)} rows)")
+    print(f"\nTrain: {train_dates.iloc[0].date()} -> {train_dates.iloc[-1].date()} ({len(X_train)} rows)")
+    print(f"Valid: {val_dates.iloc[0].date()} -> {val_dates.iloc[-1].date()} ({len(X_val)} rows)")
     print(f"Features: {len(feature_cols)} (macro: {any(c.startswith(('dxy','vix','tnx','oil')) for c in feature_cols)})")
     print(f"Target distribution: UP={y_train_dir.sum()}/{len(y_train_dir)} ({y_train_dir.mean()*100:.1f}%)")
 
     # ══════════════════════════════════════════════════════════════
     # MODEL 1: DIRECTION CLASSIFIER (primary — most actionable)
     # ══════════════════════════════════════════════════════════════
-    print(f"\n{'─' * 50}")
+    print(f"\n{'-' * 50}")
     print("Training Direction Classifier (XGBClassifier)...")
-    print(f"{'─' * 50}")
+    print(f"{'-' * 50}")
 
     if tune:
         print(f"  Running Optuna search ({N_OPTUNA_TRIALS} trials)...")
@@ -229,7 +229,7 @@ def train(tune: bool = True):
     # Walk-forward CV for direction model
     print(f"\n  Running {N_CV_FOLDS}-fold walk-forward CV for direction model...")
     dir_cv = walk_forward_cv_classifier(X_train, y_train_dir, dir_params)
-    print(f"  CV Direction Accuracy: {dir_cv['cv_dir_accuracy']:.1f}% (±{dir_cv['cv_dir_std']:.1f}%)")
+    print(f"  CV Direction Accuracy: {dir_cv['cv_dir_accuracy']:.1f}% (+/-{dir_cv['cv_dir_std']:.1f}%)")
 
     # Train final direction model
     dir_model = XGBClassifier(**dir_params, random_state=42, n_jobs=-1, use_label_encoder=False)
@@ -245,9 +245,9 @@ def train(tune: bool = True):
     # ══════════════════════════════════════════════════════════════
     # MODEL 2: MAGNITUDE REGRESSOR (for price level estimation)
     # ══════════════════════════════════════════════════════════════
-    print(f"\n{'─' * 50}")
+    print(f"\n{'-' * 50}")
     print("Training Magnitude Regressor (XGBRegressor)...")
-    print(f"{'─' * 50}")
+    print(f"{'-' * 50}")
 
     if tune:
         print(f"  Running Optuna search ({N_OPTUNA_TRIALS} trials)...")
@@ -314,19 +314,19 @@ def train(tune: bool = True):
     q90_preds = val_current * np.exp(model_q90.predict(X_val))
     coverage  = float(np.mean((actual_next >= q10_preds) & (actual_next <= q90_preds)) * 100)
 
-    print(f"\n{'═' * 55}")
+    print(f"\n{'=' * 55}")
     print(f"  FINAL RESULTS (Hold-out: last {VALIDATION_DAYS} days)")
-    print(f"{'═' * 55}")
+    print(f"{'=' * 55}")
     print(f"\n  Direction Classifier:")
     print(f"    Hold-out accuracy:    {dir_val_acc:.1f}%")
-    print(f"    CV accuracy:          {dir_cv['cv_dir_accuracy']:.1f}% (±{dir_cv['cv_dir_std']:.1f}%)")
+    print(f"    CV accuracy:          {dir_cv['cv_dir_accuracy']:.1f}% (+/-{dir_cv['cv_dir_std']:.1f}%)")
     print(f"\n  Regression Model:")
     print(f"    RMSE:                 ${rmse:.2f}")
     print(f"    MAE:                  ${mae:.2f}")
     print(f"    MAPE:                 {mape:.2f}%")
     print(f"    Reg direction acc:    {reg_dir_acc:.1f}%")
-    print(f"    Interval Coverage:    {coverage:.1f}% (target ≥80%)")
-    print(f"{'═' * 55}")
+    print(f"    Interval Coverage:    {coverage:.1f}% (target >=80%)")
+    print(f"{'=' * 55}")
 
     # ── Feature importance (from direction model — most meaningful) ──
     dir_importance = dict(zip(feature_cols, dir_model.feature_importances_.tolist()))
@@ -397,4 +397,4 @@ if __name__ == "__main__":
     print(f"\nTraining complete!")
     print(f"  Direction accuracy: {m['direction_accuracy_pct']:.1f}% (CV: {dcv.get('cv_dir_accuracy',0):.1f}%)")
     print(f"  Regression: RMSE=${m['rmse']:.2f} | MAPE={m['mape']:.2f}%")
-    print(f"  Interval Coverage: {m.get('interval_coverage_pct',0):.1f}% (q10–q90)")
+    print(f"  Interval Coverage: {m.get('interval_coverage_pct',0):.1f}% (q10-q90)")

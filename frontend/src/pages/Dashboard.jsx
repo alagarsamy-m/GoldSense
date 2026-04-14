@@ -1,18 +1,28 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
-  TrendingUp, LogOut, LayoutDashboard, User, Settings,
-  Gem, RefreshCw, ChevronRight
+  Bell,
+  CalendarDays,
+  ChevronRight,
+  Gem,
+  LayoutDashboard,
+  LogOut,
+  Settings,
+  TrendingUp,
+  User,
+  Zap,
 } from 'lucide-react'
+import toast from 'react-hot-toast'
 import { useAuth } from '../hooks/useAuth'
 import { getDashboard } from '../services/api'
+import { formatInr, formatUsd } from '../utils/marketData'
 import PricePredictor from '../components/PricePredictor/PricePredictor'
 import WeeklyForecast from '../components/WeeklyForecast/WeeklyForecast'
 import Recommendations from '../components/Recommendations/Recommendations'
+import NotificationSettings from '../components/Notifications/NotificationSettings'
 import ProfileWizard from '../components/UserProfile/ProfileWizard'
 import Chatbot from '../components/Chatbot/Chatbot'
-import toast from 'react-hot-toast'
 
 function PortfolioCard({ profile, prediction }) {
   const holdingsGrams = profile?.gold_holdings_grams || 0
@@ -21,8 +31,8 @@ function PortfolioCard({ profile, prediction }) {
 
   return (
     <div className="glass-card rounded-2xl p-6 gold-border">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-9 h-9 bg-amber-500/15 rounded-lg flex items-center justify-center">
+      <div className="mb-4 flex items-center gap-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/15">
           <Gem size={18} className="text-amber-400" />
         </div>
         <h3 className="text-lg font-bold text-white">Portfolio Value</h3>
@@ -30,27 +40,64 @@ function PortfolioCard({ profile, prediction }) {
 
       {holdingsGrams > 0 ? (
         <>
-          <p className="price-number text-3xl font-black text-amber-400 mb-1">
-            ₹{portfolioValue.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
+          <p className="price-number mb-1 text-3xl font-black text-amber-400">{formatInr(portfolioValue)}</p>
+          <p className="mb-4 text-sm text-slate-400">
+            {holdingsGrams}g using the public 24k estimate
           </p>
-          <p className="text-sm text-slate-400 mb-4">{holdingsGrams}g of gold (24k, Chennai rate)</p>
           <div className="grid grid-cols-2 gap-3">
-            <div className="bg-slate-800/60 rounded-xl p-3">
-              <p className="text-xs text-slate-500 mb-1">Holdings</p>
+            <div className="rounded-xl bg-slate-800/60 p-3">
+              <p className="mb-1 text-xs text-slate-500">Holdings</p>
               <p className="price-number text-base font-bold text-white">{holdingsGrams}g</p>
             </div>
-            <div className="bg-slate-800/60 rounded-xl p-3">
-              <p className="text-xs text-slate-500 mb-1">Stored value</p>
-              <p className="price-number text-base font-bold text-white">₹{(profile?.gold_holdings_value_inr || 0).toLocaleString('en-IN', { maximumFractionDigits: 0 })}</p>
+            <div className="rounded-xl bg-slate-800/60 p-3">
+              <p className="mb-1 text-xs text-slate-500">Stored value</p>
+              <p className="price-number text-base font-bold text-white">
+                {formatInr(profile?.gold_holdings_value_inr || 0)}
+              </p>
             </div>
           </div>
         </>
       ) : (
-        <div className="text-center py-4">
-          <p className="text-slate-400 text-sm mb-3">No gold holdings recorded yet</p>
-          <p className="text-xs text-slate-600">Update your profile to track portfolio value</p>
+        <div className="py-4 text-center">
+          <p className="mb-3 text-sm text-slate-400">No gold holdings recorded yet.</p>
+          <p className="text-xs text-slate-600">Update your profile to track portfolio value.</p>
         </div>
       )}
+    </div>
+  )
+}
+
+function OverviewContextCard({ today, prediction, recentAccuracy }) {
+  return (
+    <div className="glass-card rounded-2xl p-6 gold-border">
+      <div className="mb-4 flex items-center gap-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800/60">
+          <CalendarDays size={18} className="text-slate-200" />
+        </div>
+        <h3 className="text-lg font-bold text-white">Public Market Snapshot</h3>
+      </div>
+
+      <div className="grid gap-3 sm:grid-cols-3">
+        <div className="rounded-xl bg-slate-800/60 p-4">
+          <p className="mb-1 text-xs text-slate-500">Today live</p>
+          <p className="price-number text-xl font-bold text-white">{formatUsd(today?.live_usd)}</p>
+          <p className="mt-2 text-xs text-slate-500">{today?.source || 'snapshot'} | {today?.market_status || 'delayed'}</p>
+        </div>
+        <div className="rounded-xl bg-slate-800/60 p-4">
+          <p className="mb-1 text-xs text-slate-500">Tomorrow signal</p>
+          <p className="text-xl font-bold text-amber-300 capitalize">{prediction?.direction_vs_today || 'stable'}</p>
+          <p className="mt-2 text-xs text-slate-500">{prediction?.prediction_date || '--'}</p>
+        </div>
+        <div className="rounded-xl bg-slate-800/60 p-4">
+          <p className="mb-1 text-xs text-slate-500">Accuracy rows</p>
+          <p className="price-number text-xl font-bold text-white">{recentAccuracy?.length || 0}</p>
+          <p className="mt-2 text-xs text-slate-500">Daily refreshed realized log</p>
+        </div>
+      </div>
+
+      <p className="mt-4 text-xs leading-relaxed text-slate-500">
+        Today shows the latest live or delayed last-traded price. Tomorrow shows the estimated close for the next calendar date.
+      </p>
     </div>
   )
 }
@@ -60,11 +107,7 @@ export default function Dashboard() {
   const [dashData, setDashData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [showProfileWizard, setShowProfileWizard] = useState(false)
-  const [activeTab, setActiveTab] = useState('overview')
-
-  useEffect(() => {
-    loadDashboard()
-  }, [])
+  const [activeTab, setActiveTab] = useState('intelligence')
 
   const loadDashboard = async () => {
     setLoading(true)
@@ -74,12 +117,16 @@ export default function Dashboard() {
       if (!data.profile?.profile_complete) {
         setShowProfileWizard(true)
       }
-    } catch (err) {
+    } catch {
       toast.error('Failed to load dashboard')
     } finally {
       setLoading(false)
     }
   }
+
+  useEffect(() => {
+    loadDashboard()
+  }, [])
 
   const handleSignOut = async () => {
     try {
@@ -89,15 +136,17 @@ export default function Dashboard() {
     }
   }
 
-  const handleProfileComplete = (profile) => {
+  const handleProfileComplete = () => {
     setShowProfileWizard(false)
     loadDashboard()
   }
 
   const tabs = [
     { id: 'overview', label: 'Overview', icon: <LayoutDashboard size={15} /> },
-    { id: 'recommendations', label: 'AI Advice', icon: <TrendingUp size={15} /> },
-    { id: 'forecast', label: '7-Day Forecast', icon: <RefreshCw size={15} /> },
+    { id: 'intelligence', label: 'Intelligence', icon: <Zap size={15} /> },
+    { id: 'tomorrow', label: 'Tomorrow\'s Prediction', icon: <TrendingUp size={15} /> },
+    { id: 'forecast', label: 'Weekly Forecast', icon: <CalendarDays size={15} /> },
+    { id: 'alerts', label: 'Alerts', icon: <Bell size={15} /> },
     { id: 'profile', label: 'Profile', icon: <User size={15} /> },
   ]
 
@@ -105,7 +154,7 @@ export default function Dashboard() {
     return (
       <div className="min-h-screen bg-slate-950 flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <div className="w-10 h-10 border-2 border-amber-500 border-t-transparent rounded-full animate-spin" />
+          <div className="h-10 w-10 animate-spin rounded-full border-2 border-amber-500 border-t-transparent" />
           <p className="text-slate-400">Loading your dashboard...</p>
         </div>
       </div>
@@ -114,68 +163,67 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-slate-950">
-      {/* Sidebar + Main layout */}
       <div className="flex">
-        {/* Sidebar */}
-        <div className="hidden lg:flex flex-col w-64 h-screen fixed left-0 top-0 bg-slate-900/80 border-r border-slate-800 p-4">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 mb-8 p-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center">
+        <div className="fixed left-0 top-0 hidden h-screen w-64 flex-col border-r border-slate-800 bg-slate-900/80 p-4 lg:flex">
+          <Link to="/" className="mb-8 flex items-center gap-2.5 p-2">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-amber-400 to-orange-600">
               <TrendingUp size={16} className="text-white" />
             </div>
             <span className="text-lg font-bold">
-              <span className="gold-text">Gold</span><span className="text-white">Sense</span>
+              <span className="gold-text">Gold</span>
+              <span className="text-white">Sense</span>
             </span>
           </Link>
 
-          {/* User info */}
-          <div className="flex items-center gap-3 p-3 bg-slate-800/60 rounded-xl mb-6">
-            <div className="w-9 h-9 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+          <div className="mb-6 flex items-center gap-3 rounded-xl bg-slate-800/60 p-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-amber-500/20">
               <User size={16} className="text-amber-400" />
             </div>
             <div className="min-w-0">
-              <p className="text-sm font-medium text-white truncate">{dashData?.profile?.full_name || user?.email?.split('@')[0] || 'User'}</p>
-              <p className="text-xs text-slate-500 truncate">{user?.email}</p>
+              <p className="truncate text-sm font-medium text-white">
+                {dashData?.profile?.full_name || user?.email?.split('@')[0] || 'User'}
+              </p>
+              <p className="truncate text-xs text-slate-500">{user?.email}</p>
             </div>
           </div>
 
-          {/* Nav */}
           <nav className="flex-1 space-y-1">
-            {tabs.map(tab => (
+            {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                className={`w-full rounded-xl px-3 py-2.5 text-left text-sm font-medium transition-all ${
                   activeTab === tab.id
-                    ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-                    : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                    ? 'border border-amber-500/20 bg-amber-500/10 text-amber-400'
+                    : 'text-slate-400 hover:bg-slate-800 hover:text-white'
                 }`}
               >
-                {tab.icon}
-                {tab.label}
+                <span className="flex items-center gap-3">
+                  {tab.icon}
+                  {tab.label}
+                </span>
               </button>
             ))}
           </nav>
 
-          {/* Bottom actions */}
-          <div className="space-y-2 mt-4">
+          <div className="mt-4 space-y-2">
             <button
               onClick={() => setShowProfileWizard(true)}
-              className="w-full flex items-center gap-2 px-3 py-2.5 text-sm text-slate-400 hover:text-white rounded-xl hover:bg-slate-800 transition-all"
+              className="flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-sm text-slate-400 transition-all hover:bg-slate-800 hover:text-white"
             >
               <Settings size={15} />
               Edit Profile
             </button>
             <button
               onClick={handleSignOut}
-              className="w-full flex items-center gap-2 px-3 py-2.5 text-sm text-slate-400 hover:text-red-400 rounded-xl hover:bg-red-500/5 transition-all"
+              className="flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-sm text-slate-400 transition-all hover:bg-red-500/5 hover:text-red-400"
             >
               <LogOut size={15} />
               Sign Out
             </button>
             <Link
               to="/"
-              className="w-full flex items-center gap-2 px-3 py-2.5 text-sm text-slate-400 hover:text-amber-400 rounded-xl hover:bg-amber-500/5 transition-all"
+              className="flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-sm text-slate-400 transition-all hover:bg-amber-500/5 hover:text-amber-400"
             >
               <ChevronRight size={15} />
               Back to Home
@@ -183,92 +231,96 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Main content */}
-        <div className="flex-1 lg:ml-64 min-h-screen">
-          {/* Mobile header */}
-          <div className="lg:hidden flex items-center justify-between px-4 py-3 bg-slate-900/80 border-b border-slate-800 sticky top-0 z-40">
+        <div className="min-h-screen flex-1 lg:ml-64">
+          <div className="sticky top-0 z-40 flex items-center justify-between border-b border-slate-800 bg-slate-900/80 px-4 py-3 lg:hidden">
             <Link to="/" className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center">
+              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-amber-400 to-orange-600">
                 <TrendingUp size={13} className="text-white" />
               </div>
-              <span className="font-bold text-sm"><span className="gold-text">Gold</span><span className="text-white">Sense</span></span>
+              <span className="text-sm font-bold">
+                <span className="gold-text">Gold</span>
+                <span className="text-white">Sense</span>
+              </span>
             </Link>
             <button onClick={handleSignOut} className="flex items-center gap-1.5 text-xs text-slate-400">
-              <LogOut size={14} /> Sign Out
+              <LogOut size={14} />
+              Sign Out
             </button>
           </div>
 
-          {/* Mobile tab bar */}
-          <div className="lg:hidden flex border-b border-slate-800 bg-slate-900/50 overflow-x-auto">
-            {tabs.map(tab => (
+          <div className="flex overflow-x-auto border-b border-slate-800 bg-slate-900/50 lg:hidden">
+            {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-1.5 px-4 py-3 text-xs font-medium whitespace-nowrap border-b-2 transition-all ${
+                className={`whitespace-nowrap border-b-2 px-4 py-3 text-xs font-medium transition-all ${
                   activeTab === tab.id ? 'border-amber-500 text-amber-400' : 'border-transparent text-slate-500'
                 }`}
               >
-                {tab.icon}
-                {tab.label}
+                <span className="flex items-center gap-1.5">
+                  {tab.icon}
+                  {tab.label}
+                </span>
               </button>
             ))}
           </div>
 
           <div className="p-4 md:p-8">
-            {/* Profile wizard overlay */}
             {showProfileWizard && (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="fixed inset-0 z-50 bg-slate-950/95 flex items-center justify-center p-4 backdrop-blur-sm"
+                className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/95 p-4 backdrop-blur-sm"
               >
                 <div className="w-full max-w-xl">
-                  <div className="text-center mb-6">
-                    <h1 className="text-2xl font-bold text-white">Welcome to GoldSense! 🏅</h1>
-                    <p className="text-slate-400 mt-2">Let's set up your investment profile for personalized advice</p>
+                  <div className="mb-6 text-center">
+                    <h1 className="text-2xl font-bold text-white">Set up your investor profile</h1>
+                    <p className="mt-2 text-slate-400">This is used for personalized recommendations and risk framing.</p>
                   </div>
                   <ProfileWizard onComplete={handleProfileComplete} />
                   <button
                     onClick={() => setShowProfileWizard(false)}
-                    className="mt-4 w-full text-xs text-slate-600 hover:text-slate-400 transition-colors"
+                    className="mt-4 w-full text-xs text-slate-600 transition-colors hover:text-slate-400"
                   >
-                    Skip for now (you can complete it later)
+                    Skip for now
                   </button>
                 </div>
               </motion.div>
             )}
 
-            {/* Overview tab */}
             {activeTab === 'overview' && (
               <div className="space-y-6">
                 <div>
                   <h1 className="text-2xl font-bold text-white">
-                    Good day, {dashData?.profile?.full_name || 'Investor'} 👋
+                    Welcome back, {dashData?.profile?.full_name || 'Investor'}
                   </h1>
-                  <p className="text-slate-400 text-sm mt-1">Here's your personalized gold market intelligence</p>
+                  <p className="mt-1 text-sm text-slate-400">Quick view of today&apos;s live price, tomorrow&apos;s direction, and your portfolio context.</p>
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  <PricePredictor />
+                <div className="grid gap-6 xl:grid-cols-2">
+                  <OverviewContextCard
+                    today={dashData?.today}
+                    prediction={dashData?.prediction}
+                    recentAccuracy={dashData?.recent_accuracy}
+                  />
                   <PortfolioCard profile={dashData?.profile} prediction={dashData?.prediction} />
                 </div>
               </div>
             )}
 
-            {/* AI Advice tab */}
-            {activeTab === 'recommendations' && (
-              <div className="space-y-6 max-w-2xl">
+            {activeTab === 'intelligence' && (
+              <div className="max-w-3xl space-y-6">
                 <div>
-                  <h2 className="text-xl font-bold text-white">AI Investment Advice</h2>
-                  <p className="text-slate-400 text-sm mt-1">Personalized buy/sell recommendations powered by Groq LLM</p>
+                  <h2 className="text-xl font-bold text-white">Personalized Intelligence</h2>
+                  <p className="mt-1 text-sm text-slate-400">Clear guidance on what to do now, why, entry range, amount, and risk flags.</p>
                 </div>
                 {dashData?.profile?.profile_complete ? (
                   <Recommendations />
                 ) : (
                   <div className="glass-card rounded-2xl p-8 gold-border text-center">
-                    <p className="text-slate-300 mb-4">Complete your investment profile to get personalized AI recommendations.</p>
+                    <p className="mb-4 text-slate-300">Complete your investment profile to unlock personalized intelligence.</p>
                     <button
                       onClick={() => setShowProfileWizard(true)}
-                      className="px-6 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-xl text-sm"
+                      className="rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 px-6 py-2.5 text-sm font-semibold text-white"
                     >
                       Complete Profile
                     </button>
@@ -277,47 +329,68 @@ export default function Dashboard() {
               </div>
             )}
 
-            {/* Forecast tab */}
+            {activeTab === 'tomorrow' && (
+              <div className="max-w-4xl space-y-6">
+                <div>
+                  <h2 className="text-xl font-bold text-white">Tomorrow&apos;s Prediction</h2>
+                  <p className="mt-1 text-sm text-slate-400">Estimated close for the next calendar date, compared with today&apos;s live price.</p>
+                </div>
+                <PricePredictor />
+              </div>
+            )}
+
             {activeTab === 'forecast' && (
-              <div className="space-y-6 max-w-3xl">
-                <h2 className="text-xl font-bold text-white">7-Day Gold Price Forecast</h2>
+              <div className="max-w-5xl space-y-6">
+                <div>
+                  <h2 className="text-xl font-bold text-white">Weekly Forecast</h2>
+                  <p className="mt-1 text-sm text-slate-400">Monday to Sunday outlook with a larger USD chart and a simpler table.</p>
+                </div>
                 <WeeklyForecast />
               </div>
             )}
 
-            {/* Profile tab */}
+            {activeTab === 'alerts' && (
+              <div className="max-w-3xl space-y-6">
+                <div>
+                  <h2 className="text-xl font-bold text-white">Alert Settings</h2>
+                  <p className="mt-1 text-sm text-slate-400">Manage your device subscriptions for daily GoldSense pushes.</p>
+                </div>
+                <NotificationSettings />
+              </div>
+            )}
+
             {activeTab === 'profile' && (
-              <div className="space-y-6 max-w-xl">
+              <div className="max-w-xl space-y-6">
                 <h2 className="text-xl font-bold text-white">Investment Profile</h2>
                 {dashData?.profile?.profile_complete ? (
-                  <div className="glass-card rounded-2xl p-6 gold-border space-y-4">
+                  <div className="glass-card space-y-4 rounded-2xl p-6 gold-border">
                     {[
                       { label: 'Name', value: dashData.profile.full_name },
                       { label: 'City', value: dashData.profile.city },
                       { label: 'Gold Holdings', value: `${dashData.profile.gold_holdings_grams || 0}g` },
-                      { label: 'Monthly Budget', value: `₹${Number(dashData.profile.monthly_budget_inr || 0).toLocaleString('en-IN')}` },
+                      { label: 'Monthly Budget', value: formatInr(dashData.profile.monthly_budget_inr || 0) },
                       { label: 'Investment Goal', value: dashData.profile.investment_goal?.replace('_', ' ') },
                       { label: 'Risk Appetite', value: dashData.profile.risk_appetite },
-                      { label: 'Preferred Forms', value: dashData.profile.preferred_gold_forms?.join(', ') || '—' },
-                    ].map(item => (
-                      <div key={item.label} className="flex justify-between items-center py-2 border-b border-slate-800/50">
+                      { label: 'Preferred Forms', value: dashData.profile.preferred_gold_forms?.join(', ') || '--' },
+                    ].map((item) => (
+                      <div key={item.label} className="flex items-center justify-between border-b border-slate-800/50 py-2">
                         <span className="text-sm text-slate-500">{item.label}</span>
-                        <span className="text-sm text-white font-medium capitalize">{item.value || '—'}</span>
+                        <span className="text-sm font-medium capitalize text-white">{item.value || '--'}</span>
                       </div>
                     ))}
                     <button
                       onClick={() => setShowProfileWizard(true)}
-                      className="w-full mt-2 py-2.5 text-sm font-medium border border-amber-500/30 text-amber-400 rounded-xl hover:bg-amber-500/10 transition-all"
+                      className="mt-2 w-full rounded-xl border border-amber-500/30 py-2.5 text-sm font-medium text-amber-400 transition-all hover:bg-amber-500/10"
                     >
                       Edit Profile
                     </button>
                   </div>
                 ) : (
                   <div className="glass-card rounded-2xl p-8 gold-border text-center">
-                    <p className="text-slate-400 mb-4">Your investment profile is not set up yet.</p>
+                    <p className="mb-4 text-slate-400">Your investment profile is not set up yet.</p>
                     <button
                       onClick={() => setShowProfileWizard(true)}
-                      className="px-6 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-xl text-sm"
+                      className="rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 px-6 py-2.5 text-sm font-semibold text-white"
                     >
                       Set Up Profile
                     </button>
@@ -329,7 +402,6 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Chatbot (only for authenticated users with profile) */}
       {dashData?.profile?.profile_complete && <Chatbot />}
     </div>
   )

@@ -16,10 +16,10 @@ logger = logging.getLogger(__name__)
 @router.get("/today")
 async def get_today_price():
     """
-    Get today's live gold price from Yahoo Finance (GC=F + USDINR=X).
+    Get today's live or delayed last-traded gold price.
 
-    Returns current USD price, India 24k/22k prices (per gram and per 10g),
-    USD/INR rate, and today's date.
+    Returns the latest available USD/troy oz quote, derived India 24k/22k
+    estimates, source metadata, and freshness labels.
     """
     try:
         return await asyncio.to_thread(GoldService.get_today_price)
@@ -31,10 +31,10 @@ async def get_today_price():
 @router.get("/tomorrow")
 async def get_tomorrow_prediction():
     """
-    Get tomorrow's gold price prediction.
+    Get tomorrow's calendar-day close estimate.
 
-    Returns USD price, India 24k/22k prices (per gram and per 10g),
-    trend direction, and model accuracy metrics.
+    Returns the model forecast, the live reference price used for rise/fall
+    framing, and explanatory metadata for market-closed carry-forward days.
     """
     try:
         return await asyncio.to_thread(GoldService.get_tomorrow_prediction)
@@ -51,10 +51,10 @@ async def get_tomorrow_prediction():
 @router.get("/week")
 async def get_week_forecast():
     """
-    Get 7-day gold price forecast.
+    Get the current Monday-Sunday gold price forecast.
 
-    Returns array of daily predictions with USD price and India INR conversions.
-    Uses recursive multi-step XGBoost forecasting.
+    Returns a public weekly view with USD and INR estimates plus simple
+    direction-vs-today fields for the UI.
     """
     try:
         forecast = await asyncio.to_thread(GoldService.get_week_forecast)
@@ -67,15 +67,19 @@ async def get_week_forecast():
 
 
 @router.get("/accuracy")
-async def get_accuracy_logs(limit: int = Query(default=30, ge=1, le=100)):
+async def get_accuracy_logs(
+    limit: int = Query(default=5000, ge=1, le=10000),
+    horizon: Optional[str] = Query(default=None),
+):
     """
     Get recent prediction accuracy logs.
 
-    Returns comparison of predicted vs actual prices with error metrics.
+    Without a horizon filter this returns the simplified public historical view:
+    one realized row per target date, newest first, plus latest_7/full_history.
     """
     try:
-        logs = await asyncio.to_thread(GoldService.get_accuracy_logs, limit)
-        return {"logs": logs, "count": len(logs)}
+        payload = await asyncio.to_thread(GoldService.get_accuracy_payload, limit, horizon)
+        return payload
     except Exception as e:
         logger.error(f"Accuracy logs fetch failed: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail="Unable to load accuracy logs.")

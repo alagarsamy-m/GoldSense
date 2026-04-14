@@ -26,6 +26,44 @@ MACRO_TICKERS = {
 }
 
 
+def _deduplicate_by_date(df: pd.DataFrame, label: str) -> pd.DataFrame:
+    """
+    Collapse duplicate Date rows by keeping the most complete earliest row.
+
+    investing.com exports are usually newest-first. If a date appears twice after
+    an append, keep the earliest occurrence in the file unless another row has
+    clearly more populated values.
+    """
+    if df.empty or "Date" not in df.columns:
+        return df
+
+    duplicate_count = int(df["Date"].duplicated().sum())
+    if duplicate_count == 0:
+        return df
+
+    work = df.copy()
+    value_cols = [col for col in work.columns if col != "Date"]
+    completeness_frame = work[value_cols].copy()
+
+    object_cols = completeness_frame.select_dtypes(include=["object"]).columns
+    if len(object_cols) > 0:
+        completeness_frame[object_cols] = completeness_frame[object_cols].replace(r"^\s*$", np.nan, regex=True)
+
+    work["_row_order"] = np.arange(len(work))
+    work["_completeness"] = completeness_frame.notna().sum(axis=1)
+    work = work.sort_values(
+        ["Date", "_completeness", "_row_order"],
+        ascending=[True, False, True],
+        kind="mergesort",
+    )
+    work = work.drop_duplicates(subset=["Date"], keep="first")
+    work = work.drop(columns=["_row_order", "_completeness"])
+
+    removed = len(df) - len(work)
+    print(f"  Warning: removed {removed} duplicate {label} rows")
+    return work
+
+
 # ─── Macro Data ───────────────────────────────────────────────────────────────
 
 def fetch_and_cache_macro(start_date: str = "2000-01-01", end_date: str = None) -> pd.DataFrame:
@@ -61,21 +99,21 @@ def fetch_and_cache_macro(start_date: str = "2000-01-01", end_date: str = None) 
                     close = hist["Close"]
                 # Handle case where squeeze returns a scalar (single row)
                 if not isinstance(close, pd.Series):
-                    print(f"  Warning: Only 1 row for {ticker} — skipping")
+                    print(f"  Warning: Only 1 row for {ticker} - skipping")
                     continue
                 close = close.rename(col_name)
                 close.index = pd.to_datetime(close.index).tz_localize(None)
                 frames.append(close)
                 print(f"  {col_name} ({ticker}): {len(close)} rows")
             else:
-                print(f"  WARNING: No data returned for {ticker} — check ticker symbol")
+                print(f"  WARNING: No data returned for {ticker} - check ticker symbol")
         except Exception as e:
             print(f"  WARNING: Could not fetch {ticker}: {e}")
             import traceback
             traceback.print_exc()
 
     if not frames:
-        print("  Warning: No macro data available — skipping macro features")
+        print("  Warning: No macro data available - skipping macro features")
         return pd.DataFrame(columns=["Date"] + list(MACRO_TICKERS.values()))
 
     macro = pd.concat(frames, axis=1).reset_index().rename(columns={"index": "Date"})
@@ -137,8 +175,9 @@ def load_gold(path: Path = GOLD_CSV) -> pd.DataFrame:
             .astype(float)
         )
 
-    df = df.sort_values("Date").reset_index(drop=True)
     df = df.dropna(subset=["Price"])
+    df = _deduplicate_by_date(df, "gold")
+    df = df.sort_values("Date").reset_index(drop=True)
     return df[["Date", "Price", "Open", "High", "Low", "Vol.", "Change %"]]
 
 
@@ -168,8 +207,9 @@ def load_usdinr(path: Path = USDINR_CSV) -> pd.DataFrame:
                 .astype(float)
             )
 
-    df = df.sort_values("Date").reset_index(drop=True)
     df = df.dropna(subset=["Price"])
+    df = _deduplicate_by_date(df, "USD/INR")
+    df = df.sort_values("Date").reset_index(drop=True)
     return df[["Date", "Price"]].rename(columns={"Price": "USD_INR"})
 
 
@@ -203,6 +243,11 @@ def merge_datasets(
     Inner-join gold price, USD/INR, and optional macro indicators on Date.
     Forward-fill up to 5 days to handle gaps (holidays, weekends).
     """
+    gold_df = _deduplicate_by_date(gold_df, "gold")
+    usdinr_df = _deduplicate_by_date(usdinr_df, "USD/INR")
+    if macro_df is not None and not macro_df.empty:
+        macro_df = _deduplicate_by_date(macro_df, "macro")
+
     date_range = pd.date_range(
         start=max(gold_df["Date"].min(), usdinr_df["Date"].min()),
         end=min(gold_df["Date"].max(), usdinr_df["Date"].max()),
@@ -446,15 +491,15 @@ def get_feature_columns() -> list:
 
 # ─── Main Pipeline ────────────────────────────────────────────────────────────
 
-def build_dataset(use_macro: bool = True) -> pd.DataFrame:
-    """Full pipeline: load → merge → feature engineering → return clean df."""
+def build_dataset(use_macro: bool = True, drop_target_na: bool = True) -> pd.DataFrame:
+    """Full pipeline: load -> merge -> feature engineering -> return clean df."""
     print("Loading Gold Rate CSV...")
     gold = load_gold()
-    print(f"  Gold rows: {len(gold)} | Range: {gold['Date'].min().date()} → {gold['Date'].max().date()}")
+    print(f"  Gold rows: {len(gold)} | Range: {gold['Date'].min().date()} -> {gold['Date'].max().date()}")
 
     print("Loading USD/INR CSV...")
     usdinr = load_usdinr()
-    print(f"  USD/INR rows: {len(usdinr)} | Range: {usdinr['Date'].min().date()} → {usdinr['Date'].max().date()}")
+    print(f"  USD/INR rows: {len(usdinr)} | Range: {usdinr['Date'].min().date()} -> {usdinr['Date'].max().date()}")
 
     macro = None
     if use_macro:
@@ -468,7 +513,7 @@ def build_dataset(use_macro: bool = True) -> pd.DataFrame:
     macro_missing = [c for c in macro_cols_expected if c not in macro_present]
     print(f"  Merged rows: {len(df)} | Macro features active: {macro_present or 'NONE'}")
     if macro_missing and use_macro:
-        print(f"  WARNING: Macro features missing: {macro_missing} — model accuracy will be reduced")
+        print(f"  WARNING: Macro features missing: {macro_missing} - model accuracy will be reduced")
 
     # Merge daily sentiment history (left join — neutral fill for historical dates)
     sentiment_csv = DATASET_DIR / "sentiment_logs.csv"
@@ -486,10 +531,9 @@ def build_dataset(use_macro: bool = True) -> pd.DataFrame:
     df = add_features(df)
 
     # Only require non-macro features — macro features are optional
-    core_features = [
-        "price_lag_1", "rolling_mean_7", "rsi_14", "USD_INR",
-        "log_return_1", "next_day_price", "next_day_return",
-    ]
+    core_features = ["price_lag_1", "rolling_mean_7", "rsi_14", "USD_INR", "log_return_1"]
+    if drop_target_na:
+        core_features.extend(["next_day_price", "next_day_return"])
     df = df.dropna(subset=[c for c in core_features if c in df.columns])
     print(f"  Final rows (after dropna): {len(df)}")
 

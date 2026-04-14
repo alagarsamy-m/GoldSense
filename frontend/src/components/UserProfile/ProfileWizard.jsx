@@ -44,7 +44,7 @@ export default function ProfileWizard({ onComplete }) {
   const [saving, setSaving] = useState(false)
   const [form, setForm] = useState({
     full_name: '',
-    city: 'Chennai',
+    city: 'Mumbai',
     gold_holdings_grams: '',
     gold_holdings_value_inr: '',
     monthly_budget_inr: '',
@@ -135,7 +135,7 @@ export default function ProfileWizard({ onComplete }) {
               </div>
               <div>
                 <label className={labelClass}>City</label>
-                <input type="text" className={inputClass} placeholder="e.g. Chennai" value={form.city} onChange={e => set('city', e.target.value)} />
+                <input type="text" className={inputClass} placeholder="e.g. Mumbai" value={form.city} onChange={e => set('city', e.target.value)} />
               </div>
             </div>
           )}

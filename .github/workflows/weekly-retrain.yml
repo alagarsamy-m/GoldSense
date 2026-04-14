@@ -1,25 +1,16 @@
 name: Weekly Model Retraining
 
-# ─────────────────────────────────────────────────────────────────────
-# Full model retrain with Optuna hyperparameter tuning.
-# Triggers:
-#   - Every Monday 6 AM UTC (scheduled)
-#   - When daily pipeline detects drift (workflow_call)
-#   - Manual trigger from GitHub Actions UI
-# ─────────────────────────────────────────────────────────────────────
-
 on:
   schedule:
-    - cron: '0 6 * * 1'  # Monday 6 AM UTC (11:30 AM IST)
+    - cron: '0 6 * * 1'
   workflow_dispatch:
-  workflow_call:  # Allow daily pipeline to trigger this on drift
+  workflow_call:
 
 permissions:
   contents: write
 
 jobs:
   retrain:
-    name: Retrain Model & Deploy
     runs-on: ubuntu-latest
 
     steps:
@@ -27,7 +18,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 1
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
@@ -35,18 +25,18 @@ jobs:
           python-version: '3.11'
           cache: 'pip'
 
-      - name: Install ML dependencies
+      - name: Install dependencies
         run: |
           pip install --upgrade pip
           pip install -r ml/requirements.txt
+          pip install -r backend/requirements.txt
 
-      # ── Update data (in case daily didn't run) ──────────────────────
-      - name: Fetch latest market data
+      - name: Refresh market data
         run: |
           cd ml
           python update_data.py
 
-      - name: Log sentiment
+      - name: Refresh sentiment
         env:
           ALPHAVANTAGE_KEY: ${{ secrets.ALPHAVANTAGE_KEY }}
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
@@ -55,21 +45,29 @@ jobs:
           python sentiment_service.py --refresh
         continue-on-error: true
 
-      # ── Evaluate pending prediction ─────────────────────────────────
-      - name: Evaluate last prediction
+      - name: Evaluate outstanding forecasts
+        env:
+          ALPHAVANTAGE_KEY: ${{ secrets.ALPHAVANTAGE_KEY }}
+          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
         run: |
           cd ml
           python evaluate.py
         continue-on-error: true
 
-      # ── Full Retrain with Optuna ────────────────────────────────────
-      - name: Retrain XGBoost model (full Optuna tuning)
+      - name: Retrain XGBoost models
         run: |
           cd ml
-          python train.py  # Full tuning (no --no-tune flag)
+          python train.py
 
-      # ── Commit Everything ───────────────────────────────────────────
-      - name: Commit updated model + data
+      - name: Generate public snapshots
+        env:
+          ALPHAVANTAGE_KEY: ${{ secrets.ALPHAVANTAGE_KEY }}
+          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+        run: |
+          cd ml
+          python generate_public_snapshots.py
+
+      - name: Commit updated model and artifacts
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
@@ -79,6 +77,7 @@ jobs:
             dataset/macro_data.csv \
             dataset/prediction_logs.csv \
             dataset/sentiment_logs.csv \
+            frontend/public/snapshots/*.json \
             ml/model/gold_model.pkl \
             ml/model/gold_model_q10.pkl \
             ml/model/gold_model_q90.pkl \
@@ -87,11 +86,16 @@ jobs:
             ml/model/pending_prediction.json \
             ml/model/system_status.json \
             2>/dev/null || true
-          git diff --staged --quiet || git commit -m "retrain: model update $(date -u '+%Y-%m-%d') [skip ci]"
+          git diff --staged --quiet || git commit -m "retrain: model + snapshot update $(date -u '+%Y-%m-%d') [skip ci]"
           git push
         continue-on-error: true
 
-      - name: Upload model artifact
+      - name: Trigger Render deployment
+        run: |
+          curl -s "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
+          echo "Render deployment triggered"
+
+      - name: Upload model artifacts
         uses: actions/upload-artifact@v4
         with:
           name: trained-model-${{ github.run_number }}
@@ -102,29 +106,3 @@ jobs:
             ml/model/gold_direction_model.pkl
             ml/model/model_metadata.json
           retention-days: 30
-
-      - name: Trigger Render deployment
-        run: |
-          curl -s "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
-          echo "Render deployment triggered"
-
-      - name: Write retrain summary
-        run: |
-          echo "## Model Retrained - $(date -u '+%Y-%m-%d')" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          if [ -f ml/model/model_metadata.json ]; then
-            echo '```json' >> $GITHUB_STEP_SUMMARY
-            python3 -c "
-          import json
-          with open('ml/model/model_metadata.json') as f:
-              m = json.load(f)
-          print(json.dumps({
-              'trained_at': m['trained_at'],
-              'metrics': m['metrics'],
-              'features_count': len(m.get('features', [])),
-              'macro_features': m.get('macro_features', False),
-              'has_direction_model': m.get('has_direction_model', False),
-          }, indent=2))
-          " >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
-          fi

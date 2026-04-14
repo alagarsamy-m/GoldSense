@@ -1,96 +1,131 @@
-import { useState, useEffect, useRef } from 'react'
-import { TrendingUp, TrendingDown, Gem } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import { useLocation } from 'react-router-dom'
+import { TrendingDown, TrendingUp } from 'lucide-react'
 import { getLiveTodayPrice } from '../../services/api'
+import { getTodaySnapshot } from '../../services/snapshots'
+import { formatInr, formatUsd, loadSnapshotFirst, normalizeToday } from '../../utils/marketData'
 
-const REFRESH_MS = 5 * 60 * 1000
+const REFRESH_MS = 5 * 1000
 
 export default function LiveTicker() {
+  const location = useLocation()
   const [data, setData] = useState(null)
-  const [prevPrice, setPrevPrice] = useState(null)
   const [flash, setFlash] = useState(false)
-  const intervalRef = useRef(null)
-
-  const fetchPrice = async () => {
-    try {
-      const result = await getLiveTodayPrice()
-      if (result) {
-        setPrevPrice(data?.live_usd || null)
-        setData(result)
-        setFlash(true)
-        setTimeout(() => setFlash(false), 800)
-      }
-    } catch { /* non-critical */ }
-  }
+  const previousUsd = useRef(null)
+  const currentUsd = useRef(null)
+  const isDashboardRoute = location.pathname.startsWith('/dashboard')
 
   useEffect(() => {
-    fetchPrice()
-    intervalRef.current = setInterval(fetchPrice, REFRESH_MS)
-    return () => clearInterval(intervalRef.current)
+    let active = true
+    let flashTimeout = null
+
+    const setTickerData = (payload) => {
+      if (!active || !payload?.live_usd) return
+      previousUsd.current = currentUsd.current
+      currentUsd.current = payload.live_usd
+      setData(payload)
+      setFlash(true)
+      if (flashTimeout) window.clearTimeout(flashTimeout)
+      flashTimeout = window.setTimeout(() => setFlash(false), 900)
+    }
+
+    const hydrate = async () => {
+      try {
+        const snapshotData = await loadSnapshotFirst(
+          getTodaySnapshot,
+          getLiveTodayPrice,
+          normalizeToday,
+          (result) => result?.live_usd != null,
+        )
+        setTickerData(snapshotData)
+      } catch {
+        // Non-critical.
+      }
+
+      try {
+        const liveData = normalizeToday(await getLiveTodayPrice())
+        setTickerData(liveData)
+      } catch {
+        // Keep the snapshot value if live refresh fails.
+      }
+    }
+
+    hydrate()
+    const interval = window.setInterval(async () => {
+      try {
+        const liveData = normalizeToday(await getLiveTodayPrice())
+        setTickerData(liveData)
+      } catch {
+        // Ignore background refresh failures.
+      }
+    }, REFRESH_MS)
+
+    return () => {
+      active = false
+      if (flashTimeout) window.clearTimeout(flashTimeout)
+      window.clearInterval(interval)
+    }
   }, [])
 
-  if (!data) return null
+  if (!data?.live_usd) return null
 
-  const change = prevPrice ? data.live_usd - prevPrice : 0
+  const change = previousUsd.current != null ? data.live_usd - previousUsd.current : 0
   const isUp = change > 0
-
-  const fmt = (v) => `₹${Number(v).toLocaleString('en-IN', { maximumFractionDigits: 0 })}`
+  const statusTone = data.market_status === 'live' ? 'text-green-400' : 'text-amber-400'
 
   return (
-    <div className="w-full bg-gradient-to-r from-slate-900/98 via-slate-900/95 to-slate-900/98 border-b border-amber-500/10 backdrop-blur-md z-50">
-      <div className="max-w-7xl mx-auto px-3 py-1.5 flex items-center gap-4 overflow-x-auto text-[11px]">
-        {/* Live dot */}
-        <div className="flex items-center gap-1.5 shrink-0">
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
+    <div className="z-50 w-full border-b border-amber-500/10 bg-gradient-to-r from-slate-900/98 via-slate-900/95 to-slate-900/98 backdrop-blur-md">
+      <div className={isDashboardRoute ? 'lg:pl-64' : ''}>
+        <div className="mx-auto flex max-w-7xl items-center gap-4 overflow-x-auto px-3 py-1.5 text-[11px]">
+          <div className="flex shrink-0 items-center gap-1.5">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className={`absolute inline-flex h-full w-full animate-ping rounded-full ${data.market_status === 'live' ? 'bg-green-400' : 'bg-amber-400'} opacity-75`} />
+              <span className={`relative inline-flex h-1.5 w-1.5 rounded-full ${data.market_status === 'live' ? 'bg-green-500' : 'bg-amber-500'}`} />
+            </span>
+            <span className={`text-[9px] font-bold uppercase tracking-widest ${statusTone}`}>
+              {data.market_status === 'live' ? 'Live' : 'Delayed'}
+            </span>
+          </div>
+
+          <div className="flex shrink-0 items-center gap-1.5">
+            <span className="text-slate-600">Gold</span>
+            <span
+              className={`price-number font-bold transition-colors duration-500 ${
+                flash ? (isUp ? 'text-green-400' : 'text-red-400') : 'text-amber-400'
+              }`}
+            >
+              {formatUsd(data.live_usd)}
+            </span>
+            {change !== 0 && (isUp ? <TrendingUp size={9} className="text-green-400" /> : <TrendingDown size={9} className="text-red-400" />)}
+          </div>
+
+          <span className="hidden text-slate-800 sm:inline">|</span>
+
+          <div className="hidden shrink-0 items-center gap-1 sm:flex">
+            <span className="text-amber-400/70">24k</span>
+            <span className="price-number font-semibold text-white">{formatInr(data.price_24k_per_gram)}</span>
+            <span className="text-slate-600">/g</span>
+          </div>
+
+          <span className="hidden text-slate-800 sm:inline">|</span>
+
+          <div className="hidden shrink-0 items-center gap-1 sm:flex">
+            <span className="text-slate-400">22k</span>
+            <span className="price-number font-semibold text-slate-200">{formatInr(data.price_22k_per_gram)}</span>
+            <span className="text-slate-600">/g</span>
+          </div>
+
+          <span className="hidden text-slate-800 md:inline">|</span>
+
+          <div className="hidden shrink-0 items-center gap-1 md:flex">
+            <span className="text-slate-600">USD/INR</span>
+            <span className="price-number text-slate-400">{data.usd_inr_rate}</span>
+          </div>
+
+          <span className="ml-auto hidden shrink-0 text-slate-700 sm:inline">
+            {data.source} | auto-refresh 5s
           </span>
-          <span className="text-green-400 font-bold tracking-widest uppercase text-[9px]">Live</span>
         </div>
-
-        {/* Gold USD */}
-        <div className="flex items-center gap-1.5 shrink-0">
-          <span className="text-slate-600">Gold</span>
-          <span className={`font-bold price-number transition-colors duration-500 ${
-            flash ? (isUp ? 'text-green-400' : 'text-red-400') : 'text-amber-400'
-          }`}>
-            ${data.live_usd?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-          </span>
-          {change !== 0 && (isUp
-            ? <TrendingUp size={9} className="text-green-400" />
-            : <TrendingDown size={9} className="text-red-400" />
-          )}
-        </div>
-
-        <span className="text-slate-800 hidden sm:inline">|</span>
-
-        {/* 24k */}
-        <div className="flex items-center gap-1 shrink-0 hidden sm:flex">
-          <Gem size={8} className="text-amber-500/60" />
-          <span className="text-amber-400/60">24k</span>
-          <span className="text-white font-semibold price-number">{fmt(data.price_24k_per_gram)}</span>
-          <span className="text-slate-600">/g</span>
-        </div>
-
-        <span className="text-slate-800 hidden sm:inline">|</span>
-
-        {/* 22k */}
-        <div className="flex items-center gap-1 shrink-0 hidden sm:flex">
-          <Gem size={8} className="text-purple-500/60" />
-          <span className="text-purple-400/60">22k</span>
-          <span className="text-slate-200 font-semibold price-number">{fmt(data.price_22k_per_gram)}</span>
-          <span className="text-slate-600">/g</span>
-        </div>
-
-        <span className="text-slate-800 hidden md:inline">|</span>
-
-        {/* USD/INR */}
-        <div className="flex items-center gap-1 shrink-0 hidden md:flex">
-          <span className="text-slate-600">USD/INR</span>
-          <span className="text-slate-400 price-number">₹{data.usd_inr_rate}</span>
-        </div>
-
-        {/* Spacer + update indicator */}
-        <span className="ml-auto text-slate-700 shrink-0 hidden sm:inline">auto-refresh 5m</span>
       </div>
     </div>
   )
