@@ -5,6 +5,8 @@ import LiveTicker from './components/LiveTicker/LiveTicker'
 import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
 import AuthCallback from './pages/AuthCallback'
+import Learn from './pages/Learn'
+import Dev from './pages/Dev'
 
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth()
@@ -31,6 +33,8 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/learn" element={<Learn />} />
+      <Route path="/dev" element={<Dev />} />
       <Route path="/auth/callback" element={<AuthCallback />} />
       <Route
         path="/dashboard"

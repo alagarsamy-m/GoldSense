@@ -34,6 +34,9 @@ export const getWeekForecast = () =>
 export const getAccuracyLogs = (limit = 30) =>
   api.get(`/api/prediction/accuracy?limit=${limit}`).then(r => r.data)
 
+export const getAccuracyLogsByHorizon = (limit = 30, horizon = 'D1') =>
+  api.get(`/api/prediction/accuracy?limit=${limit}&horizon=${encodeURIComponent(horizon)}`).then(r => r.data)
+
 export const getModelInfo = () =>
   api.get('/api/prediction/model-info').then(r => r.data)
 
@@ -53,6 +56,15 @@ export const getRecommendations = () =>
 
 export const getDashboard = () =>
   api.get('/api/user/dashboard', { requiresAuth: true }).then(r => r.data)
+
+export const getNotificationSettings = () =>
+  api.get('/api/user/notifications', { requiresAuth: true }).then(r => r.data)
+
+export const upsertNotificationSubscription = (data) =>
+  api.post('/api/user/notifications/subscribe', data, { requiresAuth: true }).then(r => r.data)
+
+export const disableNotificationSubscription = (data) =>
+  api.delete('/api/user/notifications/subscribe', { data, requiresAuth: true }).then(r => r.data)
 
 export const sendChatMessage = (messages, includeHistory = true) =>
   api.post('/api/chatbot/message', { messages, include_history: includeHistory }, { requiresAuth: true })

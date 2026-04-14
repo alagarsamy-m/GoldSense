@@ -107,3 +107,60 @@ class ChatHistoryService:
             {"user_id": user_id, "role": "assistant", "content": assistant_response},
         ]
         supabase.table("chat_history").insert(rows).execute()
+
+
+class PushSubscriptionService:
+    """Database operations for web push subscriptions."""
+
+    @staticmethod
+    def list_user_subscriptions(user_id: str) -> list[dict]:
+        supabase = get_supabase()
+        response = (
+            supabase.table("push_subscriptions")
+            .select("*")
+            .eq("user_id", user_id)
+            .order("updated_at", desc=True)
+            .execute()
+        )
+        return response.data or []
+
+    @staticmethod
+    def upsert_subscription(user_id: str, token: str, payload: dict) -> dict:
+        supabase = get_supabase()
+        data = {
+            "user_id": user_id,
+            "fcm_token": token,
+            "enabled": payload.get("enabled", True),
+            "device_label": payload.get("device_label"),
+            "browser": payload.get("browser"),
+            "notification_time_utc": payload.get("notification_time_utc", "03:00"),
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+        }
+        response = (
+            supabase.table("push_subscriptions")
+            .upsert(data, on_conflict="user_id,fcm_token")
+            .execute()
+        )
+        return response.data[0] if response.data else {}
+
+    @staticmethod
+    def disable_subscription(user_id: str, token: str) -> None:
+        supabase = get_supabase()
+        (
+            supabase.table("push_subscriptions")
+            .update({"enabled": False, "updated_at": datetime.now(timezone.utc).isoformat()})
+            .eq("user_id", user_id)
+            .eq("fcm_token", token)
+            .execute()
+        )
+
+    @staticmethod
+    def list_enabled_tokens() -> list[dict]:
+        supabase = get_supabase()
+        response = (
+            supabase.table("push_subscriptions")
+            .select("*")
+            .eq("enabled", True)
+            .execute()
+        )
+        return response.data or []

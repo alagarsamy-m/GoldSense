@@ -1,282 +1,210 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
-import {
-  BarChart2, CheckCircle, XCircle, AlertTriangle, Activity,
-  TrendingUp, TrendingDown, Minus, RefreshCw, Shield
-} from 'lucide-react'
+import { BarChart2, Expand, RefreshCw, Shield } from 'lucide-react'
 import { getAccuracyLogs, getSystemStatus } from '../../services/api'
+import { getAccuracySnapshot } from '../../services/snapshots'
+import {
+  buildAccuracySummary,
+  formatInr,
+  formatSignedInr,
+  formatSignedUsd,
+  formatUsd,
+  loadSnapshotFirst,
+  normalizeAccuracy,
+} from '../../utils/marketData'
 
-function YesterdayCard({ logs }) {
-  if (!logs || logs.length === 0) return null
-
-  const latest = logs[0]
-  const err = Math.abs(latest.pct_error || 0)
-  const isGood = err < 2
-  const dirOk = latest.direction_correct === 1
+function SummaryCards({ summary, status }) {
+  if (!summary) return null
 
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      className={`rounded-xl p-5 border ${
-        isGood && dirOk
-          ? 'bg-green-500/5 border-green-500/20'
-          : isGood || dirOk
-            ? 'bg-amber-500/5 border-amber-500/20'
-            : 'bg-red-500/5 border-red-500/20'
-      }`}
-    >
-      <div className="flex items-center justify-between mb-3">
-        <div className="flex items-center gap-2">
-          {isGood && dirOk ? (
-            <CheckCircle size={18} className="text-green-400" />
-          ) : (
-            <AlertTriangle size={18} className="text-amber-400" />
-          )}
-          <h3 className="text-sm font-semibold text-white">Yesterday's Result</h3>
-        </div>
-        <span className="text-xs text-slate-500">{latest.prediction_date}</span>
+    <div className="grid gap-3 md:grid-cols-4">
+      <div className="rounded-2xl bg-slate-800/50 p-4 text-center">
+        <p className="text-xs text-slate-500">Avg MAPE</p>
+        <p className="price-number mt-1 text-lg font-bold text-amber-400">{summary.avg_mape.toFixed(2)}%</p>
       </div>
-
-      <div className="grid grid-cols-3 gap-4">
-        <div>
-          <p className="text-xs text-slate-500 mb-0.5">We Predicted</p>
-          <p className="text-lg font-bold text-white price-number">
-            ${Number(latest.predicted_price_usd).toLocaleString('en-US', { maximumFractionDigits: 0 })}
-          </p>
-        </div>
-        <div>
-          <p className="text-xs text-slate-500 mb-0.5">Actual Price</p>
-          <p className="text-lg font-bold text-amber-400 price-number">
-            ${Number(latest.actual_price_usd).toLocaleString('en-US', { maximumFractionDigits: 0 })}
-          </p>
-        </div>
-        <div>
-          <p className="text-xs text-slate-500 mb-0.5">Accuracy</p>
-          <p className={`text-lg font-bold price-number ${isGood ? 'text-green-400' : 'text-red-400'}`}>
-            {(100 - err).toFixed(1)}%
-          </p>
-        </div>
+      <div className="rounded-2xl bg-slate-800/50 p-4 text-center">
+        <p className="text-xs text-slate-500">Direction Match</p>
+        <p className="price-number mt-1 text-lg font-bold text-white">{summary.direction_accuracy.toFixed(1)}%</p>
       </div>
-
-      <div className="flex items-center gap-3 mt-3 pt-3 border-t border-slate-700/30">
-        <span className={`flex items-center gap-1 text-xs px-2 py-0.5 rounded-full ${
-          dirOk ? 'bg-green-400/10 text-green-400' : 'bg-red-400/10 text-red-400'
-        }`}>
-          {dirOk ? <CheckCircle size={10} /> : <XCircle size={10} />}
-          Direction {dirOk ? 'Correct' : 'Missed'}
-        </span>
-        <span className={`text-xs px-2 py-0.5 rounded-full ${
-          isGood ? 'bg-green-400/10 text-green-400' : 'bg-amber-500/10 text-amber-400'
-        }`}>
-          {err.toFixed(2)}% error
-        </span>
-        <span className="text-xs text-slate-500">
-          Off by ${Math.abs(latest.difference || 0).toFixed(2)}
-        </span>
+      <div className="rounded-2xl bg-slate-800/50 p-4 text-center">
+        <p className="text-xs text-slate-500">Avg USD Difference</p>
+        <p className="price-number mt-1 text-lg font-bold text-white">{formatUsd(summary.avg_usd_diff)}</p>
       </div>
-    </motion.div>
+      <div className="rounded-2xl bg-slate-800/50 p-4 text-center">
+        <p className="text-xs text-slate-500">Updated</p>
+        <p className="mt-1 text-sm font-semibold text-white">
+          {status?.updated_at ? new Date(status.updated_at).toLocaleDateString() : 'Daily'}
+        </p>
+      </div>
+    </div>
   )
 }
 
-function SystemHealthCard({ status }) {
-  if (!status || status.pipeline === 'no_data') {
-    return (
-      <div className="rounded-xl bg-slate-800/40 border border-slate-700/40 p-4">
-        <div className="flex items-center gap-2 mb-2">
-          <Activity size={16} className="text-slate-500" />
-          <span className="text-sm font-medium text-slate-400">System Status</span>
-        </div>
-        <p className="text-xs text-slate-600">No evaluation data yet. The daily pipeline will populate this.</p>
-      </div>
-    )
-  }
-
-  const drift = status.drift || {}
-  const rolling7 = status.rolling_metrics?.last_7 || {}
-  const streak = status.streak || {}
-  const insights = status.insights || []
-
-  const isHealthy = !drift.drift_detected
-  const streakIcon = streak.type === 'correct'
-    ? <TrendingUp size={12} className="text-green-400" />
-    : streak.type === 'incorrect'
-      ? <TrendingDown size={12} className="text-red-400" />
-      : <Minus size={12} className="text-slate-500" />
-
+function AccuracyTable({ rows }) {
   return (
-    <div className="rounded-xl bg-slate-800/40 border border-slate-700/40 p-4">
-      <div className="flex items-center justify-between mb-3">
-        <div className="flex items-center gap-2">
-          <Shield size={16} className={isHealthy ? 'text-green-400' : 'text-red-400'} />
-          <span className="text-sm font-medium text-white">MLOps Health</span>
-        </div>
-        <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${
-          isHealthy ? 'bg-green-400/10 text-green-400' : 'bg-red-400/10 text-red-400'
-        }`}>
-          {isHealthy ? 'Healthy' : 'Drift Detected'}
-        </span>
-      </div>
-
-      <div className="grid grid-cols-3 gap-3 mb-3">
-        <div className="text-center">
-          <p className="text-xs text-slate-500">7-day MAPE</p>
-          <p className="text-sm font-bold text-white price-number">{rolling7.avg_mape ?? '—'}%</p>
-        </div>
-        <div className="text-center">
-          <p className="text-xs text-slate-500">Direction</p>
-          <p className="text-sm font-bold text-white price-number">{rolling7.direction_accuracy ?? '—'}%</p>
-        </div>
-        <div className="text-center">
-          <p className="text-xs text-slate-500">Streak</p>
-          <p className="text-sm font-bold text-white flex items-center justify-center gap-1">
-            {streakIcon} {streak.count ?? 0}
-          </p>
-        </div>
-      </div>
-
-      {insights.length > 0 && (
-        <div className="border-t border-slate-700/30 pt-2">
-          {insights.slice(0, 2).map((ins, i) => (
-            <p key={i} className="text-xs text-amber-400/80 mt-1">
-              {ins.message}
-            </p>
+    <div className="overflow-x-auto">
+      <table className="min-w-full text-sm">
+        <thead>
+          <tr className="border-b border-slate-700/40 text-left text-xs text-slate-500">
+            <th className="pb-3 pr-4 font-medium">Date</th>
+            <th className="pb-3 pr-4 font-medium">Pred USD/oz</th>
+            <th className="pb-3 pr-4 font-medium">Pred 24k</th>
+            <th className="pb-3 pr-4 font-medium">Pred 22k</th>
+            <th className="pb-3 pr-4 font-medium">Actual USD/oz</th>
+            <th className="pb-3 pr-4 font-medium">Actual 24k</th>
+            <th className="pb-3 pr-4 font-medium">Actual 22k</th>
+            <th className="pb-3 pr-4 font-medium">USD Diff</th>
+            <th className="pb-3 pr-4 font-medium">24k Diff</th>
+            <th className="pb-3 pr-4 font-medium">22k Diff</th>
+            <th className="pb-3 font-medium">Move</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr key={`${row.target_date}-${row.predicted_on || 'none'}`} className="border-b border-slate-800/40">
+              <td className="py-3 pr-4">
+                <p className="text-white">{row.target_date}</p>
+                {row.predicted_on && <p className="text-[11px] text-slate-500">logged daily</p>}
+              </td>
+              <td className="price-number py-3 pr-4 text-white">{formatUsd(row.predicted_price_usd)}</td>
+              <td className="price-number py-3 pr-4 text-amber-300">{formatInr(row.predicted_price_24k_per_gram)}</td>
+              <td className="price-number py-3 pr-4 text-slate-200">{formatInr(row.predicted_price_22k_per_gram)}</td>
+              <td className="price-number py-3 pr-4 text-white">{formatUsd(row.actual_price_usd)}</td>
+              <td className="price-number py-3 pr-4 text-amber-300">{formatInr(row.actual_price_24k_per_gram)}</td>
+              <td className="price-number py-3 pr-4 text-slate-200">{formatInr(row.actual_price_22k_per_gram)}</td>
+              <td className="price-number py-3 pr-4 text-white">{formatSignedUsd(row.difference)}</td>
+              <td className="price-number py-3 pr-4 text-amber-300">{formatSignedInr(row.difference_24k_per_gram)}</td>
+              <td className="price-number py-3 pr-4 text-slate-200">{formatSignedInr(row.difference_22k_per_gram)}</td>
+              <td className="py-3 text-slate-300">
+                {row.actual_trend === 'up' ? 'Rise' : row.actual_trend === 'down' ? 'Fall' : 'Stable'}
+              </td>
+            </tr>
           ))}
-        </div>
-      )}
-
-      {status.updated_at && (
-        <p className="text-[10px] text-slate-600 mt-2">
-          Last evaluated: {new Date(status.updated_at).toLocaleString()}
-        </p>
-      )}
+        </tbody>
+      </table>
     </div>
   )
 }
 
 export default function AccuracyLog() {
-  const [logs, setLogs] = useState([])
+  const [rows, setRows] = useState([])
   const [status, setStatus] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [expanded, setExpanded] = useState(false)
+
+  const loadRows = async ({ silent = false } = {}) => {
+    if (!silent) setLoading(true)
+
+    try {
+      const snapshot = await loadSnapshotFirst(
+        getAccuracySnapshot,
+        () => getAccuracyLogs(5000),
+        normalizeAccuracy,
+        (result) => Array.isArray(result?.full_history) && result.full_history.length > 0,
+      )
+      setRows(snapshot.full_history)
+      getSystemStatus().then(setStatus).catch(() => setStatus(null))
+
+      try {
+        const apiRows = normalizeAccuracy(await getAccuracyLogs(5000))
+        if (apiRows.full_history.length) setRows(apiRows.full_history)
+      } catch {
+        // Keep snapshot data.
+      }
+    } catch {
+      setRows([])
+    } finally {
+      setLoading(false)
+    }
+  }
 
   useEffect(() => {
-    Promise.all([
-      getAccuracyLogs(20).catch(() => ({ logs: [] })),
-      getSystemStatus().catch(() => null),
-    ]).then(([logData, statusData]) => {
-      setLogs(logData.logs || [])
-      setStatus(statusData)
-    }).finally(() => setLoading(false))
+    loadRows({ silent: false })
   }, [])
 
-  const stats = logs.length > 0 ? {
-    avgMape: (logs.reduce((a, l) => a + (l.pct_error || 0), 0) / logs.length).toFixed(2),
-    avgMae: (logs.reduce((a, l) => a + Math.abs(l.difference || 0), 0) / logs.length).toFixed(2),
-    totalPredictions: logs.length,
-    withinPercent: ((logs.filter(l => Math.abs(l.pct_error || 0) < 2).length / logs.length) * 100).toFixed(0),
-    directionAcc: ((logs.filter(l => l.direction_correct === 1).length / logs.length) * 100).toFixed(1),
-  } : null
+  const previewRows = useMemo(() => rows.slice(0, 7), [rows])
+  const summary = useMemo(() => buildAccuracySummary(rows), [rows])
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.2 }}
       className="glass-card rounded-2xl p-6 md:p-8 gold-border"
     >
-      {/* Header */}
-      <div className="flex items-center gap-3 mb-6">
-        <div className="w-9 h-9 bg-amber-500/15 rounded-lg flex items-center justify-center">
-          <BarChart2 size={18} className="text-amber-400" />
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-amber-500/15">
+            <BarChart2 size={18} className="text-amber-400" />
+          </div>
+          <div>
+            <h2 className="text-lg font-bold text-white">Prediction Accuracy</h2>
+            <p className="text-xs text-slate-500">The last 7 realized days are shown below. Open the full history for the full record.</p>
+          </div>
         </div>
-        <div>
-          <h2 className="text-lg font-bold text-white">Prediction Accuracy</h2>
-          <p className="text-xs text-slate-500">Daily evaluation — predicted vs actual gold price</p>
-        </div>
+
+        <button
+          onClick={() => loadRows({ silent: Boolean(rows.length) })}
+          className="rounded-lg p-2 text-slate-600 transition-all hover:bg-amber-500/10 hover:text-amber-400"
+          title="Refresh accuracy logs"
+        >
+          <RefreshCw size={15} />
+        </button>
       </div>
 
-      {loading ? (
+      {loading && !rows.length ? (
         <div className="flex justify-center py-8">
-          <div className="w-6 h-6 border-2 border-amber-500 border-t-transparent rounded-full animate-spin" />
+          <div className="h-6 w-6 animate-spin rounded-full border-2 border-amber-500 border-t-transparent" />
         </div>
-      ) : logs.length === 0 ? (
-        <div className="text-center py-10 text-slate-500">
+      ) : rows.length === 0 ? (
+        <div className="py-10 text-center text-slate-500">
           <BarChart2 size={40} className="mx-auto mb-3 opacity-30" />
-          <p>No accuracy data yet. The daily pipeline will start logging predictions.</p>
+          <p>No realized rows yet.</p>
         </div>
       ) : (
         <>
-          {/* Yesterday's Result — Hero Card */}
-          <YesterdayCard logs={logs} />
+          <SummaryCards summary={summary} status={status} />
 
-          {/* System Health + Stats Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-            <SystemHealthCard status={status} />
-
-            {/* Summary Stats */}
-            {stats && (
-              <div className="grid grid-cols-2 gap-3 content-start">
-                {[
-                  { label: 'Avg MAPE', value: `${stats.avgMape}%` },
-                  { label: 'Direction Acc', value: `${stats.directionAcc}%` },
-                  { label: 'Within 2%', value: `${stats.withinPercent}%` },
-                  { label: 'Total Logged', value: stats.totalPredictions },
-                ].map(s => (
-                  <div key={s.label} className="bg-slate-800/50 rounded-xl p-3 text-center">
-                    <p className="text-xs text-slate-500 mb-0.5">{s.label}</p>
-                    <p className="price-number text-base font-bold text-amber-400">{s.value}</p>
-                  </div>
-                ))}
-              </div>
-            )}
+          <div className="mt-6">
+            <AccuracyTable rows={previewRows} />
           </div>
 
-          {/* Accuracy Table */}
-          <div className="overflow-x-auto mt-6">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-slate-700/50">
-                  {['Date', 'Predicted', 'Actual', 'Error', 'Dir'].map(h => (
-                    <th key={h} className="text-left text-xs text-slate-500 font-medium pb-3 pr-4">{h}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {logs.map((log, i) => {
-                  const isGood = Math.abs(log.pct_error || 0) < 2
-                  const dirOk = log.direction_correct === 1
-                  return (
-                    <tr key={i} className="border-b border-slate-800/30 hover:bg-slate-800/20 transition-colors">
-                      <td className="py-2 pr-4 text-slate-400 text-xs">{log.prediction_date}</td>
-                      <td className="py-2 pr-4 price-number text-white text-xs">
-                        ${Number(log.predicted_price_usd).toLocaleString('en-US', { maximumFractionDigits: 0 })}
-                      </td>
-                      <td className="py-2 pr-4 price-number text-white text-xs">
-                        ${Number(log.actual_price_usd).toLocaleString('en-US', { maximumFractionDigits: 0 })}
-                      </td>
-                      <td className="py-2 pr-4">
-                        <span className={`text-xs font-medium ${isGood ? 'text-green-400' : 'text-amber-400'}`}>
-                          {Math.abs(log.pct_error || 0).toFixed(2)}%
-                        </span>
-                      </td>
-                      <td className="py-2">
-                        {dirOk
-                          ? <CheckCircle size={14} className="text-green-400" />
-                          : <XCircle size={14} className="text-red-400/60" />
-                        }
-                      </td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </table>
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+            <p className="flex items-center gap-1 text-xs text-slate-600">
+              <Shield size={12} /> The log refreshes daily after evaluation runs and actual market data becomes available for that date.
+            </p>
+            <button
+              onClick={() => setExpanded(true)}
+              className="inline-flex items-center gap-2 rounded-xl border border-amber-500/20 bg-amber-500/10 px-4 py-2 text-sm font-medium text-amber-300 transition-colors hover:bg-amber-500/15"
+            >
+              <Expand size={14} />
+              Open Full Table
+            </button>
           </div>
         </>
       )}
 
-      <p className="text-xs text-slate-600 mt-4">
-        Evaluated daily via automated MLOps pipeline. Model auto-retrains when drift is detected.
-      </p>
+      {expanded && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/90 p-4 backdrop-blur-sm">
+          <div className="flex max-h-[88vh] w-full max-w-7xl flex-col rounded-3xl border border-slate-800 bg-slate-950 shadow-2xl">
+            <div className="flex items-center justify-between border-b border-slate-800 px-6 py-4">
+              <div>
+                <h3 className="text-lg font-bold text-white">Full Accuracy History</h3>
+                <p className="text-xs text-slate-500">All realized prediction logs, newest first.</p>
+              </div>
+              <button
+                onClick={() => setExpanded(false)}
+                className="rounded-xl border border-slate-700 px-3 py-2 text-sm text-slate-300 transition-colors hover:border-slate-500 hover:text-white"
+              >
+                Close
+              </button>
+            </div>
+
+            <div className="overflow-auto p-6">
+              <AccuracyTable rows={rows} />
+            </div>
+          </div>
+        </div>
+      )}
     </motion.div>
   )
 }

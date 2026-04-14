@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="goldsense-favicon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#ea580c" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="#0f172a" />
+  <rect x="10" y="10" width="44" height="44" rx="14" fill="url(#goldsense-favicon)" />
+  <path
+    d="M20 39.5L28 31.5L34 35.5L44 23.5"
+    fill="none"
+    stroke="#ffffff"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="4"
+  />
+  <path d="M39 23.5H44V28.5" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" />
+</svg>

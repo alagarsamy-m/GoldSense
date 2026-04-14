@@ -1,243 +1,268 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import {
-  AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
-  ResponsiveContainer, ReferenceLine
+  Area,
+  AreaChart,
+  CartesianGrid,
+  Line,
+  ReferenceLine,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
 } from 'recharts'
-import { Calendar, AlertCircle, Gem } from 'lucide-react'
-import { getWeekForecast, getPredictionTomorrow } from '../../services/api'
+import { AlertCircle, Calendar, RefreshCw, TrendingDown, TrendingUp } from 'lucide-react'
+import { getWeekForecast } from '../../services/api'
+import { getWeekSnapshot } from '../../services/snapshots'
+import {
+  formatInr,
+  formatSignedUsd,
+  formatUsd,
+  loadSnapshotFirst,
+  normalizeWeek,
+} from '../../utils/marketData'
 
-const VIEW_OPTIONS = [
-  { key: 'usd', label: 'USD/oz', dataKey: 'usd', color: '#F59E0B', format: v => `$${v?.toLocaleString()}` },
-  { key: 'inr24k', label: '24k INR/g', dataKey: 'price_24k_per_gram', color: '#FCD34D', format: v => `₹${v?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}` },
-  { key: 'inr22k', label: '22k INR/g', dataKey: 'price_22k_per_gram', color: '#c084fc', format: v => `₹${v?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}` },
-]
+function TrendPill({ direction }) {
+  if (direction === 'up') {
+    return <span className="inline-flex items-center gap-1 text-xs font-semibold text-green-400"><TrendingUp size={12} /> Rise</span>
+  }
+  if (direction === 'down') {
+    return <span className="inline-flex items-center gap-1 text-xs font-semibold text-red-400"><TrendingDown size={12} /> Fall</span>
+  }
+  return <span className="inline-flex items-center gap-1 text-xs font-semibold text-slate-300">Stable</span>
+}
 
-const CustomTooltip = ({ active, payload, label }) => {
+function CustomTooltip({ active, payload }) {
   if (!active || !payload?.length) return null
-  const d = payload[0].payload
+  const row = payload[0].payload
+
   return (
-    <div className="bg-slate-900/95 border border-amber-500/20 rounded-xl p-4 shadow-2xl backdrop-blur-sm">
-      <p className="text-amber-400 font-semibold text-sm mb-2">{d.day}, {label}</p>
-      <div className="space-y-1.5">
-        <p className="text-white text-sm">USD: <span className="price-number font-bold">${d.usd?.toLocaleString()}</span></p>
-        <div className="flex gap-3">
-          <p className="text-amber-300 text-xs flex items-center gap-1">
-            <Gem size={9} /> 24k: <span className="price-number font-medium">₹{d.price_24k_per_gram?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}</span>
-          </p>
-          <p className="text-purple-300 text-xs flex items-center gap-1">
-            <Gem size={9} /> 22k: <span className="price-number font-medium">₹{d.price_22k_per_gram?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}</span>
-          </p>
-        </div>
+    <div className="rounded-2xl border border-amber-500/20 bg-slate-900/95 p-4 shadow-2xl backdrop-blur-sm">
+      <p className="mb-2 text-sm font-semibold text-amber-300">
+        {row.dayLabel} | {row.date}
+      </p>
+      <div className="space-y-1.5 text-xs text-slate-200">
+        <p>USD/oz: <span className="price-number font-semibold">{formatUsd(row.usd)}</span></p>
+        <p>24k/g: <span className="price-number font-semibold">{formatInr(row.price_24k_per_gram)}</span></p>
+        <p>22k/g: <span className="price-number font-semibold">{formatInr(row.price_22k_per_gram)}</span></p>
+        <p>Move vs today: <span className="price-number font-semibold">{formatSignedUsd(row.direction_delta_usd)}</span> ({row.direction_delta_pct > 0 ? '+' : ''}{(row.direction_delta_pct || 0).toFixed(2)}%)</p>
+        {row.market_status === 'market_closed' && (
+          <p className="text-amber-300">Market closed carry-forward</p>
+        )}
       </div>
     </div>
   )
 }
 
-function getWeekToShow() {
-  const today = new Date()
-  const dow = today.getDay()
-  const monday = new Date(today)
-  if (dow === 0) monday.setDate(today.getDate() + 1)
-  else if (dow === 6) monday.setDate(today.getDate() + 2)
-  else monday.setDate(today.getDate() - (dow - 1))
-  return Array.from({ length: 5 }, (_, i) => {
-    const d = new Date(monday)
-    d.setDate(monday.getDate() + i)
-    return d
-  })
-}
-
-function toDateStr(d) { return d.toISOString().split('T')[0] }
-
 export default function WeeklyForecast() {
-  const [forecast, setForecast] = useState([])
+  const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
-  const [lastActual, setLastActual] = useState(null)
-  const [view, setView] = useState('usd')
+
+  const hydrate = async ({ silent = false } = {}) => {
+    if (!silent) {
+      setLoading(true)
+      setError(false)
+    }
+
+    try {
+      const week = await loadSnapshotFirst(
+        getWeekSnapshot,
+        getWeekForecast,
+        normalizeWeek,
+        (result) => Array.isArray(result?.forecast) && result.forecast.length > 0,
+      )
+      setData(week.forecast)
+      setLoading(false)
+      setError(false)
+
+      try {
+        const apiWeek = normalizeWeek(await getWeekForecast())
+        if (apiWeek.forecast.length) setData(apiWeek.forecast)
+      } catch {
+        // Keep the snapshot data.
+      }
+    } catch {
+      setLoading(false)
+      setError(true)
+    }
+  }
 
   useEffect(() => {
-    Promise.all([getWeekForecast(), getPredictionTomorrow()])
-      .then(([weekData, todayData]) => {
-        setForecast(weekData.forecast || [])
-        setLastActual(todayData?.last_actual_usd)
-      })
-      .catch(() => setError(true))
-      .finally(() => setLoading(false))
+    hydrate()
   }, [])
 
-  const activeView = VIEW_OPTIONS.find(v => v.key === view)
+  const chartData = useMemo(() => (
+    data.map((row) => ({
+      ...row,
+      label: `${row.day} ${row.date.slice(5)}`,
+      dayLabel: row.day,
+      low_usd: row.confidence_interval?.lower_usd ?? null,
+      high_usd: row.confidence_interval?.upper_usd ?? null,
+    }))
+  ), [data])
 
-  if (loading) {
-    return (
-      <div className="card-premium p-8 flex items-center justify-center h-72">
-        <div className="w-8 h-8 border-2 border-amber-500 border-t-transparent rounded-full animate-spin" />
-      </div>
-    )
-  }
+  const chartBounds = useMemo(() => {
+    const values = []
+    chartData.forEach((row) => {
+      if (row.usd != null) values.push(row.usd)
+      if (row.low_usd != null) values.push(row.low_usd)
+      if (row.high_usd != null) values.push(row.high_usd)
+      if (row.reference_live_usd != null) values.push(row.reference_live_usd)
+    })
 
-  if (error) {
-    return (
-      <div className="card-premium p-8 flex flex-col items-center justify-center h-72 gap-3">
-        <AlertCircle size={32} className="text-slate-600" />
-        <p className="text-slate-400 text-sm">Forecast unavailable</p>
-      </div>
-    )
-  }
-
-  const today = new Date()
-  today.setHours(0, 0, 0, 0)
-  const weekDays = getWeekToShow()
-
-  const chartData = weekDays.map(d => {
-    const dateStr = toDateStr(d)
-    const fe = forecast.find(f => f.date === dateStr)
-    const isPast = d <= today
-    return {
-      date: dateStr,
-      date_short: dateStr.slice(5),
-      day: d.toLocaleDateString('en-US', { weekday: 'short' }),
-      isForecast: !!fe,
-      isPast,
-      usd: fe?.usd ?? (isPast ? lastActual : null),
-      price_24k_per_gram: fe?.price_24k_per_gram ?? null,
-      price_22k_per_gram: fe?.price_22k_per_gram ?? null,
-      price_24k_per_10g: fe?.price_24k_per_10g ?? null,
-      price_22k_per_10g: fe?.price_22k_per_10g ?? null,
-      ci_lower_24k: fe?.ci_lower_24k ?? null,
-      ci_upper_24k: fe?.ci_upper_24k ?? null,
+    if (!values.length) {
+      return { min: 0, max: 100 }
     }
-  })
 
-  const vals = chartData.map(d => d[activeView.dataKey]).filter(Boolean)
-  const ciL = view === 'inr24k' ? chartData.map(d => d.ci_lower_24k).filter(Boolean) : []
-  const ciH = view === 'inr24k' ? chartData.map(d => d.ci_upper_24k).filter(Boolean) : []
-  const allVals = [...vals, ...ciL, ...ciH]
-  const minVal = allVals.length ? Math.min(...allVals) * 0.997 : 0
-  const maxVal = allVals.length ? Math.max(...allVals) * 1.003 : 100
-  const hasCI = view === 'inr24k' && ciL.length > 0
+    const minValue = Math.min(...values)
+    const maxValue = Math.max(...values)
+    const spread = Math.max(maxValue - minValue, maxValue * 0.0025)
+    const padding = spread * 0.35
+    return {
+      min: Math.max(0, minValue - padding),
+      max: maxValue + padding,
+    }
+  }, [chartData])
+
+  const todayReference = chartData[0]?.reference_live_usd ?? null
+
+  if (loading && !data.length) {
+    return (
+      <div className="card-premium flex h-72 items-center justify-center p-8">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-amber-500 border-t-transparent" />
+      </div>
+    )
+  }
+
+  if (error && !data.length) {
+    return (
+      <div className="card-premium flex h-72 flex-col items-center justify-center gap-3 p-8">
+        <AlertCircle size={32} className="text-slate-600" />
+        <p className="text-sm text-slate-400">Weekly forecast unavailable</p>
+      </div>
+    )
+  }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.1 }}
-      className="card-premium p-6 md:p-8"
-    >
-      {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="card-premium p-6 md:p-8">
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 bg-amber-500/10 rounded-xl flex items-center justify-center">
-            <Calendar size={17} className="text-amber-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-amber-500/10">
+            <Calendar size={18} className="text-amber-400" />
           </div>
           <div>
-            <h2 className="text-lg font-bold text-white">7-Day Forecast</h2>
-            <p className="text-[11px] text-slate-600">Mon-Fri | Past = actual | Future = AI</p>
+            <h2 className="text-lg font-bold text-white">Weekly Forecast</h2>
+            <p className="text-xs text-slate-500">Monday to Sunday with a single USD/oz view and INR estimates in the table.</p>
           </div>
         </div>
 
-        <div className="flex bg-slate-800/60 rounded-lg p-0.5 gap-0.5">
-          {VIEW_OPTIONS.map(opt => (
-            <button key={opt.key} onClick={() => setView(opt.key)}
-              className={`px-2.5 py-1 text-[11px] font-medium rounded-md transition-all ${
-                view === opt.key
-                  ? opt.key === 'inr22k' ? 'bg-purple-500 text-white' : 'bg-amber-500 text-black'
-                  : 'text-slate-500 hover:text-white'
-              }`}>
-              {opt.label}
-            </button>
-          ))}
-        </div>
+        <button
+          onClick={() => hydrate({ silent: Boolean(data.length) })}
+          className="rounded-lg p-2 text-slate-600 transition-all hover:bg-amber-500/10 hover:text-amber-400"
+          title="Refresh weekly forecast"
+        >
+          <RefreshCw size={15} />
+        </button>
       </div>
 
-      {/* Chart */}
-      <div className="h-56 sm:h-64">
+      <div className="mb-3 flex flex-wrap items-center gap-4 text-xs text-slate-500">
+        <span className="rounded-full border border-amber-500/20 bg-amber-500/10 px-3 py-1 text-amber-300">USD / oz chart</span>
+        <span>Today&apos;s live reference: <span className="price-number text-slate-200">{formatUsd(todayReference)}</span></span>
+      </div>
+
+      <div className="h-96">
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={chartData} margin={{ top: 5, right: 5, bottom: 5, left: 0 }}>
+          <AreaChart data={chartData} margin={{ top: 12, right: 16, left: -12, bottom: 8 }}>
             <defs>
-              <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor={activeView.color} stopOpacity={0.2} />
-                <stop offset="95%" stopColor={activeView.color} stopOpacity={0} />
+              <linearGradient id="weeklyArea" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.22} />
+                <stop offset="95%" stopColor="#f59e0b" stopOpacity={0.02} />
               </linearGradient>
             </defs>
             <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
-            <XAxis dataKey="date_short" tick={{ fill: '#475569', fontSize: 10 }} tickLine={false} axisLine={false} />
+            <XAxis dataKey="label" tick={{ fill: '#94a3b8', fontSize: 11 }} tickLine={false} axisLine={false} />
             <YAxis
-              domain={[minVal, maxVal]}
-              tick={{ fill: '#475569', fontSize: 10 }}
-              tickLine={false} axisLine={false}
-              tickFormatter={v => view === 'usd' ? `$${(v/1000).toFixed(1)}k` : `₹${(v/1000).toFixed(0)}k`}
-              width={52}
+              tick={{ fill: '#94a3b8', fontSize: 11 }}
+              tickLine={false}
+              axisLine={false}
+              width={84}
+              domain={[chartBounds.min, chartBounds.max]}
+              tickFormatter={(value) => `$${Math.round(value)}`}
             />
             <Tooltip content={<CustomTooltip />} />
-            {lastActual && view === 'usd' && (
-              <ReferenceLine y={lastActual} stroke="#334155" strokeDasharray="4 4"
-                label={{ value: 'Last actual', fill: '#475569', fontSize: 9, position: 'right' }} />
+            {todayReference != null && (
+              <ReferenceLine y={todayReference} stroke="#94a3b8" strokeDasharray="5 5" />
             )}
-            {hasCI && (
-              <>
-                <Area type="monotone" dataKey="ci_upper_24k" stroke="none" fill={activeView.color}
-                  fillOpacity={0.06} dot={false} activeDot={false} isAnimationActive={false} />
-                <Area type="monotone" dataKey="ci_lower_24k" stroke="none" fill="#0a0f1e"
-                  fillOpacity={1} dot={false} activeDot={false} isAnimationActive={false} />
-              </>
-            )}
-            <Area type="monotone" dataKey={activeView.dataKey} stroke={activeView.color} strokeWidth={2}
-              fill="url(#chartGradient)"
-              dot={{ fill: activeView.color, r: 3.5, strokeWidth: 0 }}
-              activeDot={{ r: 5, fill: activeView.color, stroke: '#0a0f1e', strokeWidth: 2 }} />
+            <Area
+              type="monotone"
+              dataKey="usd"
+              stroke="#f59e0b"
+              strokeWidth={2.6}
+              fill="url(#weeklyArea)"
+              activeDot={{ r: 5, fill: '#f59e0b', stroke: '#0a0f1e', strokeWidth: 2 }}
+            />
+            <Line
+              type="monotone"
+              dataKey="low_usd"
+              stroke="#64748b"
+              strokeDasharray="5 4"
+              dot={false}
+              connectNulls={false}
+            />
+            <Line
+              type="monotone"
+              dataKey="high_usd"
+              stroke="#64748b"
+              strokeDasharray="5 4"
+              dot={false}
+              connectNulls={false}
+            />
           </AreaChart>
         </ResponsiveContainer>
       </div>
 
-      {/* Day pills — both 24k and 22k */}
-      <div className="grid grid-cols-5 gap-1.5 mt-4">
-        {chartData.map((d, i) => {
-          const v24 = d.price_24k_per_gram
-          const v22 = d.price_22k_per_gram
-          const usd = d.usd
-          const prev = i > 0 ? chartData[i-1][activeView.dataKey] : d[activeView.dataKey]
-          const curr = d[activeView.dataKey]
-          const isUp = curr != null && prev != null && curr > prev
-
-          return (
-            <div key={d.date} className="text-center rounded-lg bg-slate-800/30 py-2 px-1">
-              <p className="text-[10px] text-slate-600 mb-1">{d.day}</p>
-              {usd != null ? (
-                <>
-                  <p className={`text-[11px] font-semibold price-number ${
-                    d.isPast && !d.isForecast ? 'text-slate-500' : isUp ? 'text-green-400' : 'text-red-400'
-                  }`}>
-                    {view === 'usd'
-                      ? `$${(usd / 1000).toFixed(2)}k`
-                      : view === 'inr22k'
-                        ? `₹${v22 ? (v22 / 1000).toFixed(1) : '—'}k`
-                        : `₹${v24 ? (v24 / 1000).toFixed(1) : '—'}k`
-                    }
-                  </p>
-                  {/* Show the other karat below */}
-                  {view !== 'usd' && (
-                    <p className="text-[9px] text-slate-600 mt-0.5 price-number">
-                      {view === 'inr24k'
-                        ? `22k: ₹${v22 ? (v22 / 1000).toFixed(1) : '—'}k`
-                        : `24k: ₹${v24 ? (v24 / 1000).toFixed(1) : '—'}k`
-                      }
-                    </p>
+      <div className="mt-6 overflow-x-auto">
+        <table className="min-w-full text-sm">
+          <thead>
+            <tr className="border-b border-slate-700/40 text-left text-xs text-slate-500">
+              <th className="pb-3 pr-4 font-medium">Day</th>
+              <th className="pb-3 pr-4 font-medium">USD/oz</th>
+              <th className="pb-3 pr-4 font-medium">24k / g</th>
+              <th className="pb-3 pr-4 font-medium">22k / g</th>
+              <th className="pb-3 font-medium">Move vs today</th>
+            </tr>
+          </thead>
+          <tbody>
+            {chartData.map((row) => (
+              <tr key={row.date} className="border-b border-slate-800/40 align-top">
+                <td className="py-3 pr-4">
+                  <p className="font-medium text-white">{row.day}</p>
+                  <p className="text-xs text-slate-500">{row.date}</p>
+                  {row.market_status === 'market_closed' && (
+                    <p className="mt-1 text-[11px] text-amber-300">Closed day carry-forward</p>
                   )}
-                </>
-              ) : (
-                <p className="text-[11px] text-slate-700">—</p>
-              )}
-              {d.isForecast && <p className="text-[8px] text-amber-600 mt-0.5">AI</p>}
-              {d.isPast && !d.isForecast && usd != null && <p className="text-[8px] text-slate-700 mt-0.5">actual</p>}
-            </div>
-          )
-        })}
+                </td>
+                <td className="price-number py-3 pr-4 text-white">{formatUsd(row.usd)}</td>
+                <td className="price-number py-3 pr-4 text-amber-300">{formatInr(row.price_24k_per_gram)}</td>
+                <td className="price-number py-3 pr-4 text-slate-200">{formatInr(row.price_22k_per_gram)}</td>
+                <td className="py-3">
+                  <p className="price-number text-white">{formatSignedUsd(row.direction_delta_usd)}</p>
+                  <p className="mt-1 text-xs text-slate-400">
+                    {row.direction_delta_pct > 0 ? '+' : ''}{(row.direction_delta_pct || 0).toFixed(2)}%
+                  </p>
+                  <div className="mt-1">
+                    <TrendPill direction={row.direction_vs_today} />
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
-      <p className="text-[10px] text-slate-700 mt-4 text-center">
-        Recursive XGBoost forecast {hasCI ? '| Shaded = 80% confidence ' : ''}| Accuracy decreases for days 4-7 | Not financial advice
+      <p className="mt-4 text-center text-[10px] text-slate-600">
+        24k and 22k are India-facing estimates built from the international gold price, USD/INR, customs duty, GST, and benchmark premium assumptions.
       </p>
     </motion.div>
   )

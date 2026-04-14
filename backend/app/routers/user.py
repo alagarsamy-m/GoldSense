@@ -11,7 +11,7 @@ from pydantic import BaseModel, Field
 
 logger = logging.getLogger(__name__)
 
-from app.services.supabase_service import get_current_user, UserProfileService
+from app.services.supabase_service import get_current_user, UserProfileService, PushSubscriptionService
 from app.services.groq_service import get_investment_recommendation
 from app.services.gold_service import GoldService
 
@@ -22,7 +22,7 @@ router = APIRouter()
 
 class UserProfileUpdate(BaseModel):
     full_name: Optional[str] = None
-    city: Optional[str] = "Chennai"
+    city: Optional[str] = "Mumbai"
     gold_holdings_grams: Optional[float] = Field(None, ge=0)
     gold_holdings_value_inr: Optional[float] = Field(None, ge=0)
     monthly_budget_inr: Optional[float] = Field(None, ge=0)
@@ -35,6 +35,18 @@ class UserProfileUpdate(BaseModel):
     preferred_gold_forms: Optional[List[str]] = None
     target_savings_inr: Optional[float] = Field(None, ge=0)
     profile_complete: Optional[bool] = None
+
+
+class PushSubscriptionUpsert(BaseModel):
+    fcm_token: str = Field(..., min_length=20)
+    enabled: bool = True
+    device_label: Optional[str] = None
+    browser: Optional[str] = None
+    notification_time_utc: Optional[str] = "03:00"
+
+
+class PushSubscriptionDelete(BaseModel):
+    fcm_token: str = Field(..., min_length=20)
 
 
 # ─── Endpoints ────────────────────────────────────────────────────────────────
@@ -121,9 +133,11 @@ async def get_dashboard(current_user: dict = Depends(get_current_user)):
 
     try:
         prediction = await asyncio.to_thread(GoldService.get_tomorrow_prediction)
-        accuracy_logs = await asyncio.to_thread(GoldService.get_accuracy_logs, 10)
+        today_price = await asyncio.to_thread(GoldService.get_today_price)
+        accuracy_logs = (await asyncio.to_thread(GoldService.get_accuracy_payload, 10)).get("latest_7", [])
     except Exception:
         prediction = None
+        today_price = None
         accuracy_logs = []
 
     # Calculate portfolio value if user has holdings
@@ -135,7 +149,36 @@ async def get_dashboard(current_user: dict = Depends(get_current_user)):
 
     return {
         "profile": profile,
+        "today": today_price,
         "prediction": prediction,
         "portfolio_value_inr": portfolio_value_inr,
         "recent_accuracy": accuracy_logs,
     }
+
+
+@router.get("/notifications")
+async def get_notification_settings(current_user: dict = Depends(get_current_user)):
+    subscriptions = PushSubscriptionService.list_user_subscriptions(current_user["id"])
+    return {"subscriptions": subscriptions}
+
+
+@router.post("/notifications/subscribe")
+async def upsert_notification_subscription(
+    payload: PushSubscriptionUpsert,
+    current_user: dict = Depends(get_current_user),
+):
+    subscription = PushSubscriptionService.upsert_subscription(
+        current_user["id"],
+        payload.fcm_token,
+        payload.model_dump(),
+    )
+    return {"subscription": subscription}
+
+
+@router.delete("/notifications/subscribe")
+async def disable_notification_subscription(
+    payload: PushSubscriptionDelete,
+    current_user: dict = Depends(get_current_user),
+):
+    PushSubscriptionService.disable_subscription(current_user["id"], payload.fcm_token)
+    return {"message": "Notification subscription disabled"}

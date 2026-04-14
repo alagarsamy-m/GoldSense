@@ -1,157 +1,167 @@
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
-import { TrendingUp, LogIn, LogOut, LayoutDashboard, Menu, X } from 'lucide-react'
-import { useAuth } from '../../hooks/useAuth'
+import { useEffect, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { LayoutDashboard, LogIn, Menu, TrendingUp, X } from 'lucide-react'
 import toast from 'react-hot-toast'
+import { useAuth } from '../../hooks/useAuth'
+import { HOME_NAV_ITEMS, navigateToHomeSection } from '../../utils/siteNavigation'
+
+const PAGE_LINKS = [
+  { label: 'Learn', to: '/learn' },
+  { label: 'Dev', to: '/dev' },
+]
+
+function NavLink({ children, active, onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+        active ? 'text-amber-300' : 'text-slate-300 hover:text-white'
+      }`}
+    >
+      {children}
+    </button>
+  )
+}
 
 export default function Navbar() {
-  const { user, signInWithGoogle, signOut } = useAuth()
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const { user, signInWithGoogle } = useAuth()
   const navigate = useNavigate()
+  const location = useLocation()
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [location.pathname, location.hash])
+
+  const handleSectionClick = (hash) => {
+    navigateToHomeSection(navigate, location, hash)
+  }
 
   const handleLogin = async () => {
     try {
       await signInWithGoogle()
-    } catch (err) {
+    } catch {
       toast.error('Login failed. Please try again.')
     }
   }
 
-  const handleLogout = async () => {
-    try {
-      await signOut()
-      navigate('/')
-      toast.success('Signed out successfully')
-    } catch (err) {
-      toast.error('Logout failed')
-    }
-  }
-
-  const navLinks = [
-    { label: 'Predictor', href: '/#predictor' },
-    { label: 'Accuracy', href: '/#accuracy' },
-    { label: 'Learn', href: '/#education' },
-    { label: 'Dev Docs', href: '/#devdocs' },
-  ]
-
   return (
-    <nav className="sticky top-0 left-0 right-0 z-40 border-b border-slate-800/40 bg-slate-950/80 backdrop-blur-xl">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <TrendingUp size={16} className="text-white" />
-            </div>
-            <span className="text-lg font-bold">
+    <header className="sticky top-0 z-50 border-b border-amber-500/10 bg-slate-950/85 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        <Link to="/" className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-400 to-orange-600 shadow-lg shadow-amber-500/20">
+            <TrendingUp size={18} className="text-white" />
+          </div>
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.24em] text-amber-300/80">Gold Forecasting Intelligence</p>
+            <p className="text-lg font-black">
               <span className="gold-text">Gold</span>
               <span className="text-white">Sense</span>
-            </span>
-          </Link>
-
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-6">
-            {navLinks.map(link => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-sm text-slate-400 hover:text-amber-400 transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
+            </p>
           </div>
+        </Link>
 
-          {/* Auth buttons */}
-          <div className="hidden md:flex items-center gap-3">
-            {user ? (
-              <>
-                <Link
-                  to="/dashboard"
-                  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-amber-400 border border-amber-500/30 rounded-lg hover:bg-amber-500/10 transition-all"
-                >
-                  <LayoutDashboard size={15} />
-                  Dashboard
-                </Link>
-                <button
-                  onClick={handleLogout}
-                  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-400 hover:text-white transition-colors"
-                >
-                  <LogOut size={15} />
-                  Sign Out
-                </button>
-              </>
-            ) : (
-              <button
-                onClick={handleLogin}
-                className="flex items-center gap-2 px-5 py-2 text-sm font-semibold bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg hover:from-amber-400 hover:to-orange-500 transition-all shadow-lg shadow-amber-500/20"
-              >
-                <LogIn size={15} />
-                Sign In with Google
-              </button>
-            )}
-          </div>
+        <nav className="hidden items-center gap-1 lg:flex">
+          {HOME_NAV_ITEMS.map((item) => (
+            <NavLink
+              key={item.label}
+              active={location.pathname === '/' && location.hash === item.hash}
+              onClick={() => handleSectionClick(item.hash)}
+            >
+              {item.label}
+            </NavLink>
+          ))}
+          {PAGE_LINKS.map((item) => (
+            <Link
+              key={item.label}
+              to={item.to}
+              className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                location.pathname === item.to ? 'text-amber-300' : 'text-slate-300 hover:text-white'
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
 
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden text-slate-400 hover:text-white"
-            onClick={() => setMobileOpen(!mobileOpen)}
-          >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+        <div className="hidden items-center gap-3 lg:flex">
+          {user ? (
+            <Link
+              to="/dashboard"
+              className="inline-flex items-center gap-2 rounded-full border border-amber-500/20 bg-amber-500/10 px-4 py-2 text-sm font-semibold text-amber-300 transition-colors hover:bg-amber-500/15"
+            >
+              <LayoutDashboard size={16} />
+              Dashboard
+            </Link>
+          ) : (
+            <button
+              onClick={handleLogin}
+              className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.01]"
+            >
+              <LogIn size={16} />
+              Sign In
+            </button>
+          )}
         </div>
+
+        <button
+          onClick={() => setMenuOpen((open) => !open)}
+          className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-800 bg-slate-900 text-slate-200 lg:hidden"
+          aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
+        >
+          {menuOpen ? <X size={18} /> : <Menu size={18} />}
+        </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
-        {mobileOpen && (
+        {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-slate-800 bg-slate-950/95 backdrop-blur-xl"
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            className="border-t border-amber-500/10 bg-slate-950/95 px-4 py-4 shadow-2xl lg:hidden"
           >
-            <div className="px-4 py-4 space-y-3">
-              {navLinks.map(link => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="block text-sm text-slate-400 hover:text-amber-400 py-1"
-                  onClick={() => setMobileOpen(false)}
+            <div className="mx-auto flex max-w-7xl flex-col gap-2">
+              {HOME_NAV_ITEMS.map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => handleSectionClick(item.hash)}
+                  className="rounded-2xl border border-slate-800 bg-slate-900/80 px-4 py-3 text-left text-sm font-medium text-slate-200 transition-colors hover:border-amber-500/20 hover:text-white"
                 >
-                  {link.label}
-                </a>
+                  {item.label}
+                </button>
               ))}
-              <div className="pt-2 border-t border-slate-800">
-                {user ? (
-                  <div className="flex flex-col gap-2">
-                    <Link
-                      to="/dashboard"
-                      className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-amber-400 border border-amber-500/30 rounded-lg"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      <LayoutDashboard size={15} />
-                      Dashboard
-                    </Link>
-                    <button onClick={handleLogout} className="text-left text-sm text-slate-400 py-1">
-                      Sign Out
-                    </button>
-                  </div>
-                ) : (
-                  <button
-                    onClick={() => { handleLogin(); setMobileOpen(false) }}
-                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg"
-                  >
-                    <LogIn size={15} />
-                    Sign In with Google
-                  </button>
-                )}
-              </div>
+              {PAGE_LINKS.map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.to}
+                  className="rounded-2xl border border-slate-800 bg-slate-900/80 px-4 py-3 text-sm font-medium text-slate-200 transition-colors hover:border-amber-500/20 hover:text-white"
+                >
+                  {item.label}
+                </Link>
+              ))}
+              {user ? (
+                <Link
+                  to="/dashboard"
+                  className="mt-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-amber-500 px-4 py-3 text-sm font-semibold text-slate-950"
+                >
+                  <LayoutDashboard size={16} />
+                  Dashboard
+                </Link>
+              ) : (
+                <button
+                  onClick={handleLogin}
+                  className="mt-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-4 py-3 text-sm font-semibold text-slate-950"
+                >
+                  <LogIn size={16} />
+                  Sign In
+                </button>
+              )}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </header>
   )
 }
