@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-14T12:01:53.718731Z",
+  "generated_at": "2026-04-14T20:00:40.541129Z",
   "date": "2026-04-14",
   "reference_mode": "live_last",
   "quote_label": "Live last available price",
@@ -7,7 +7,7 @@
   "live_usd": 4791.2,
   "usd_inr_rate": 93.203,
   "verified_date": "2026-04-14",
-  "as_of": "2026-04-14T12:01:57.811981Z",
+  "as_of": "2026-04-14T20:00:44.014857Z",
   "source": "dataset_close",
   "market_status": "delayed",
   "is_live": false,

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-14T12:01:53.718731Z",
+  "generated_at": "2026-04-14T20:00:40.541129Z",
   "prediction_date": "2026-04-15",
   "target_date": "2026-04-15",
   "target_type": "calendar_close",
@@ -8,7 +8,7 @@
   "last_data_date": "2026-04-14",
   "last_actual_usd": 4791.2,
   "reference_live_usd": 4791.2,
-  "reference_as_of": "2026-04-14T12:01:56.645593Z",
+  "reference_as_of": "2026-04-14T20:00:43.015292Z",
   "reference_source": "dataset_close",
   "reference_market_status": "delayed",
   "reference_is_live": false,
@@ -41,12 +41,12 @@
     "interval_pct": 3.16
   },
   "direction_confidence": 51.3,
-  "as_of": "2026-04-14T12:01:56.645593Z",
+  "as_of": "2026-04-14T20:00:43.015292Z",
   "source": "model_forecast",
   "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": 0.1949,
+    "score": 0.1901,
     "label": "Bullish",
     "confidence": "high",
     "signal": "Neutral",
@@ -56,40 +56,40 @@
       {
         "title": "GLD ETF Falls 0.6%",
         "source": "Moomoo",
-        "sentiment": -0.608,
+        "sentiment": -0.647,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/62340649/gld-etf-falls-0-6"
       },
       {
-        "title": "GLD ETF Climbs 1.2%",
-        "source": "Moomoo",
-        "sentiment": 0.542,
-        "label": "Bullish",
-        "url": "https://www.moomoo.com/news/post/62203364/gld-etf-climbs-1-2"
-      },
-      {
         "title": "Gold price today rebounds near $4,370 as GLD ETF and gold stocks track bullion higherNEW YORK, January 2, 2026, 09:54 ET \u2014 Regular session",
         "source": "ts2.tech",
-        "sentiment": 0.531,
+        "sentiment": 0.548,
         "label": "Bullish",
         "url": "https://ts2.tech/en/gold-price-today-rebounds-near-4370-as-gld-etf-and-gold-stocks-track-bullion-highernew-york-january-2-2026-0954-et-regular-session/"
       },
       {
+        "title": "GLD ETF Climbs 1.2%",
+        "source": "Moomoo",
+        "sentiment": 0.508,
+        "label": "Bullish",
+        "url": "https://www.moomoo.com/news/post/62203364/gld-etf-climbs-1-2"
+      },
+      {
         "title": "Ride the Gold and Silver Rally: Choose GLD ETF's Steady Climb or SLV's High-Octane Surge",
         "source": "Yahoo Finance",
-        "sentiment": 0.494,
+        "sentiment": 0.484,
         "label": "Bullish",
         "url": "https://finance.yahoo.com/news/ride-gold-silver-rally-choose-112101028.html"
       },
       {
         "title": "Gold Bonanza: GLD ETF Surges & Miners Skyrocket \u2013 Will Gold Hit $5,000/oz Next?",
         "source": "ts2.tech",
-        "sentiment": 0.491,
+        "sentiment": 0.452,
         "label": "Bullish",
         "url": "https://ts2.tech/en/gold-bonanza-gld-etf-surges-miners-skyrocket-will-gold-hit-5000-oz-next/"
       }
     ],
-    "fetched_at": "2026-04-14T12:01:47.593212"
+    "fetched_at": "2026-04-14T20:00:31.962149"
   },
   "model_info": {
     "trained_at": "2026-04-14T10:34:24.048865Z",

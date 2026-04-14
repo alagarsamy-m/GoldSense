@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-14T12:01:53.206444Z",
+  "updated_at": "2026-04-14T20:00:38.845978Z",
   "pipeline": "healthy",
   "total_predictions_logged": 4,
   "public_history_rows": 3,
@@ -49,7 +49,7 @@
   ],
   "pending_batches": 2,
   "next_prediction": {
-    "generated_at": "2026-04-14T12:01:53.187876",
+    "generated_at": "2026-04-14T20:00:38.647343",
     "generated_on": "2026-04-14",
     "base_verified_date": "2026-04-14",
     "calendar_horizons": [
