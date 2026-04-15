@@ -4,29 +4,24 @@ on:
   schedule:
     - cron: '0 19 * * *'
   workflow_dispatch:
-    inputs:
-      force_retrain:
-        description: 'Force model retraining even without drift'
-        type: boolean
-        default: false
 
 permissions:
   contents: write
-  actions: write
+
+concurrency:
+  group: goldsense-artifact-pipeline-main
+  cancel-in-progress: false
 
 jobs:
   daily-pipeline:
     runs-on: ubuntu-latest
-    outputs:
-      drift_detected: ${{ steps.evaluate.outputs.drift_detected }}
-      direction_accuracy: ${{ steps.evaluate.outputs.direction_accuracy }}
-      avg_mape: ${{ steps.evaluate.outputs.avg_mape }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
@@ -65,25 +60,58 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
+
           status = json.loads(Path('model/system_status.json').read_text(encoding='utf-8'))
           drift = status.get('drift', {})
           rolling = status.get('rolling_metrics', {}).get('last_7', {})
-          with open(Path.cwd().parent / '.github' / 'daily_outputs.txt', 'w', encoding='utf-8') as handle:
-              handle.write(f"drift_detected={'true' if drift.get('drift_detected') else 'false'}\n")
-              handle.write(f"avg_mape={rolling.get('avg_mape', '0')}\n")
-              handle.write(f"direction_accuracy={rolling.get('direction_accuracy', '0')}\n")
+          output_path = Path.cwd().parent / '.github' / 'daily_outputs.txt'
+          output_path.write_text(
+              "\n".join(
+                  [
+                      f"drift_detected={'true' if drift.get('drift_detected') else 'false'}",
+                      f"avg_mape={rolling.get('avg_mape', '0')}",
+                      f"direction_accuracy={rolling.get('direction_accuracy', '0')}",
+                      f"drift_message={str(drift.get('message', 'n/a')).replace(chr(10), ' ')}",
+                      f"retrain_recommended={'true' if drift.get('retrain_recommended') else 'false'}",
+                  ]
+              )
+              + "\n",
+              encoding='utf-8',
+          )
           PY
-          cat ../.github/daily_outputs.txt >> $GITHUB_OUTPUT
+          cat ../.github/daily_outputs.txt >> "$GITHUB_OUTPUT"
 
       - name: Generate public snapshots
+        id: snapshots
         env:
           ALPHAVANTAGE_KEY: ${{ secrets.ALPHAVANTAGE_KEY }}
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
         run: |
           cd ml
           python generate_public_snapshots.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          today_path = Path.cwd().parent / 'frontend' / 'public' / 'snapshots' / 'today.json'
+          today = json.loads(today_path.read_text(encoding='utf-8'))
+          output_path = Path.cwd().parent / '.github' / 'snapshot_outputs.txt'
+          output_path.write_text(
+              "\n".join(
+                  [
+                      f"today_source={today.get('source', 'unknown')}",
+                      f"today_market_status={today.get('market_status', 'unknown')}",
+                      f"today_is_live={'true' if today.get('is_live') else 'false'}",
+                  ]
+              )
+              + "\n",
+              encoding='utf-8',
+          )
+          PY
+          cat ../.github/snapshot_outputs.txt >> "$GITHUB_OUTPUT"
 
       - name: Send daily push notifications
+        id: notifications
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
@@ -92,9 +120,46 @@ jobs:
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
+          status=0
           cd backend
-          python send_daily_notifications.py
-        continue-on-error: true
+          python send_daily_notifications.py > ../.github/notification_result.json || status=$?
+          cd ..
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result_path = Path('.github/notification_result.json')
+          if result_path.exists():
+              payload = json.loads(result_path.read_text(encoding='utf-8'))
+          else:
+              payload = {
+                  "ok": False,
+                  "sent": 0,
+                  "failed": 0,
+                  "status": "error",
+                  "reason": "notification_result_missing",
+              }
+
+          reason = str(payload.get('reason', '')).replace('\n', ' ').replace('\r', ' ')
+          output_path = Path('.github/notification_outputs.txt')
+          output_path.write_text(
+              "\n".join(
+                  [
+                      f"notification_ok={'true' if payload.get('ok') else 'false'}",
+                      f"notification_status={payload.get('status', 'unknown')}",
+                      f"notification_sent={payload.get('sent', 0)}",
+                      f"notification_failed={payload.get('failed', 0)}",
+                      f"notification_reason={reason}",
+                  ]
+              )
+              + "\n",
+              encoding='utf-8',
+          )
+          PY
+          cat .github/notification_outputs.txt >> "$GITHUB_OUTPUT"
+          if [ "$status" -ne 0 ]; then
+            echo "Notification script exited with code $status"
+          fi
 
       - name: Commit updated artifacts
         run: |
@@ -110,27 +175,42 @@ jobs:
             ml/model/pending_prediction.json \
             ml/model/system_status.json \
             2>/dev/null || true
-          git diff --staged --quiet || git commit -m "daily: evaluate + snapshot $(date -u '+%Y-%m-%d') [skip ci]"
-          git push
-        continue-on-error: true
 
-      - name: Trigger Render deployment
-        run: |
-          curl -s "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
-          echo "Render deployment triggered"
+          if git diff --staged --quiet; then
+            echo "No artifact changes to commit"
+            exit 0
+          fi
+
+          git commit -m "daily: evaluate + snapshot $(date -u '+%Y-%m-%d')"
+
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            if [ "$attempt" -eq 3 ]; then
+              echo "Artifact push failed after 3 attempts"
+              exit 1
+            fi
+            sleep 5
+          done
 
       - name: Write job summary
         run: |
-          echo "## Daily GoldSense Pipeline - $(date -u '+%Y-%m-%d')" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
-          echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
-          echo "| Avg D1 MAPE | ${{ steps.evaluate.outputs.avg_mape }}% |" >> $GITHUB_STEP_SUMMARY
-          echo "| D1 Direction Accuracy | ${{ steps.evaluate.outputs.direction_accuracy }}% |" >> $GITHUB_STEP_SUMMARY
-          echo "| Drift Detected | ${{ steps.evaluate.outputs.drift_detected }} |" >> $GITHUB_STEP_SUMMARY
-
-  trigger-retrain:
-    needs: daily-pipeline
-    if: needs.daily-pipeline.outputs.drift_detected == 'true' || github.event.inputs.force_retrain == 'true'
-    uses: ./.github/workflows/weekly-retrain.yml
-    secrets: inherit
+          echo "## Daily GoldSense Pipeline - $(date -u '+%Y-%m-%d')" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Metric | Value |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|--------|-------|" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Avg D1 MAPE | ${{ steps.evaluate.outputs.avg_mape }}% |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| D1 Direction Accuracy | ${{ steps.evaluate.outputs.direction_accuracy }}% |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Drift Detected | ${{ steps.evaluate.outputs.drift_detected }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Retrain Recommended | ${{ steps.evaluate.outputs.retrain_recommended }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Snapshot Price Source | ${{ steps.snapshots.outputs.today_source }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Snapshot Market Status | ${{ steps.snapshots.outputs.today_market_status }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Notifications | ${{ steps.notifications.outputs.notification_status }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Notification Sent | ${{ steps.notifications.outputs.notification_sent }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Notification Failed | ${{ steps.notifications.outputs.notification_failed }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Drift note: ${{ steps.evaluate.outputs.drift_message }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "Notification note: ${{ steps.notifications.outputs.notification_reason }}" >> "$GITHUB_STEP_SUMMARY"
+          if [ "${{ steps.snapshots.outputs.today_source }}" = "dataset_close" ]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "Live providers fell back to dataset close for this run, so public prices are delayed rather than live." >> "$GITHUB_STEP_SUMMARY"
+          fi

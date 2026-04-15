@@ -16,6 +16,7 @@ class Settings(BaseSettings):
 
     alphavantage_key: str = ""
     newsapi_key: str = ""
+    public_app_url: str = "https://gold-sense-five.vercel.app"
 
     firebase_project_id: str = ""
     firebase_client_email: str = ""

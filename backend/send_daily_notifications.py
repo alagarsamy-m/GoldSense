@@ -11,6 +11,18 @@ from app.services.notification_service import send_daily_prediction_notification
 
 
 if __name__ == "__main__":
-    prediction = GoldService.get_tomorrow_prediction()
-    result = send_daily_prediction_notifications(prediction)
-    print(json.dumps(result, indent=2))
+    try:
+        prediction = GoldService.get_tomorrow_prediction()
+        result = send_daily_prediction_notifications(prediction)
+        payload = {"ok": True, **result}
+        print(json.dumps(payload, indent=2))
+    except Exception as exc:
+        payload = {
+            "ok": False,
+            "sent": 0,
+            "failed": 0,
+            "status": "error",
+            "reason": str(exc),
+        }
+        print(json.dumps(payload, indent=2))
+        raise

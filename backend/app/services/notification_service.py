@@ -8,6 +8,7 @@ import json
 import logging
 from pathlib import Path
 from typing import Any
+from urllib.parse import urljoin
 
 from app.config import settings
 from app.services.supabase_service import PushSubscriptionService
@@ -74,6 +75,7 @@ def _firebase_app_instance():
 
 def build_prediction_notification(prediction: dict[str, Any]) -> dict[str, str]:
     trend = str(prediction.get("trend", "stable")).upper()
+    deep_link = f"/#predictor?date={prediction.get('prediction_date')}"
     body = (
         f"{prediction.get('prediction_date')}: ${prediction.get('tomorrow_usd', 0):,.2f}/oz | "
         f"24k Rs {prediction.get('tomorrow_price_24k_per_gram', 0):,.0f}/g | {trend}"
@@ -81,15 +83,29 @@ def build_prediction_notification(prediction: dict[str, Any]) -> dict[str, str]:
     return {
         "title": "GoldSense Daily Prediction",
         "body": body,
-        "deep_link": f"/#predictor?date={prediction.get('prediction_date')}",
+        "deep_link": deep_link,
+        "web_link": _absolute_public_link(deep_link),
         "alert_reason": prediction.get("alert_reason", "Fresh daily forecast available."),
     }
 
 
-def send_daily_prediction_notifications(prediction: dict[str, Any]) -> dict[str, int]:
+def _absolute_public_link(deep_link: str) -> str | None:
+    base_url = (settings.public_app_url or "").strip()
+    if not base_url.lower().startswith("https://"):
+        return None
+    normalized_base = base_url.rstrip("/") + "/"
+    return urljoin(normalized_base, deep_link.lstrip("/"))
+
+
+def send_daily_prediction_notifications(prediction: dict[str, Any]) -> dict[str, Any]:
     if not _firebase_enabled():
         logger.warning("Skipping notification send: Firebase credentials not configured.")
-        return {"sent": 0, "failed": 0}
+        return {
+            "sent": 0,
+            "failed": 0,
+            "status": "skipped",
+            "reason": "firebase_not_configured",
+        }
 
     app = _firebase_app_instance()
     from firebase_admin import messaging
@@ -97,20 +113,28 @@ def send_daily_prediction_notifications(prediction: dict[str, Any]) -> dict[str,
     payload = build_prediction_notification(prediction)
     recipients = [row for row in PushSubscriptionService.list_enabled_tokens() if row.get("fcm_token")]
     if not recipients:
-        return {"sent": 0, "failed": 0}
+        return {
+            "sent": 0,
+            "failed": 0,
+            "status": "skipped",
+            "reason": "no_enabled_subscriptions",
+        }
 
-    messages = [
-        messaging.Message(
+    def _build_message(row: dict[str, Any]) -> messaging.Message:
+        webpush_kwargs: dict[str, Any] = {
+            "notification": messaging.WebpushNotification(
+                title=payload["title"],
+                body=payload["body"],
+                data={"alert_reason": payload["alert_reason"]},
+            ),
+        }
+        if payload.get("web_link"):
+            webpush_kwargs["fcm_options"] = messaging.WebpushFCMOptions(link=payload["web_link"])
+
+        return messaging.Message(
             token=row["fcm_token"],
             notification=messaging.Notification(title=payload["title"], body=payload["body"]),
-            webpush=messaging.WebpushConfig(
-                fcm_options=messaging.WebpushFCMOptions(link=payload["deep_link"]),
-                notification=messaging.WebpushNotification(
-                    title=payload["title"],
-                    body=payload["body"],
-                    data={"alert_reason": payload["alert_reason"]},
-                ),
-            ),
+            webpush=messaging.WebpushConfig(**webpush_kwargs),
             data={
                 "type": "daily_prediction",
                 "prediction_date": str(prediction.get("prediction_date")),
@@ -118,8 +142,8 @@ def send_daily_prediction_notifications(prediction: dict[str, Any]) -> dict[str,
                 "alert_reason": payload["alert_reason"],
             },
         )
-        for row in recipients
-    ]
+
+    messages = [_build_message(row) for row in recipients]
 
     batch = messaging.send_each(messages, app=app)
     failed_pairs = []
@@ -135,4 +159,15 @@ def send_daily_prediction_notifications(prediction: dict[str, Any]) -> dict[str,
         except Exception:
             logger.warning("Failed to disable invalid push token for user %s", user_id)
 
-    return {"sent": batch.success_count, "failed": batch.failure_count}
+    status = "sent"
+    if batch.success_count and batch.failure_count:
+        status = "partial"
+    elif batch.failure_count and not batch.success_count:
+        status = "failed"
+
+    return {
+        "sent": batch.success_count,
+        "failed": batch.failure_count,
+        "status": status,
+        "reason": "ok" if batch.failure_count == 0 else "some_tokens_failed",
+    }
