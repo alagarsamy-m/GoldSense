@@ -54,17 +54,19 @@ jobs:
         env:
           ALPHAVANTAGE_KEY: ${{ secrets.ALPHAVANTAGE_KEY }}
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+          DAILY_OUTPUT_FILE: ${{ runner.temp }}/goldsense-daily-outputs.txt
         run: |
           cd ml
           python evaluate.py
           python - <<'PY'
           import json
+          import os
           from pathlib import Path
 
           status = json.loads(Path('model/system_status.json').read_text(encoding='utf-8'))
           drift = status.get('drift', {})
           rolling = status.get('rolling_metrics', {}).get('last_7', {})
-          output_path = Path.cwd().parent / '.github' / 'daily_outputs.txt'
+          output_path = Path(os.environ['DAILY_OUTPUT_FILE'])
           output_path.write_text(
               "\n".join(
                   [
@@ -79,23 +81,25 @@ jobs:
               encoding='utf-8',
           )
           PY
-          cat ../.github/daily_outputs.txt >> "$GITHUB_OUTPUT"
+          cat "$DAILY_OUTPUT_FILE" >> "$GITHUB_OUTPUT"
 
       - name: Generate public snapshots
         id: snapshots
         env:
           ALPHAVANTAGE_KEY: ${{ secrets.ALPHAVANTAGE_KEY }}
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+          SNAPSHOT_OUTPUT_FILE: ${{ runner.temp }}/goldsense-snapshot-outputs.txt
         run: |
           cd ml
           python generate_public_snapshots.py
           python - <<'PY'
           import json
+          import os
           from pathlib import Path
 
           today_path = Path.cwd().parent / 'frontend' / 'public' / 'snapshots' / 'today.json'
           today = json.loads(today_path.read_text(encoding='utf-8'))
-          output_path = Path.cwd().parent / '.github' / 'snapshot_outputs.txt'
+          output_path = Path(os.environ['SNAPSHOT_OUTPUT_FILE'])
           output_path.write_text(
               "\n".join(
                   [
@@ -108,7 +112,7 @@ jobs:
               encoding='utf-8',
           )
           PY
-          cat ../.github/snapshot_outputs.txt >> "$GITHUB_OUTPUT"
+          cat "$SNAPSHOT_OUTPUT_FILE" >> "$GITHUB_OUTPUT"
 
       - name: Send daily push notifications
         id: notifications
@@ -119,19 +123,24 @@ jobs:
           ALPHAVANTAGE_KEY: ${{ secrets.ALPHAVANTAGE_KEY }}
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          NOTIFICATION_RESULT_FILE: ${{ runner.temp }}/goldsense-notification-result.json
+          NOTIFICATION_STDERR_FILE: ${{ runner.temp }}/goldsense-notification-result.stderr
+          NOTIFICATION_STATUS_FILE: ${{ runner.temp }}/goldsense-notification-status.txt
+          NOTIFICATION_OUTPUT_FILE: ${{ runner.temp }}/goldsense-notification-outputs.txt
         run: |
           status=0
           cd backend
-          python -u send_daily_notifications.py > ../.github/notification_result.json 2> ../.github/notification_result.stderr || status=$?
+          python -u send_daily_notifications.py > "$NOTIFICATION_RESULT_FILE" 2> "$NOTIFICATION_STDERR_FILE" || status=$?
           cd ..
-          printf '%s' "$status" > .github/notification_status.txt
+          printf '%s' "$status" > "$NOTIFICATION_STATUS_FILE"
           python - <<'PY'
           import json
+          import os
           from pathlib import Path
 
-          result_path = Path('.github/notification_result.json')
-          stderr_path = Path('.github/notification_result.stderr')
-          status_path = Path('.github/notification_status.txt')
+          result_path = Path(os.environ['NOTIFICATION_RESULT_FILE'])
+          stderr_path = Path(os.environ['NOTIFICATION_STDERR_FILE'])
+          status_path = Path(os.environ['NOTIFICATION_STATUS_FILE'])
 
           result_text = result_path.read_text(encoding='utf-8').strip() if result_path.exists() else ''
           stderr_text = stderr_path.read_text(encoding='utf-8').strip() if stderr_path.exists() else ''
@@ -163,7 +172,7 @@ jobs:
               payload.setdefault("status", "error")
 
           reason = str(payload.get('reason', '')).replace('\n', ' ').replace('\r', ' ')
-          output_path = Path('.github/notification_outputs.txt')
+          output_path = Path(os.environ['NOTIFICATION_OUTPUT_FILE'])
           output_path.write_text(
               "\n".join(
                   [
@@ -178,11 +187,11 @@ jobs:
               encoding='utf-8',
           )
           PY
-          cat .github/notification_outputs.txt >> "$GITHUB_OUTPUT"
+          cat "$NOTIFICATION_OUTPUT_FILE" >> "$GITHUB_OUTPUT"
           if [ "$status" -ne 0 ]; then
             echo "Notification script exited with code $status"
             echo "Notification stderr:"
-            cat .github/notification_result.stderr
+            cat "$NOTIFICATION_STDERR_FILE"
           fi
 
       - name: Commit updated artifacts

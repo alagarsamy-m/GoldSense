@@ -1,16 +1,19 @@
 """
 GoldSense ML pipeline data updater.
 
-Fetches the latest gold price and USD/INR data via yfinance, normalizes the
-investing.com-style CSV files, removes duplicate dates, and keeps files sorted
-strictly newest-first.
+Fetches the latest gold price and USD/INR data via a Yahoo Finance provider
+stack, normalizes the investing.com-style CSV files, removes duplicate dates,
+and keeps files sorted strictly newest-first.
 """
 
 from __future__ import annotations
 
 import sys
-from datetime import date, timedelta
+import json
+from datetime import date, datetime, time, timedelta, timezone
 from pathlib import Path
+from urllib.parse import urlencode
+from urllib.request import Request, urlopen
 
 import pandas as pd
 import yfinance as yf
@@ -22,6 +25,12 @@ USDINR_CSV = DATASET_DIR / "USD-INR.csv"
 
 GOLD_TICKER = "GC=F"
 USDINR_TICKER = "USDINR=X"
+YAHOO_CHART_BASE_URL = "https://query1.finance.yahoo.com/v8/finance/chart"
+REQUEST_TIMEOUT_SECONDS = 12
+REQUEST_HEADERS = {
+    "Accept": "application/json",
+    "User-Agent": "Mozilla/5.0 (compatible; GoldSenseBot/1.0; +https://gold-sense-five.vercel.app)",
+}
 
 
 def _date_format_for_csv(csv_path: Path) -> str:
@@ -150,9 +159,74 @@ def _format_volume(volume: float) -> str:
     return str(int(volume))
 
 
+def _fetch_chart_history(ticker: str, start: date, end: date) -> pd.DataFrame:
+    start_ts = int(datetime.combine(start, time(0, 0), tzinfo=timezone.utc).timestamp())
+    end_ts = int(datetime.combine(end + timedelta(days=1), time(0, 0), tzinfo=timezone.utc).timestamp())
+    full_url = f"{YAHOO_CHART_BASE_URL}/{ticker}?{urlencode({'period1': start_ts, 'period2': end_ts, 'interval': '1d', 'includePrePost': 'false', 'events': 'div,splits'})}"
+
+    try:
+        request = Request(full_url, headers=REQUEST_HEADERS)
+        with urlopen(request, timeout=REQUEST_TIMEOUT_SECONDS) as response:
+            payload = json.loads(response.read().decode("utf-8"))
+    except Exception:
+        return pd.DataFrame()
+
+    result = ((payload.get("chart") or {}).get("result") or [None])[0]
+    if not result:
+        return pd.DataFrame()
+
+    timestamps = result.get("timestamp") or []
+    quote = (((result.get("indicators") or {}).get("quote") or [None])[0] or {})
+    if not timestamps:
+        return pd.DataFrame()
+
+    frame = pd.DataFrame(
+        {
+            "Open": quote.get("open"),
+            "High": quote.get("high"),
+            "Low": quote.get("low"),
+            "Close": quote.get("close"),
+            "Volume": quote.get("volume"),
+        },
+        index=pd.to_datetime(timestamps, unit="s", utc=True).tz_convert(None),
+    )
+    frame = frame.dropna(subset=["Close"])
+    return frame
+
+
+def _fetch_history(ticker: str, start: date, end: date) -> pd.DataFrame:
+    chart_history = _fetch_chart_history(ticker, start, end)
+    if not chart_history.empty:
+        return chart_history
+
+    try:
+        hist = yf.Ticker(ticker).history(start=str(start), end=str(end + timedelta(days=1)))
+        if not hist.empty:
+            return hist
+    except Exception:
+        pass
+
+    try:
+        hist = yf.download(
+            ticker,
+            start=str(start),
+            end=str(end + timedelta(days=1)),
+            interval="1d",
+            auto_adjust=False,
+            progress=False,
+            threads=False,
+        )
+        if not hist.empty:
+            return hist
+    except Exception:
+        pass
+
+    return pd.DataFrame()
+
+
 def fetch_gold_prices(start: date, end: date, previous_close: float | None) -> pd.DataFrame:
     print(f"  Fetching gold prices: {start} -> {end}")
-    hist = yf.Ticker(GOLD_TICKER).history(start=str(start), end=str(end + timedelta(days=1)))
+    hist = _fetch_history(GOLD_TICKER, start, end)
     if hist.empty:
         print("  No new gold data available.")
         return pd.DataFrame()
@@ -176,7 +250,7 @@ def fetch_gold_prices(start: date, end: date, previous_close: float | None) -> p
 
 def fetch_usdinr(start: date, end: date, previous_close: float | None) -> pd.DataFrame:
     print(f"  Fetching USD/INR rates: {start} -> {end}")
-    hist = yf.Ticker(USDINR_TICKER).history(start=str(start), end=str(end + timedelta(days=1)))
+    hist = _fetch_history(USDINR_TICKER, start, end)
     if hist.empty:
         print("  No new USD/INR data available.")
         return pd.DataFrame()
@@ -214,7 +288,7 @@ def merge_and_write_csv(csv_path: Path, new_rows: pd.DataFrame) -> int:
 
 def update_datasets():
     print("=" * 55)
-    print("GoldSense - Dataset Update (yfinance)")
+    print("GoldSense - Dataset Update (Yahoo Finance)")
     print("=" * 55)
 
     today = date.today()

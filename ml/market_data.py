@@ -2,7 +2,7 @@
 Shared market data utilities for GoldSense.
 
 This module centralizes:
-- live provider fallback (Alpha Vantage -> yfinance -> dataset close)
+- live provider fallback (Alpha Vantage -> Yahoo chart/yfinance -> dataset close)
 - Mumbai retail pricing conversion
 - trading-calendar helpers used by API responses, evaluation, and snapshots
 """
@@ -16,7 +16,7 @@ from datetime import date, datetime, time, timedelta, timezone
 from pathlib import Path
 from typing import Any, Iterable, Optional
 from urllib.parse import urlencode
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 
 import pandas as pd
 
@@ -25,8 +25,13 @@ DEFAULT_CUSTOMS_DUTY = 0.06
 DEFAULT_GST = 0.03
 DEFAULT_MUMBAI_PREMIUM_PCT = 0.0
 ALPHA_VANTAGE_BASE_URL = "https://www.alphavantage.co/query"
+YAHOO_CHART_BASE_URL = "https://query1.finance.yahoo.com/v8/finance/chart"
 REQUEST_TIMEOUT_SECONDS = 12
 MARKET_LOCATION = "Mumbai"
+DEFAULT_REQUEST_HEADERS = {
+    "Accept": "application/json",
+    "User-Agent": "Mozilla/5.0 (compatible; GoldSenseBot/1.0; +https://gold-sense-five.vercel.app)",
+}
 
 
 @dataclass
@@ -129,9 +134,10 @@ def current_week_dates(day: Optional[date] = None) -> list[date]:
     return [monday + timedelta(days=offset) for offset in range(7)]
 
 
-def _request_json(url: str, params: dict[str, Any]) -> dict[str, Any]:
+def _request_json(url: str, params: dict[str, Any], headers: Optional[dict[str, str]] = None) -> dict[str, Any]:
     full_url = f"{url}?{urlencode(params)}"
-    with urlopen(full_url, timeout=REQUEST_TIMEOUT_SECONDS) as response:
+    request = Request(full_url, headers=headers or {})
+    with urlopen(request, timeout=REQUEST_TIMEOUT_SECONDS) as response:
         payload = response.read().decode("utf-8")
     return json.loads(payload)
 
@@ -215,6 +221,32 @@ def _fetch_alpha_vantage_fx(apikey: str) -> Optional[float]:
 
 
 def _fetch_yfinance_quote(ticker: str) -> Optional[float]:
+    try:
+        payload = _request_json(
+            f"{YAHOO_CHART_BASE_URL}/{ticker}",
+            {
+                "interval": "1d",
+                "range": "5d",
+                "includePrePost": "false",
+                "events": "div,splits",
+            },
+            headers=DEFAULT_REQUEST_HEADERS,
+        )
+        result = ((payload.get("chart") or {}).get("result") or [None])[0]
+        if result:
+            meta = result.get("meta") or {}
+            for field in ("regularMarketPrice", "previousClose"):
+                value = meta.get(field)
+                if value not in (None, "", "None"):
+                    return float(value)
+
+            quote = (((result.get("indicators") or {}).get("quote") or [None])[0] or {})
+            closes = [value for value in (quote.get("close") or []) if value not in (None, "", "None")]
+            if closes:
+                return float(closes[-1])
+    except Exception:
+        pass
+
     try:
         import yfinance as yf
 
