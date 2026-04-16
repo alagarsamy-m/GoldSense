@@ -21,12 +21,29 @@ export default function LiveTicker() {
 
     const setTickerData = (payload) => {
       if (!active || !payload?.live_usd) return
-      previousUsd.current = currentUsd.current
-      currentUsd.current = payload.live_usd
+      const nextUsd = payload.live_usd
+      const lastUsd = currentUsd.current
+      const hasPriceChanged = lastUsd != null && Math.abs(nextUsd - lastUsd) > 0.0001
+
+      previousUsd.current = lastUsd
+      currentUsd.current = nextUsd
       setData(payload)
+
+      if (!hasPriceChanged) {
+        setFlash(false)
+        if (flashTimeout) {
+          window.clearTimeout(flashTimeout)
+          flashTimeout = null
+        }
+        return
+      }
+
       setFlash(true)
       if (flashTimeout) window.clearTimeout(flashTimeout)
-      flashTimeout = window.setTimeout(() => setFlash(false), 900)
+      flashTimeout = window.setTimeout(() => {
+        setFlash(false)
+        flashTimeout = null
+      }, 900)
     }
 
     const hydrate = async () => {
@@ -72,18 +89,26 @@ export default function LiveTicker() {
   const change = previousUsd.current != null ? data.live_usd - previousUsd.current : 0
   const isUp = change > 0
   const statusTone = data.market_status === 'live' ? 'text-green-400' : 'text-amber-400'
+  const statusLabel = data.market_status === 'live'
+    ? 'Live'
+    : data.source === 'dataset_close'
+      ? 'Delayed close'
+      : 'Delayed'
+  const sourceLabel = data.market_status === 'live'
+    ? `${data.source} | auto-refresh 5s`
+    : `${data.source} | verified ${data.verified_date || data.date || '--'}`
 
   return (
     <div className="z-50 w-full border-b border-amber-500/10 bg-gradient-to-r from-slate-900/98 via-slate-900/95 to-slate-900/98 backdrop-blur-md">
       <div className={isDashboardRoute ? 'lg:pl-64' : ''}>
-        <div className="mx-auto flex max-w-7xl items-center gap-4 overflow-x-auto px-3 py-1.5 text-[11px]">
+        <div className="mx-auto flex max-w-7xl items-center gap-4 overflow-x-auto px-3 py-1.5 text-[11px]" aria-live="polite">
           <div className="flex shrink-0 items-center gap-1.5">
             <span className="relative flex h-1.5 w-1.5">
               <span className={`absolute inline-flex h-full w-full animate-ping rounded-full ${data.market_status === 'live' ? 'bg-green-400' : 'bg-amber-400'} opacity-75`} />
               <span className={`relative inline-flex h-1.5 w-1.5 rounded-full ${data.market_status === 'live' ? 'bg-green-500' : 'bg-amber-500'}`} />
             </span>
             <span className={`text-[9px] font-bold uppercase tracking-widest ${statusTone}`}>
-              {data.market_status === 'live' ? 'Live' : 'Delayed'}
+              {statusLabel}
             </span>
           </div>
 
@@ -123,7 +148,7 @@ export default function LiveTicker() {
           </div>
 
           <span className="ml-auto hidden shrink-0 text-slate-700 sm:inline">
-            {data.source} | auto-refresh 5s
+            {sourceLabel}
           </span>
         </div>
       </div>

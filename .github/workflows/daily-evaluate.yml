@@ -122,23 +122,45 @@ jobs:
         run: |
           status=0
           cd backend
-          python send_daily_notifications.py > ../.github/notification_result.json || status=$?
+          python -u send_daily_notifications.py > ../.github/notification_result.json 2> ../.github/notification_result.stderr || status=$?
           cd ..
+          printf '%s' "$status" > .github/notification_status.txt
           python - <<'PY'
           import json
           from pathlib import Path
 
           result_path = Path('.github/notification_result.json')
-          if result_path.exists():
-              payload = json.loads(result_path.read_text(encoding='utf-8'))
+          stderr_path = Path('.github/notification_result.stderr')
+          status_path = Path('.github/notification_status.txt')
+
+          result_text = result_path.read_text(encoding='utf-8').strip() if result_path.exists() else ''
+          stderr_text = stderr_path.read_text(encoding='utf-8').strip() if stderr_path.exists() else ''
+          exit_status = int(status_path.read_text(encoding='utf-8').strip() or '0') if status_path.exists() else 0
+
+          if result_text:
+              try:
+                  payload = json.loads(result_text)
+              except json.JSONDecodeError:
+                  payload = {
+                      "ok": False,
+                      "sent": 0,
+                      "failed": 0,
+                      "status": "error",
+                      "reason": "notification_result_invalid_json",
+                  }
           else:
+              stderr_reason = stderr_text.splitlines()[-1] if stderr_text else "notification_result_missing"
               payload = {
                   "ok": False,
                   "sent": 0,
                   "failed": 0,
                   "status": "error",
-                  "reason": "notification_result_missing",
+                  "reason": stderr_reason,
               }
+
+          if exit_status != 0:
+              payload["ok"] = False
+              payload.setdefault("status", "error")
 
           reason = str(payload.get('reason', '')).replace('\n', ' ').replace('\r', ' ')
           output_path = Path('.github/notification_outputs.txt')
@@ -159,6 +181,8 @@ jobs:
           cat .github/notification_outputs.txt >> "$GITHUB_OUTPUT"
           if [ "$status" -ne 0 ]; then
             echo "Notification script exited with code $status"
+            echo "Notification stderr:"
+            cat .github/notification_result.stderr
           fi
 
       - name: Commit updated artifacts
