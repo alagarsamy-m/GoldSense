@@ -3,6 +3,7 @@ import { BellRing } from 'lucide-react'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import {
+  ensurePushServiceWorkerReady,
   recordPushReceipt,
   showForegroundBrowserNotification,
   subscribeToForegroundMessages,
@@ -59,6 +60,8 @@ export default function ForegroundPushBridge() {
     let active = true
     let cleanup = () => {}
     let backgroundCleanup = () => {}
+
+    ensurePushServiceWorkerReady()
 
     subscribeToForegroundMessages(async (payload, registration) => {
       const receipt = await recordPushReceipt({

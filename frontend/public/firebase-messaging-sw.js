@@ -8,6 +8,14 @@ const PUSH_META_PATH = '/push-meta/last-received'
 let lastPushSignature = null
 let lastPushHandledAt = 0
 
+self.addEventListener('install', () => {
+  self.skipWaiting()
+})
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(clients.claim())
+})
+
 function normalizePayload(payload) {
   const data = payload?.data || {}
   const title = payload?.notification?.title || data.title || 'GoldSense Daily Prediction'
@@ -50,7 +58,8 @@ async function broadcastPushReceipt(record) {
 async function showGoldSenseNotification(record) {
   await self.registration.showNotification(record.title, {
     body: record.body,
-    tag: 'goldsense-daily-prediction',
+    tag: `goldsense-daily-prediction-${record.prediction_date || 'latest'}`,
+    renotify: true,
     requireInteraction: true,
     data: {
       deep_link: record.deep_link,
@@ -60,6 +69,12 @@ async function showGoldSenseNotification(record) {
     },
   })
 }
+
+self.addEventListener('message', (event) => {
+  if (event.data?.type === 'SKIP_WAITING') {
+    self.skipWaiting()
+  }
+})
 
 async function processIncomingPush(payload, channel) {
   const normalized = normalizePayload(payload)

@@ -6,6 +6,7 @@ let cachedConfig = null
 const LAST_PUSH_RECEIPT_STORAGE_KEY = 'goldsense-last-push-received'
 const LAST_PUSH_RECEIPT_CACHE = 'goldsense-push-meta-v1'
 const LAST_PUSH_RECEIPT_PATH = '/push-meta/last-received'
+const MESSAGING_SERVICE_WORKER_URL = '/firebase-messaging-sw.js'
 
 async function loadPushConfig() {
   if (cachedConfig) return cachedConfig
@@ -26,6 +27,29 @@ async function getFirebaseApp() {
   return { app: firebaseApp, config }
 }
 
+async function registerMessagingServiceWorker() {
+  if (!('serviceWorker' in navigator)) {
+    throw new Error('Service workers are not supported in this browser')
+  }
+
+  const registration = await navigator.serviceWorker.register(MESSAGING_SERVICE_WORKER_URL, {
+    updateViaCache: 'none',
+  })
+
+  await registration.update().catch(() => {})
+
+  if (registration.waiting) {
+    registration.waiting.postMessage({ type: 'SKIP_WAITING' })
+  }
+
+  return registration
+}
+
+function notificationTagForPayload(payload) {
+  const predictionDate = payload?.predictionDate || payload?.prediction_date || 'latest'
+  return `goldsense-daily-prediction-${predictionDate}`
+}
+
 async function resolveWebPushToken({ requestPermission = false } = {}) {
   if (!('Notification' in window) || !('serviceWorker' in navigator)) {
     throw new Error('Web push is not supported in this browser')
@@ -44,7 +68,7 @@ async function resolveWebPushToken({ requestPermission = false } = {}) {
     throw new Error('Notification permission was not granted')
   }
 
-  const registration = await navigator.serviceWorker.register('/firebase-messaging-sw.js')
+  const registration = await registerMessagingServiceWorker()
   const { app, config } = await getFirebaseApp()
   const messaging = getMessaging(app)
   const token = await getToken(messaging, {
@@ -87,13 +111,13 @@ async function persistReceiptToCache(receipt) {
 
 export async function recordPushReceipt(receipt) {
   const normalized = {
-    receivedAt: new Date().toISOString(),
-    channel: 'foreground',
+    receivedAt: receipt?.receivedAt || new Date().toISOString(),
+    channel: receipt?.channel || 'foreground',
     title: receipt?.title || 'GoldSense Daily Prediction',
     body: receipt?.body || 'A fresh gold forecast is available.',
-    deepLink: receipt?.deepLink || '/#predictor',
-    alertReason: receipt?.alertReason || '',
-    predictionDate: receipt?.predictionDate || '',
+    deepLink: receipt?.deepLink || receipt?.deep_link || '/#predictor',
+    alertReason: receipt?.alertReason || receipt?.alert_reason || '',
+    predictionDate: receipt?.predictionDate || receipt?.prediction_date || '',
   }
 
   persistReceiptToLocalStorage(normalized)
@@ -140,7 +164,7 @@ export async function subscribeToForegroundMessages(handler) {
     return () => {}
   }
 
-  const registration = await navigator.serviceWorker.register('/firebase-messaging-sw.js')
+  const registration = await registerMessagingServiceWorker()
   const { app } = await getFirebaseApp()
   const messaging = getMessaging(app)
 
@@ -152,6 +176,10 @@ export async function subscribeToForegroundMessages(handler) {
 export function subscribeToServiceWorkerPushMessages(handler) {
   if (typeof window === 'undefined' || !('serviceWorker' in navigator)) {
     return () => {}
+  }
+
+  if (typeof navigator.serviceWorker.startMessages === 'function') {
+    navigator.serviceWorker.startMessages()
   }
 
   const listener = (event) => {
@@ -170,10 +198,11 @@ export async function showForegroundBrowserNotification(payload, registration) {
     return
   }
 
-  const activeRegistration = registration || await navigator.serviceWorker.ready
+  const activeRegistration = registration || await registerMessagingServiceWorker()
   await activeRegistration.showNotification(payload.title, {
     body: payload.body,
-    tag: 'goldsense-daily-prediction',
+    tag: notificationTagForPayload(payload),
+    renotify: true,
     requireInteraction: true,
     data: {
       deep_link: payload.deepLink,
@@ -196,5 +225,13 @@ export async function getExistingWebPushToken() {
     return await resolveWebPushToken({ requestPermission: false })
   } catch {
     return null
+  }
+}
+
+export async function ensurePushServiceWorkerReady() {
+  try {
+    await registerMessagingServiceWorker()
+  } catch {
+    // Ignore unsupported browsers or transient registration failures.
   }
 }
