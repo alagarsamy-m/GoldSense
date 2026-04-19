@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-04-19T11:14:47.251652Z",
+  "generated_at": "2026-04-19T11:18:38.218013Z",
   "today": {
-    "generated_at": "2026-04-19T11:14:47.251652Z",
+    "generated_at": "2026-04-19T11:18:38.218013Z",
     "date": "2026-04-19",
     "reference_mode": "live_last",
     "quote_label": "Live last available price",
@@ -9,7 +9,7 @@
     "live_usd": 4879.6,
     "usd_inr_rate": 92.575,
     "verified_date": "2026-04-17",
-    "as_of": "2026-04-19T11:14:50.049134Z",
+    "as_of": "2026-04-19T11:18:41.705880Z",
     "source": "yfinance",
     "market_status": "live",
     "is_live": true,
@@ -28,7 +28,7 @@
     }
   },
   "tomorrow": {
-    "generated_at": "2026-04-19T11:14:47.251652Z",
+    "generated_at": "2026-04-19T11:18:38.218013Z",
     "prediction_date": "2026-04-20",
     "target_date": "2026-04-20",
     "target_type": "calendar_close",
@@ -37,22 +37,22 @@
     "last_data_date": "2026-04-17",
     "last_actual_usd": 4879.6,
     "reference_live_usd": 4879.6,
-    "reference_as_of": "2026-04-19T11:14:49.222509Z",
+    "reference_as_of": "2026-04-19T11:18:40.687896Z",
     "reference_source": "yfinance",
     "reference_market_status": "live",
     "reference_is_live": true,
     "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-    "tomorrow_usd": 4881.45,
+    "tomorrow_usd": 4881.41,
     "usd_inr_rate": 92.575,
     "trend": "stable",
     "direction_vs_today": "stable",
-    "direction_delta_pct": 0.038,
-    "direction_delta_usd": 1.85,
-    "pct_change": 0.038,
-    "tomorrow_price_24k_per_gram": 15862.69,
-    "tomorrow_price_22k_per_gram": 14540.8,
-    "tomorrow_price_24k_per_10g": 158626.87,
-    "tomorrow_price_22k_per_10g": 145407.96,
+    "direction_delta_pct": 0.037,
+    "direction_delta_usd": 1.81,
+    "pct_change": 0.037,
+    "tomorrow_price_24k_per_gram": 15862.53,
+    "tomorrow_price_22k_per_gram": 14540.65,
+    "tomorrow_price_24k_per_10g": 158625.3,
+    "tomorrow_price_22k_per_10g": 145406.52,
     "tomorrow_pricing_formula": {
       "base_formula": "(USD_per_oz * USDINR) / 31.1035",
       "customs_duty_pct": 6.0,
@@ -61,16 +61,16 @@
       "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
     },
     "confidence_interval": {
-      "lower_usd": 4810.41,
-      "upper_usd": 4963.41,
-      "lower_24k_per_gram": 15631.83,
-      "upper_24k_per_gram": 16129.02,
-      "lower_22k_per_gram": 14329.18,
-      "upper_22k_per_gram": 14784.93,
-      "interval_pct": 3.13
+      "lower_usd": 4789.17,
+      "upper_usd": 4961.79,
+      "lower_24k_per_gram": 15562.79,
+      "upper_24k_per_gram": 16123.75,
+      "lower_22k_per_gram": 14265.89,
+      "upper_22k_per_gram": 14780.11,
+      "interval_pct": 3.54
     },
-    "direction_confidence": 51.6,
-    "as_of": "2026-04-19T11:14:49.222509Z",
+    "direction_confidence": 50.5,
+    "as_of": "2026-04-19T11:18:40.687896Z",
     "source": "model_forecast",
     "market_status": "forecast",
     "is_live": false,
@@ -118,17 +118,17 @@
           "url": "https://finance.yahoo.com/news/ride-gold-silver-rally-choose-112101028.html"
         }
       ],
-      "fetched_at": "2026-04-19T11:14:42.828113"
+      "fetched_at": "2026-04-19T11:17:22.508606"
     },
     "model_info": {
-      "trained_at": "2026-04-16T17:05:52.390725Z",
-      "rmse": 68.32431670530276,
-      "mae": 42.82743621603432,
-      "mape": 1.1363740088653431,
-      "direction_accuracy": 58.35616438356165,
-      "interval_coverage": 75.06849315068493,
-      "cv_direction_accuracy": 53.29769547887869,
-      "cv_mape": 8.090254369838995,
+      "trained_at": "2026-04-19T11:18:37.702806Z",
+      "rmse": 68.32903741798006,
+      "mae": 42.83325496349599,
+      "mape": 1.1316403806963495,
+      "direction_accuracy": 57.80821917808219,
+      "interval_coverage": 77.26027397260275,
+      "cv_direction_accuracy": 53.29605417177963,
+      "cv_mape": 8.538377269816957,
       "macro_features": true,
       "has_confidence_intervals": true,
       "target_type": "calendar_close",
@@ -136,7 +136,7 @@
     }
   },
   "week": {
-    "generated_at": "2026-04-19T11:14:47.251652Z",
+    "generated_at": "2026-04-19T11:18:38.218013Z",
     "forecast": [
       {
         "date": "2026-04-13",
@@ -338,7 +338,7 @@
     "market_context": {
       "usd_per_oz": 4879.6,
       "usd_inr_rate": 92.575,
-      "as_of": "2026-04-19T11:14:48.522358Z",
+      "as_of": "2026-04-19T11:18:39.487230Z",
       "source": "yfinance",
       "market_status": "live",
       "is_live": true,
@@ -548,14 +548,14 @@
     "count": 8
   },
   "model_info": {
-    "trained_at": "2026-04-16T17:05:52.390725Z",
-    "rmse": 68.32431670530276,
-    "mae": 42.82743621603432,
-    "mape": 1.1363740088653431,
-    "direction_accuracy": 58.35616438356165,
-    "interval_coverage": 75.06849315068493,
-    "cv_direction_accuracy": 53.29769547887869,
-    "cv_mape": 8.090254369838995,
+    "trained_at": "2026-04-19T11:18:37.702806Z",
+    "rmse": 68.32903741798006,
+    "mae": 42.83325496349599,
+    "mape": 1.1316403806963495,
+    "direction_accuracy": 57.80821917808219,
+    "interval_coverage": 77.26027397260275,
+    "cv_direction_accuracy": 53.29605417177963,
+    "cv_mape": 8.538377269816957,
     "macro_features": true,
     "has_confidence_intervals": true,
     "target_type": "calendar_close",
