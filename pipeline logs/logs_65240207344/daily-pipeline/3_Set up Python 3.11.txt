@@ -1,0 +1,24 @@
+﻿2026-04-19T09:12:22.0580744Z ##[group]Run actions/setup-python@v5
+2026-04-19T09:12:22.0582381Z with:
+2026-04-19T09:12:22.0583512Z   python-version: 3.11
+2026-04-19T09:12:22.0584761Z   cache: pip
+2026-04-19T09:12:22.0585917Z   check-latest: false
+2026-04-19T09:12:22.0587492Z   token: ***
+2026-04-19T09:12:22.0588682Z   update-environment: true
+2026-04-19T09:12:22.0590076Z   allow-prereleases: false
+2026-04-19T09:12:22.0591533Z   freethreaded: false
+2026-04-19T09:12:22.0592760Z ##[endgroup]
+2026-04-19T09:12:22.2172387Z ##[group]Installed versions
+2026-04-19T09:12:22.2255906Z Successfully set up CPython (3.11.15)
+2026-04-19T09:12:22.2258268Z ##[endgroup]
+2026-04-19T09:12:22.2735303Z [command]/opt/hostedtoolcache/Python/3.11.15/x64/bin/pip cache dir
+2026-04-19T09:12:22.5476432Z /home/runner/.cache/pip
+2026-04-19T09:12:22.7200802Z Cache hit for: setup-python-Linux-x64-24.04-Ubuntu-python-3.11.15-pip-8b44099f00540ecc449d313fddcde15f0446a4896988adee6f12ef59a1cfd718
+2026-04-19T09:12:23.8745690Z Received 109051904 of 621189453 (17.6%), 103.9 MBs/sec
+2026-04-19T09:12:24.8755630Z Received 297795584 of 621189453 (47.9%), 141.9 MBs/sec
+2026-04-19T09:12:25.8757990Z Received 511705088 of 621189453 (82.4%), 162.6 MBs/sec
+2026-04-19T09:12:26.3929126Z Received 621189453 of 621189453 (100.0%), 168.3 MBs/sec
+2026-04-19T09:12:26.3929897Z Cache Size: ~592 MB (621189453 B)
+2026-04-19T09:12:26.4060532Z [command]/usr/bin/tar -xf /home/runner/work/_temp/531aa2d9-5982-4552-a61d-25a3d952980b/cache.tzst -P -C /home/runner/work/GoldSense/GoldSense --use-compress-program unzstd
+2026-04-19T09:12:26.9164776Z Cache restored successfully
+2026-04-19T09:12:26.9365709Z Cache restored from key: setup-python-Linux-x64-24.04-Ubuntu-python-3.11.15-pip-8b44099f00540ecc449d313fddcde15f0446a4896988adee6f12ef59a1cfd718

@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { getMessaging, getToken, isSupported } from 'firebase/messaging'
+import { getMessaging, getToken, isSupported, onMessage } from 'firebase/messaging'
 
 let firebaseApp = null
 let cachedConfig = null
@@ -53,6 +53,50 @@ async function resolveWebPushToken({ requestPermission = false } = {}) {
     throw new Error('No push token was returned')
   }
   return token
+}
+
+function normalizeForegroundPayload(payload) {
+  return {
+    title: payload?.notification?.title || 'GoldSense Daily Prediction',
+    body: payload?.notification?.body || 'A fresh gold forecast is available.',
+    deepLink: payload?.data?.deep_link || '/#predictor',
+    alertReason: payload?.data?.alert_reason || '',
+    raw: payload,
+  }
+}
+
+export async function subscribeToForegroundMessages(handler) {
+  if (!('Notification' in window) || Notification.permission !== 'granted') {
+    return () => {}
+  }
+
+  const supported = await isSupported()
+  if (!supported) {
+    return () => {}
+  }
+
+  const registration = await navigator.serviceWorker.register('/firebase-messaging-sw.js')
+  const { app } = await getFirebaseApp()
+  const messaging = getMessaging(app)
+
+  return onMessage(messaging, (payload) => {
+    handler(normalizeForegroundPayload(payload), registration)
+  })
+}
+
+export async function showForegroundBrowserNotification(payload, registration) {
+  if (!('Notification' in window) || Notification.permission !== 'granted') {
+    return
+  }
+
+  const activeRegistration = registration || await navigator.serviceWorker.ready
+  await activeRegistration.showNotification(payload.title, {
+    body: payload.body,
+    data: {
+      deep_link: payload.deepLink,
+      alert_reason: payload.alertReason,
+    },
+  })
 }
 
 export async function requestWebPushToken() {

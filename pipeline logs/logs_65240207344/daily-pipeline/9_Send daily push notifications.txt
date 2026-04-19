@@ -1,0 +1,102 @@
+﻿2026-04-19T09:13:08.3362603Z ##[group]Run status=0
+2026-04-19T09:13:08.3363190Z [36;1mstatus=0[0m
+2026-04-19T09:13:08.3363594Z [36;1mcd backend[0m
+2026-04-19T09:13:08.3364468Z [36;1mpython -u send_daily_notifications.py > "$NOTIFICATION_RESULT_FILE" 2> "$NOTIFICATION_STDERR_FILE" || status=$?[0m
+2026-04-19T09:13:08.3365448Z [36;1mcd ..[0m
+2026-04-19T09:13:08.3365995Z [36;1mprintf '%s' "$status" > "$NOTIFICATION_STATUS_FILE"[0m
+2026-04-19T09:13:08.3366672Z [36;1mpython - <<'PY'[0m
+2026-04-19T09:13:08.3367172Z [36;1mimport json[0m
+2026-04-19T09:13:08.3367597Z [36;1mimport os[0m
+2026-04-19T09:13:08.3368079Z [36;1mfrom pathlib import Path[0m
+2026-04-19T09:13:08.3368606Z [36;1m[0m
+2026-04-19T09:13:08.3369115Z [36;1mdef parse_notification_payload(raw_text: str):[0m
+2026-04-19T09:13:08.3369787Z [36;1m    text = (raw_text or "").strip()[0m
+2026-04-19T09:13:08.3370382Z [36;1m    if not text:[0m
+2026-04-19T09:13:08.3370862Z [36;1m        return None[0m
+2026-04-19T09:13:08.3371526Z [36;1m[0m
+2026-04-19T09:13:08.3372009Z [36;1m    decoder = json.JSONDecoder()[0m
+2026-04-19T09:13:08.3372617Z [36;1m    for index, char in enumerate(text):[0m
+2026-04-19T09:13:08.3373271Z [36;1m        if char != "***":[0m
+2026-04-19T09:13:08.3373807Z [36;1m            continue[0m
+2026-04-19T09:13:08.3374296Z [36;1m        try:[0m
+2026-04-19T09:13:08.3374850Z [36;1m            payload, _ = decoder.raw_decode(text[index:])[0m
+2026-04-19T09:13:08.3375506Z [36;1m        except json.JSONDecodeError:[0m
+2026-04-19T09:13:08.3376053Z [36;1m            continue[0m
+2026-04-19T09:13:08.3376572Z [36;1m        if isinstance(payload, dict):[0m
+2026-04-19T09:13:08.3377173Z [36;1m            return payload[0m
+2026-04-19T09:13:08.3377716Z [36;1m    return None[0m
+2026-04-19T09:13:08.3378164Z [36;1m[0m
+2026-04-19T09:13:08.3378997Z [36;1mresult_path = Path(os.environ['NOTIFICATION_RESULT_FILE'])[0m
+2026-04-19T09:13:08.3379866Z [36;1mstderr_path = Path(os.environ['NOTIFICATION_STDERR_FILE'])[0m
+2026-04-19T09:13:08.3380728Z [36;1mstatus_path = Path(os.environ['NOTIFICATION_STATUS_FILE'])[0m
+2026-04-19T09:13:08.3381593Z [36;1m[0m
+2026-04-19T09:13:08.3382349Z [36;1mresult_text = result_path.read_text(encoding='utf-8').strip() if result_path.exists() else ''[0m
+2026-04-19T09:13:08.3383536Z [36;1mstderr_text = stderr_path.read_text(encoding='utf-8').strip() if stderr_path.exists() else ''[0m
+2026-04-19T09:13:08.3384641Z [36;1mexit_status = int(status_path.read_text(encoding='utf-8').strip() or '0') if status_path.exists() else 0[0m
+2026-04-19T09:13:08.3385478Z [36;1m[0m
+2026-04-19T09:13:08.3385863Z [36;1mif result_text:[0m
+2026-04-19T09:13:08.3386401Z [36;1m    payload = parse_notification_payload(result_text)[0m
+2026-04-19T09:13:08.3387030Z [36;1m    if payload is None:[0m
+2026-04-19T09:13:08.3387595Z [36;1m        payload = ***[0m
+2026-04-19T09:13:08.3388114Z [36;1m            "ok": False,[0m
+2026-04-19T09:13:08.3388612Z [36;1m            "sent": 0,[0m
+2026-04-19T09:13:08.3389113Z [36;1m            "failed": 0,[0m
+2026-04-19T09:13:08.3389625Z [36;1m            "status": "error",[0m
+2026-04-19T09:13:08.3390249Z [36;1m            "reason": "notification_result_invalid_json",[0m
+2026-04-19T09:13:08.3390932Z [36;1m        ***[0m
+2026-04-19T09:13:08.3391558Z [36;1melse:[0m
+2026-04-19T09:13:08.3392331Z [36;1m    stderr_reason = stderr_text.splitlines()[-1] if stderr_text else "notification_result_missing"[0m
+2026-04-19T09:13:08.3393254Z [36;1m    payload = ***[0m
+2026-04-19T09:13:08.3393751Z [36;1m        "ok": False,[0m
+2026-04-19T09:13:08.3394243Z [36;1m        "sent": 0,[0m
+2026-04-19T09:13:08.3394715Z [36;1m        "failed": 0,[0m
+2026-04-19T09:13:08.3395211Z [36;1m        "status": "error",[0m
+2026-04-19T09:13:08.3395757Z [36;1m        "reason": stderr_reason,[0m
+2026-04-19T09:13:08.3396340Z [36;1m    ***[0m
+2026-04-19T09:13:08.3396741Z [36;1m[0m
+2026-04-19T09:13:08.3397154Z [36;1mif exit_status != 0:[0m
+2026-04-19T09:13:08.3397629Z [36;1m    payload["ok"] = False[0m
+2026-04-19T09:13:08.3398518Z [36;1m    payload.setdefault("status", "error")[0m
+2026-04-19T09:13:08.3399049Z [36;1m[0m
+2026-04-19T09:13:08.3399631Z [36;1mreason = str(payload.get('reason', '')).replace('\n', ' ').replace('\r', ' ')[0m
+2026-04-19T09:13:08.3400494Z [36;1moutput_path = Path(os.environ['NOTIFICATION_OUTPUT_FILE'])[0m
+2026-04-19T09:13:08.3401451Z [36;1moutput_path.write_text([0m
+2026-04-19T09:13:08.3401957Z [36;1m    "\n".join([0m
+2026-04-19T09:13:08.3402372Z [36;1m        [[0m
+2026-04-19T09:13:08.3403054Z [36;1m            f"notification_ok=***'true' if payload.get('ok') else 'false'***",[0m
+2026-04-19T09:13:08.3404037Z [36;1m            f"notification_status=***payload.get('status', 'unknown')***",[0m
+2026-04-19T09:13:08.3404880Z [36;1m            f"notification_sent=***payload.get('sent', 0)***",[0m
+2026-04-19T09:13:08.3405709Z [36;1m            f"notification_failed=***payload.get('failed', 0)***",[0m
+2026-04-19T09:13:08.3406461Z [36;1m            f"notification_reason=***reason***",[0m
+2026-04-19T09:13:08.3407028Z [36;1m        ][0m
+2026-04-19T09:13:08.3407422Z [36;1m    )[0m
+2026-04-19T09:13:08.3407815Z [36;1m    + "\n",[0m
+2026-04-19T09:13:08.3408272Z [36;1m    encoding='utf-8',[0m
+2026-04-19T09:13:08.3408749Z [36;1m)[0m
+2026-04-19T09:13:08.3409136Z [36;1mPY[0m
+2026-04-19T09:13:08.3409689Z [36;1mcat "$NOTIFICATION_OUTPUT_FILE" >> "$GITHUB_OUTPUT"[0m
+2026-04-19T09:13:08.3410379Z [36;1mif [ "$status" -ne 0 ]; then[0m
+2026-04-19T09:13:08.3411221Z [36;1m  echo "Notification script exited with code $status"[0m
+2026-04-19T09:13:08.3411864Z [36;1m  echo "Notification stderr:"[0m
+2026-04-19T09:13:08.3412381Z [36;1m  cat "$NOTIFICATION_STDERR_FILE"[0m
+2026-04-19T09:13:08.3412867Z [36;1mfi[0m
+2026-04-19T09:13:08.3433383Z shell: /usr/bin/bash -e ***0***
+2026-04-19T09:13:08.3434094Z env:
+2026-04-19T09:13:08.3434616Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T09:13:08.3435392Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-19T09:13:08.3436201Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T09:13:08.3436920Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T09:13:08.3437692Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T09:13:08.3438491Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-19T09:13:08.3439346Z   SUPABASE_URL: ***
+2026-04-19T09:13:08.3442078Z   SUPABASE_SERVICE_KEY: ***
+2026-04-19T09:13:08.3442806Z   GROQ_API_KEY: ***
+2026-04-19T09:13:08.3443301Z   ALPHAVANTAGE_KEY: ***
+2026-04-19T09:13:08.3443867Z   NEWSAPI_KEY: ***
+2026-04-19T09:13:08.3461271Z   FIREBASE_SERVICE_ACCOUNT_JSON: ***
+
+2026-04-19T09:13:08.3462176Z   NOTIFICATION_RESULT_FILE: /home/runner/work/_temp/goldsense-notification-result.json
+2026-04-19T09:13:08.3463292Z   NOTIFICATION_STDERR_FILE: /home/runner/work/_temp/goldsense-notification-result.stderr
+2026-04-19T09:13:08.3464354Z   NOTIFICATION_STATUS_FILE: /home/runner/work/_temp/goldsense-notification-status.txt
+2026-04-19T09:13:08.3465516Z   NOTIFICATION_OUTPUT_FILE: /home/runner/work/_temp/goldsense-notification-outputs.txt
+2026-04-19T09:13:08.3466329Z ##[endgroup]

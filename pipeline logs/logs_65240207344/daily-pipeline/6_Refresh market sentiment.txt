@@ -1,0 +1,36 @@
+﻿2026-04-19T09:12:59.6410948Z ##[group]Run cd ml
+2026-04-19T09:12:59.6411550Z [36;1mcd ml[0m
+2026-04-19T09:12:59.6411862Z [36;1mpython sentiment_service.py --refresh[0m
+2026-04-19T09:12:59.6425862Z shell: /usr/bin/bash -e ***0***
+2026-04-19T09:12:59.6426205Z env:
+2026-04-19T09:12:59.6426542Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T09:12:59.6427035Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-19T09:12:59.6427510Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T09:12:59.6427946Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T09:12:59.6428367Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T09:12:59.6428805Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-19T09:12:59.6429206Z   ALPHAVANTAGE_KEY: ***
+2026-04-19T09:12:59.6429537Z   NEWSAPI_KEY: ***
+2026-04-19T09:12:59.6429806Z ##[endgroup]
+2026-04-19T09:13:00.1237684Z =======================================================
+2026-04-19T09:13:00.1239143Z GoldSense — News Sentiment Analysis
+2026-04-19T09:13:00.1240363Z =======================================================
+2026-04-19T09:13:00.1241155Z 
+2026-04-19T09:13:00.1241484Z Sentiment Score: +0.1905
+2026-04-19T09:13:00.1242292Z Label:           Bullish
+2026-04-19T09:13:00.1243056Z Confidence:      high
+2026-04-19T09:13:00.1243793Z Articles:        50
+2026-04-19T09:13:00.1244530Z Source:          alpha_vantage
+2026-04-19T09:13:00.1245369Z Fetched at:      2026-04-19T09:13:00.121308
+2026-04-19T09:13:00.1245961Z 
+2026-04-19T09:13:00.1246270Z Top Headlines:
+2026-04-19T09:13:00.1246997Z   1. [Bearish] GLD ETF Falls 0.6%
+2026-04-19T09:13:00.1247869Z      Score: -0.603 | Moomoo
+2026-04-19T09:13:00.1249142Z   2. [Bullish] Gold price today rebounds near $4,370 as GLD ETF and gold stocks track bullion h
+2026-04-19T09:13:00.1250523Z      Score: +0.516 | ts2.tech
+2026-04-19T09:13:00.1251513Z   3. [Bullish] GLD ETF Climbs 1.2%
+2026-04-19T09:13:00.1252348Z      Score: +0.500 | Moomoo
+2026-04-19T09:13:00.1253619Z   4. [Bullish] Ride the Gold and Silver Rally: Choose GLD ETF's Steady Climb or SLV's High-Octa
+2026-04-19T09:13:00.1255012Z      Score: +0.473 | Yahoo Finance
+2026-04-19T09:13:00.1256479Z   5. [Bullish] Gold Bonanza: GLD ETF Surges & Miners Skyrocket – Will Gold Hit $5,000/oz Next?
+2026-04-19T09:13:00.1257209Z      Score: +0.456 | ts2.tech
