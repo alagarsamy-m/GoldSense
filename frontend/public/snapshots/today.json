@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-19T09:39:33.531498Z",
+  "generated_at": "2026-04-19T10:09:10.300042Z",
   "date": "2026-04-19",
   "reference_mode": "live_last",
   "quote_label": "Live last available price",
@@ -7,7 +7,7 @@
   "live_usd": 4879.6,
   "usd_inr_rate": 92.575,
   "verified_date": "2026-04-17",
-  "as_of": "2026-04-19T09:39:36.316426Z",
+  "as_of": "2026-04-19T10:09:13.088139Z",
   "source": "yfinance",
   "market_status": "live",
   "is_live": true,

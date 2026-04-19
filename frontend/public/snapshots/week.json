@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-19T09:39:33.531498Z",
+  "generated_at": "2026-04-19T10:09:10.300042Z",
   "forecast": [
     {
       "date": "2026-04-13",
@@ -201,7 +201,7 @@
   "market_context": {
     "usd_per_oz": 4879.6,
     "usd_inr_rate": 92.575,
-    "as_of": "2026-04-19T09:39:34.804833Z",
+    "as_of": "2026-04-19T10:09:11.586218Z",
     "source": "yfinance",
     "market_status": "live",
     "is_live": true,
