@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-04-19T11:18:38.218013Z",
+  "generated_at": "2026-04-19T11:44:27.059143Z",
   "today": {
-    "generated_at": "2026-04-19T11:18:38.218013Z",
+    "generated_at": "2026-04-19T11:44:27.059143Z",
     "date": "2026-04-19",
     "reference_mode": "live_last",
     "quote_label": "Live last available price",
@@ -9,7 +9,7 @@
     "live_usd": 4879.6,
     "usd_inr_rate": 92.575,
     "verified_date": "2026-04-17",
-    "as_of": "2026-04-19T11:18:41.705880Z",
+    "as_of": "2026-04-19T11:44:30.591014Z",
     "source": "yfinance",
     "market_status": "live",
     "is_live": true,
@@ -28,7 +28,7 @@
     }
   },
   "tomorrow": {
-    "generated_at": "2026-04-19T11:18:38.218013Z",
+    "generated_at": "2026-04-19T11:44:27.059143Z",
     "prediction_date": "2026-04-20",
     "target_date": "2026-04-20",
     "target_type": "calendar_close",
@@ -37,7 +37,7 @@
     "last_data_date": "2026-04-17",
     "last_actual_usd": 4879.6,
     "reference_live_usd": 4879.6,
-    "reference_as_of": "2026-04-19T11:18:40.687896Z",
+    "reference_as_of": "2026-04-19T11:44:29.477382Z",
     "reference_source": "yfinance",
     "reference_market_status": "live",
     "reference_is_live": true,
@@ -70,7 +70,7 @@
       "interval_pct": 3.54
     },
     "direction_confidence": 50.5,
-    "as_of": "2026-04-19T11:18:40.687896Z",
+    "as_of": "2026-04-19T11:44:29.477382Z",
     "source": "model_forecast",
     "market_status": "forecast",
     "is_live": false,
@@ -118,7 +118,7 @@
           "url": "https://finance.yahoo.com/news/ride-gold-silver-rally-choose-112101028.html"
         }
       ],
-      "fetched_at": "2026-04-19T11:17:22.508606"
+      "fetched_at": "2026-04-19T11:44:21.557950"
     },
     "model_info": {
       "trained_at": "2026-04-19T11:18:37.702806Z",
@@ -136,7 +136,7 @@
     }
   },
   "week": {
-    "generated_at": "2026-04-19T11:18:38.218013Z",
+    "generated_at": "2026-04-19T11:44:27.059143Z",
     "forecast": [
       {
         "date": "2026-04-13",
@@ -338,7 +338,7 @@
     "market_context": {
       "usd_per_oz": 4879.6,
       "usd_inr_rate": 92.575,
-      "as_of": "2026-04-19T11:18:39.487230Z",
+      "as_of": "2026-04-19T11:44:28.487588Z",
       "source": "yfinance",
       "market_status": "live",
       "is_live": true,
