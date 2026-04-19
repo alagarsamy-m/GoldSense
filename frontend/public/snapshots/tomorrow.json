@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-19T09:37:04.296937Z",
+  "generated_at": "2026-04-19T09:39:33.531498Z",
   "prediction_date": "2026-04-20",
   "target_date": "2026-04-20",
   "target_type": "calendar_close",
@@ -8,7 +8,7 @@
   "last_data_date": "2026-04-17",
   "last_actual_usd": 4879.6,
   "reference_live_usd": 4879.6,
-  "reference_as_of": "2026-04-19T09:37:06.420251Z",
+  "reference_as_of": "2026-04-19T09:39:35.498501Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
@@ -41,7 +41,7 @@
     "interval_pct": 3.13
   },
   "direction_confidence": 51.6,
-  "as_of": "2026-04-19T09:37:06.420251Z",
+  "as_of": "2026-04-19T09:39:35.498501Z",
   "source": "model_forecast",
   "market_status": "forecast",
   "is_live": false,
@@ -89,7 +89,7 @@
         "url": "https://finance.yahoo.com/news/ride-gold-silver-rally-choose-112101028.html"
       }
     ],
-    "fetched_at": "2026-04-19T09:36:59.860060"
+    "fetched_at": "2026-04-19T09:39:29.249376"
   },
   "model_info": {
     "trained_at": "2026-04-16T17:05:52.390725Z",
