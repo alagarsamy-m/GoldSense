@@ -3,8 +3,10 @@ import { BellRing } from 'lucide-react'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import {
+  recordPushReceipt,
   showForegroundBrowserNotification,
   subscribeToForegroundMessages,
+  subscribeToServiceWorkerPushMessages,
 } from '../../services/notifications'
 
 function openDeepLink(target, navigate) {
@@ -42,14 +44,29 @@ function NotificationToast({ title, body, onOpen }) {
   )
 }
 
+function emitReceipt(receipt) {
+  window.dispatchEvent(
+    new CustomEvent('goldsense:push-received', {
+      detail: receipt,
+    }),
+  )
+}
+
 export default function ForegroundPushBridge() {
   const navigate = useNavigate()
 
   useEffect(() => {
     let active = true
     let cleanup = () => {}
+    let backgroundCleanup = () => {}
 
     subscribeToForegroundMessages(async (payload, registration) => {
+      const receipt = await recordPushReceipt({
+        ...payload,
+        channel: 'foreground',
+      })
+      emitReceipt(receipt)
+
       try {
         await showForegroundBrowserNotification(payload, registration)
       } catch (_) {
@@ -79,9 +96,36 @@ export default function ForegroundPushBridge() {
       })
       .catch(() => {})
 
+    backgroundCleanup = subscribeToServiceWorkerPushMessages((receipt) => {
+      recordPushReceipt(receipt)
+        .then((savedReceipt) => {
+          emitReceipt(savedReceipt)
+
+          if (document.hidden) {
+            return
+          }
+
+          toast.custom(
+            () => (
+              <NotificationToast
+                title={savedReceipt.title}
+                body={savedReceipt.body}
+                onOpen={() => openDeepLink(savedReceipt.deepLink, navigate)}
+              />
+            ),
+            {
+              duration: 12000,
+              position: 'top-right',
+            },
+          )
+        })
+        .catch(() => {})
+    })
+
     return () => {
       active = false
       cleanup()
+      backgroundCleanup()
     }
   }, [navigate])
 

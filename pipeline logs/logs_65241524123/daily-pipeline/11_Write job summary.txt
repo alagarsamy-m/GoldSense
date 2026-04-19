@@ -1,0 +1,30 @@
+﻿2026-04-19T09:39:42.1934954Z ##[group]Run echo "## Daily GoldSense Pipeline - $(date -u '+%Y-%m-%d')" >> "$GITHUB_STEP_SUMMARY"
+2026-04-19T09:39:42.1935800Z [36;1mecho "## Daily GoldSense Pipeline - $(date -u '+%Y-%m-%d')" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-04-19T09:39:42.1936354Z [36;1mecho "" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-04-19T09:39:42.1936788Z [36;1mecho "| Metric | Value |" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-04-19T09:39:42.1937253Z [36;1mecho "|--------|-------|" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-04-19T09:39:42.1937732Z [36;1mecho "| Avg D1 MAPE | 0.514% |" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-04-19T09:39:42.1938269Z [36;1mecho "| D1 Direction Accuracy | 40.0% |" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-04-19T09:39:42.1938853Z [36;1mecho "| Drift Detected | true |" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-04-19T09:39:42.1939385Z [36;1mecho "| Retrain Recommended | true |" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-04-19T09:39:42.1939987Z [36;1mecho "| Snapshot Price Source | yfinance |" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-04-19T09:39:42.1940589Z [36;1mecho "| Snapshot Market Status | live |" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-04-19T09:39:42.1941136Z [36;1mecho "| Notifications | sent |" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-04-19T09:39:42.1941945Z [36;1mecho "| Notification Sent | 1 |" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-04-19T09:39:42.1942468Z [36;1mecho "| Notification Failed | 0 |" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-04-19T09:39:42.1942921Z [36;1mecho "" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-04-19T09:39:42.1943397Z [36;1mecho "Drift note: D1 direction 40.0% < 45.0%" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-04-19T09:39:42.1943951Z [36;1mecho "Notification note: ok" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-04-19T09:39:42.1944423Z [36;1mif [ "yfinance" = "dataset_close" ]; then[0m
+2026-04-19T09:39:42.1944827Z [36;1m  echo "" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-04-19T09:39:42.1945539Z [36;1m  echo "Live providers fell back to dataset close for this run, so public prices are delayed rather than live." >> "$GITHUB_STEP_SUMMARY"[0m
+2026-04-19T09:39:42.1946220Z [36;1mfi[0m
+2026-04-19T09:39:42.1967818Z shell: /usr/bin/bash -e ***0***
+2026-04-19T09:39:42.1968166Z env:
+2026-04-19T09:39:42.1968515Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T09:39:42.1969050Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-19T09:39:42.1969581Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T09:39:42.1970066Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T09:39:42.1970556Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T09:39:42.1971440Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-19T09:39:42.1971889Z ##[endgroup]

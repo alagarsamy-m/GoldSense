@@ -3,6 +3,9 @@ import { getMessaging, getToken, isSupported, onMessage } from 'firebase/messagi
 
 let firebaseApp = null
 let cachedConfig = null
+const LAST_PUSH_RECEIPT_STORAGE_KEY = 'goldsense-last-push-received'
+const LAST_PUSH_RECEIPT_CACHE = 'goldsense-push-meta-v1'
+const LAST_PUSH_RECEIPT_PATH = '/push-meta/last-received'
 
 async function loadPushConfig() {
   if (cachedConfig) return cachedConfig
@@ -61,8 +64,70 @@ function normalizeForegroundPayload(payload) {
     body: payload?.notification?.body || 'A fresh gold forecast is available.',
     deepLink: payload?.data?.deep_link || '/#predictor',
     alertReason: payload?.data?.alert_reason || '',
+    predictionDate: payload?.data?.prediction_date || '',
     raw: payload,
   }
+}
+
+function persistReceiptToLocalStorage(receipt) {
+  if (typeof window === 'undefined' || !window.localStorage) return
+  window.localStorage.setItem(LAST_PUSH_RECEIPT_STORAGE_KEY, JSON.stringify(receipt))
+}
+
+async function persistReceiptToCache(receipt) {
+  if (typeof window === 'undefined' || !('caches' in window)) return
+  const cache = await window.caches.open(LAST_PUSH_RECEIPT_CACHE)
+  await cache.put(
+    LAST_PUSH_RECEIPT_PATH,
+    new Response(JSON.stringify(receipt), {
+      headers: { 'Content-Type': 'application/json' },
+    }),
+  )
+}
+
+export async function recordPushReceipt(receipt) {
+  const normalized = {
+    receivedAt: new Date().toISOString(),
+    channel: 'foreground',
+    title: receipt?.title || 'GoldSense Daily Prediction',
+    body: receipt?.body || 'A fresh gold forecast is available.',
+    deepLink: receipt?.deepLink || '/#predictor',
+    alertReason: receipt?.alertReason || '',
+    predictionDate: receipt?.predictionDate || '',
+  }
+
+  persistReceiptToLocalStorage(normalized)
+  await persistReceiptToCache(normalized)
+  return normalized
+}
+
+export async function getLastPushReceipt() {
+  if (typeof window !== 'undefined' && window.localStorage) {
+    const raw = window.localStorage.getItem(LAST_PUSH_RECEIPT_STORAGE_KEY)
+    if (raw) {
+      try {
+        return JSON.parse(raw)
+      } catch {
+        window.localStorage.removeItem(LAST_PUSH_RECEIPT_STORAGE_KEY)
+      }
+    }
+  }
+
+  if (typeof window !== 'undefined' && 'caches' in window) {
+    const cache = await window.caches.open(LAST_PUSH_RECEIPT_CACHE)
+    const response = await cache.match(LAST_PUSH_RECEIPT_PATH)
+    if (response) {
+      try {
+        const receipt = await response.json()
+        persistReceiptToLocalStorage(receipt)
+        return receipt
+      } catch {
+        return null
+      }
+    }
+  }
+
+  return null
 }
 
 export async function subscribeToForegroundMessages(handler) {
@@ -84,6 +149,22 @@ export async function subscribeToForegroundMessages(handler) {
   })
 }
 
+export function subscribeToServiceWorkerPushMessages(handler) {
+  if (typeof window === 'undefined' || !('serviceWorker' in navigator)) {
+    return () => {}
+  }
+
+  const listener = (event) => {
+    if (event.data?.type !== 'goldsense-push-received' || !event.data?.payload) {
+      return
+    }
+    handler(event.data.payload)
+  }
+
+  navigator.serviceWorker.addEventListener('message', listener)
+  return () => navigator.serviceWorker.removeEventListener('message', listener)
+}
+
 export async function showForegroundBrowserNotification(payload, registration) {
   if (!('Notification' in window) || Notification.permission !== 'granted') {
     return
@@ -92,9 +173,12 @@ export async function showForegroundBrowserNotification(payload, registration) {
   const activeRegistration = registration || await navigator.serviceWorker.ready
   await activeRegistration.showNotification(payload.title, {
     body: payload.body,
+    tag: 'goldsense-daily-prediction',
+    requireInteraction: true,
     data: {
       deep_link: payload.deepLink,
       alert_reason: payload.alertReason,
+      prediction_date: payload.predictionDate,
     },
   })
 }

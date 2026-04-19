@@ -6,7 +6,11 @@ import {
   getNotificationSettings,
   upsertNotificationSubscription,
 } from '../../services/api'
-import { getExistingWebPushToken, requestWebPushToken } from '../../services/notifications'
+import {
+  getExistingWebPushToken,
+  getLastPushReceipt,
+  requestWebPushToken,
+} from '../../services/notifications'
 
 function browserLabel() {
   const userAgent = navigator.userAgent || ''
@@ -26,6 +30,12 @@ export default function NotificationSettings() {
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [currentToken, setCurrentToken] = useState(null)
+  const [lastPushReceipt, setLastPushReceipt] = useState(null)
+
+  const refreshLastPushReceipt = async () => {
+    const receipt = await getLastPushReceipt()
+    setLastPushReceipt(receipt)
+  }
 
   const loadSubscriptions = async () => {
     setLoading(true)
@@ -36,6 +46,7 @@ export default function NotificationSettings() {
       ])
       setSubscriptions(result.subscriptions || [])
       setCurrentToken(existingToken)
+      await refreshLastPushReceipt()
     } catch {
       toast.error('Unable to load notification settings.')
     } finally {
@@ -45,6 +56,16 @@ export default function NotificationSettings() {
 
   useEffect(() => {
     loadSubscriptions()
+  }, [])
+
+  useEffect(() => {
+    const handlePushReceipt = (event) => {
+      if (!event.detail) return
+      setLastPushReceipt(event.detail)
+    }
+
+    window.addEventListener('goldsense:push-received', handlePushReceipt)
+    return () => window.removeEventListener('goldsense:push-received', handlePushReceipt)
   }, [])
 
   const enabledSubscriptions = useMemo(
@@ -140,6 +161,26 @@ export default function NotificationSettings() {
                 This browser is already enabled.
               </div>
             )}
+            <div className="mt-4 rounded-xl border border-slate-800 bg-slate-950/60 p-3">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Last push received on this browser</p>
+              {lastPushReceipt ? (
+                <>
+                  <p className="mt-2 text-sm text-white">
+                    {new Date(lastPushReceipt.receivedAt).toLocaleString()}
+                  </p>
+                  <p className="mt-1 text-xs text-slate-500">
+                    {lastPushReceipt.channel || 'background'} {lastPushReceipt.predictionDate ? `| forecast ${lastPushReceipt.predictionDate}` : ''}
+                  </p>
+                  <p className="mt-2 text-xs leading-relaxed text-slate-400">
+                    {lastPushReceipt.title}: {lastPushReceipt.body}
+                  </p>
+                </>
+              ) : (
+                <p className="mt-2 text-xs leading-relaxed text-slate-500">
+                  No push has been received on this browser yet. Background pushes appear in the browser or OS notification tray. If the site is open, GoldSense also shows an in-app toast.
+                </p>
+              )}
+            </div>
           </div>
 
           <div className="mb-5 flex flex-wrap gap-3">
