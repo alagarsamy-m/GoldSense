@@ -1,0 +1,80 @@
+﻿2026-04-16T15:20:40.4817144Z ##[group]Run actions/checkout@v4
+2026-04-16T15:20:40.4818076Z with:
+2026-04-16T15:20:40.4818730Z   token: ***
+2026-04-16T15:20:40.4819219Z   fetch-depth: 0
+2026-04-16T15:20:40.4819731Z   repository: alagarsamy-m/GoldSense
+2026-04-16T15:20:40.4820303Z   ssh-strict: true
+2026-04-16T15:20:40.4820823Z   ssh-user: git
+2026-04-16T15:20:40.4821308Z   persist-credentials: true
+2026-04-16T15:20:40.4821825Z   clean: true
+2026-04-16T15:20:40.4822315Z   sparse-checkout-cone-mode: true
+2026-04-16T15:20:40.4822883Z   fetch-tags: false
+2026-04-16T15:20:40.4823382Z   show-progress: true
+2026-04-16T15:20:40.4823896Z   lfs: false
+2026-04-16T15:20:40.4824355Z   submodules: false
+2026-04-16T15:20:40.4824852Z   set-safe-directory: true
+2026-04-16T15:20:40.4825718Z ##[endgroup]
+2026-04-16T15:20:40.5708194Z Syncing repository: alagarsamy-m/GoldSense
+2026-04-16T15:20:40.5710711Z ##[group]Getting Git version info
+2026-04-16T15:20:40.5712035Z Working directory is '/home/runner/work/GoldSense/GoldSense'
+2026-04-16T15:20:40.5713855Z [command]/usr/bin/git version
+2026-04-16T15:20:40.5801115Z git version 2.53.0
+2026-04-16T15:20:40.5819935Z ##[endgroup]
+2026-04-16T15:20:40.5831930Z Temporarily overriding HOME='/home/runner/work/_temp/a924fdf3-62b0-43fa-800c-e9167d5506fb' before making global git config changes
+2026-04-16T15:20:40.5833269Z Adding repository directory to the temporary git global config as a safe directory
+2026-04-16T15:20:40.5842520Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/GoldSense/GoldSense
+2026-04-16T15:20:40.5869880Z Deleting the contents of '/home/runner/work/GoldSense/GoldSense'
+2026-04-16T15:20:40.5872838Z ##[group]Initializing the repository
+2026-04-16T15:20:40.5875813Z [command]/usr/bin/git init /home/runner/work/GoldSense/GoldSense
+2026-04-16T15:20:40.5931273Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-04-16T15:20:40.5932829Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-04-16T15:20:40.5933790Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-04-16T15:20:40.5934797Z hint: call:
+2026-04-16T15:20:40.5935498Z hint:
+2026-04-16T15:20:40.5936326Z hint: 	git config --global init.defaultBranch <name>
+2026-04-16T15:20:40.5937131Z hint:
+2026-04-16T15:20:40.5937741Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-04-16T15:20:40.5938633Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-04-16T15:20:40.5939366Z hint:
+2026-04-16T15:20:40.5939886Z hint: 	git branch -m <name>
+2026-04-16T15:20:40.5940688Z hint:
+2026-04-16T15:20:40.5941346Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-04-16T15:20:40.5942298Z Initialized empty Git repository in /home/runner/work/GoldSense/GoldSense/.git/
+2026-04-16T15:20:40.5944091Z [command]/usr/bin/git remote add origin https://github.com/alagarsamy-m/GoldSense
+2026-04-16T15:20:40.5965699Z ##[endgroup]
+2026-04-16T15:20:40.5966528Z ##[group]Disabling automatic garbage collection
+2026-04-16T15:20:40.5968527Z [command]/usr/bin/git config --local gc.auto 0
+2026-04-16T15:20:40.5991706Z ##[endgroup]
+2026-04-16T15:20:40.5992538Z ##[group]Setting up auth
+2026-04-16T15:20:40.5996747Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-04-16T15:20:40.6019973Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-04-16T15:20:40.6250140Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-04-16T15:20:40.6273574Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-04-16T15:20:40.6510274Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-04-16T15:20:40.6518136Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-04-16T15:20:40.6670625Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-04-16T15:20:40.6699123Z ##[endgroup]
+2026-04-16T15:20:40.6700481Z ##[group]Fetching the repository
+2026-04-16T15:20:40.6706924Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-04-16T15:20:42.0755521Z From https://github.com/alagarsamy-m/GoldSense
+2026-04-16T15:20:42.0757107Z  * [new branch]      alagarsamy-m/ph1    -> origin/alagarsamy-m/ph1
+2026-04-16T15:20:42.0758289Z  * [new branch]      backup-before-reset -> origin/backup-before-reset
+2026-04-16T15:20:42.0759364Z  * [new branch]      dev                 -> origin/dev
+2026-04-16T15:20:42.0760397Z  * [new branch]      deves               -> origin/deves
+2026-04-16T15:20:42.0761515Z  * [new branch]      main                -> origin/main
+2026-04-16T15:20:42.0788519Z [command]/usr/bin/git branch --list --remote origin/main
+2026-04-16T15:20:42.0808456Z   origin/main
+2026-04-16T15:20:42.0815061Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+2026-04-16T15:20:42.0832108Z b5bfeb8549162326c3f5e68f8bcf26ef2df8bc1c
+2026-04-16T15:20:42.0836946Z ##[endgroup]
+2026-04-16T15:20:42.0838991Z ##[group]Determining the checkout info
+2026-04-16T15:20:42.0841329Z ##[endgroup]
+2026-04-16T15:20:42.0842625Z [command]/usr/bin/git sparse-checkout disable
+2026-04-16T15:20:42.0869916Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-04-16T15:20:42.0891997Z ##[group]Checking out the ref
+2026-04-16T15:20:42.0894289Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-04-16T15:20:42.1207988Z Switched to a new branch 'main'
+2026-04-16T15:20:42.1210006Z branch 'main' set up to track 'origin/main'.
+2026-04-16T15:20:42.1220580Z ##[endgroup]
+2026-04-16T15:20:42.1250920Z [command]/usr/bin/git log -1 --format=%H
+2026-04-16T15:20:42.1270032Z b5bfeb8549162326c3f5e68f8bcf26ef2df8bc1c

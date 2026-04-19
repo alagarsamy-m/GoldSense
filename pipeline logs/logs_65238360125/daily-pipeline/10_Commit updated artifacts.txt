@@ -1,0 +1,61 @@
+﻿2026-04-19T08:33:09.4509876Z ##[group]Run git config --local user.email "github-actions[bot]@users.noreply.github.com"
+2026-04-19T08:33:09.4510639Z [36;1mgit config --local user.email "github-actions[bot]@users.noreply.github.com"[0m
+2026-04-19T08:33:09.4511213Z [36;1mgit config --local user.name "github-actions[bot]"[0m
+2026-04-19T08:33:09.4511596Z [36;1mgit add \[0m
+2026-04-19T08:33:09.4511883Z [36;1m  "dataset/Gold Rate.csv" \[0m
+2026-04-19T08:33:09.4512209Z [36;1m  dataset/USD-INR.csv \[0m
+2026-04-19T08:33:09.4512529Z [36;1m  dataset/macro_data.csv \[0m
+2026-04-19T08:33:09.4512873Z [36;1m  dataset/prediction_logs.csv \[0m
+2026-04-19T08:33:09.4513220Z [36;1m  dataset/sentiment_logs.csv \[0m
+2026-04-19T08:33:09.4513616Z [36;1m  frontend/public/snapshots/*.json \[0m
+2026-04-19T08:33:09.4513984Z [36;1m  ml/model/pending_prediction.json \[0m
+2026-04-19T08:33:09.4514327Z [36;1m  ml/model/system_status.json \[0m
+2026-04-19T08:33:09.4514653Z [36;1m  2>/dev/null || true[0m
+2026-04-19T08:33:09.4514936Z [36;1m[0m
+2026-04-19T08:33:09.4515209Z [36;1mgit add -A[0m
+2026-04-19T08:33:09.4515464Z [36;1m[0m
+2026-04-19T08:33:09.4515725Z [36;1mif git diff --staged --quiet; then[0m
+2026-04-19T08:33:09.4516097Z [36;1m  echo "No artifact changes to commit"[0m
+2026-04-19T08:33:09.4516429Z [36;1m  exit 0[0m
+2026-04-19T08:33:09.4516674Z [36;1mfi[0m
+2026-04-19T08:33:09.4516900Z [36;1m[0m
+2026-04-19T08:33:09.4517243Z [36;1mgit commit -m "daily: evaluate + snapshot $(date -u '+%Y-%m-%d')"[0m
+2026-04-19T08:33:09.4517663Z [36;1m[0m
+2026-04-19T08:33:09.4517906Z [36;1mfor attempt in 1 2 3; do[0m
+2026-04-19T08:33:09.4518468Z [36;1m  if git pull --rebase --autostash origin main && git push; then[0m
+2026-04-19T08:33:09.4518979Z [36;1m    echo "Artifact push succeeded on attempt $attempt"[0m
+2026-04-19T08:33:09.4519371Z [36;1m    exit 0[0m
+2026-04-19T08:33:09.4519641Z [36;1m  fi[0m
+2026-04-19T08:33:09.4519874Z [36;1m[0m
+2026-04-19T08:33:09.4520156Z [36;1m  echo "Attempt $attempt failed. Git status:"[0m
+2026-04-19T08:33:09.4520605Z [36;1m  git status --porcelain --untracked-files=all || true[0m
+2026-04-19T08:33:09.4521000Z [36;1m  echo "Recent commits:"[0m
+2026-04-19T08:33:09.4521356Z [36;1m  git --no-pager log --oneline -n 5 || true[0m
+2026-04-19T08:33:09.4521698Z [36;1m[0m
+2026-04-19T08:33:09.4521948Z [36;1m  if [ "$attempt" -eq 3 ]; then[0m
+2026-04-19T08:33:09.4522332Z [36;1m    echo "Artifact push failed after 3 attempts"[0m
+2026-04-19T08:33:09.4522732Z [36;1m    echo "Full git status:"[0m
+2026-04-19T08:33:09.4523175Z [36;1m    git status --untracked-files=all || true[0m
+2026-04-19T08:33:09.4523550Z [36;1m    echo "Working tree diff:"[0m
+2026-04-19T08:33:09.4523871Z [36;1m    git diff || true[0m
+2026-04-19T08:33:09.4524149Z [36;1m    exit 1[0m
+2026-04-19T08:33:09.4524401Z [36;1m  fi[0m
+2026-04-19T08:33:09.4524640Z [36;1m  sleep 5[0m
+2026-04-19T08:33:09.4524893Z [36;1mdone[0m
+2026-04-19T08:33:09.4546063Z shell: /usr/bin/bash -e ***0***
+2026-04-19T08:33:09.4546381Z env:
+2026-04-19T08:33:09.4546714Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T08:33:09.4547230Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-19T08:33:09.4547747Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T08:33:09.4548440Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T08:33:09.4549034Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T08:33:09.4549491Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-19T08:33:09.4550048Z ##[endgroup]
+2026-04-19T08:33:09.5111417Z [main 35273f7] daily: evaluate + snapshot 2026-04-19
+2026-04-19T08:33:09.5112271Z  12 files changed, 1036 insertions(+), 630 deletions(-)
+2026-04-19T08:33:09.8746351Z From https://github.com/alagarsamy-m/GoldSense
+2026-04-19T08:33:09.8747070Z  * branch            main       -> FETCH_HEAD
+2026-04-19T08:33:09.8819692Z Current branch main is up to date.
+2026-04-19T08:33:10.9049510Z To https://github.com/alagarsamy-m/GoldSense
+2026-04-19T08:33:10.9050696Z    7a490e1..35273f7  main -> main
+2026-04-19T08:33:10.9456316Z Artifact push succeeded on attempt 1

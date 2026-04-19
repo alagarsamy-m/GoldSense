@@ -1,0 +1,31 @@
+﻿2026-04-16T15:20:39.4963180Z Current runner version: '2.333.1'
+2026-04-16T15:20:39.4983826Z ##[group]Runner Image Provisioner
+2026-04-16T15:20:39.4984698Z Hosted Compute Agent
+2026-04-16T15:20:39.4985636Z Version: 20260213.493
+2026-04-16T15:20:39.4986309Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+2026-04-16T15:20:39.4987132Z Build Date: 2026-02-13T00:28:41Z
+2026-04-16T15:20:39.4988010Z Worker ID: ***6e5716fa-32d8-4d73-9375-b76317ad0ced***
+2026-04-16T15:20:39.4988796Z Azure Region: westcentralus
+2026-04-16T15:20:39.4989474Z ##[endgroup]
+2026-04-16T15:20:39.4990783Z ##[group]Operating System
+2026-04-16T15:20:39.4991501Z Ubuntu
+2026-04-16T15:20:39.4992084Z 24.04.4
+2026-04-16T15:20:39.4992722Z LTS
+2026-04-16T15:20:39.4993372Z ##[endgroup]
+2026-04-16T15:20:39.4994009Z ##[group]Runner Image
+2026-04-16T15:20:39.4994671Z Image: ubuntu-24.04
+2026-04-16T15:20:39.4995518Z Version: 20260413.86.1
+2026-04-16T15:20:39.4996619Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260413.86/images/ubuntu/Ubuntu2404-Readme.md
+2026-04-16T15:20:39.4998115Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260413.86
+2026-04-16T15:20:39.4999125Z ##[endgroup]
+2026-04-16T15:20:39.5000312Z ##[group]GITHUB_TOKEN Permissions
+2026-04-16T15:20:39.5001887Z Contents: write
+2026-04-16T15:20:39.5002671Z Metadata: read
+2026-04-16T15:20:39.5003273Z ##[endgroup]
+2026-04-16T15:20:39.5005460Z Secret source: Actions
+2026-04-16T15:20:39.5006311Z Prepare workflow directory
+2026-04-16T15:20:39.5307358Z Prepare all required actions
+2026-04-16T15:20:39.5338173Z Getting action download info
+2026-04-16T15:20:39.9326994Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-04-16T15:20:40.1404873Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-04-16T15:20:40.4192841Z Complete job name: daily-pipeline

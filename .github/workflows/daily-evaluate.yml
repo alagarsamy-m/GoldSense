@@ -138,6 +138,23 @@ jobs:
           import os
           from pathlib import Path
 
+          def parse_notification_payload(raw_text: str):
+              text = (raw_text or "").strip()
+              if not text:
+                  return None
+
+              decoder = json.JSONDecoder()
+              for index, char in enumerate(text):
+                  if char != "{":
+                      continue
+                  try:
+                      payload, _ = decoder.raw_decode(text[index:])
+                  except json.JSONDecodeError:
+                      continue
+                  if isinstance(payload, dict):
+                      return payload
+              return None
+
           result_path = Path(os.environ['NOTIFICATION_RESULT_FILE'])
           stderr_path = Path(os.environ['NOTIFICATION_STDERR_FILE'])
           status_path = Path(os.environ['NOTIFICATION_STATUS_FILE'])
@@ -147,9 +164,8 @@ jobs:
           exit_status = int(status_path.read_text(encoding='utf-8').strip() or '0') if status_path.exists() else 0
 
           if result_text:
-              try:
-                  payload = json.loads(result_text)
-              except json.JSONDecodeError:
+              payload = parse_notification_payload(result_text)
+              if payload is None:
                   payload = {
                       "ok": False,
                       "sent": 0,

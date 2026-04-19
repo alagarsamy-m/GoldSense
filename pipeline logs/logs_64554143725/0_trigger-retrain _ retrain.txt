@@ -1,0 +1,921 @@
+﻿2026-04-14T12:02:14.8583038Z Current runner version: '2.333.1'
+2026-04-14T12:02:14.8606871Z ##[group]Runner Image Provisioner
+2026-04-14T12:02:14.8607679Z Hosted Compute Agent
+2026-04-14T12:02:14.8608378Z Version: 20260213.493
+2026-04-14T12:02:14.8609356Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+2026-04-14T12:02:14.8610059Z Build Date: 2026-02-13T00:28:41Z
+2026-04-14T12:02:14.8610777Z Worker ID: {bf98c9c6-8454-417b-88bf-2558964c289f}
+2026-04-14T12:02:14.8611468Z Azure Region: eastus2
+2026-04-14T12:02:14.8612026Z ##[endgroup]
+2026-04-14T12:02:14.8613957Z ##[group]Operating System
+2026-04-14T12:02:14.8614549Z Ubuntu
+2026-04-14T12:02:14.8615023Z 24.04.4
+2026-04-14T12:02:14.8615586Z LTS
+2026-04-14T12:02:14.8616104Z ##[endgroup]
+2026-04-14T12:02:14.8616587Z ##[group]Runner Image
+2026-04-14T12:02:14.8617221Z Image: ubuntu-24.04
+2026-04-14T12:02:14.8617755Z Version: 20260406.80.1
+2026-04-14T12:02:14.8619230Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260406.80/images/ubuntu/Ubuntu2404-Readme.md
+2026-04-14T12:02:14.8620798Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260406.80
+2026-04-14T12:02:14.8621772Z ##[endgroup]
+2026-04-14T12:02:14.8622794Z ##[group]GITHUB_TOKEN Permissions
+2026-04-14T12:02:14.8624688Z Contents: write
+2026-04-14T12:02:14.8625294Z Metadata: read
+2026-04-14T12:02:14.8626032Z ##[endgroup]
+2026-04-14T12:02:14.8629400Z Secret source: Actions
+2026-04-14T12:02:14.8630543Z Prepare workflow directory
+2026-04-14T12:02:14.9109258Z Prepare all required actions
+2026-04-14T12:02:14.9165766Z Getting action download info
+2026-04-14T12:02:15.3257103Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-04-14T12:02:15.9002611Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-04-14T12:02:16.0431330Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-04-14T12:02:16.3815823Z Uses: alagarsamy-m/GoldSense/.github/workflows/weekly-retrain.yml@refs/heads/main (fc075d9ce57cd2605534d2851bc841b1784472b1)
+2026-04-14T12:02:16.3820369Z ##[group] Inputs
+2026-04-14T12:02:16.3821080Z   force_retrain: true
+2026-04-14T12:02:16.3821365Z ##[endgroup]
+2026-04-14T12:02:16.3821654Z Complete job name: trigger-retrain / retrain
+2026-04-14T12:02:16.4585933Z ##[group]Run actions/checkout@v4
+2026-04-14T12:02:16.4586633Z with:
+2026-04-14T12:02:16.4587267Z   token: ***
+2026-04-14T12:02:16.4587551Z   repository: alagarsamy-m/GoldSense
+2026-04-14T12:02:16.4587870Z   ssh-strict: true
+2026-04-14T12:02:16.4588113Z   ssh-user: git
+2026-04-14T12:02:16.4588377Z   persist-credentials: true
+2026-04-14T12:02:16.4588675Z   clean: true
+2026-04-14T12:02:16.4589171Z   sparse-checkout-cone-mode: true
+2026-04-14T12:02:16.4589488Z   fetch-depth: 1
+2026-04-14T12:02:16.4589729Z   fetch-tags: false
+2026-04-14T12:02:16.4589983Z   show-progress: true
+2026-04-14T12:02:16.4590226Z   lfs: false
+2026-04-14T12:02:16.4590452Z   submodules: false
+2026-04-14T12:02:16.4590728Z   set-safe-directory: true
+2026-04-14T12:02:16.4591274Z ##[endgroup]
+2026-04-14T12:02:16.5704743Z Syncing repository: alagarsamy-m/GoldSense
+2026-04-14T12:02:16.5706271Z ##[group]Getting Git version info
+2026-04-14T12:02:16.5706745Z Working directory is '/home/runner/work/GoldSense/GoldSense'
+2026-04-14T12:02:16.5707462Z [command]/usr/bin/git version
+2026-04-14T12:02:16.6943445Z git version 2.53.0
+2026-04-14T12:02:16.6984857Z ##[endgroup]
+2026-04-14T12:02:16.7001200Z Temporarily overriding HOME='/home/runner/work/_temp/4b6aa9fd-d16a-4868-84e3-596d9b4f04ab' before making global git config changes
+2026-04-14T12:02:16.7002435Z Adding repository directory to the temporary git global config as a safe directory
+2026-04-14T12:02:16.7015015Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/GoldSense/GoldSense
+2026-04-14T12:02:16.7048748Z Deleting the contents of '/home/runner/work/GoldSense/GoldSense'
+2026-04-14T12:02:16.7052510Z ##[group]Initializing the repository
+2026-04-14T12:02:16.7056608Z [command]/usr/bin/git init /home/runner/work/GoldSense/GoldSense
+2026-04-14T12:02:16.7307536Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-04-14T12:02:16.7309162Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-04-14T12:02:16.7310320Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-04-14T12:02:16.7311032Z hint: call:
+2026-04-14T12:02:16.7311341Z hint:
+2026-04-14T12:02:16.7311748Z hint: 	git config --global init.defaultBranch <name>
+2026-04-14T12:02:16.7312184Z hint:
+2026-04-14T12:02:16.7312540Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-04-14T12:02:16.7313129Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-04-14T12:02:16.7313565Z hint:
+2026-04-14T12:02:16.7313801Z hint: 	git branch -m <name>
+2026-04-14T12:02:16.7314140Z hint:
+2026-04-14T12:02:16.7314770Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-04-14T12:02:16.7315563Z Initialized empty Git repository in /home/runner/work/GoldSense/GoldSense/.git/
+2026-04-14T12:02:16.7320908Z [command]/usr/bin/git remote add origin https://github.com/alagarsamy-m/GoldSense
+2026-04-14T12:02:16.7350231Z ##[endgroup]
+2026-04-14T12:02:16.7350809Z ##[group]Disabling automatic garbage collection
+2026-04-14T12:02:16.7354243Z [command]/usr/bin/git config --local gc.auto 0
+2026-04-14T12:02:16.7380946Z ##[endgroup]
+2026-04-14T12:02:16.7381430Z ##[group]Setting up auth
+2026-04-14T12:02:16.7388138Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-04-14T12:02:16.7417228Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-04-14T12:02:16.9285944Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-04-14T12:02:16.9319495Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-04-14T12:02:16.9549303Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-04-14T12:02:16.9579835Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-04-14T12:02:16.9804799Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-04-14T12:02:16.9838444Z ##[endgroup]
+2026-04-14T12:02:16.9839695Z ##[group]Fetching the repository
+2026-04-14T12:02:16.9847062Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +fc075d9ce57cd2605534d2851bc841b1784472b1:refs/remotes/origin/main
+2026-04-14T12:02:17.5220550Z From https://github.com/alagarsamy-m/GoldSense
+2026-04-14T12:02:17.5222047Z  * [new ref]         fc075d9ce57cd2605534d2851bc841b1784472b1 -> origin/main
+2026-04-14T12:02:17.5253192Z ##[endgroup]
+2026-04-14T12:02:17.5254045Z ##[group]Determining the checkout info
+2026-04-14T12:02:17.5255286Z ##[endgroup]
+2026-04-14T12:02:17.5267763Z [command]/usr/bin/git sparse-checkout disable
+2026-04-14T12:02:17.5300997Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-04-14T12:02:17.5328139Z ##[group]Checking out the ref
+2026-04-14T12:02:17.5332533Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-04-14T12:02:17.5560572Z Switched to a new branch 'main'
+2026-04-14T12:02:17.5561755Z branch 'main' set up to track 'origin/main'.
+2026-04-14T12:02:17.5570439Z ##[endgroup]
+2026-04-14T12:02:17.5605786Z [command]/usr/bin/git log -1 --format=%H
+2026-04-14T12:02:17.5627021Z fc075d9ce57cd2605534d2851bc841b1784472b1
+2026-04-14T12:02:17.5842062Z ##[group]Run actions/setup-python@v5
+2026-04-14T12:02:17.5842494Z with:
+2026-04-14T12:02:17.5842721Z   python-version: 3.11
+2026-04-14T12:02:17.5843157Z   cache: pip
+2026-04-14T12:02:17.5843387Z   check-latest: false
+2026-04-14T12:02:17.5843783Z   token: ***
+2026-04-14T12:02:17.5844017Z   update-environment: true
+2026-04-14T12:02:17.5844282Z   allow-prereleases: false
+2026-04-14T12:02:17.5844539Z   freethreaded: false
+2026-04-14T12:02:17.5844780Z ##[endgroup]
+2026-04-14T12:02:17.7513155Z ##[group]Installed versions
+2026-04-14T12:02:17.8023849Z Successfully set up CPython (3.11.15)
+2026-04-14T12:02:17.8024738Z ##[endgroup]
+2026-04-14T12:02:17.8747813Z [command]/opt/hostedtoolcache/Python/3.11.15/x64/bin/pip cache dir
+2026-04-14T12:02:19.4046304Z /home/runner/.cache/pip
+2026-04-14T12:02:19.5531325Z Cache hit for: setup-python-Linux-x64-24.04-Ubuntu-python-3.11.15-pip-8b44099f00540ecc449d313fddcde15f0446a4896988adee6f12ef59a1cfd718
+2026-04-14T12:02:20.6037981Z Received 247463936 of 621189453 (39.8%), 236.0 MBs/sec
+2026-04-14T12:02:21.6117081Z Received 503316480 of 621189453 (81.0%), 239.2 MBs/sec
+2026-04-14T12:02:22.0622532Z Received 621189453 of 621189453 (100.0%), 241.0 MBs/sec
+2026-04-14T12:02:22.0624177Z Cache Size: ~592 MB (621189453 B)
+2026-04-14T12:02:22.0768617Z [command]/usr/bin/tar -xf /home/runner/work/_temp/c9fbbb7a-f765-4aab-9149-23d406a7be63/cache.tzst -P -C /home/runner/work/GoldSense/GoldSense --use-compress-program unzstd
+2026-04-14T12:02:22.9594229Z Cache restored successfully
+2026-04-14T12:02:23.1790416Z Cache restored from key: setup-python-Linux-x64-24.04-Ubuntu-python-3.11.15-pip-8b44099f00540ecc449d313fddcde15f0446a4896988adee6f12ef59a1cfd718
+2026-04-14T12:02:23.2015735Z ##[group]Run pip install --upgrade pip
+2026-04-14T12:02:23.2016340Z [36;1mpip install --upgrade pip[0m
+2026-04-14T12:02:23.2016863Z [36;1mpip install -r ml/requirements.txt[0m
+2026-04-14T12:02:23.2017433Z [36;1mpip install -r backend/requirements.txt[0m
+2026-04-14T12:02:23.2053760Z shell: /usr/bin/bash -e {0}
+2026-04-14T12:02:23.2054200Z env:
+2026-04-14T12:02:23.2054657Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:02:23.2055444Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-14T12:02:23.2056186Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:02:23.2056853Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:02:23.2057526Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:02:23.2058204Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-14T12:02:23.2058755Z ##[endgroup]
+2026-04-14T12:02:24.5179143Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (26.0.1)
+2026-04-14T12:02:25.6005253Z Collecting xgboost==2.1.3 (from -r ml/requirements.txt (line 1))
+2026-04-14T12:02:25.6022409Z   Using cached xgboost-2.1.3-py3-none-manylinux_2_28_x86_64.whl.metadata (2.1 kB)
+2026-04-14T12:02:25.7308971Z Collecting pandas==2.2.3 (from -r ml/requirements.txt (line 2))
+2026-04-14T12:02:25.7325233Z   Using cached pandas-2.2.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)
+2026-04-14T12:02:25.9425991Z Collecting numpy==2.0.2 (from -r ml/requirements.txt (line 3))
+2026-04-14T12:02:25.9442381Z   Using cached numpy-2.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (60 kB)
+2026-04-14T12:02:26.0359071Z Collecting scikit-learn==1.6.1 (from -r ml/requirements.txt (line 4))
+2026-04-14T12:02:26.0375654Z   Using cached scikit_learn-1.6.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+2026-04-14T12:02:26.4768243Z Collecting yfinance>=1.2.0 (from -r ml/requirements.txt (line 5))
+2026-04-14T12:02:26.4782879Z   Using cached yfinance-1.2.2-py2.py3-none-any.whl.metadata (6.1 kB)
+2026-04-14T12:02:26.6307547Z Collecting joblib==1.4.2 (from -r ml/requirements.txt (line 6))
+2026-04-14T12:02:26.6321780Z   Using cached joblib-1.4.2-py3-none-any.whl.metadata (5.4 kB)
+2026-04-14T12:02:26.6463332Z Collecting ta==0.11.0 (from -r ml/requirements.txt (line 7))
+2026-04-14T12:02:26.6464377Z   Using cached ta-0.11.0-py3-none-any.whl
+2026-04-14T12:02:26.6874692Z Collecting python-dateutil==2.9.0 (from -r ml/requirements.txt (line 8))
+2026-04-14T12:02:26.6889248Z   Using cached python_dateutil-2.9.0-py2.py3-none-any.whl.metadata (8.3 kB)
+2026-04-14T12:02:26.7055889Z Collecting optuna==3.6.1 (from -r ml/requirements.txt (line 9))
+2026-04-14T12:02:26.7071046Z   Using cached optuna-3.6.1-py3-none-any.whl.metadata (17 kB)
+2026-04-14T12:02:26.7259991Z Collecting vaderSentiment==3.3.2 (from -r ml/requirements.txt (line 10))
+2026-04-14T12:02:26.7274787Z   Using cached vaderSentiment-3.3.2-py2.py3-none-any.whl.metadata (572 bytes)
+2026-04-14T12:02:26.7408628Z Collecting feedparser==6.0.11 (from -r ml/requirements.txt (line 11))
+2026-04-14T12:02:26.7422918Z   Using cached feedparser-6.0.11-py3-none-any.whl.metadata (2.4 kB)
+2026-04-14T12:02:26.7572325Z Collecting nvidia-nccl-cu12 (from xgboost==2.1.3->-r ml/requirements.txt (line 1))
+2026-04-14T12:02:26.7586188Z   Using cached nvidia_nccl_cu12-2.29.7-py3-none-manylinux_2_18_x86_64.whl.metadata (2.1 kB)
+2026-04-14T12:02:26.8980218Z Collecting scipy (from xgboost==2.1.3->-r ml/requirements.txt (line 1))
+2026-04-14T12:02:26.8995379Z   Using cached scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+2026-04-14T12:02:26.9457048Z Collecting pytz>=2020.1 (from pandas==2.2.3->-r ml/requirements.txt (line 2))
+2026-04-14T12:02:26.9471911Z   Using cached pytz-2026.1.post1-py2.py3-none-any.whl.metadata (22 kB)
+2026-04-14T12:02:26.9624217Z Collecting tzdata>=2022.7 (from pandas==2.2.3->-r ml/requirements.txt (line 2))
+2026-04-14T12:02:26.9636992Z   Using cached tzdata-2026.1-py2.py3-none-any.whl.metadata (1.4 kB)
+2026-04-14T12:02:26.9800765Z Collecting threadpoolctl>=3.1.0 (from scikit-learn==1.6.1->-r ml/requirements.txt (line 4))
+2026-04-14T12:02:26.9814239Z   Using cached threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+2026-04-14T12:02:26.9966570Z Collecting six>=1.5 (from python-dateutil==2.9.0->-r ml/requirements.txt (line 8))
+2026-04-14T12:02:26.9979880Z   Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+2026-04-14T12:02:27.0205970Z Collecting alembic>=1.5.0 (from optuna==3.6.1->-r ml/requirements.txt (line 9))
+2026-04-14T12:02:27.0219813Z   Using cached alembic-1.18.4-py3-none-any.whl.metadata (7.2 kB)
+2026-04-14T12:02:27.0396483Z Collecting colorlog (from optuna==3.6.1->-r ml/requirements.txt (line 9))
+2026-04-14T12:02:27.0410291Z   Using cached colorlog-6.10.1-py3-none-any.whl.metadata (11 kB)
+2026-04-14T12:02:27.0575254Z Collecting packaging>=20.0 (from optuna==3.6.1->-r ml/requirements.txt (line 9))
+2026-04-14T12:02:27.0588598Z   Using cached packaging-26.0-py3-none-any.whl.metadata (3.3 kB)
+2026-04-14T12:02:27.3266958Z Collecting sqlalchemy>=1.3.0 (from optuna==3.6.1->-r ml/requirements.txt (line 9))
+2026-04-14T12:02:27.3283210Z   Using cached sqlalchemy-2.0.49-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (9.5 kB)
+2026-04-14T12:02:27.3635245Z Collecting tqdm (from optuna==3.6.1->-r ml/requirements.txt (line 9))
+2026-04-14T12:02:27.3649358Z   Using cached tqdm-4.67.3-py3-none-any.whl.metadata (57 kB)
+2026-04-14T12:02:27.4032908Z Collecting PyYAML (from optuna==3.6.1->-r ml/requirements.txt (line 9))
+2026-04-14T12:02:27.4049160Z   Using cached pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+2026-04-14T12:02:27.4300535Z Collecting requests (from vaderSentiment==3.3.2->-r ml/requirements.txt (line 10))
+2026-04-14T12:02:27.4313961Z   Using cached requests-2.33.1-py3-none-any.whl.metadata (4.8 kB)
+2026-04-14T12:02:27.4424714Z Collecting sgmllib3k (from feedparser==6.0.11->-r ml/requirements.txt (line 11))
+2026-04-14T12:02:27.4425902Z   Using cached sgmllib3k-1.0.0-py3-none-any.whl
+2026-04-14T12:02:27.4566182Z Collecting multitasking>=0.0.7 (from yfinance>=1.2.0->-r ml/requirements.txt (line 5))
+2026-04-14T12:02:27.4567174Z   Using cached multitasking-0.0.12-py3-none-any.whl
+2026-04-14T12:02:27.4758511Z Collecting platformdirs>=2.0.0 (from yfinance>=1.2.0->-r ml/requirements.txt (line 5))
+2026-04-14T12:02:27.4772837Z   Using cached platformdirs-4.9.6-py3-none-any.whl.metadata (4.7 kB)
+2026-04-14T12:02:27.5194452Z Collecting frozendict>=2.3.4 (from yfinance>=1.2.0->-r ml/requirements.txt (line 5))
+2026-04-14T12:02:27.5209570Z   Using cached frozendict-2.4.7-py3-none-any.whl.metadata (23 kB)
+2026-04-14T12:02:27.5395648Z Collecting peewee>=3.16.2 (from yfinance>=1.2.0->-r ml/requirements.txt (line 5))
+2026-04-14T12:02:27.5409001Z   Using cached peewee-4.0.4-py3-none-any.whl.metadata (8.6 kB)
+2026-04-14T12:02:27.5577893Z Collecting beautifulsoup4>=4.11.1 (from yfinance>=1.2.0->-r ml/requirements.txt (line 5))
+2026-04-14T12:02:27.5591519Z   Using cached beautifulsoup4-4.14.3-py3-none-any.whl.metadata (3.8 kB)
+2026-04-14T12:02:27.6094452Z Collecting curl_cffi>=0.15 (from yfinance>=1.2.0->-r ml/requirements.txt (line 5))
+2026-04-14T12:02:27.6109892Z   Using cached curl_cffi-0.15.0-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (18 kB)
+2026-04-14T12:02:27.7533691Z Collecting protobuf>=3.19.0 (from yfinance>=1.2.0->-r ml/requirements.txt (line 5))
+2026-04-14T12:02:27.7548830Z   Using cached protobuf-7.34.1-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+2026-04-14T12:02:27.8350356Z Collecting websockets>=13.0 (from yfinance>=1.2.0->-r ml/requirements.txt (line 5))
+2026-04-14T12:02:27.8366923Z   Using cached websockets-16.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.8 kB)
+2026-04-14T12:02:27.9102587Z Collecting Mako (from alembic>=1.5.0->optuna==3.6.1->-r ml/requirements.txt (line 9))
+2026-04-14T12:02:27.9116043Z   Using cached mako-1.3.10-py3-none-any.whl.metadata (2.9 kB)
+2026-04-14T12:02:27.9275528Z Collecting typing-extensions>=4.12 (from alembic>=1.5.0->optuna==3.6.1->-r ml/requirements.txt (line 9))
+2026-04-14T12:02:27.9289135Z   Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+2026-04-14T12:02:27.9451815Z Collecting soupsieve>=1.6.1 (from beautifulsoup4>=4.11.1->yfinance>=1.2.0->-r ml/requirements.txt (line 5))
+2026-04-14T12:02:27.9465543Z   Using cached soupsieve-2.8.3-py3-none-any.whl.metadata (4.6 kB)
+2026-04-14T12:02:28.0377334Z Collecting cffi>=2.0.0 (from curl_cffi>=0.15->yfinance>=1.2.0->-r ml/requirements.txt (line 5))
+2026-04-14T12:02:28.0393306Z   Using cached cffi-2.0.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.6 kB)
+2026-04-14T12:02:28.0634900Z Collecting certifi>=2024.2.2 (from curl_cffi>=0.15->yfinance>=1.2.0->-r ml/requirements.txt (line 5))
+2026-04-14T12:02:28.0648573Z   Using cached certifi-2026.2.25-py3-none-any.whl.metadata (2.5 kB)
+2026-04-14T12:02:28.1019708Z Collecting rich (from curl_cffi>=0.15->yfinance>=1.2.0->-r ml/requirements.txt (line 5))
+2026-04-14T12:02:28.1035272Z   Using cached rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+2026-04-14T12:02:28.1180514Z Collecting pycparser (from cffi>=2.0.0->curl_cffi>=0.15->yfinance>=1.2.0->-r ml/requirements.txt (line 5))
+2026-04-14T12:02:28.1194648Z   Using cached pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+2026-04-14T12:02:28.2113437Z Collecting charset_normalizer<4,>=2 (from requests->vaderSentiment==3.3.2->-r ml/requirements.txt (line 10))
+2026-04-14T12:02:28.2129251Z   Using cached charset_normalizer-3.4.7-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+2026-04-14T12:02:28.2287522Z Collecting idna<4,>=2.5 (from requests->vaderSentiment==3.3.2->-r ml/requirements.txt (line 10))
+2026-04-14T12:02:28.2301471Z   Using cached idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+2026-04-14T12:02:28.2521201Z Collecting urllib3<3,>=1.26 (from requests->vaderSentiment==3.3.2->-r ml/requirements.txt (line 10))
+2026-04-14T12:02:28.2534553Z   Using cached urllib3-2.6.3-py3-none-any.whl.metadata (6.9 kB)
+2026-04-14T12:02:28.3850613Z Collecting greenlet>=1 (from sqlalchemy>=1.3.0->optuna==3.6.1->-r ml/requirements.txt (line 9))
+2026-04-14T12:02:28.3872959Z   Using cached greenlet-3.4.0-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.7 kB)
+2026-04-14T12:02:28.4402990Z Collecting MarkupSafe>=0.9.2 (from Mako->alembic>=1.5.0->optuna==3.6.1->-r ml/requirements.txt (line 9))
+2026-04-14T12:02:28.4416933Z   Using cached markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+2026-04-14T12:02:28.5177698Z Collecting markdown-it-py>=2.2.0 (from rich->curl_cffi>=0.15->yfinance>=1.2.0->-r ml/requirements.txt (line 5))
+2026-04-14T12:02:28.5192652Z   Using cached markdown_it_py-4.0.0-py3-none-any.whl.metadata (7.3 kB)
+2026-04-14T12:02:28.5398318Z Collecting pygments<3.0.0,>=2.13.0 (from rich->curl_cffi>=0.15->yfinance>=1.2.0->-r ml/requirements.txt (line 5))
+2026-04-14T12:02:28.5413110Z   Using cached pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)
+2026-04-14T12:02:28.5539931Z Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich->curl_cffi>=0.15->yfinance>=1.2.0->-r ml/requirements.txt (line 5))
+2026-04-14T12:02:28.5553994Z   Using cached mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+2026-04-14T12:02:28.5601307Z Using cached xgboost-2.1.3-py3-none-manylinux_2_28_x86_64.whl (153.9 MB)
+2026-04-14T12:02:28.6166828Z Using cached pandas-2.2.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)
+2026-04-14T12:02:28.6227496Z Using cached numpy-2.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (19.5 MB)
+2026-04-14T12:02:28.6312422Z Using cached scikit_learn-1.6.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.5 MB)
+2026-04-14T12:02:28.6374231Z Using cached joblib-1.4.2-py3-none-any.whl (301 kB)
+2026-04-14T12:02:28.6389424Z Using cached python_dateutil-2.9.0-py2.py3-none-any.whl (230 kB)
+2026-04-14T12:02:28.6404318Z Using cached optuna-3.6.1-py3-none-any.whl (380 kB)
+2026-04-14T12:02:28.6419156Z Using cached vaderSentiment-3.3.2-py2.py3-none-any.whl (125 kB)
+2026-04-14T12:02:28.6433316Z Using cached feedparser-6.0.11-py3-none-any.whl (81 kB)
+2026-04-14T12:02:28.6447099Z Using cached yfinance-1.2.2-py2.py3-none-any.whl (130 kB)
+2026-04-14T12:02:28.6461003Z Using cached alembic-1.18.4-py3-none-any.whl (263 kB)
+2026-04-14T12:02:28.6475167Z Using cached beautifulsoup4-4.14.3-py3-none-any.whl (107 kB)
+2026-04-14T12:02:28.6488974Z Using cached curl_cffi-0.15.0-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (11.1 MB)
+2026-04-14T12:02:28.6541140Z Using cached certifi-2026.2.25-py3-none-any.whl (153 kB)
+2026-04-14T12:02:28.6555184Z Using cached cffi-2.0.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (215 kB)
+2026-04-14T12:02:28.6568877Z Using cached frozendict-2.4.7-py3-none-any.whl (16 kB)
+2026-04-14T12:02:28.6582571Z Using cached packaging-26.0-py3-none-any.whl (74 kB)
+2026-04-14T12:02:28.6595903Z Using cached peewee-4.0.4-py3-none-any.whl (144 kB)
+2026-04-14T12:02:28.6609678Z Using cached platformdirs-4.9.6-py3-none-any.whl (21 kB)
+2026-04-14T12:02:28.6623182Z Using cached protobuf-7.34.1-cp310-abi3-manylinux2014_x86_64.whl (324 kB)
+2026-04-14T12:02:28.6637401Z Using cached pytz-2026.1.post1-py2.py3-none-any.whl (510 kB)
+2026-04-14T12:02:28.6652217Z Using cached requests-2.33.1-py3-none-any.whl (64 kB)
+2026-04-14T12:02:28.6666395Z Using cached charset_normalizer-3.4.7-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (214 kB)
+2026-04-14T12:02:28.6679782Z Using cached idna-3.11-py3-none-any.whl (71 kB)
+2026-04-14T12:02:28.6693454Z Using cached urllib3-2.6.3-py3-none-any.whl (131 kB)
+2026-04-14T12:02:28.6707323Z Using cached scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+2026-04-14T12:02:28.6849671Z Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+2026-04-14T12:02:28.6864416Z Using cached soupsieve-2.8.3-py3-none-any.whl (37 kB)
+2026-04-14T12:02:28.6879162Z Using cached sqlalchemy-2.0.49-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (3.3 MB)
+2026-04-14T12:02:28.6906103Z Using cached greenlet-3.4.0-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (613 kB)
+2026-04-14T12:02:28.6922011Z Using cached threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+2026-04-14T12:02:28.6935636Z Using cached typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+2026-04-14T12:02:28.6949224Z Using cached tzdata-2026.1-py2.py3-none-any.whl (348 kB)
+2026-04-14T12:02:28.6964538Z Using cached websockets-16.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (184 kB)
+2026-04-14T12:02:28.6978317Z Using cached colorlog-6.10.1-py3-none-any.whl (11 kB)
+2026-04-14T12:02:28.6991842Z Using cached mako-1.3.10-py3-none-any.whl (78 kB)
+2026-04-14T12:02:28.7005896Z Using cached markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+2026-04-14T12:02:28.7019296Z Using cached nvidia_nccl_cu12-2.29.7-py3-none-manylinux_2_18_x86_64.whl (293.6 MB)
+2026-04-14T12:02:28.8054407Z Using cached pycparser-3.0-py3-none-any.whl (48 kB)
+2026-04-14T12:02:28.8069195Z Using cached pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+2026-04-14T12:02:28.8085712Z Using cached rich-15.0.0-py3-none-any.whl (310 kB)
+2026-04-14T12:02:28.8100565Z Using cached pygments-2.20.0-py3-none-any.whl (1.2 MB)
+2026-04-14T12:02:28.8118464Z Using cached markdown_it_py-4.0.0-py3-none-any.whl (87 kB)
+2026-04-14T12:02:28.8132603Z Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+2026-04-14T12:02:28.8145880Z Using cached tqdm-4.67.3-py3-none-any.whl (78 kB)
+2026-04-14T12:02:29.3681454Z Installing collected packages: sgmllib3k, pytz, peewee, multitasking, websockets, urllib3, tzdata, typing-extensions, tqdm, threadpoolctl, soupsieve, six, PyYAML, pygments, pycparser, protobuf, platformdirs, packaging, nvidia-nccl-cu12, numpy, mdurl, MarkupSafe, joblib, idna, greenlet, frozendict, feedparser, colorlog, charset_normalizer, certifi, sqlalchemy, scipy, requests, python-dateutil, markdown-it-py, Mako, cffi, beautifulsoup4, xgboost, vaderSentiment, scikit-learn, rich, pandas, alembic, ta, optuna, curl_cffi, yfinance
+2026-04-14T12:02:48.7504135Z 
+2026-04-14T12:02:48.7532050Z Successfully installed Mako-1.3.10 MarkupSafe-3.0.3 PyYAML-6.0.3 alembic-1.18.4 beautifulsoup4-4.14.3 certifi-2026.2.25 cffi-2.0.0 charset_normalizer-3.4.7 colorlog-6.10.1 curl_cffi-0.15.0 feedparser-6.0.11 frozendict-2.4.7 greenlet-3.4.0 idna-3.11 joblib-1.4.2 markdown-it-py-4.0.0 mdurl-0.1.2 multitasking-0.0.12 numpy-2.0.2 nvidia-nccl-cu12-2.29.7 optuna-3.6.1 packaging-26.0 pandas-2.2.3 peewee-4.0.4 platformdirs-4.9.6 protobuf-7.34.1 pycparser-3.0 pygments-2.20.0 python-dateutil-2.9.0 pytz-2026.1.post1 requests-2.33.1 rich-15.0.0 scikit-learn-1.6.1 scipy-1.17.1 sgmllib3k-1.0.0 six-1.17.0 soupsieve-2.8.3 sqlalchemy-2.0.49 ta-0.11.0 threadpoolctl-3.6.0 tqdm-4.67.3 typing-extensions-4.15.0 tzdata-2026.1 urllib3-2.6.3 vaderSentiment-3.3.2 websockets-16.0 xgboost-2.1.3 yfinance-1.2.2
+2026-04-14T12:02:50.0356410Z Collecting fastapi==0.115.6 (from -r backend/requirements.txt (line 1))
+2026-04-14T12:02:50.0372722Z   Using cached fastapi-0.115.6-py3-none-any.whl.metadata (27 kB)
+2026-04-14T12:02:50.0617007Z Collecting uvicorn==0.32.1 (from uvicorn[standard]==0.32.1->-r backend/requirements.txt (line 2))
+2026-04-14T12:02:50.0634018Z   Using cached uvicorn-0.32.1-py3-none-any.whl.metadata (6.6 kB)
+2026-04-14T12:02:50.0807348Z Collecting python-dotenv==1.0.1 (from -r backend/requirements.txt (line 3))
+2026-04-14T12:02:50.0822248Z   Using cached python_dotenv-1.0.1-py3-none-any.whl.metadata (23 kB)
+2026-04-14T12:02:50.1169909Z Collecting supabase==2.10.0 (from -r backend/requirements.txt (line 4))
+2026-04-14T12:02:50.1186222Z   Using cached supabase-2.10.0-py3-none-any.whl.metadata (10 kB)
+2026-04-14T12:02:50.1347500Z Collecting groq==0.12.0 (from -r backend/requirements.txt (line 5))
+2026-04-14T12:02:50.1360936Z   Using cached groq-0.12.0-py3-none-any.whl.metadata (13 kB)
+2026-04-14T12:02:50.1386881Z Requirement already satisfied: pandas==2.2.3 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from -r backend/requirements.txt (line 6)) (2.2.3)
+2026-04-14T12:02:50.1390849Z Requirement already satisfied: numpy==2.0.2 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from -r backend/requirements.txt (line 7)) (2.0.2)
+2026-04-14T12:02:50.1394574Z Requirement already satisfied: xgboost==2.1.3 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from -r backend/requirements.txt (line 8)) (2.1.3)
+2026-04-14T12:02:50.1398122Z Requirement already satisfied: scikit-learn==1.6.1 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from -r backend/requirements.txt (line 9)) (1.6.1)
+2026-04-14T12:02:50.1401811Z Requirement already satisfied: joblib==1.4.2 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from -r backend/requirements.txt (line 10)) (1.4.2)
+2026-04-14T12:02:50.1405098Z Requirement already satisfied: ta==0.11.0 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from -r backend/requirements.txt (line 11)) (0.11.0)
+2026-04-14T12:02:50.1604518Z Collecting yfinance==0.2.51 (from -r backend/requirements.txt (line 12))
+2026-04-14T12:02:50.1619177Z   Using cached yfinance-0.2.51-py2.py3-none-any.whl.metadata (5.5 kB)
+2026-04-14T12:02:50.1762036Z Collecting python-multipart==0.0.20 (from -r backend/requirements.txt (line 13))
+2026-04-14T12:02:50.1775024Z   Using cached python_multipart-0.0.20-py3-none-any.whl.metadata (1.8 kB)
+2026-04-14T12:02:50.1937385Z Collecting httpx<0.28,>=0.26 (from -r backend/requirements.txt (line 14))
+2026-04-14T12:02:50.1950907Z   Using cached httpx-0.27.2-py3-none-any.whl.metadata (7.1 kB)
+2026-04-14T12:02:50.2939774Z Collecting pydantic==2.10.3 (from -r backend/requirements.txt (line 15))
+2026-04-14T12:02:50.2955381Z   Using cached pydantic-2.10.3-py3-none-any.whl.metadata (172 kB)
+2026-04-14T12:02:50.3169525Z Collecting pydantic-settings==2.7.0 (from -r backend/requirements.txt (line 16))
+2026-04-14T12:02:50.3183017Z   Using cached pydantic_settings-2.7.0-py3-none-any.whl.metadata (3.5 kB)
+2026-04-14T12:02:50.3203644Z Requirement already satisfied: vaderSentiment==3.3.2 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from -r backend/requirements.txt (line 17)) (3.3.2)
+2026-04-14T12:02:50.3207280Z Requirement already satisfied: feedparser==6.0.11 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from -r backend/requirements.txt (line 18)) (6.0.11)
+2026-04-14T12:02:50.3349179Z Collecting firebase-admin==6.6.0 (from -r backend/requirements.txt (line 19))
+2026-04-14T12:02:50.3362667Z   Using cached firebase_admin-6.6.0-py3-none-any.whl.metadata (1.5 kB)
+2026-04-14T12:02:50.3585933Z Collecting starlette<0.42.0,>=0.40.0 (from fastapi==0.115.6->-r backend/requirements.txt (line 1))
+2026-04-14T12:02:50.3599699Z   Using cached starlette-0.41.3-py3-none-any.whl.metadata (6.0 kB)
+2026-04-14T12:02:50.3655883Z Requirement already satisfied: typing-extensions>=4.8.0 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from fastapi==0.115.6->-r backend/requirements.txt (line 1)) (4.15.0)
+2026-04-14T12:02:50.3780919Z Collecting annotated-types>=0.6.0 (from pydantic==2.10.3->-r backend/requirements.txt (line 15))
+2026-04-14T12:02:50.3793996Z   Using cached annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+2026-04-14T12:02:51.0211223Z Collecting pydantic-core==2.27.1 (from pydantic==2.10.3->-r backend/requirements.txt (line 15))
+2026-04-14T12:02:51.0229301Z   Using cached pydantic_core-2.27.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+2026-04-14T12:02:51.0734110Z Collecting click>=7.0 (from uvicorn==0.32.1->uvicorn[standard]==0.32.1->-r backend/requirements.txt (line 2))
+2026-04-14T12:02:51.0753059Z   Using cached click-8.3.2-py3-none-any.whl.metadata (2.6 kB)
+2026-04-14T12:02:51.1135229Z Collecting h11>=0.8 (from uvicorn==0.32.1->uvicorn[standard]==0.32.1->-r backend/requirements.txt (line 2))
+2026-04-14T12:02:51.1151626Z   Using cached h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+2026-04-14T12:02:51.1835993Z Collecting gotrue<3.0.0,>=2.10.0 (from supabase==2.10.0->-r backend/requirements.txt (line 4))
+2026-04-14T12:02:51.1850166Z   Using cached gotrue-2.12.4-py3-none-any.whl.metadata (2.0 kB)
+2026-04-14T12:02:51.2015569Z Collecting postgrest<0.19,>=0.18 (from supabase==2.10.0->-r backend/requirements.txt (line 4))
+2026-04-14T12:02:51.2028553Z   Using cached postgrest-0.18.0-py3-none-any.whl.metadata (3.4 kB)
+2026-04-14T12:02:51.2201855Z Collecting realtime<3.0.0,>=2.0.0 (from supabase==2.10.0->-r backend/requirements.txt (line 4))
+2026-04-14T12:02:51.2214585Z   Using cached realtime-2.28.3-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:51.2375119Z Collecting storage3<0.10.0,>=0.9.0 (from supabase==2.10.0->-r backend/requirements.txt (line 4))
+2026-04-14T12:02:51.2388175Z   Using cached storage3-0.9.0-py3-none-any.whl.metadata (1.8 kB)
+2026-04-14T12:02:51.2517114Z Collecting supafunc<0.8.0,>=0.7.0 (from supabase==2.10.0->-r backend/requirements.txt (line 4))
+2026-04-14T12:02:51.2529983Z   Using cached supafunc-0.7.0-py3-none-any.whl.metadata (1.1 kB)
+2026-04-14T12:02:51.2704729Z Collecting anyio<5,>=3.5.0 (from groq==0.12.0->-r backend/requirements.txt (line 5))
+2026-04-14T12:02:51.2717914Z   Using cached anyio-4.13.0-py3-none-any.whl.metadata (4.5 kB)
+2026-04-14T12:02:51.2837671Z Collecting distro<2,>=1.7.0 (from groq==0.12.0->-r backend/requirements.txt (line 5))
+2026-04-14T12:02:51.2852303Z   Using cached distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
+2026-04-14T12:02:51.3009238Z Collecting sniffio (from groq==0.12.0->-r backend/requirements.txt (line 5))
+2026-04-14T12:02:51.3023168Z   Using cached sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+2026-04-14T12:02:51.3085110Z Requirement already satisfied: python-dateutil>=2.8.2 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from pandas==2.2.3->-r backend/requirements.txt (line 6)) (2.9.0)
+2026-04-14T12:02:51.3089348Z Requirement already satisfied: pytz>=2020.1 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from pandas==2.2.3->-r backend/requirements.txt (line 6)) (2026.1.post1)
+2026-04-14T12:02:51.3093523Z Requirement already satisfied: tzdata>=2022.7 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from pandas==2.2.3->-r backend/requirements.txt (line 6)) (2026.1)
+2026-04-14T12:02:51.3191781Z Requirement already satisfied: nvidia-nccl-cu12 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from xgboost==2.1.3->-r backend/requirements.txt (line 8)) (2.29.7)
+2026-04-14T12:02:51.3196024Z Requirement already satisfied: scipy in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from xgboost==2.1.3->-r backend/requirements.txt (line 8)) (1.17.1)
+2026-04-14T12:02:51.3219517Z Requirement already satisfied: threadpoolctl>=3.1.0 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from scikit-learn==1.6.1->-r backend/requirements.txt (line 9)) (3.6.0)
+2026-04-14T12:02:51.3274740Z Requirement already satisfied: requests>=2.31 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from yfinance==0.2.51->-r backend/requirements.txt (line 12)) (2.33.1)
+2026-04-14T12:02:51.3278573Z Requirement already satisfied: multitasking>=0.0.7 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from yfinance==0.2.51->-r backend/requirements.txt (line 12)) (0.0.12)
+2026-04-14T12:02:51.5032592Z Collecting lxml>=4.9.1 (from yfinance==0.2.51->-r backend/requirements.txt (line 12))
+2026-04-14T12:02:51.5048537Z   Using cached lxml-6.0.4-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.1 kB)
+2026-04-14T12:02:51.5070168Z Requirement already satisfied: platformdirs>=2.0.0 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from yfinance==0.2.51->-r backend/requirements.txt (line 12)) (4.9.6)
+2026-04-14T12:02:51.5074509Z Requirement already satisfied: frozendict>=2.3.4 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from yfinance==0.2.51->-r backend/requirements.txt (line 12)) (2.4.7)
+2026-04-14T12:02:51.5078242Z Requirement already satisfied: peewee>=3.16.2 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from yfinance==0.2.51->-r backend/requirements.txt (line 12)) (4.0.4)
+2026-04-14T12:02:51.5082277Z Requirement already satisfied: beautifulsoup4>=4.11.1 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from yfinance==0.2.51->-r backend/requirements.txt (line 12)) (4.14.3)
+2026-04-14T12:02:51.5191270Z Collecting html5lib>=1.1 (from yfinance==0.2.51->-r backend/requirements.txt (line 12))
+2026-04-14T12:02:51.5205152Z   Using cached html5lib-1.1-py2.py3-none-any.whl.metadata (16 kB)
+2026-04-14T12:02:51.5300464Z Requirement already satisfied: sgmllib3k in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from feedparser==6.0.11->-r backend/requirements.txt (line 18)) (1.0.0)
+2026-04-14T12:02:51.5429697Z Collecting cachecontrol>=0.12.14 (from firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:51.5443003Z   Using cached cachecontrol-0.14.4-py3-none-any.whl.metadata (3.1 kB)
+2026-04-14T12:02:51.5906920Z Collecting google-api-python-client>=1.7.8 (from firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:51.5922230Z   Using cached google_api_python_client-2.194.0-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:51.6179209Z Collecting google-cloud-storage>=1.37.1 (from firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:51.6193405Z   Using cached google_cloud_storage-3.10.1-py3-none-any.whl.metadata (15 kB)
+2026-04-14T12:02:51.6398674Z Collecting pyjwt>=2.5.0 (from pyjwt[crypto]>=2.5.0->firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:51.6412072Z   Using cached pyjwt-2.12.1-py3-none-any.whl.metadata (4.1 kB)
+2026-04-14T12:02:51.6734734Z Collecting google-api-core<3.0.0dev,>=1.22.1 (from google-api-core[grpc]<3.0.0dev,>=1.22.1; platform_python_implementation != "PyPy"->firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:51.6748898Z   Using cached google_api_core-2.30.3-py3-none-any.whl.metadata (3.1 kB)
+2026-04-14T12:02:51.6952020Z Collecting google-cloud-firestore>=2.19.0 (from firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:51.6965442Z   Using cached google_cloud_firestore-2.27.0-py3-none-any.whl.metadata (10.0 kB)
+2026-04-14T12:02:51.7277563Z Collecting httptools>=0.6.3 (from uvicorn[standard]==0.32.1->-r backend/requirements.txt (line 2))
+2026-04-14T12:02:51.7292970Z   Using cached httptools-0.7.1-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (3.5 kB)
+2026-04-14T12:02:51.7320493Z Requirement already satisfied: pyyaml>=5.1 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from uvicorn[standard]==0.32.1->-r backend/requirements.txt (line 2)) (6.0.3)
+2026-04-14T12:02:51.8233033Z Collecting uvloop!=0.15.0,!=0.15.1,>=0.14.0 (from uvicorn[standard]==0.32.1->-r backend/requirements.txt (line 2))
+2026-04-14T12:02:51.8248600Z   Using cached uvloop-0.22.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (4.9 kB)
+2026-04-14T12:02:51.8953476Z Collecting watchfiles>=0.13 (from uvicorn[standard]==0.32.1->-r backend/requirements.txt (line 2))
+2026-04-14T12:02:51.8968790Z   Using cached watchfiles-1.1.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+2026-04-14T12:02:51.8990600Z Requirement already satisfied: websockets>=10.4 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from uvicorn[standard]==0.32.1->-r backend/requirements.txt (line 2)) (16.0)
+2026-04-14T12:02:51.9003944Z Requirement already satisfied: certifi in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from httpx<0.28,>=0.26->-r backend/requirements.txt (line 14)) (2026.2.25)
+2026-04-14T12:02:51.9168030Z Collecting httpcore==1.* (from httpx<0.28,>=0.26->-r backend/requirements.txt (line 14))
+2026-04-14T12:02:51.9182131Z   Using cached httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+2026-04-14T12:02:51.9211839Z Requirement already satisfied: idna in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from httpx<0.28,>=0.26->-r backend/requirements.txt (line 14)) (3.11)
+2026-04-14T12:02:51.9394956Z Collecting googleapis-common-protos<2.0.0,>=1.63.2 (from google-api-core<3.0.0dev,>=1.22.1->google-api-core[grpc]<3.0.0dev,>=1.22.1; platform_python_implementation != "PyPy"->firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:51.9407649Z   Using cached googleapis_common_protos-1.74.0-py3-none-any.whl.metadata (9.2 kB)
+2026-04-14T12:02:51.9427190Z Requirement already satisfied: protobuf<8.0.0,>=4.25.8 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from google-api-core<3.0.0dev,>=1.22.1->google-api-core[grpc]<3.0.0dev,>=1.22.1; platform_python_implementation != "PyPy"->firebase-admin==6.6.0->-r backend/requirements.txt (line 19)) (7.34.1)
+2026-04-14T12:02:51.9581073Z Collecting proto-plus<2.0.0,>=1.22.3 (from google-api-core<3.0.0dev,>=1.22.1->google-api-core[grpc]<3.0.0dev,>=1.22.1; platform_python_implementation != "PyPy"->firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:51.9593842Z   Using cached proto_plus-1.27.2-py3-none-any.whl.metadata (2.2 kB)
+2026-04-14T12:02:51.9905722Z Collecting google-auth<3.0.0,>=2.14.1 (from google-api-core<3.0.0dev,>=1.22.1->google-api-core[grpc]<3.0.0dev,>=1.22.1; platform_python_implementation != "PyPy"->firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:51.9919429Z   Using cached google_auth-2.49.2-py3-none-any.whl.metadata (6.2 kB)
+2026-04-14T12:02:52.4994662Z Collecting grpcio<2.0.0,>=1.33.2 (from google-api-core[grpc]<3.0.0dev,>=1.22.1; platform_python_implementation != "PyPy"->firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:52.5009802Z   Using cached grpcio-1.80.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (3.8 kB)
+2026-04-14T12:02:52.5362901Z Collecting grpcio-status<2.0.0,>=1.33.2 (from google-api-core[grpc]<3.0.0dev,>=1.22.1; platform_python_implementation != "PyPy"->firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:52.5376960Z   Using cached grpcio_status-1.80.0-py3-none-any.whl.metadata (1.3 kB)
+2026-04-14T12:02:52.5623412Z Collecting pyasn1-modules>=0.2.1 (from google-auth<3.0.0,>=2.14.1->google-api-core<3.0.0dev,>=1.22.1->google-api-core[grpc]<3.0.0dev,>=1.22.1; platform_python_implementation != "PyPy"->firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:52.5636960Z   Using cached pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
+2026-04-14T12:02:52.7297930Z Collecting cryptography>=38.0.3 (from google-auth<3.0.0,>=2.14.1->google-api-core<3.0.0dev,>=1.22.1->google-api-core[grpc]<3.0.0dev,>=1.22.1; platform_python_implementation != "PyPy"->firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:52.7312814Z   Using cached cryptography-46.0.7-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (5.7 kB)
+2026-04-14T12:02:52.9644155Z Collecting protobuf<8.0.0,>=4.25.8 (from google-api-core<3.0.0dev,>=1.22.1->google-api-core[grpc]<3.0.0dev,>=1.22.1; platform_python_implementation != "PyPy"->firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:52.9659430Z   Using cached protobuf-6.33.6-cp39-abi3-manylinux2014_x86_64.whl.metadata (593 bytes)
+2026-04-14T12:02:52.9872653Z Collecting h2<5,>=3 (from httpx[http2]<0.29,>=0.26->gotrue<3.0.0,>=2.10.0->supabase==2.10.0->-r backend/requirements.txt (line 4))
+2026-04-14T12:02:52.9886433Z   Using cached h2-4.3.0-py3-none-any.whl.metadata (5.1 kB)
+2026-04-14T12:02:53.0024615Z Collecting hyperframe<7,>=6.1 (from h2<5,>=3->httpx[http2]<0.29,>=0.26->gotrue<3.0.0,>=2.10.0->supabase==2.10.0->-r backend/requirements.txt (line 4))
+2026-04-14T12:02:53.0037734Z   Using cached hyperframe-6.1.0-py3-none-any.whl.metadata (4.3 kB)
+2026-04-14T12:02:53.0158663Z Collecting hpack<5,>=4.1 (from h2<5,>=3->httpx[http2]<0.29,>=0.26->gotrue<3.0.0,>=2.10.0->supabase==2.10.0->-r backend/requirements.txt (line 4))
+2026-04-14T12:02:53.0172218Z   Using cached hpack-4.1.0-py3-none-any.whl.metadata (4.6 kB)
+2026-04-14T12:02:53.0316752Z Collecting deprecation<3.0.0,>=2.1.0 (from postgrest<0.19,>=0.18->supabase==2.10.0->-r backend/requirements.txt (line 4))
+2026-04-14T12:02:53.0329936Z   Using cached deprecation-2.1.0-py2.py3-none-any.whl.metadata (4.6 kB)
+2026-04-14T12:02:53.0359154Z Requirement already satisfied: packaging in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from deprecation<3.0.0,>=2.1.0->postgrest<0.19,>=0.18->supabase==2.10.0->-r backend/requirements.txt (line 4)) (26.0)
+2026-04-14T12:02:53.0422671Z INFO: pip is looking at multiple versions of realtime to determine which version is compatible with other requirements. This could take a while.
+2026-04-14T12:02:53.0426814Z Collecting realtime<3.0.0,>=2.0.0 (from supabase==2.10.0->-r backend/requirements.txt (line 4))
+2026-04-14T12:02:53.0440583Z   Using cached realtime-2.28.2-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.0471336Z   Using cached realtime-2.28.1-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.0501215Z   Using cached realtime-2.28.0-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.0531082Z   Using cached realtime-2.27.3-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.0561054Z   Using cached realtime-2.27.2-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.0590702Z   Using cached realtime-2.27.1-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.0620569Z   Using cached realtime-2.27.0-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.0637300Z INFO: pip is still looking at multiple versions of realtime to determine which version is compatible with other requirements. This could take a while.
+2026-04-14T12:02:53.0652329Z   Using cached realtime-2.26.0-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.0682552Z   Using cached realtime-2.25.1-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.0712214Z   Using cached realtime-2.25.0-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.0742528Z   Using cached realtime-2.24.0-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.0772257Z   Using cached realtime-2.23.2-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.0789753Z INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+2026-04-14T12:02:53.0804039Z   Using cached realtime-2.23.1-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.0833680Z   Using cached realtime-2.23.0-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.0863512Z   Using cached realtime-2.22.4-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.0893116Z   Using cached realtime-2.22.3-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.0922697Z   Using cached realtime-2.22.2-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.0952156Z   Using cached realtime-2.22.1-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.0981547Z   Using cached realtime-2.22.0-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.1011734Z   Using cached realtime-2.21.1-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.1041198Z   Using cached realtime-2.21.0-py3-none-any.whl.metadata (7.0 kB)
+2026-04-14T12:02:53.1070968Z   Using cached realtime-2.20.0-py3-none-any.whl.metadata (6.9 kB)
+2026-04-14T12:02:53.1100566Z   Using cached realtime-2.19.0-py3-none-any.whl.metadata (6.9 kB)
+2026-04-14T12:02:53.1129675Z   Using cached realtime-2.7.0-py3-none-any.whl.metadata (6.6 kB)
+2026-04-14T12:02:53.1158482Z   Using cached realtime-2.6.0-py3-none-any.whl.metadata (6.6 kB)
+2026-04-14T12:02:53.1187684Z   Using cached realtime-2.5.3-py3-none-any.whl.metadata (6.7 kB)
+2026-04-14T12:02:53.2009732Z Collecting websockets>=10.4 (from uvicorn[standard]==0.32.1->-r backend/requirements.txt (line 2))
+2026-04-14T12:02:53.2025617Z   Using cached websockets-15.0.1-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+2026-04-14T12:02:53.2057760Z Requirement already satisfied: charset_normalizer<4,>=2 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from requests>=2.31->yfinance==0.2.51->-r backend/requirements.txt (line 12)) (3.4.7)
+2026-04-14T12:02:53.2064203Z Requirement already satisfied: urllib3<3,>=1.26 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from requests>=2.31->yfinance==0.2.51->-r backend/requirements.txt (line 12)) (2.6.3)
+2026-04-14T12:02:53.2155183Z Requirement already satisfied: six>=1.5 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from python-dateutil>=2.8.2->pandas==2.2.3->-r backend/requirements.txt (line 6)) (1.17.0)
+2026-04-14T12:02:53.2223715Z Requirement already satisfied: soupsieve>=1.6.1 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from beautifulsoup4>=4.11.1->yfinance==0.2.51->-r backend/requirements.txt (line 12)) (2.8.3)
+2026-04-14T12:02:53.2835474Z Collecting msgpack<2.0.0,>=0.5.2 (from cachecontrol>=0.12.14->firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:53.2851752Z   Using cached msgpack-1.1.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.1 kB)
+2026-04-14T12:02:53.2919386Z Requirement already satisfied: cffi>=2.0.0 in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from cryptography>=38.0.3->google-auth<3.0.0,>=2.14.1->google-api-core<3.0.0dev,>=1.22.1->google-api-core[grpc]<3.0.0dev,>=1.22.1; platform_python_implementation != "PyPy"->firebase-admin==6.6.0->-r backend/requirements.txt (line 19)) (2.0.0)
+2026-04-14T12:02:53.2936332Z Requirement already satisfied: pycparser in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (from cffi>=2.0.0->cryptography>=38.0.3->google-auth<3.0.0,>=2.14.1->google-api-core<3.0.0dev,>=1.22.1->google-api-core[grpc]<3.0.0dev,>=1.22.1; platform_python_implementation != "PyPy"->firebase-admin==6.6.0->-r backend/requirements.txt (line 19)) (3.0)
+2026-04-14T12:02:53.3090015Z Collecting httplib2<1.0.0,>=0.19.0 (from google-api-python-client>=1.7.8->firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:53.3103300Z   Using cached httplib2-0.31.2-py3-none-any.whl.metadata (2.2 kB)
+2026-04-14T12:02:53.3267736Z Collecting google-auth-httplib2<1.0.0,>=0.2.0 (from google-api-python-client>=1.7.8->firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:53.3280923Z   Using cached google_auth_httplib2-0.3.1-py3-none-any.whl.metadata (3.0 kB)
+2026-04-14T12:02:53.3397124Z Collecting uritemplate<5,>=3.0.1 (from google-api-python-client>=1.7.8->firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:53.3410213Z   Using cached uritemplate-4.2.0-py3-none-any.whl.metadata (2.6 kB)
+2026-04-14T12:02:53.3670319Z Collecting pyparsing<4,>=3.1 (from httplib2<1.0.0,>=0.19.0->google-api-python-client>=1.7.8->firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:53.3683757Z   Using cached pyparsing-3.3.2-py3-none-any.whl.metadata (5.8 kB)
+2026-04-14T12:02:53.3883637Z Collecting google-cloud-core<3.0.0,>=2.0.0 (from google-cloud-firestore>=2.19.0->firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:53.3896561Z   Using cached google_cloud_core-2.5.1-py3-none-any.whl.metadata (2.8 kB)
+2026-04-14T12:02:53.4127415Z Collecting google-resumable-media<3.0.0,>=2.7.2 (from google-cloud-storage>=1.37.1->firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:53.4141600Z   Using cached google_resumable_media-2.8.2-py3-none-any.whl.metadata (2.2 kB)
+2026-04-14T12:02:53.4600919Z Collecting google-crc32c<2.0.0,>=1.1.3 (from google-cloud-storage>=1.37.1->firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:53.4616431Z   Using cached google_crc32c-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl.metadata (1.7 kB)
+2026-04-14T12:02:53.4789301Z Collecting webencodings (from html5lib>=1.1->yfinance==0.2.51->-r backend/requirements.txt (line 12))
+2026-04-14T12:02:53.4803040Z   Using cached webencodings-0.5.1-py2.py3-none-any.whl.metadata (2.1 kB)
+2026-04-14T12:02:53.5080333Z Collecting pyasn1<0.7.0,>=0.6.1 (from pyasn1-modules>=0.2.1->google-auth<3.0.0,>=2.14.1->google-api-core<3.0.0dev,>=1.22.1->google-api-core[grpc]<3.0.0dev,>=1.22.1; platform_python_implementation != "PyPy"->firebase-admin==6.6.0->-r backend/requirements.txt (line 19))
+2026-04-14T12:02:53.5093217Z   Using cached pyasn1-0.6.3-py3-none-any.whl.metadata (8.4 kB)
+2026-04-14T12:02:53.5520775Z Using cached fastapi-0.115.6-py3-none-any.whl (94 kB)
+2026-04-14T12:02:53.5534516Z Using cached pydantic-2.10.3-py3-none-any.whl (456 kB)
+2026-04-14T12:02:53.5549510Z Using cached uvicorn-0.32.1-py3-none-any.whl (63 kB)
+2026-04-14T12:02:53.5563112Z Using cached python_dotenv-1.0.1-py3-none-any.whl (19 kB)
+2026-04-14T12:02:53.5575971Z Using cached supabase-2.10.0-py3-none-any.whl (16 kB)
+2026-04-14T12:02:53.5588787Z Using cached groq-0.12.0-py3-none-any.whl (108 kB)
+2026-04-14T12:02:53.5602170Z Using cached yfinance-0.2.51-py2.py3-none-any.whl (104 kB)
+2026-04-14T12:02:53.5615341Z Using cached python_multipart-0.0.20-py3-none-any.whl (24 kB)
+2026-04-14T12:02:53.5628292Z Using cached pydantic_settings-2.7.0-py3-none-any.whl (29 kB)
+2026-04-14T12:02:53.5641623Z Using cached firebase_admin-6.6.0-py3-none-any.whl (127 kB)
+2026-04-14T12:02:53.5655242Z Using cached pydantic_core-2.27.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+2026-04-14T12:02:53.5675460Z Using cached httpx-0.27.2-py3-none-any.whl (76 kB)
+2026-04-14T12:02:53.5688420Z Using cached anyio-4.13.0-py3-none-any.whl (114 kB)
+2026-04-14T12:02:53.5701874Z Using cached distro-1.9.0-py3-none-any.whl (20 kB)
+2026-04-14T12:02:53.5714764Z Using cached google_api_core-2.30.3-py3-none-any.whl (173 kB)
+2026-04-14T12:02:53.5728115Z Using cached google_auth-2.49.2-py3-none-any.whl (240 kB)
+2026-04-14T12:02:53.5742160Z Using cached googleapis_common_protos-1.74.0-py3-none-any.whl (300 kB)
+2026-04-14T12:02:53.5755718Z Using cached gotrue-2.12.4-py3-none-any.whl (42 kB)
+2026-04-14T12:02:53.5768976Z Using cached grpcio-1.80.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (6.8 MB)
+2026-04-14T12:02:53.5805837Z Using cached grpcio_status-1.80.0-py3-none-any.whl (14 kB)
+2026-04-14T12:02:53.5818537Z Using cached httpcore-1.0.9-py3-none-any.whl (78 kB)
+2026-04-14T12:02:53.5831786Z Using cached h2-4.3.0-py3-none-any.whl (61 kB)
+2026-04-14T12:02:53.5844841Z Using cached hpack-4.1.0-py3-none-any.whl (34 kB)
+2026-04-14T12:02:53.5857442Z Using cached hyperframe-6.1.0-py3-none-any.whl (13 kB)
+2026-04-14T12:02:53.5870378Z Using cached postgrest-0.18.0-py3-none-any.whl (21 kB)
+2026-04-14T12:02:53.5883241Z Using cached deprecation-2.1.0-py2.py3-none-any.whl (11 kB)
+2026-04-14T12:02:53.5895883Z Using cached proto_plus-1.27.2-py3-none-any.whl (50 kB)
+2026-04-14T12:02:53.5909082Z Using cached protobuf-6.33.6-cp39-abi3-manylinux2014_x86_64.whl (323 kB)
+2026-04-14T12:02:53.5923233Z Using cached pyjwt-2.12.1-py3-none-any.whl (29 kB)
+2026-04-14T12:02:53.5936043Z Using cached realtime-2.5.3-py3-none-any.whl (21 kB)
+2026-04-14T12:02:53.5948849Z Using cached starlette-0.41.3-py3-none-any.whl (73 kB)
+2026-04-14T12:02:53.5962015Z Using cached storage3-0.9.0-py3-none-any.whl (16 kB)
+2026-04-14T12:02:53.5974841Z Using cached supafunc-0.7.0-py3-none-any.whl (6.9 kB)
+2026-04-14T12:02:53.5988124Z Using cached websockets-15.0.1-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (182 kB)
+2026-04-14T12:02:53.6001457Z Using cached annotated_types-0.7.0-py3-none-any.whl (13 kB)
+2026-04-14T12:02:53.6014265Z Using cached cachecontrol-0.14.4-py3-none-any.whl (22 kB)
+2026-04-14T12:02:53.6027522Z Using cached msgpack-1.1.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (426 kB)
+2026-04-14T12:02:53.6041903Z Using cached click-8.3.2-py3-none-any.whl (108 kB)
+2026-04-14T12:02:53.6055152Z Using cached cryptography-46.0.7-cp311-abi3-manylinux_2_34_x86_64.whl (4.5 MB)
+2026-04-14T12:02:53.6084275Z Using cached google_api_python_client-2.194.0-py3-none-any.whl (15.0 MB)
+2026-04-14T12:02:53.6150954Z Using cached google_auth_httplib2-0.3.1-py3-none-any.whl (9.5 kB)
+2026-04-14T12:02:53.6163777Z Using cached httplib2-0.31.2-py3-none-any.whl (91 kB)
+2026-04-14T12:02:53.6177046Z Using cached pyparsing-3.3.2-py3-none-any.whl (122 kB)
+2026-04-14T12:02:53.6190518Z Using cached uritemplate-4.2.0-py3-none-any.whl (11 kB)
+2026-04-14T12:02:53.6203689Z Using cached google_cloud_firestore-2.27.0-py3-none-any.whl (429 kB)
+2026-04-14T12:02:53.6217933Z Using cached google_cloud_core-2.5.1-py3-none-any.whl (29 kB)
+2026-04-14T12:02:53.6231344Z Using cached google_cloud_storage-3.10.1-py3-none-any.whl (324 kB)
+2026-04-14T12:02:53.6246033Z Using cached google_crc32c-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl (33 kB)
+2026-04-14T12:02:53.6259571Z Using cached google_resumable_media-2.8.2-py3-none-any.whl (81 kB)
+2026-04-14T12:02:53.6272599Z Using cached h11-0.16.0-py3-none-any.whl (37 kB)
+2026-04-14T12:02:53.6285510Z Using cached html5lib-1.1-py2.py3-none-any.whl (112 kB)
+2026-04-14T12:02:53.6299136Z Using cached httptools-0.7.1-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (456 kB)
+2026-04-14T12:02:53.6314437Z Using cached lxml-6.0.4-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
+2026-04-14T12:02:53.6347795Z Using cached pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+2026-04-14T12:02:53.6361540Z Using cached pyasn1-0.6.3-py3-none-any.whl (83 kB)
+2026-04-14T12:02:53.6375370Z Using cached uvloop-0.22.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (3.8 MB)
+2026-04-14T12:02:53.6402189Z Using cached watchfiles-1.1.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (456 kB)
+2026-04-14T12:02:53.6416235Z Using cached sniffio-1.3.1-py3-none-any.whl (10 kB)
+2026-04-14T12:02:53.6429167Z Using cached webencodings-0.5.1-py2.py3-none-any.whl (11 kB)
+2026-04-14T12:02:53.8285710Z Installing collected packages: webencodings, websockets, uvloop, uritemplate, sniffio, python-multipart, python-dotenv, pyparsing, pyjwt, pydantic-core, pyasn1, protobuf, msgpack, lxml, hyperframe, httptools, html5lib, hpack, h11, grpcio, google-crc32c, distro, deprecation, click, anyio, annotated-types, watchfiles, uvicorn, starlette, realtime, pydantic, pyasn1-modules, proto-plus, httplib2, httpcore, h2, googleapis-common-protos, google-resumable-media, cryptography, cachecontrol, yfinance, pydantic-settings, httpx, grpcio-status, google-auth, fastapi, groq, google-auth-httplib2, google-api-core, supafunc, storage3, postgrest, gotrue, google-cloud-core, google-api-python-client, supabase, google-cloud-storage, google-cloud-firestore, firebase-admin
+2026-04-14T12:02:53.8385341Z   Attempting uninstall: websockets
+2026-04-14T12:02:53.8409214Z     Found existing installation: websockets 16.0
+2026-04-14T12:02:53.8462248Z     Uninstalling websockets-16.0:
+2026-04-14T12:02:53.8477000Z       Successfully uninstalled websockets-16.0
+2026-04-14T12:02:54.2222414Z   Attempting uninstall: protobuf
+2026-04-14T12:02:54.2244161Z     Found existing installation: protobuf 7.34.1
+2026-04-14T12:02:54.2298112Z     Uninstalling protobuf-7.34.1:
+2026-04-14T12:02:54.2312245Z       Successfully uninstalled protobuf-7.34.1
+2026-04-14T12:02:55.8731271Z   Attempting uninstall: yfinance
+2026-04-14T12:02:55.8757339Z     Found existing installation: yfinance 1.2.2
+2026-04-14T12:02:55.8799333Z     Uninstalling yfinance-1.2.2:
+2026-04-14T12:02:55.8812561Z       Successfully uninstalled yfinance-1.2.2
+2026-04-14T12:02:57.2106111Z 
+2026-04-14T12:02:57.2151741Z Successfully installed annotated-types-0.7.0 anyio-4.13.0 cachecontrol-0.14.4 click-8.3.2 cryptography-46.0.7 deprecation-2.1.0 distro-1.9.0 fastapi-0.115.6 firebase-admin-6.6.0 google-api-core-2.30.3 google-api-python-client-2.194.0 google-auth-2.49.2 google-auth-httplib2-0.3.1 google-cloud-core-2.5.1 google-cloud-firestore-2.27.0 google-cloud-storage-3.10.1 google-crc32c-1.8.0 google-resumable-media-2.8.2 googleapis-common-protos-1.74.0 gotrue-2.12.4 groq-0.12.0 grpcio-1.80.0 grpcio-status-1.80.0 h11-0.16.0 h2-4.3.0 hpack-4.1.0 html5lib-1.1 httpcore-1.0.9 httplib2-0.31.2 httptools-0.7.1 httpx-0.27.2 hyperframe-6.1.0 lxml-6.0.4 msgpack-1.1.2 postgrest-0.18.0 proto-plus-1.27.2 protobuf-6.33.6 pyasn1-0.6.3 pyasn1-modules-0.4.2 pydantic-2.10.3 pydantic-core-2.27.1 pydantic-settings-2.7.0 pyjwt-2.12.1 pyparsing-3.3.2 python-dotenv-1.0.1 python-multipart-0.0.20 realtime-2.5.3 sniffio-1.3.1 starlette-0.41.3 storage3-0.9.0 supabase-2.10.0 supafunc-0.7.0 uritemplate-4.2.0 uvicorn-0.32.1 uvloop-0.22.1 watchfiles-1.1.1 webencodings-0.5.1 websockets-15.0.1 yfinance-0.2.51
+2026-04-14T12:02:57.8830527Z ##[group]Run cd ml
+2026-04-14T12:02:57.8830800Z [36;1mcd ml[0m
+2026-04-14T12:02:57.8831010Z [36;1mpython update_data.py[0m
+2026-04-14T12:02:57.8853336Z shell: /usr/bin/bash -e {0}
+2026-04-14T12:02:57.8853598Z env:
+2026-04-14T12:02:57.8853862Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:02:57.8854322Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-14T12:02:57.8854778Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:02:57.8855177Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:02:57.8855567Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:02:57.8855968Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-14T12:02:57.8856305Z ##[endgroup]
+2026-04-14T12:03:00.4747567Z =======================================================
+2026-04-14T12:03:00.4748145Z GoldSense - Dataset Update (yfinance)
+2026-04-14T12:03:00.4749306Z =======================================================
+2026-04-14T12:03:00.4749856Z 
+2026-04-14T12:03:00.4750002Z [Gold Rate.csv]
+2026-04-14T12:03:00.4750333Z   Last date in CSV: 2026-04-14
+2026-04-14T12:03:00.4750687Z   Already up to date.
+2026-04-14T12:03:00.4751003Z   Normalized Gold Rate.csv (appended 0 rows)
+2026-04-14T12:03:00.4751248Z 
+2026-04-14T12:03:00.4751329Z [USD-INR.csv]
+2026-04-14T12:03:00.4751542Z   Last date in CSV: 2026-04-14
+2026-04-14T12:03:00.4751795Z   Already up to date.
+2026-04-14T12:03:00.4752047Z   Normalized USD-INR.csv (appended 0 rows)
+2026-04-14T12:03:00.4752259Z 
+2026-04-14T12:03:00.4752361Z Dataset update complete.
+2026-04-14T12:03:00.5682918Z ##[group]Run cd ml
+2026-04-14T12:03:00.5683188Z [36;1mcd ml[0m
+2026-04-14T12:03:00.5683421Z [36;1mpython sentiment_service.py --refresh[0m
+2026-04-14T12:03:00.5705230Z shell: /usr/bin/bash -e {0}
+2026-04-14T12:03:00.5705478Z env:
+2026-04-14T12:03:00.5705742Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:03:00.5706207Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-14T12:03:00.5706664Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:03:00.5707065Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:03:00.5707477Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:03:00.5707883Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-14T12:03:00.5708550Z   ALPHAVANTAGE_KEY: ***
+2026-04-14T12:03:00.5709110Z   NEWSAPI_KEY: ***
+2026-04-14T12:03:00.5709346Z ##[endgroup]
+2026-04-14T12:03:00.9867117Z =======================================================
+2026-04-14T12:03:00.9868138Z GoldSense — News Sentiment Analysis
+2026-04-14T12:03:00.9868724Z =======================================================
+2026-04-14T12:03:00.9869516Z 
+2026-04-14T12:03:00.9869711Z Sentiment Score: +0.1949
+2026-04-14T12:03:00.9870225Z Label:           Bullish
+2026-04-14T12:03:00.9870635Z Confidence:      high
+2026-04-14T12:03:00.9870989Z Articles:        50
+2026-04-14T12:03:00.9871381Z Source:          alpha_vantage
+2026-04-14T12:03:00.9871943Z Fetched at:      2026-04-14T12:03:00.983762
+2026-04-14T12:03:00.9872368Z 
+2026-04-14T12:03:00.9872900Z Top Headlines:
+2026-04-14T12:03:00.9873201Z   1. [Bearish] GLD ETF Falls 0.6%
+2026-04-14T12:03:00.9873593Z      Score: -0.608 | Moomoo
+2026-04-14T12:03:00.9873918Z   2. [Bullish] GLD ETF Climbs 1.2%
+2026-04-14T12:03:00.9874263Z      Score: +0.542 | Moomoo
+2026-04-14T12:03:00.9874836Z   3. [Bullish] Gold price today rebounds near $4,370 as GLD ETF and gold stocks track bullion h
+2026-04-14T12:03:00.9875482Z      Score: +0.531 | ts2.tech
+2026-04-14T12:03:00.9876056Z   4. [Bullish] Ride the Gold and Silver Rally: Choose GLD ETF's Steady Climb or SLV's High-Octa
+2026-04-14T12:03:00.9876679Z      Score: +0.494 | Yahoo Finance
+2026-04-14T12:03:00.9877423Z   5. [Bullish] Gold Bonanza: GLD ETF Surges & Miners Skyrocket – Will Gold Hit $5,000/oz Next?
+2026-04-14T12:03:00.9878034Z      Score: +0.491 | ts2.tech
+2026-04-14T12:03:01.0480453Z ##[group]Run cd ml
+2026-04-14T12:03:01.0480900Z [36;1mcd ml[0m
+2026-04-14T12:03:01.0481275Z [36;1mpython evaluate.py[0m
+2026-04-14T12:03:01.0512083Z shell: /usr/bin/bash -e {0}
+2026-04-14T12:03:01.0512536Z env:
+2026-04-14T12:03:01.0513008Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:03:01.0513832Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-14T12:03:01.0514638Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:03:01.0515349Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:03:01.0516078Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:03:01.0516779Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-14T12:03:01.0517562Z   ALPHAVANTAGE_KEY: ***
+2026-04-14T12:03:01.0518074Z   NEWSAPI_KEY: ***
+2026-04-14T12:03:01.0518444Z ##[endgroup]
+2026-04-14T12:03:04.0746916Z Failed to get ticker 'GC=F' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-14T12:03:04.3393643Z $GC=F: possibly delisted; no price data found  (period=2d)
+2026-04-14T12:03:04.5962326Z Failed to get ticker 'USDINR=X' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-14T12:03:04.8524698Z $USDINR=X: possibly delisted; no price data found  (period=2d)
+2026-04-14T12:03:05.4638321Z Failed to get ticker 'GC=F' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-14T12:03:05.7387715Z $GC=F: possibly delisted; no price data found  (period=2d)
+2026-04-14T12:03:05.7404908Z Failed to get ticker 'USDINR=X' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-14T12:03:06.0042311Z $USDINR=X: possibly delisted; no price data found  (period=2d)
+2026-04-14T12:03:06.8475125Z Failed to get ticker 'GC=F' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-14T12:03:07.1041160Z $GC=F: possibly delisted; no price data found  (period=2d)
+2026-04-14T12:03:07.1057827Z Failed to get ticker 'USDINR=X' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-14T12:03:07.3422156Z $USDINR=X: possibly delisted; no price data found  (period=2d)
+2026-04-14T12:03:07.3653603Z ================================================================
+2026-04-14T12:03:07.3654572Z GoldSense - Daily Evaluation Pipeline
+2026-04-14T12:03:07.3655260Z ================================================================
+2026-04-14T12:03:07.3655792Z [1/4] Pending forecasts evaluated
+2026-04-14T12:03:07.3656214Z   Logged rows: 4
+2026-04-14T12:03:07.3656562Z [2/4] Generating fresh forecasts
+2026-04-14T12:03:07.3656991Z Loading Gold Rate CSV...
+2026-04-14T12:03:07.3657431Z   Gold rows: 6281 | Range: 2000-01-04 -> 2026-04-14
+2026-04-14T12:03:07.3657933Z Loading USD/INR CSV...
+2026-04-14T12:03:07.3658361Z   USD/INR rows: 6855 | Range: 2000-01-03 -> 2026-04-14
+2026-04-14T12:03:07.3659329Z   Macro data loaded from cache (0d old, 9580 rows)
+2026-04-14T12:03:07.3660035Z Merging datasets...
+2026-04-14T12:03:07.3660579Z   Merged rows: 6281 | Macro features active: ['DXY', 'VIX', 'TNX', 'OIL']
+2026-04-14T12:03:07.3661135Z   Sentiment rows merged: 5 daily scores
+2026-04-14T12:03:07.3661508Z Building features...
+2026-04-14T12:03:07.3661810Z   Final rows (after dropna): 6268
+2026-04-14T12:03:07.3662157Z Loading Gold Rate CSV...
+2026-04-14T12:03:07.3663036Z   Gold rows: 6281 | Range: 2000-01-04 -> 2026-04-14
+2026-04-14T12:03:07.3663523Z Loading USD/INR CSV...
+2026-04-14T12:03:07.3663956Z   USD/INR rows: 6855 | Range: 2000-01-03 -> 2026-04-14
+2026-04-14T12:03:07.3664595Z   Macro data loaded from cache (0d old, 9580 rows)
+2026-04-14T12:03:07.3665213Z Merging datasets...
+2026-04-14T12:03:07.3665810Z   Merged rows: 6281 | Macro features active: ['DXY', 'VIX', 'TNX', 'OIL']
+2026-04-14T12:03:07.3666599Z   Sentiment rows merged: 5 daily scores
+2026-04-14T12:03:07.3667183Z Building features...
+2026-04-14T12:03:07.3667650Z   Final rows (after dropna): 6268
+2026-04-14T12:03:07.3668162Z [3/4] Computing drift and insights
+2026-04-14T12:03:07.3668800Z   Latest: 2026-04-13 | Pred $4,793.94 | Actual $4,744.60 | MAPE 1.04%
+2026-04-14T12:03:07.3669866Z   D1 Drift: D1 direction 33.3% < 45.0%
+2026-04-14T12:03:07.3670241Z [4/4] Writing system status
+2026-04-14T12:03:07.3670591Z ================================================================
+2026-04-14T12:03:07.3670999Z Pipeline complete
+2026-04-14T12:03:07.3671318Z ================================================================
+2026-04-14T12:03:07.5479781Z ##[group]Run cd ml
+2026-04-14T12:03:07.5480202Z [36;1mcd ml[0m
+2026-04-14T12:03:07.5480542Z [36;1mpython train.py[0m
+2026-04-14T12:03:07.5509881Z shell: /usr/bin/bash -e {0}
+2026-04-14T12:03:07.5510122Z env:
+2026-04-14T12:03:07.5510370Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:03:07.5510803Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-14T12:03:07.5511232Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:03:07.5511626Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:03:07.5511999Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:03:07.5512371Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-14T12:03:07.5512681Z ##[endgroup]
+2026-04-14T12:04:20.1959896Z ============================================================
+2026-04-14T12:04:20.1982578Z GoldSense - Dual Model Training
+2026-04-14T12:04:20.1983349Z   1. Direction classifier (UP/DOWN)
+2026-04-14T12:04:20.1983811Z   2. Magnitude regressor (log return)
+2026-04-14T12:04:20.1984246Z ============================================================
+2026-04-14T12:04:20.1984730Z Loading Gold Rate CSV...
+2026-04-14T12:04:20.1985150Z   Gold rows: 6281 | Range: 2000-01-04 -> 2026-04-14
+2026-04-14T12:04:20.1985604Z Loading USD/INR CSV...
+2026-04-14T12:04:20.1986015Z   USD/INR rows: 6855 | Range: 2000-01-03 -> 2026-04-14
+2026-04-14T12:04:20.1986539Z   Macro data loaded from cache (0d old, 9580 rows)
+2026-04-14T12:04:20.1987077Z Merging datasets...
+2026-04-14T12:04:20.1987561Z   Merged rows: 6281 | Macro features active: ['DXY', 'VIX', 'TNX', 'OIL']
+2026-04-14T12:04:20.1988513Z   Sentiment rows merged: 5 daily scores
+2026-04-14T12:04:20.1989300Z Building features...
+2026-04-14T12:04:20.1989715Z   Final rows (after dropna): 6267
+2026-04-14T12:04:20.1990028Z 
+2026-04-14T12:04:20.1990188Z Train: 2000-01-24 -> 2024-07-18 (5902 rows)
+2026-04-14T12:04:20.1990650Z Valid: 2024-07-22 -> 2026-04-13 (365 rows)
+2026-04-14T12:04:20.1991101Z Features: 78 (macro: True)
+2026-04-14T12:04:20.1991532Z Target distribution: UP=3057/5902 (51.8%)
+2026-04-14T12:04:20.1991864Z 
+2026-04-14T12:04:20.1992037Z --------------------------------------------------
+2026-04-14T12:04:20.1992580Z Training Direction Classifier (XGBClassifier)...
+2026-04-14T12:04:20.1993108Z --------------------------------------------------
+2026-04-14T12:04:20.1993587Z   Running Optuna search (30 trials)...
+2026-04-14T12:04:20.1993891Z 
+2026-04-14T12:04:20.1994081Z   Direction model Optuna best: accuracy=53.1%
+2026-04-14T12:04:20.1994566Z   max_depth=5, lr=0.0061, n_est=368
+2026-04-14T12:04:20.1994846Z 
+2026-04-14T12:04:20.1995082Z   Running 5-fold walk-forward CV for direction model...
+2026-04-14T12:04:20.1995562Z   CV Direction Accuracy: 52.9% (+/-1.1%)
+2026-04-14T12:04:20.1995772Z 
+2026-04-14T12:04:20.1996139Z   Hold-out Direction Accuracy: 59.5%
+2026-04-14T12:04:20.1996456Z   (baseline = 58.4% by always predicting majority class)
+2026-04-14T12:04:20.1996688Z 
+2026-04-14T12:04:20.1996796Z --------------------------------------------------
+2026-04-14T12:04:20.1997108Z Training Magnitude Regressor (XGBRegressor)...
+2026-04-14T12:04:20.1997396Z --------------------------------------------------
+2026-04-14T12:04:20.1997672Z   Running Optuna search (30 trials)...
+2026-04-14T12:04:20.1997851Z 
+2026-04-14T12:04:20.1997938Z   Optuna best trial: RMSE=0.010599
+2026-04-14T12:04:20.1998211Z   max_depth=4, lr=0.0275, n_est=593, subsample=0.66
+2026-04-14T12:04:20.1998416Z 
+2026-04-14T12:04:20.1998554Z   Running 5-fold walk-forward CV for regression model...
+2026-04-14T12:04:20.1999144Z   CV MAPE: 8.10% | CV Direction: 53.3%
+2026-04-14T12:04:20.1999330Z 
+2026-04-14T12:04:20.1999430Z   Training final regression model...
+2026-04-14T12:04:20.1999727Z   Training quantile models (q=0.10 and q=0.90)...
+2026-04-14T12:04:20.1999938Z 
+2026-04-14T12:04:20.2000037Z =======================================================
+2026-04-14T12:04:20.2000551Z   FINAL RESULTS (Hold-out: last 365 days)
+2026-04-14T12:04:20.2000837Z =======================================================
+2026-04-14T12:04:20.2001018Z 
+2026-04-14T12:04:20.2001105Z   Direction Classifier:
+2026-04-14T12:04:20.2001312Z     Hold-out accuracy:    59.5%
+2026-04-14T12:04:20.2001547Z     CV accuracy:          52.9% (+/-1.1%)
+2026-04-14T12:04:20.2001718Z 
+2026-04-14T12:04:20.2001793Z   Regression Model:
+2026-04-14T12:04:20.2001985Z     RMSE:                 $68.32
+2026-04-14T12:04:20.2002205Z     MAE:                  $42.83
+2026-04-14T12:04:20.2002421Z     MAPE:                 1.14%
+2026-04-14T12:04:20.2002639Z     Reg direction acc:    58.4%
+2026-04-14T12:04:20.2002882Z     Interval Coverage:    71.5% (target >=80%)
+2026-04-14T12:04:20.2003159Z =======================================================
+2026-04-14T12:04:20.2003337Z 
+2026-04-14T12:04:20.2003452Z Top 15 Important Features (Direction Model):
+2026-04-14T12:04:20.2003748Z   log_return_1                           0.0195
+2026-04-14T12:04:20.2004025Z   price_lag_7                            0.0190
+2026-04-14T12:04:20.2004294Z   price_lag_3                            0.0181
+2026-04-14T12:04:20.2004558Z   price_lag_2                            0.0172
+2026-04-14T12:04:20.2004820Z   return_std_5                           0.0161
+2026-04-14T12:04:20.2005084Z   bb_lower                               0.0161
+2026-04-14T12:04:20.2005355Z   quarter                                0.0161
+2026-04-14T12:04:20.2005620Z   year                                   0.0159
+2026-04-14T12:04:20.2005877Z   rolling_mean_14                        0.0157
+2026-04-14T12:04:20.2006140Z   usd_inr_lag_7                          0.0157
+2026-04-14T12:04:20.2006402Z   price_lag_30                           0.0155
+2026-04-14T12:04:20.2006659Z   rolling_mean_30                        0.0154
+2026-04-14T12:04:20.2006953Z   rolling_min_7                          0.0153
+2026-04-14T12:04:20.2007228Z   price_vs_mean_30                       0.0153
+2026-04-14T12:04:20.2007493Z   return_std_14                          0.0153
+2026-04-14T12:04:20.2007671Z 
+2026-04-14T12:04:20.2007932Z Models saved: gold_model.pkl, gold_model_q10.pkl, gold_model_q90.pkl, gold_direction_model.pkl
+2026-04-14T12:04:20.2008636Z Metadata saved: /home/runner/work/GoldSense/GoldSense/ml/model/model_metadata.json
+2026-04-14T12:04:20.2009230Z 
+2026-04-14T12:04:20.2009314Z Training complete!
+2026-04-14T12:04:20.2009532Z   Direction accuracy: 59.5% (CV: 52.9%)
+2026-04-14T12:04:20.2009794Z   Regression: RMSE=$68.32 | MAPE=1.14%
+2026-04-14T12:04:20.2010049Z   Interval Coverage: 71.5% (q10-q90)
+2026-04-14T12:04:20.3912118Z ##[group]Run cd ml
+2026-04-14T12:04:20.3912382Z [36;1mcd ml[0m
+2026-04-14T12:04:20.3912615Z [36;1mpython generate_public_snapshots.py[0m
+2026-04-14T12:04:20.3934350Z shell: /usr/bin/bash -e {0}
+2026-04-14T12:04:20.3934588Z env:
+2026-04-14T12:04:20.3934840Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:04:20.3935415Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-14T12:04:20.3935843Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:04:20.3936230Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:04:20.3936612Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:04:20.3936985Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-14T12:04:20.3937473Z   ALPHAVANTAGE_KEY: ***
+2026-04-14T12:04:20.3937736Z   NEWSAPI_KEY: ***
+2026-04-14T12:04:20.3937926Z ##[endgroup]
+2026-04-14T12:04:22.7570734Z Failed to get ticker 'GC=F' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-14T12:04:23.0121881Z $GC=F: possibly delisted; no price data found  (period=2d)
+2026-04-14T12:04:23.2785629Z Failed to get ticker 'USDINR=X' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-14T12:04:23.5390464Z $USDINR=X: possibly delisted; no price data found  (period=2d)
+2026-04-14T12:04:24.1418800Z Failed to get ticker 'GC=F' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-14T12:04:24.4030956Z $GC=F: possibly delisted; no price data found  (period=2d)
+2026-04-14T12:04:24.4047686Z Failed to get ticker 'USDINR=X' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-14T12:04:24.6647658Z $USDINR=X: possibly delisted; no price data found  (period=2d)
+2026-04-14T12:04:25.4680199Z Failed to get ticker 'GC=F' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-14T12:04:25.7301399Z $GC=F: possibly delisted; no price data found  (period=2d)
+2026-04-14T12:04:25.7317474Z Failed to get ticker 'USDINR=X' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-14T12:04:25.9925741Z $USDINR=X: possibly delisted; no price data found  (period=2d)
+2026-04-14T12:04:26.0096572Z Loading Gold Rate CSV...
+2026-04-14T12:04:26.0097057Z   Gold rows: 6281 | Range: 2000-01-04 -> 2026-04-14
+2026-04-14T12:04:26.0097457Z Loading USD/INR CSV...
+2026-04-14T12:04:26.0097806Z   USD/INR rows: 6855 | Range: 2000-01-03 -> 2026-04-14
+2026-04-14T12:04:26.0098226Z   Macro data loaded from cache (0d old, 9580 rows)
+2026-04-14T12:04:26.0098591Z Merging datasets...
+2026-04-14T12:04:26.0099255Z   Merged rows: 6281 | Macro features active: ['DXY', 'VIX', 'TNX', 'OIL']
+2026-04-14T12:04:26.0099747Z   Sentiment rows merged: 5 daily scores
+2026-04-14T12:04:26.0100081Z Building features...
+2026-04-14T12:04:26.0100358Z   Final rows (after dropna): 6268
+2026-04-14T12:04:26.0100676Z Loading Gold Rate CSV...
+2026-04-14T12:04:26.0100992Z   Gold rows: 6281 | Range: 2000-01-04 -> 2026-04-14
+2026-04-14T12:04:26.0101356Z Loading USD/INR CSV...
+2026-04-14T12:04:26.0101705Z   USD/INR rows: 6855 | Range: 2000-01-03 -> 2026-04-14
+2026-04-14T12:04:26.0102120Z   Macro data loaded from cache (0d old, 9580 rows)
+2026-04-14T12:04:26.0102481Z Merging datasets...
+2026-04-14T12:04:26.0102864Z   Merged rows: 6281 | Macro features active: ['DXY', 'VIX', 'TNX', 'OIL']
+2026-04-14T12:04:26.0103345Z   Sentiment rows merged: 5 daily scores
+2026-04-14T12:04:26.0103679Z Building features...
+2026-04-14T12:04:26.0103949Z   Final rows (after dropna): 6268
+2026-04-14T12:04:26.1895227Z ##[group]Run git config --local user.email "github-actions[bot]@users.noreply.github.com"
+2026-04-14T12:04:26.1895904Z [36;1mgit config --local user.email "github-actions[bot]@users.noreply.github.com"[0m
+2026-04-14T12:04:26.1896391Z [36;1mgit config --local user.name "github-actions[bot]"[0m
+2026-04-14T12:04:26.1896692Z [36;1mgit add \[0m
+2026-04-14T12:04:26.1896902Z [36;1m  "dataset/Gold Rate.csv" \[0m
+2026-04-14T12:04:26.1897159Z [36;1m  dataset/USD-INR.csv \[0m
+2026-04-14T12:04:26.1897400Z [36;1m  dataset/macro_data.csv \[0m
+2026-04-14T12:04:26.1897662Z [36;1m  dataset/prediction_logs.csv \[0m
+2026-04-14T12:04:26.1897939Z [36;1m  dataset/sentiment_logs.csv \[0m
+2026-04-14T12:04:26.1898222Z [36;1m  frontend/public/snapshots/*.json \[0m
+2026-04-14T12:04:26.1898500Z [36;1m  ml/model/gold_model.pkl \[0m
+2026-04-14T12:04:26.1899206Z [36;1m  ml/model/gold_model_q10.pkl \[0m
+2026-04-14T12:04:26.1899472Z [36;1m  ml/model/gold_model_q90.pkl \[0m
+2026-04-14T12:04:26.1899786Z [36;1m  ml/model/gold_direction_model.pkl \[0m
+2026-04-14T12:04:26.1900085Z [36;1m  ml/model/model_metadata.json \[0m
+2026-04-14T12:04:26.1900364Z [36;1m  ml/model/pending_prediction.json \[0m
+2026-04-14T12:04:26.1900647Z [36;1m  ml/model/system_status.json \[0m
+2026-04-14T12:04:26.1900906Z [36;1m  2>/dev/null || true[0m
+2026-04-14T12:04:26.1901378Z [36;1mgit diff --staged --quiet || git commit -m "retrain: model + snapshot update $(date -u '+%Y-%m-%d') [skip ci]"[0m
+2026-04-14T12:04:26.1901869Z [36;1mgit push[0m
+2026-04-14T12:04:26.1923568Z shell: /usr/bin/bash -e {0}
+2026-04-14T12:04:26.1923803Z env:
+2026-04-14T12:04:26.1924052Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:04:26.1924483Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-14T12:04:26.1924908Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:04:26.1925281Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:04:26.1925648Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:04:26.1926016Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-14T12:04:26.1926322Z ##[endgroup]
+2026-04-14T12:04:26.2734177Z [main 9a8eb7d] retrain: model + snapshot update 2026-04-14 [skip ci]
+2026-04-14T12:04:26.2734786Z  12 files changed, 506 insertions(+), 506 deletions(-)
+2026-04-14T12:04:26.4951972Z To https://github.com/alagarsamy-m/GoldSense
+2026-04-14T12:04:26.4952951Z  ! [rejected]        main -> main (fetch first)
+2026-04-14T12:04:26.4953942Z error: failed to push some refs to 'https://github.com/alagarsamy-m/GoldSense'
+2026-04-14T12:04:26.4969767Z hint: Updates were rejected because the remote contains work that you do not
+2026-04-14T12:04:26.4970761Z hint: have locally. This is usually caused by another repository pushing to
+2026-04-14T12:04:26.4971634Z hint: the same ref. If you want to integrate the remote changes, use
+2026-04-14T12:04:26.4972343Z hint: 'git pull' before pushing again.
+2026-04-14T12:04:26.4973057Z hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+2026-04-14T12:04:26.4986027Z ##[error]Process completed with exit code 1.
+2026-04-14T12:04:26.5060767Z ##[group]Run curl -s "***"
+2026-04-14T12:04:26.5061371Z [36;1mcurl -s "***"[0m
+2026-04-14T12:04:26.5061631Z [36;1mecho "Render deployment triggered"[0m
+2026-04-14T12:04:26.5083185Z shell: /usr/bin/bash -e {0}
+2026-04-14T12:04:26.5083428Z env:
+2026-04-14T12:04:26.5083692Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:04:26.5084129Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-14T12:04:26.5084565Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:04:26.5084943Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:04:26.5085319Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:04:26.5085713Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-14T12:04:26.5086027Z ##[endgroup]
+2026-04-14T12:04:26.8150937Z Accepted
+2026-04-14T12:04:26.8178727Z {}Render deployment triggered
+2026-04-14T12:04:26.8245393Z ##[group]Run actions/upload-artifact@v4
+2026-04-14T12:04:26.8245697Z with:
+2026-04-14T12:04:26.8245893Z   name: trained-model-12
+2026-04-14T12:04:26.8246495Z   path: ml/model/gold_model.pkl
+ml/model/gold_model_q10.pkl
+ml/model/gold_model_q90.pkl
+ml/model/gold_direction_model.pkl
+ml/model/model_metadata.json
+
+2026-04-14T12:04:26.8247109Z   retention-days: 30
+2026-04-14T12:04:26.8247319Z   if-no-files-found: warn
+2026-04-14T12:04:26.8247538Z   compression-level: 6
+2026-04-14T12:04:26.8247739Z   overwrite: false
+2026-04-14T12:04:26.8247938Z   include-hidden-files: false
+2026-04-14T12:04:26.8248156Z env:
+2026-04-14T12:04:26.8248397Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:04:26.8248825Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-14T12:04:26.8249801Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:04:26.8250174Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:04:26.8250573Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-14T12:04:26.8250950Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-14T12:04:26.8251258Z ##[endgroup]
+2026-04-14T12:04:27.0451848Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-04-14T12:04:27.0457377Z The least common ancestor is /home/runner/work/GoldSense/GoldSense/ml/model. This will be the root directory of the artifact
+2026-04-14T12:04:27.0458635Z With the provided path, there will be 5 files uploaded
+2026-04-14T12:04:27.0463006Z Artifact name is valid!
+2026-04-14T12:04:27.0464794Z Root directory input is valid!
+2026-04-14T12:04:27.1561034Z Beginning upload of artifact content to blob storage
+2026-04-14T12:04:27.2687261Z Uploaded bytes 478003
+2026-04-14T12:04:27.2853436Z Finished uploading artifact content to blob storage!
+2026-04-14T12:04:27.2857461Z SHA256 digest of uploaded artifact zip is ac637dbf102ff14ab39c00890eeaf3e8ec2305feb1dac12135a524fd536785c2
+2026-04-14T12:04:27.2860191Z Finalizing artifact upload
+2026-04-14T12:04:27.4146266Z Artifact trained-model-12.zip successfully finalized. Artifact ID 6427135603
+2026-04-14T12:04:27.4147590Z Artifact trained-model-12 has been successfully uploaded! Final size is 478003 bytes. Artifact ID is 6427135603
+2026-04-14T12:04:27.4154618Z Artifact download URL: https://github.com/alagarsamy-m/GoldSense/actions/runs/24397735521/artifacts/6427135603
+2026-04-14T12:04:27.4277297Z Post job cleanup.
+2026-04-14T12:04:27.5781655Z Cache hit occurred on the primary key setup-python-Linux-x64-24.04-Ubuntu-python-3.11.15-pip-8b44099f00540ecc449d313fddcde15f0446a4896988adee6f12ef59a1cfd718, not saving cache.
+2026-04-14T12:04:27.5889503Z Post job cleanup.
+2026-04-14T12:04:27.6854752Z [command]/usr/bin/git version
+2026-04-14T12:04:27.6891301Z git version 2.53.0
+2026-04-14T12:04:27.6935517Z Temporarily overriding HOME='/home/runner/work/_temp/b3b06c48-ed15-4259-9602-0e6ec55e09b6' before making global git config changes
+2026-04-14T12:04:27.6936970Z Adding repository directory to the temporary git global config as a safe directory
+2026-04-14T12:04:27.6949837Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/GoldSense/GoldSense
+2026-04-14T12:04:27.6985808Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-04-14T12:04:27.7018342Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-04-14T12:04:27.7242006Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-04-14T12:04:27.7263830Z http.https://github.com/.extraheader
+2026-04-14T12:04:27.7275919Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-04-14T12:04:27.7305593Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-04-14T12:04:27.7527129Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-04-14T12:04:27.7559372Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-04-14T12:04:27.7899824Z Cleaning up orphan processes
+2026-04-14T12:04:27.8185830Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

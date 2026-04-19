@@ -1,0 +1,15 @@
+2026-04-14T12:02:11.9180000Z Evaluating trigger-retrain.if
+2026-04-14T12:02:11.9180000Z Evaluating: (success() && (((needs.daily-pipeline.outputs.drift_detected == 'true') || (github.event.inputs.force_retrain == 'true'))))
+2026-04-14T12:02:11.9180000Z Expanded: (true && (('true' == 'true') || (github.event.inputs.force_retrain == 'true')))
+2026-04-14T12:02:11.9180000Z Result: true
+2026-04-14T12:02:11.9180000Z Evaluating trigger-retrain.retrain.if
+2026-04-14T12:02:11.9180000Z Evaluating: success()
+2026-04-14T12:02:11.9180000Z Result: true
+2026-04-14T12:02:11.9230000Z Requested labels: ubuntu-latest
+2026-04-14T12:02:11.9230000Z Job defined at: alagarsamy-m/GoldSense/.github/workflows/weekly-retrain.yml@refs/heads/main
+2026-04-14T12:02:11.9230000Z Reusable workflow chain:
+2026-04-14T12:02:11.9230000Z alagarsamy-m/GoldSense/.github/workflows/daily-evaluate.yml@refs/heads/main (fc075d9ce57cd2605534d2851bc841b1784472b1)
+2026-04-14T12:02:11.9230000Z -> alagarsamy-m/GoldSense/.github/workflows/weekly-retrain.yml@refs/heads/main (fc075d9ce57cd2605534d2851bc841b1784472b1)
+2026-04-14T12:02:11.9230000Z Waiting for a runner to pick up this job...
+2026-04-14T12:02:12.1890000Z Job is waiting for a hosted runner to come online.
+2026-04-14T12:02:12.1910000Z Job is about to start running on the hosted runner: GitHub Actions 1000000044

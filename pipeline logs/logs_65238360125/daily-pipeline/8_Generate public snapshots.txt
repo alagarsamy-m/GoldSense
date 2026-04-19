@@ -1,0 +1,56 @@
+﻿2026-04-19T08:32:59.7572630Z ##[group]Run cd ml
+2026-04-19T08:32:59.7572957Z [36;1mcd ml[0m
+2026-04-19T08:32:59.7573251Z [36;1mpython generate_public_snapshots.py[0m
+2026-04-19T08:32:59.7573613Z [36;1mpython - <<'PY'[0m
+2026-04-19T08:32:59.7573904Z [36;1mimport json[0m
+2026-04-19T08:32:59.7574169Z [36;1mimport os[0m
+2026-04-19T08:32:59.7574442Z [36;1mfrom pathlib import Path[0m
+2026-04-19T08:32:59.7574748Z [36;1m[0m
+2026-04-19T08:32:59.7575163Z [36;1mtoday_path = Path.cwd().parent / 'frontend' / 'public' / 'snapshots' / 'today.json'[0m
+2026-04-19T08:32:59.7575778Z [36;1mtoday = json.loads(today_path.read_text(encoding='utf-8'))[0m
+2026-04-19T08:32:59.7576272Z [36;1moutput_path = Path(os.environ['SNAPSHOT_OUTPUT_FILE'])[0m
+2026-04-19T08:32:59.7576682Z [36;1moutput_path.write_text([0m
+2026-04-19T08:32:59.7577033Z [36;1m    "\n".join([0m
+2026-04-19T08:32:59.7577304Z [36;1m        [[0m
+2026-04-19T08:32:59.7577686Z [36;1m            f"today_source=***today.get('source', 'unknown')***",[0m
+2026-04-19T08:32:59.7578404Z [36;1m            f"today_market_status=***today.get('market_status', 'unknown')***",[0m
+2026-04-19T08:32:59.7578990Z [36;1m            f"today_is_live=***'true' if today.get('is_live') else 'false'***",[0m
+2026-04-19T08:32:59.7579420Z [36;1m        ][0m
+2026-04-19T08:32:59.7579675Z [36;1m    )[0m
+2026-04-19T08:32:59.7579920Z [36;1m    + "\n",[0m
+2026-04-19T08:32:59.7580193Z [36;1m    encoding='utf-8',[0m
+2026-04-19T08:32:59.7580481Z [36;1m)[0m
+2026-04-19T08:32:59.7580885Z [36;1mPY[0m
+2026-04-19T08:32:59.7581189Z [36;1mcat "$SNAPSHOT_OUTPUT_FILE" >> "$GITHUB_OUTPUT"[0m
+2026-04-19T08:32:59.7602258Z shell: /usr/bin/bash -e ***0***
+2026-04-19T08:32:59.7602583Z env:
+2026-04-19T08:32:59.7602902Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T08:32:59.7603410Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-19T08:32:59.7603906Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T08:32:59.7604358Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T08:32:59.7604811Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T08:32:59.7605265Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-19T08:32:59.7605671Z   ALPHAVANTAGE_KEY: ***
+2026-04-19T08:32:59.7606003Z   NEWSAPI_KEY: ***
+2026-04-19T08:32:59.7606410Z   SNAPSHOT_OUTPUT_FILE: /home/runner/work/_temp/goldsense-snapshot-outputs.txt
+2026-04-19T08:32:59.7606864Z ##[endgroup]
+2026-04-19T08:33:04.2122453Z Loading Gold Rate CSV...
+2026-04-19T08:33:04.2123154Z   Gold rows: 6284 | Range: 2000-01-04 -> 2026-04-17
+2026-04-19T08:33:04.2123730Z Loading USD/INR CSV...
+2026-04-19T08:33:04.2124220Z   USD/INR rows: 6857 | Range: 2000-01-03 -> 2026-04-17
+2026-04-19T08:33:04.2124860Z   Macro data loaded from cache (0d old, 9599 rows)
+2026-04-19T08:33:04.2125399Z Merging datasets...
+2026-04-19T08:33:04.2125975Z   Merged rows: 6284 | Macro features active: ['DXY', 'VIX', 'TNX', 'OIL']
+2026-04-19T08:33:04.2126659Z   Sentiment rows merged: 7 daily scores
+2026-04-19T08:33:04.2127190Z Building features...
+2026-04-19T08:33:04.2127617Z   Final rows (after dropna): 6271
+2026-04-19T08:33:04.2128167Z Loading Gold Rate CSV...
+2026-04-19T08:33:04.2128890Z   Gold rows: 6284 | Range: 2000-01-04 -> 2026-04-17
+2026-04-19T08:33:04.2129423Z Loading USD/INR CSV...
+2026-04-19T08:33:04.2129889Z   USD/INR rows: 6857 | Range: 2000-01-03 -> 2026-04-17
+2026-04-19T08:33:04.2130471Z   Macro data loaded from cache (0d old, 9599 rows)
+2026-04-19T08:33:04.2131028Z Merging datasets...
+2026-04-19T08:33:04.2131588Z   Merged rows: 6284 | Macro features active: ['DXY', 'VIX', 'TNX', 'OIL']
+2026-04-19T08:33:04.2132263Z   Sentiment rows merged: 7 daily scores
+2026-04-19T08:33:04.2132761Z Building features...
+2026-04-19T08:33:04.2133199Z   Final rows (after dropna): 6271

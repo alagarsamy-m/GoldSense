@@ -1,0 +1,33 @@
+﻿2026-04-16T15:21:27.6043145Z ##[group]Run cd ml
+2026-04-16T15:21:27.6043452Z [36;1mcd ml[0m
+2026-04-16T15:21:27.6043705Z [36;1mpython update_data.py[0m
+2026-04-16T15:21:27.6063057Z shell: /usr/bin/bash -e ***0***
+2026-04-16T15:21:27.6063340Z env:
+2026-04-16T15:21:27.6063646Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-16T15:21:27.6064077Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-16T15:21:27.6064492Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-16T15:21:27.6064874Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-16T15:21:27.6065350Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-16T15:21:27.6065734Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-16T15:21:27.6066076Z ##[endgroup]
+2026-04-16T15:21:38.1063599Z Failed to get ticker 'GC=F' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-16T15:21:38.1066983Z $GC=F: possibly delisted; no timezone found
+2026-04-16T15:21:39.0447178Z Failed to get ticker 'USDINR=X' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-16T15:21:39.0450374Z $USDINR=X: possibly delisted; no timezone found
+2026-04-16T15:21:39.3493446Z =======================================================
+2026-04-16T15:21:39.3494008Z GoldSense - Dataset Update (yfinance)
+2026-04-16T15:21:39.3494448Z =======================================================
+2026-04-16T15:21:39.3494722Z 
+2026-04-16T15:21:39.3494847Z [Gold Rate.csv]
+2026-04-16T15:21:39.3495361Z   Last date in CSV: 2026-04-14
+2026-04-16T15:21:39.3495768Z   Fetching gold prices: 2026-04-15 -> 2026-04-16
+2026-04-16T15:21:39.3496195Z   No new gold data available.
+2026-04-16T15:21:39.3496558Z   Appended 0 rows to Gold Rate.csv
+2026-04-16T15:21:39.3496803Z 
+2026-04-16T15:21:39.3496956Z [USD-INR.csv]
+2026-04-16T15:21:39.3497294Z   Last date in CSV: 2026-04-14
+2026-04-16T15:21:39.3497777Z   Fetching USD/INR rates: 2026-04-15 -> 2026-04-16
+2026-04-16T15:21:39.3498143Z   No new USD/INR data available.
+2026-04-16T15:21:39.3498448Z   Appended 0 rows to USD-INR.csv
+2026-04-16T15:21:39.3498617Z 
+2026-04-16T15:21:39.3498732Z Dataset update complete.

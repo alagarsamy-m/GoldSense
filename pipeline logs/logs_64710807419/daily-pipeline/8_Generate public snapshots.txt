@@ -1,0 +1,66 @@
+﻿2026-04-15T10:17:49.1333730Z ##[group]Run cd ml
+2026-04-15T10:17:49.1334086Z [36;1mcd ml[0m
+2026-04-15T10:17:49.1334408Z [36;1mpython generate_public_snapshots.py[0m
+2026-04-15T10:17:49.1334788Z [36;1mpython - <<'PY'[0m
+2026-04-15T10:17:49.1335095Z [36;1mimport json[0m
+2026-04-15T10:17:49.1335391Z [36;1mfrom pathlib import Path[0m
+2026-04-15T10:17:49.1335902Z [36;1m[0m
+2026-04-15T10:17:49.1336338Z [36;1mtoday_path = Path.cwd().parent / 'frontend' / 'public' / 'snapshots' / 'today.json'[0m
+2026-04-15T10:17:49.1336951Z [36;1mtoday = json.loads(today_path.read_text(encoding='utf-8'))[0m
+2026-04-15T10:17:49.1337500Z [36;1moutput_path = Path.cwd().parent / '.github' / 'snapshot_outputs.txt'[0m
+2026-04-15T10:17:49.1337971Z [36;1moutput_path.write_text([0m
+2026-04-15T10:17:49.1338609Z [36;1m    "\n".join([0m
+2026-04-15T10:17:49.1338915Z [36;1m        [[0m
+2026-04-15T10:17:49.1339321Z [36;1m            f"today_source=***today.get('source', 'unknown')***",[0m
+2026-04-15T10:17:49.1339880Z [36;1m            f"today_market_status=***today.get('market_status', 'unknown')***",[0m
+2026-04-15T10:17:49.1340523Z [36;1m            f"today_is_live=***'true' if today.get('is_live') else 'false'***",[0m
+2026-04-15T10:17:49.1340992Z [36;1m        ][0m
+2026-04-15T10:17:49.1341271Z [36;1m    )[0m
+2026-04-15T10:17:49.1341537Z [36;1m    + "\n",[0m
+2026-04-15T10:17:49.1341827Z [36;1m    encoding='utf-8',[0m
+2026-04-15T10:17:49.1342141Z [36;1m)[0m
+2026-04-15T10:17:49.1342391Z [36;1mPY[0m
+2026-04-15T10:17:49.1342749Z [36;1mcat ../.github/snapshot_outputs.txt >> "$GITHUB_OUTPUT"[0m
+2026-04-15T10:17:49.1364648Z shell: /usr/bin/bash -e ***0***
+2026-04-15T10:17:49.1364989Z env:
+2026-04-15T10:17:49.1365342Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-15T10:17:49.1365866Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-15T10:17:49.1366387Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-15T10:17:49.1366852Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-15T10:17:49.1367322Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-15T10:17:49.1367781Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-15T10:17:49.1368495Z   ALPHAVANTAGE_KEY: ***
+2026-04-15T10:17:49.1368842Z   NEWSAPI_KEY: ***
+2026-04-15T10:17:49.1369124Z ##[endgroup]
+2026-04-15T10:17:51.3520215Z Failed to get ticker 'GC=F' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-15T10:17:51.6007712Z $GC=F: possibly delisted; no price data found  (period=2d)
+2026-04-15T10:17:51.8534742Z Failed to get ticker 'USDINR=X' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-15T10:17:52.1054377Z $USDINR=X: possibly delisted; no price data found  (period=2d)
+2026-04-15T10:17:52.6801276Z Failed to get ticker 'GC=F' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-15T10:17:52.9317088Z $GC=F: possibly delisted; no price data found  (period=2d)
+2026-04-15T10:17:52.9331334Z Failed to get ticker 'USDINR=X' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-15T10:17:53.1854080Z $USDINR=X: possibly delisted; no price data found  (period=2d)
+2026-04-15T10:17:53.9013012Z Failed to get ticker 'GC=F' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-15T10:17:54.1587685Z $GC=F: possibly delisted; no price data found  (period=2d)
+2026-04-15T10:17:54.1601019Z Failed to get ticker 'USDINR=X' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-15T10:17:54.3933898Z $USDINR=X: possibly delisted; no price data found  (period=2d)
+2026-04-15T10:17:54.4107179Z Loading Gold Rate CSV...
+2026-04-15T10:17:54.4107870Z   Gold rows: 6281 | Range: 2000-01-04 -> 2026-04-14
+2026-04-15T10:17:54.4108845Z Loading USD/INR CSV...
+2026-04-15T10:17:54.4109424Z   USD/INR rows: 6855 | Range: 2000-01-03 -> 2026-04-14
+2026-04-15T10:17:54.4110131Z   Macro data loaded from cache (0d old, 9580 rows)
+2026-04-15T10:17:54.4110753Z Merging datasets...
+2026-04-15T10:17:54.4111397Z   Merged rows: 6281 | Macro features active: ['DXY', 'VIX', 'TNX', 'OIL']
+2026-04-15T10:17:54.4114312Z   Sentiment rows merged: 6 daily scores
+2026-04-15T10:17:54.4114904Z Building features...
+2026-04-15T10:17:54.4115447Z   Final rows (after dropna): 6268
+2026-04-15T10:17:54.4115968Z Loading Gold Rate CSV...
+2026-04-15T10:17:54.4116523Z   Gold rows: 6281 | Range: 2000-01-04 -> 2026-04-14
+2026-04-15T10:17:54.4117440Z Loading USD/INR CSV...
+2026-04-15T10:17:54.4118004Z   USD/INR rows: 6855 | Range: 2000-01-03 -> 2026-04-14
+2026-04-15T10:17:54.4119037Z   Macro data loaded from cache (0d old, 9580 rows)
+2026-04-15T10:17:54.4119669Z Merging datasets...
+2026-04-15T10:17:54.4120281Z   Merged rows: 6281 | Macro features active: ['DXY', 'VIX', 'TNX', 'OIL']
+2026-04-15T10:17:54.4121082Z   Sentiment rows merged: 6 daily scores
+2026-04-15T10:17:54.4121684Z Building features...
+2026-04-15T10:17:54.4122271Z   Final rows (after dropna): 6268

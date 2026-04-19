@@ -1,0 +1,29 @@
+﻿2026-04-19T08:32:49.4241369Z ##[group]Run cd ml
+2026-04-19T08:32:49.4241717Z [36;1mcd ml[0m
+2026-04-19T08:32:49.4241995Z [36;1mpython update_data.py[0m
+2026-04-19T08:32:49.4264852Z shell: /usr/bin/bash -e ***0***
+2026-04-19T08:32:49.4265182Z env:
+2026-04-19T08:32:49.4265517Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T08:32:49.4266039Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-19T08:32:49.4266553Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T08:32:49.4267018Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T08:32:49.4267464Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T08:32:49.4267936Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-19T08:32:49.4268605Z ##[endgroup]
+2026-04-19T08:32:52.2530197Z =======================================================
+2026-04-19T08:32:52.2530903Z GoldSense - Dataset Update (Yahoo Finance)
+2026-04-19T08:32:52.2531496Z =======================================================
+2026-04-19T08:32:52.2531947Z 
+2026-04-19T08:32:52.2532118Z [Gold Rate.csv]
+2026-04-19T08:32:52.2532535Z   Last date in CSV: 2026-04-16
+2026-04-19T08:32:52.2533044Z   Fetching gold prices: 2026-04-17 -> 2026-04-19
+2026-04-19T08:32:52.2533630Z   Fetched 1 new gold rows
+2026-04-19T08:32:52.2534136Z   Appended 1 rows to Gold Rate.csv
+2026-04-19T08:32:52.2534482Z 
+2026-04-19T08:32:52.2534595Z [USD-INR.csv]
+2026-04-19T08:32:52.2534855Z   Last date in CSV: 2026-04-16
+2026-04-19T08:32:52.2535195Z   Fetching USD/INR rates: 2026-04-17 -> 2026-04-19
+2026-04-19T08:32:52.2535558Z   Fetched 2 new USD/INR rows
+2026-04-19T08:32:52.2535872Z   Appended 1 rows to USD-INR.csv
+2026-04-19T08:32:52.2536087Z 
+2026-04-19T08:32:52.2536209Z Dataset update complete.

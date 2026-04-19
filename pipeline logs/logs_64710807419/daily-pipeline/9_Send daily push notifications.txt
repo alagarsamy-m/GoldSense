@@ -1,0 +1,73 @@
+﻿2026-04-15T10:17:54.5958072Z ##[group]Run status=0
+2026-04-15T10:17:54.5958852Z [36;1mstatus=0[0m
+2026-04-15T10:17:54.5959132Z [36;1mcd backend[0m
+2026-04-15T10:17:54.5959611Z [36;1mpython send_daily_notifications.py > ../.github/notification_result.json || status=$?[0m
+2026-04-15T10:17:54.5960149Z [36;1mcd ..[0m
+2026-04-15T10:17:54.5960433Z [36;1mpython - <<'PY'[0m
+2026-04-15T10:17:54.5960734Z [36;1mimport json[0m
+2026-04-15T10:17:54.5961042Z [36;1mfrom pathlib import Path[0m
+2026-04-15T10:17:54.5961385Z [36;1m[0m
+2026-04-15T10:17:54.5961743Z [36;1mresult_path = Path('.github/notification_result.json')[0m
+2026-04-15T10:17:54.5962198Z [36;1mif result_path.exists():[0m
+2026-04-15T10:17:54.5962661Z [36;1m    payload = json.loads(result_path.read_text(encoding='utf-8'))[0m
+2026-04-15T10:17:54.5963151Z [36;1melse:[0m
+2026-04-15T10:17:54.5963477Z [36;1m    payload = ***[0m
+2026-04-15T10:17:54.5963799Z [36;1m        "ok": False,[0m
+2026-04-15T10:17:54.5964119Z [36;1m        "sent": 0,[0m
+2026-04-15T10:17:54.5964452Z [36;1m        "failed": 0,[0m
+2026-04-15T10:17:54.5964759Z [36;1m        "status": "error",[0m
+2026-04-15T10:17:54.5965133Z [36;1m        "reason": "notification_result_missing",[0m
+2026-04-15T10:17:54.5965512Z [36;1m    ***[0m
+2026-04-15T10:17:54.5965776Z [36;1m[0m
+2026-04-15T10:17:54.5966171Z [36;1mreason = str(payload.get('reason', '')).replace('\n', ' ').replace('\r', ' ')[0m
+2026-04-15T10:17:54.5966728Z [36;1moutput_path = Path('.github/notification_outputs.txt')[0m
+2026-04-15T10:17:54.5967158Z [36;1moutput_path.write_text([0m
+2026-04-15T10:17:54.5967476Z [36;1m    "\n".join([0m
+2026-04-15T10:17:54.5967761Z [36;1m        [[0m
+2026-04-15T10:17:54.5968537Z [36;1m            f"notification_ok=***'true' if payload.get('ok') else 'false'***",[0m
+2026-04-15T10:17:54.5969162Z [36;1m            f"notification_status=***payload.get('status', 'unknown')***",[0m
+2026-04-15T10:17:54.5969702Z [36;1m            f"notification_sent=***payload.get('sent', 0)***",[0m
+2026-04-15T10:17:54.5970198Z [36;1m            f"notification_failed=***payload.get('failed', 0)***",[0m
+2026-04-15T10:17:54.5970670Z [36;1m            f"notification_reason=***reason***",[0m
+2026-04-15T10:17:54.5971032Z [36;1m        ][0m
+2026-04-15T10:17:54.5971306Z [36;1m    )[0m
+2026-04-15T10:17:54.5971588Z [36;1m    + "\n",[0m
+2026-04-15T10:17:54.5971880Z [36;1m    encoding='utf-8',[0m
+2026-04-15T10:17:54.5972180Z [36;1m)[0m
+2026-04-15T10:17:54.5972445Z [36;1mPY[0m
+2026-04-15T10:17:54.5972803Z [36;1mcat .github/notification_outputs.txt >> "$GITHUB_OUTPUT"[0m
+2026-04-15T10:17:54.5973235Z [36;1mif [ "$status" -ne 0 ]; then[0m
+2026-04-15T10:17:54.5973646Z [36;1m  echo "Notification script exited with code $status"[0m
+2026-04-15T10:17:54.5974045Z [36;1mfi[0m
+2026-04-15T10:17:54.5995740Z shell: /usr/bin/bash -e ***0***
+2026-04-15T10:17:54.5996075Z env:
+2026-04-15T10:17:54.5996419Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-15T10:17:54.5996943Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-15T10:17:54.5997474Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-15T10:17:54.5997934Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-15T10:17:54.5998793Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-15T10:17:54.5999264Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-15T10:17:54.5999767Z   SUPABASE_URL: ***
+2026-04-15T10:17:54.6001426Z   SUPABASE_SERVICE_KEY: ***
+2026-04-15T10:17:54.6001879Z   GROQ_API_KEY: ***
+2026-04-15T10:17:54.6002182Z   ALPHAVANTAGE_KEY: ***
+2026-04-15T10:17:54.6002519Z   NEWSAPI_KEY: ***
+2026-04-15T10:17:54.6012331Z   FIREBASE_SERVICE_ACCOUNT_JSON: ***
+
+2026-04-15T10:17:54.6012689Z ##[endgroup]
+2026-04-15T10:17:57.2690417Z Failed to get ticker 'GC=F' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-15T10:17:57.5257986Z $GC=F: possibly delisted; no price data found  (period=2d)
+2026-04-15T10:17:57.7824161Z Failed to get ticker 'USDINR=X' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-15T10:17:58.0309272Z $USDINR=X: possibly delisted; no price data found  (period=2d)
+2026-04-15T10:18:00.4732902Z Traceback (most recent call last):
+2026-04-15T10:18:00.4739845Z   File "<stdin>", line 6, in <module>
+2026-04-15T10:18:00.4740736Z   File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py", line 346, in loads
+2026-04-15T10:18:00.4817861Z     return _default_decoder.decode(s)
+2026-04-15T10:18:00.4818991Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-04-15T10:18:00.4820255Z   File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/decoder.py", line 337, in decode
+2026-04-15T10:18:00.4880358Z     obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+2026-04-15T10:18:00.4881250Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-04-15T10:18:00.4882611Z   File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/decoder.py", line 355, in raw_decode
+2026-04-15T10:18:00.4883943Z     raise JSONDecodeError("Expecting value", s, err.value) from None
+2026-04-15T10:18:00.4884932Z json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-04-15T10:18:00.4931744Z ##[error]Process completed with exit code 1.

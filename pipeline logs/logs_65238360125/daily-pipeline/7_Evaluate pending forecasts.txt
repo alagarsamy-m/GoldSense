@@ -1,0 +1,72 @@
+﻿2026-04-19T08:32:53.0996079Z ##[group]Run cd ml
+2026-04-19T08:32:53.0996428Z [36;1mcd ml[0m
+2026-04-19T08:32:53.0996707Z [36;1mpython evaluate.py[0m
+2026-04-19T08:32:53.0997037Z [36;1mpython - <<'PY'[0m
+2026-04-19T08:32:53.0997311Z [36;1mimport json[0m
+2026-04-19T08:32:53.0997578Z [36;1mimport os[0m
+2026-04-19T08:32:53.0997854Z [36;1mfrom pathlib import Path[0m
+2026-04-19T08:32:53.0998163Z [36;1m[0m
+2026-04-19T08:32:53.0999050Z [36;1mstatus = json.loads(Path('model/system_status.json').read_text(encoding='utf-8'))[0m
+2026-04-19T08:32:53.0999675Z [36;1mdrift = status.get('drift', ***)[0m
+2026-04-19T08:32:53.1000154Z [36;1mrolling = status.get('rolling_metrics', ***).get('last_7', ***)[0m
+2026-04-19T08:32:53.1000669Z [36;1moutput_path = Path(os.environ['DAILY_OUTPUT_FILE'])[0m
+2026-04-19T08:32:53.1001067Z [36;1moutput_path.write_text([0m
+2026-04-19T08:32:53.1001375Z [36;1m    "\n".join([0m
+2026-04-19T08:32:53.1001655Z [36;1m        [[0m
+2026-04-19T08:32:53.1002073Z [36;1m            f"drift_detected=***'true' if drift.get('drift_detected') else 'false'***",[0m
+2026-04-19T08:32:53.1002652Z [36;1m            f"avg_mape=***rolling.get('avg_mape', '0')***",[0m
+2026-04-19T08:32:53.1003163Z [36;1m            f"direction_accuracy=***rolling.get('direction_accuracy', '0')***",[0m
+2026-04-19T08:32:53.1003784Z [36;1m            f"drift_message=***str(drift.get('message', 'n/a')).replace(chr(10), ' ')***",[0m
+2026-04-19T08:32:53.1004474Z [36;1m            f"retrain_recommended=***'true' if drift.get('retrain_recommended') else 'false'***",[0m
+2026-04-19T08:32:53.1004977Z [36;1m        ][0m
+2026-04-19T08:32:53.1005238Z [36;1m    )[0m
+2026-04-19T08:32:53.1005480Z [36;1m    + "\n",[0m
+2026-04-19T08:32:53.1005756Z [36;1m    encoding='utf-8',[0m
+2026-04-19T08:32:53.1006041Z [36;1m)[0m
+2026-04-19T08:32:53.1006272Z [36;1mPY[0m
+2026-04-19T08:32:53.1006573Z [36;1mcat "$DAILY_OUTPUT_FILE" >> "$GITHUB_OUTPUT"[0m
+2026-04-19T08:32:53.1028804Z shell: /usr/bin/bash -e ***0***
+2026-04-19T08:32:53.1029160Z env:
+2026-04-19T08:32:53.1029495Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T08:32:53.1029998Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-19T08:32:53.1030489Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T08:32:53.1030939Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T08:32:53.1031381Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T08:32:53.1031825Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-19T08:32:53.1032425Z   ALPHAVANTAGE_KEY: ***
+2026-04-19T08:32:53.1032755Z   NEWSAPI_KEY: ***
+2026-04-19T08:32:53.1033133Z   DAILY_OUTPUT_FILE: /home/runner/work/_temp/goldsense-daily-outputs.txt
+2026-04-19T08:32:53.1033566Z ##[endgroup]
+2026-04-19T08:32:59.5799456Z ================================================================
+2026-04-19T08:32:59.5800571Z GoldSense - Daily Evaluation Pipeline
+2026-04-19T08:32:59.5801483Z ================================================================
+2026-04-19T08:32:59.5802300Z [1/4] Pending forecasts evaluated
+2026-04-19T08:32:59.5802804Z   Logged rows: 14
+2026-04-19T08:32:59.5803219Z [2/4] Generating fresh forecasts
+2026-04-19T08:32:59.5803695Z Loading Gold Rate CSV...
+2026-04-19T08:32:59.5804185Z   Gold rows: 6284 | Range: 2000-01-04 -> 2026-04-17
+2026-04-19T08:32:59.5804754Z Loading USD/INR CSV...
+2026-04-19T08:32:59.5805150Z   USD/INR rows: 6857 | Range: 2000-01-03 -> 2026-04-17
+2026-04-19T08:32:59.5805564Z   Macro data loaded from cache (0d old, 9599 rows)
+2026-04-19T08:32:59.5805926Z Merging datasets...
+2026-04-19T08:32:59.5806296Z   Merged rows: 6284 | Macro features active: ['DXY', 'VIX', 'TNX', 'OIL']
+2026-04-19T08:32:59.5806730Z   Sentiment rows merged: 7 daily scores
+2026-04-19T08:32:59.5807056Z Building features...
+2026-04-19T08:32:59.5807344Z   Final rows (after dropna): 6271
+2026-04-19T08:32:59.5807658Z Loading Gold Rate CSV...
+2026-04-19T08:32:59.5807970Z   Gold rows: 6284 | Range: 2000-01-04 -> 2026-04-17
+2026-04-19T08:32:59.5809235Z Loading USD/INR CSV...
+2026-04-19T08:32:59.5809551Z   USD/INR rows: 6857 | Range: 2000-01-03 -> 2026-04-17
+2026-04-19T08:32:59.5809950Z   Macro data loaded from cache (0d old, 9599 rows)
+2026-04-19T08:32:59.5810297Z Merging datasets...
+2026-04-19T08:32:59.5810658Z   Merged rows: 6284 | Macro features active: ['DXY', 'VIX', 'TNX', 'OIL']
+2026-04-19T08:32:59.5811100Z   Sentiment rows merged: 7 daily scores
+2026-04-19T08:32:59.5811422Z Building features...
+2026-04-19T08:32:59.5811699Z   Final rows (after dropna): 6271
+2026-04-19T08:32:59.5812037Z [3/4] Computing drift and insights
+2026-04-19T08:32:59.5812435Z   Latest: 2026-04-18 | Pred $4,818.19 | Actual $4,879.60 | MAPE 1.26%
+2026-04-19T08:32:59.5812853Z   D1 Drift: D1 direction 40.0% < 45.0%
+2026-04-19T08:32:59.5813175Z [4/4] Writing system status
+2026-04-19T08:32:59.5813486Z ================================================================
+2026-04-19T08:32:59.5813832Z Pipeline complete
+2026-04-19T08:32:59.5814118Z ================================================================

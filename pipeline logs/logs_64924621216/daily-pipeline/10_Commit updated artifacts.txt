@@ -1,0 +1,48 @@
+﻿2026-04-16T15:22:53.9347989Z ##[group]Run git config --local user.email "github-actions[bot]@users.noreply.github.com"
+2026-04-16T15:22:53.9348590Z [36;1mgit config --local user.email "github-actions[bot]@users.noreply.github.com"[0m
+2026-04-16T15:22:53.9349044Z [36;1mgit config --local user.name "github-actions[bot]"[0m
+2026-04-16T15:22:53.9349355Z [36;1mgit add \[0m
+2026-04-16T15:22:53.9349605Z [36;1m  "dataset/Gold Rate.csv" \[0m
+2026-04-16T15:22:53.9349898Z [36;1m  dataset/USD-INR.csv \[0m
+2026-04-16T15:22:53.9350177Z [36;1m  dataset/macro_data.csv \[0m
+2026-04-16T15:22:53.9350467Z [36;1m  dataset/prediction_logs.csv \[0m
+2026-04-16T15:22:53.9350761Z [36;1m  dataset/sentiment_logs.csv \[0m
+2026-04-16T15:22:53.9351069Z [36;1m  frontend/public/snapshots/*.json \[0m
+2026-04-16T15:22:53.9351417Z [36;1m  ml/model/pending_prediction.json \[0m
+2026-04-16T15:22:53.9351713Z [36;1m  ml/model/system_status.json \[0m
+2026-04-16T15:22:53.9351990Z [36;1m  2>/dev/null || true[0m
+2026-04-16T15:22:53.9352246Z [36;1m[0m
+2026-04-16T15:22:53.9352525Z [36;1mif git diff --staged --quiet; then[0m
+2026-04-16T15:22:53.9352836Z [36;1m  echo "No artifact changes to commit"[0m
+2026-04-16T15:22:53.9353143Z [36;1m  exit 0[0m
+2026-04-16T15:22:53.9353372Z [36;1mfi[0m
+2026-04-16T15:22:53.9353587Z [36;1m[0m
+2026-04-16T15:22:53.9353888Z [36;1mgit commit -m "daily: evaluate + snapshot $(date -u '+%Y-%m-%d')"[0m
+2026-04-16T15:22:53.9354243Z [36;1m[0m
+2026-04-16T15:22:53.9354461Z [36;1mfor attempt in 1 2 3; do[0m
+2026-04-16T15:22:53.9354790Z [36;1m  git pull --rebase origin main && git push && exit 0[0m
+2026-04-16T15:22:53.9355133Z [36;1m  if [ "$attempt" -eq 3 ]; then[0m
+2026-04-16T15:22:53.9355739Z [36;1m    echo "Artifact push failed after 3 attempts"[0m
+2026-04-16T15:22:53.9356218Z [36;1m    exit 1[0m
+2026-04-16T15:22:53.9356455Z [36;1m  fi[0m
+2026-04-16T15:22:53.9356676Z [36;1m  sleep 5[0m
+2026-04-16T15:22:53.9356909Z [36;1mdone[0m
+2026-04-16T15:22:53.9375441Z shell: /usr/bin/bash -e ***0***
+2026-04-16T15:22:53.9375726Z env:
+2026-04-16T15:22:53.9376020Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-16T15:22:53.9376437Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-16T15:22:53.9376838Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-16T15:22:53.9377209Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-16T15:22:53.9377566Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-16T15:22:53.9377931Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-16T15:22:53.9378244Z ##[endgroup]
+2026-04-16T15:22:53.9671517Z [main 71bb671] daily: evaluate + snapshot 2026-04-16
+2026-04-16T15:22:53.9672198Z  9 files changed, 353 insertions(+), 129 deletions(-)
+2026-04-16T15:22:53.9687465Z error: cannot pull with rebase: You have unstaged changes.
+2026-04-16T15:22:53.9689091Z error: Please commit or stash them.
+2026-04-16T15:22:58.9722527Z error: cannot pull with rebase: You have unstaged changes.
+2026-04-16T15:22:58.9723651Z error: Please commit or stash them.
+2026-04-16T15:23:03.9756435Z error: cannot pull with rebase: You have unstaged changes.
+2026-04-16T15:23:03.9757533Z error: Please commit or stash them.
+2026-04-16T15:23:03.9760700Z Artifact push failed after 3 attempts
+2026-04-16T15:23:03.9773134Z ##[error]Process completed with exit code 1.

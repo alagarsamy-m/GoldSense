@@ -1,0 +1,82 @@
+﻿2026-04-16T15:21:40.0760265Z ##[group]Run cd ml
+2026-04-16T15:21:40.0760588Z [36;1mcd ml[0m
+2026-04-16T15:21:40.0760837Z [36;1mpython evaluate.py[0m
+2026-04-16T15:21:40.0761118Z [36;1mpython - <<'PY'[0m
+2026-04-16T15:21:40.0761376Z [36;1mimport json[0m
+2026-04-16T15:21:40.0761635Z [36;1mfrom pathlib import Path[0m
+2026-04-16T15:21:40.0761926Z [36;1m[0m
+2026-04-16T15:21:40.0762306Z [36;1mstatus = json.loads(Path('model/system_status.json').read_text(encoding='utf-8'))[0m
+2026-04-16T15:21:40.0762787Z [36;1mdrift = status.get('drift', ***)[0m
+2026-04-16T15:21:40.0763203Z [36;1mrolling = status.get('rolling_metrics', ***).get('last_7', ***)[0m
+2026-04-16T15:21:40.0763667Z [36;1moutput_path = Path.cwd().parent / '.github' / 'daily_outputs.txt'[0m
+2026-04-16T15:21:40.0764048Z [36;1moutput_path.write_text([0m
+2026-04-16T15:21:40.0764335Z [36;1m    "\n".join([0m
+2026-04-16T15:21:40.0764584Z [36;1m        [[0m
+2026-04-16T15:21:40.0764958Z [36;1m            f"drift_detected=***'true' if drift.get('drift_detected') else 'false'***",[0m
+2026-04-16T15:21:40.0766052Z [36;1m            f"avg_mape=***rolling.get('avg_mape', '0')***",[0m
+2026-04-16T15:21:40.0766487Z [36;1m            f"direction_accuracy=***rolling.get('direction_accuracy', '0')***",[0m
+2026-04-16T15:21:40.0766984Z [36;1m            f"drift_message=***str(drift.get('message', 'n/a')).replace(chr(10), ' ')***",[0m
+2026-04-16T15:21:40.0767547Z [36;1m            f"retrain_recommended=***'true' if drift.get('retrain_recommended') else 'false'***",[0m
+2026-04-16T15:21:40.0767964Z [36;1m        ][0m
+2026-04-16T15:21:40.0768204Z [36;1m    )[0m
+2026-04-16T15:21:40.0768440Z [36;1m    + "\n",[0m
+2026-04-16T15:21:40.0768692Z [36;1m    encoding='utf-8',[0m
+2026-04-16T15:21:40.0768957Z [36;1m)[0m
+2026-04-16T15:21:40.0769174Z [36;1mPY[0m
+2026-04-16T15:21:40.0769466Z [36;1mcat ../.github/daily_outputs.txt >> "$GITHUB_OUTPUT"[0m
+2026-04-16T15:21:40.0788549Z shell: /usr/bin/bash -e ***0***
+2026-04-16T15:21:40.0788843Z env:
+2026-04-16T15:21:40.0789136Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-16T15:21:40.0789572Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-16T15:21:40.0789983Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-16T15:21:40.0790369Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-16T15:21:40.0790901Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-16T15:21:40.0791285Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-16T15:21:40.0791628Z   ALPHAVANTAGE_KEY: ***
+2026-04-16T15:21:40.0791920Z   NEWSAPI_KEY: ***
+2026-04-16T15:21:40.0792167Z ##[endgroup]
+2026-04-16T15:21:46.8804916Z Failed to get ticker 'GC=F' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-16T15:21:48.4955020Z $GC=F: possibly delisted; no price data found  (period=2d)
+2026-04-16T15:21:53.0060136Z Failed to get ticker 'USDINR=X' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-16T15:21:56.5822666Z $USDINR=X: possibly delisted; no price data found  (period=2d)
+2026-04-16T15:21:57.1665853Z Failed to get ticker 'GC=F' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-16T15:22:00.7253876Z $GC=F: possibly delisted; no price data found  (period=2d)
+2026-04-16T15:22:00.7267686Z Failed to get ticker 'USDINR=X' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-16T15:22:03.6563375Z $USDINR=X: possibly delisted; no price data found  (period=2d)
+2026-04-16T15:22:04.3393898Z Failed to get ticker 'GC=F' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-16T15:22:06.0234160Z $GC=F: possibly delisted; no price data found  (period=2d)
+2026-04-16T15:22:06.0247943Z Failed to get ticker 'USDINR=X' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-16T15:22:09.3304726Z $USDINR=X: possibly delisted; no price data found  (period=2d)
+2026-04-16T15:22:09.3480555Z ================================================================
+2026-04-16T15:22:09.3481125Z GoldSense - Daily Evaluation Pipeline
+2026-04-16T15:22:09.3481584Z ================================================================
+2026-04-16T15:22:09.3482376Z [1/4] Pending forecasts evaluated
+2026-04-16T15:22:09.3482738Z   Logged rows: 5
+2026-04-16T15:22:09.3483061Z [2/4] Generating fresh forecasts
+2026-04-16T15:22:09.3483422Z Loading Gold Rate CSV...
+2026-04-16T15:22:09.3483805Z   Gold rows: 6281 | Range: 2000-01-04 -> 2026-04-14
+2026-04-16T15:22:09.3484249Z Loading USD/INR CSV...
+2026-04-16T15:22:09.3484620Z   USD/INR rows: 6855 | Range: 2000-01-03 -> 2026-04-14
+2026-04-16T15:22:09.3485085Z   Macro data loaded from cache (0d old, 9580 rows)
+2026-04-16T15:22:09.3485672Z Merging datasets...
+2026-04-16T15:22:09.3486109Z   Merged rows: 6281 | Macro features active: ['DXY', 'VIX', 'TNX', 'OIL']
+2026-04-16T15:22:09.3486636Z   Sentiment rows merged: 6 daily scores
+2026-04-16T15:22:09.3487029Z Building features...
+2026-04-16T15:22:09.3487371Z   Final rows (after dropna): 6268
+2026-04-16T15:22:09.3487752Z Loading Gold Rate CSV...
+2026-04-16T15:22:09.3488121Z   Gold rows: 6281 | Range: 2000-01-04 -> 2026-04-14
+2026-04-16T15:22:09.3488559Z Loading USD/INR CSV...
+2026-04-16T15:22:09.3488950Z   USD/INR rows: 6855 | Range: 2000-01-03 -> 2026-04-14
+2026-04-16T15:22:09.3489438Z   Macro data loaded from cache (0d old, 9580 rows)
+2026-04-16T15:22:09.3489863Z Merging datasets...
+2026-04-16T15:22:09.3490310Z   Merged rows: 6281 | Macro features active: ['DXY', 'VIX', 'TNX', 'OIL']
+2026-04-16T15:22:09.3490844Z   Sentiment rows merged: 6 daily scores
+2026-04-16T15:22:09.3491254Z Building features...
+2026-04-16T15:22:09.3491625Z   Final rows (after dropna): 6268
+2026-04-16T15:22:09.3491993Z [3/4] Computing drift and insights
+2026-04-16T15:22:09.3492469Z   Latest: 2026-04-14 | Pred $4,749.59 | Actual $4,791.20 | MAPE 0.87%
+2026-04-16T15:22:09.3493017Z   D1 Drift: D1 direction 33.3% < 45.0%
+2026-04-16T15:22:09.3493430Z [4/4] Writing system status
+2026-04-16T15:22:09.3493856Z ================================================================
+2026-04-16T15:22:09.3494329Z Pipeline complete
+2026-04-16T15:22:09.3494734Z ================================================================
