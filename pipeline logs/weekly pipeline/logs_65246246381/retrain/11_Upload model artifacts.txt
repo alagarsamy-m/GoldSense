@@ -1,0 +1,35 @@
+﻿2026-04-19T11:18:44.2666106Z ##[group]Run actions/upload-artifact@v4
+2026-04-19T11:18:44.2666388Z with:
+2026-04-19T11:18:44.2666580Z   name: trained-model-14
+2026-04-19T11:18:44.2667141Z   path: ml/model/gold_model.pkl
+ml/model/gold_model_q10.pkl
+ml/model/gold_model_q90.pkl
+ml/model/gold_direction_model.pkl
+ml/model/model_metadata.json
+
+2026-04-19T11:18:44.2667723Z   retention-days: 30
+2026-04-19T11:18:44.2667927Z   if-no-files-found: warn
+2026-04-19T11:18:44.2668146Z   compression-level: 6
+2026-04-19T11:18:44.2668350Z   overwrite: false
+2026-04-19T11:18:44.2668554Z   include-hidden-files: false
+2026-04-19T11:18:44.2668776Z env:
+2026-04-19T11:18:44.2669005Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T11:18:44.2669420Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-19T11:18:44.2669830Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T11:18:44.2670189Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T11:18:44.2670562Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T11:18:44.2670943Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-19T11:18:44.2671245Z ##[endgroup]
+2026-04-19T11:18:44.4966332Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-04-19T11:18:44.4974228Z The least common ancestor is /home/runner/work/GoldSense/GoldSense/ml/model. This will be the root directory of the artifact
+2026-04-19T11:18:44.4975591Z With the provided path, there will be 5 files uploaded
+2026-04-19T11:18:44.4976695Z Artifact name is valid!
+2026-04-19T11:18:44.4979132Z Root directory input is valid!
+2026-04-19T11:18:44.7526660Z Beginning upload of artifact content to blob storage
+2026-04-19T11:18:45.2942011Z Uploaded bytes 839221
+2026-04-19T11:18:45.3508757Z Finished uploading artifact content to blob storage!
+2026-04-19T11:18:45.3511399Z SHA256 digest of uploaded artifact zip is 8b53d0354afab0512aa2810582ea6ef2d4e09d4776a789461e429d56613b4f25
+2026-04-19T11:18:45.3513400Z Finalizing artifact upload
+2026-04-19T11:18:45.5153646Z Artifact trained-model-14.zip successfully finalized. Artifact ID 6517763777
+2026-04-19T11:18:45.5154748Z Artifact trained-model-14 has been successfully uploaded! Final size is 839221 bytes. Artifact ID is 6517763777
+2026-04-19T11:18:45.5161638Z Artifact download URL: https://github.com/alagarsamy-m/GoldSense/actions/runs/24627792600/artifacts/6517763777

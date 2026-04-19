@@ -1,0 +1,66 @@
+﻿2026-04-19T11:18:42.4557237Z ##[group]Run git config --local user.email "github-actions[bot]@users.noreply.github.com"
+2026-04-19T11:18:42.4558266Z [36;1mgit config --local user.email "github-actions[bot]@users.noreply.github.com"[0m
+2026-04-19T11:18:42.4559041Z [36;1mgit config --local user.name "github-actions[bot]"[0m
+2026-04-19T11:18:42.4559544Z [36;1mgit add \[0m
+2026-04-19T11:18:42.4559876Z [36;1m  "dataset/Gold Rate.csv" \[0m
+2026-04-19T11:18:42.4560291Z [36;1m  dataset/USD-INR.csv \[0m
+2026-04-19T11:18:42.4560740Z [36;1m  dataset/macro_data.csv \[0m
+2026-04-19T11:18:42.4561153Z [36;1m  dataset/prediction_logs.csv \[0m
+2026-04-19T11:18:42.4561613Z [36;1m  dataset/sentiment_logs.csv \[0m
+2026-04-19T11:18:42.4562032Z [36;1m  frontend/public/snapshots/*.json \[0m
+2026-04-19T11:18:42.4562456Z [36;1m  ml/model/gold_model.pkl \[0m
+2026-04-19T11:18:42.4562865Z [36;1m  ml/model/gold_model_q10.pkl \[0m
+2026-04-19T11:18:42.4564761Z [36;1m  ml/model/gold_model_q90.pkl \[0m
+2026-04-19T11:18:42.4565204Z [36;1m  ml/model/gold_direction_model.pkl \[0m
+2026-04-19T11:18:42.4565690Z [36;1m  ml/model/model_metadata.json \[0m
+2026-04-19T11:18:42.4566138Z [36;1m  ml/model/pending_prediction.json \[0m
+2026-04-19T11:18:42.4566584Z [36;1m  ml/model/system_status.json \[0m
+2026-04-19T11:18:42.4566991Z [36;1m  2>/dev/null || true[0m
+2026-04-19T11:18:42.4567419Z [36;1m[0m
+2026-04-19T11:18:42.4567687Z [36;1mgit add -A[0m
+2026-04-19T11:18:42.4567962Z [36;1m[0m
+2026-04-19T11:18:42.4568265Z [36;1mif git diff --staged --quiet; then[0m
+2026-04-19T11:18:42.4568789Z [36;1m  echo "No retrain artifact changes to commit"[0m
+2026-04-19T11:18:42.4569249Z [36;1m  exit 0[0m
+2026-04-19T11:18:42.4569570Z [36;1mfi[0m
+2026-04-19T11:18:42.4569819Z [36;1m[0m
+2026-04-19T11:18:42.4570293Z [36;1mgit commit -m "retrain: model + snapshot update $(date -u '+%Y-%m-%d')"[0m
+2026-04-19T11:18:42.4570852Z [36;1m[0m
+2026-04-19T11:18:42.4571131Z [36;1mfor attempt in 1 2 3; do[0m
+2026-04-19T11:18:42.4571658Z [36;1m  if git pull --rebase --autostash origin main && git push; then[0m
+2026-04-19T11:18:42.4572374Z [36;1m    echo "Retrain artifact push succeeded on attempt $attempt"[0m
+2026-04-19T11:18:42.4573163Z [36;1m    exit 0[0m
+2026-04-19T11:18:42.4573472Z [36;1m  fi[0m
+2026-04-19T11:18:42.4573739Z [36;1m[0m
+2026-04-19T11:18:42.4574083Z [36;1m  echo "Attempt $attempt failed. Git status:"[0m
+2026-04-19T11:18:42.4574670Z [36;1m  git status --porcelain --untracked-files=all || true[0m
+2026-04-19T11:18:42.4575529Z [36;1m  echo "Recent commits:"[0m
+2026-04-19T11:18:42.4575974Z [36;1m  git --no-pager log --oneline -n 5 || true[0m
+2026-04-19T11:18:42.4576417Z [36;1m[0m
+2026-04-19T11:18:42.4576706Z [36;1m  if [ "$attempt" -eq 3 ]; then[0m
+2026-04-19T11:18:42.4577223Z [36;1m    echo "Retrain artifact push failed after 3 attempts"[0m
+2026-04-19T11:18:42.4577760Z [36;1m    echo "Full git status:"[0m
+2026-04-19T11:18:42.4578219Z [36;1m    git status --untracked-files=all || true[0m
+2026-04-19T11:18:42.4578689Z [36;1m    echo "Working tree diff:"[0m
+2026-04-19T11:18:42.4579091Z [36;1m    git diff || true[0m
+2026-04-19T11:18:42.4579431Z [36;1m    exit 1[0m
+2026-04-19T11:18:42.4579726Z [36;1m  fi[0m
+2026-04-19T11:18:42.4580005Z [36;1m  sleep 5[0m
+2026-04-19T11:18:42.4580288Z [36;1mdone[0m
+2026-04-19T11:18:42.4613953Z shell: /usr/bin/bash -e {0}
+2026-04-19T11:18:42.4614322Z env:
+2026-04-19T11:18:42.4614717Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T11:18:42.4615406Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-19T11:18:42.4616101Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T11:18:42.4616698Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T11:18:42.4617284Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T11:18:42.4617874Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-19T11:18:42.4618404Z ##[endgroup]
+2026-04-19T11:18:42.5657064Z [main fde3c05] retrain: model + snapshot update 2026-04-19
+2026-04-19T11:18:42.5658188Z  13 files changed, 128 insertions(+), 128 deletions(-)
+2026-04-19T11:18:42.8639012Z From https://github.com/alagarsamy-m/GoldSense
+2026-04-19T11:18:42.8639603Z  * branch            main       -> FETCH_HEAD
+2026-04-19T11:18:42.8730815Z Current branch main is up to date.
+2026-04-19T11:18:44.2541550Z To https://github.com/alagarsamy-m/GoldSense
+2026-04-19T11:18:44.2542096Z    227b34f..fde3c05  main -> main
+2026-04-19T11:18:44.2591017Z Retrain artifact push succeeded on attempt 1

@@ -1,0 +1,101 @@
+﻿2026-04-19T11:17:27.4334076Z ##[group]Run cd ml
+2026-04-19T11:17:27.4334405Z [36;1mcd ml[0m
+2026-04-19T11:17:27.4334614Z [36;1mpython train.py[0m
+2026-04-19T11:17:27.4357795Z shell: /usr/bin/bash -e {0}
+2026-04-19T11:17:27.4358042Z env:
+2026-04-19T11:17:27.4358304Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T11:17:27.4358733Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-19T11:17:27.4359133Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T11:17:27.4359485Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T11:17:27.4359840Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T11:17:27.4360196Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-19T11:17:27.4360503Z ##[endgroup]
+2026-04-19T11:18:37.7093722Z ============================================================
+2026-04-19T11:18:37.7094278Z GoldSense - Dual Model Training
+2026-04-19T11:18:37.7094743Z   1. Direction classifier (UP/DOWN)
+2026-04-19T11:18:37.7110712Z   2. Magnitude regressor (log return)
+2026-04-19T11:18:37.7111116Z ============================================================
+2026-04-19T11:18:37.7111538Z Loading Gold Rate CSV...
+2026-04-19T11:18:37.7111887Z   Gold rows: 6284 | Range: 2000-01-04 -> 2026-04-17
+2026-04-19T11:18:37.7112299Z Loading USD/INR CSV...
+2026-04-19T11:18:37.7112640Z   USD/INR rows: 6857 | Range: 2000-01-03 -> 2026-04-17
+2026-04-19T11:18:37.7113259Z   Macro data loaded from cache (0d old, 9599 rows)
+2026-04-19T11:18:37.7113680Z Merging datasets...
+2026-04-19T11:18:37.7114106Z   Merged rows: 6284 | Macro features active: ['DXY', 'VIX', 'TNX', 'OIL']
+2026-04-19T11:18:37.7114627Z   Sentiment rows merged: 7 daily scores
+2026-04-19T11:18:37.7114987Z Building features...
+2026-04-19T11:18:37.7115304Z   Final rows (after dropna): 6270
+2026-04-19T11:18:37.7115542Z 
+2026-04-19T11:18:37.7115669Z Train: 2000-01-24 -> 2024-07-24 (5905 rows)
+2026-04-19T11:18:37.7116047Z Valid: 2024-07-25 -> 2026-04-16 (365 rows)
+2026-04-19T11:18:37.7116420Z Features: 78 (macro: True)
+2026-04-19T11:18:37.7116772Z Target distribution: UP=3059/5905 (51.8%)
+2026-04-19T11:18:37.7117026Z 
+2026-04-19T11:18:37.7117174Z --------------------------------------------------
+2026-04-19T11:18:37.7117604Z Training Direction Classifier (XGBClassifier)...
+2026-04-19T11:18:37.7118036Z --------------------------------------------------
+2026-04-19T11:18:37.7118449Z   Running Optuna search (30 trials)...
+2026-04-19T11:18:37.7118692Z 
+2026-04-19T11:18:37.7118853Z   Direction model Optuna best: accuracy=53.8%
+2026-04-19T11:18:37.7119241Z   max_depth=2, lr=0.0133, n_est=284
+2026-04-19T11:18:37.7119500Z 
+2026-04-19T11:18:37.7119681Z   Running 5-fold walk-forward CV for direction model...
+2026-04-19T11:18:37.7120021Z   CV Direction Accuracy: 52.8% (+/-1.0%)
+2026-04-19T11:18:37.7120187Z 
+2026-04-19T11:18:37.7120283Z   Hold-out Direction Accuracy: 57.8%
+2026-04-19T11:18:37.7120585Z   (baseline = 58.6% by always predicting majority class)
+2026-04-19T11:18:37.7120805Z 
+2026-04-19T11:18:37.7120907Z --------------------------------------------------
+2026-04-19T11:18:37.7121210Z Training Magnitude Regressor (XGBRegressor)...
+2026-04-19T11:18:37.7121509Z --------------------------------------------------
+2026-04-19T11:18:37.7121803Z   Running Optuna search (30 trials)...
+2026-04-19T11:18:37.7122315Z 
+2026-04-19T11:18:37.7122407Z   Optuna best trial: RMSE=0.010625
+2026-04-19T11:18:37.7122689Z   max_depth=6, lr=0.0219, n_est=813, subsample=0.76
+2026-04-19T11:18:37.7122896Z 
+2026-04-19T11:18:37.7123205Z   Running 5-fold walk-forward CV for regression model...
+2026-04-19T11:18:37.7123514Z   CV MAPE: 8.54% | CV Direction: 53.3%
+2026-04-19T11:18:37.7123675Z 
+2026-04-19T11:18:37.7123772Z   Training final regression model...
+2026-04-19T11:18:37.7124048Z   Training quantile models (q=0.10 and q=0.90)...
+2026-04-19T11:18:37.7124240Z 
+2026-04-19T11:18:37.7124344Z =======================================================
+2026-04-19T11:18:37.7124624Z   FINAL RESULTS (Hold-out: last 365 days)
+2026-04-19T11:18:37.7125127Z =======================================================
+2026-04-19T11:18:37.7125316Z 
+2026-04-19T11:18:37.7125402Z   Direction Classifier:
+2026-04-19T11:18:37.7125617Z     Hold-out accuracy:    57.8%
+2026-04-19T11:18:37.7125860Z     CV accuracy:          52.8% (+/-1.0%)
+2026-04-19T11:18:37.7126027Z 
+2026-04-19T11:18:37.7126110Z   Regression Model:
+2026-04-19T11:18:37.7126304Z     RMSE:                 $68.33
+2026-04-19T11:18:37.7126526Z     MAE:                  $42.83
+2026-04-19T11:18:37.7126739Z     MAPE:                 1.13%
+2026-04-19T11:18:37.7126952Z     Reg direction acc:    58.6%
+2026-04-19T11:18:37.7127192Z     Interval Coverage:    77.3% (target >=80%)
+2026-04-19T11:18:37.7127456Z =======================================================
+2026-04-19T11:18:37.7127637Z 
+2026-04-19T11:18:37.7127773Z Top 15 Important Features (Direction Model):
+2026-04-19T11:18:37.7128049Z   log_return_1                           0.0252
+2026-04-19T11:18:37.7128316Z   dxy_lag_1                              0.0251
+2026-04-19T11:18:37.7128576Z   rolling_mean_30                        0.0250
+2026-04-19T11:18:37.7128828Z   dxy_lag_5                              0.0239
+2026-04-19T11:18:37.7129082Z   gold_dxy_ratio                         0.0238
+2026-04-19T11:18:37.7129341Z   price_lag_14                           0.0237
+2026-04-19T11:18:37.7129606Z   return_std_14                          0.0233
+2026-04-19T11:18:37.7129864Z   log_return_7                           0.0232
+2026-04-19T11:18:37.7130116Z   dxy_rolling_mean_5                     0.0215
+2026-04-19T11:18:37.7130368Z   macd                                   0.0211
+2026-04-19T11:18:37.7130622Z   bb_width                               0.0211
+2026-04-19T11:18:37.7130871Z   tnx_lag_1                              0.0209
+2026-04-19T11:18:37.7131152Z   price_lag_3                            0.0205
+2026-04-19T11:18:37.7131490Z   gold_inr_base                          0.0202
+2026-04-19T11:18:37.7131752Z   volatility_5d                          0.0201
+2026-04-19T11:18:37.7131930Z 
+2026-04-19T11:18:37.7132183Z Models saved: gold_model.pkl, gold_model_q10.pkl, gold_model_q90.pkl, gold_direction_model.pkl
+2026-04-19T11:18:37.7132738Z Metadata saved: /home/runner/work/GoldSense/GoldSense/ml/model/model_metadata.json
+2026-04-19T11:18:37.7133165Z 
+2026-04-19T11:18:37.7133263Z Training complete!
+2026-04-19T11:18:37.7133481Z   Direction accuracy: 57.8% (CV: 52.8%)
+2026-04-19T11:18:37.7133748Z   Regression: RMSE=$68.33 | MAPE=1.13%
+2026-04-19T11:18:37.7133999Z   Interval Coverage: 77.3% (q10-q90)

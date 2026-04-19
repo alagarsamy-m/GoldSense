@@ -1,0 +1,34 @@
+﻿2026-04-19T11:18:37.8887059Z ##[group]Run cd ml
+2026-04-19T11:18:37.8887467Z [36;1mcd ml[0m
+2026-04-19T11:18:37.8887825Z [36;1mpython generate_public_snapshots.py[0m
+2026-04-19T11:18:37.8921479Z shell: /usr/bin/bash -e {0}
+2026-04-19T11:18:37.8921870Z env:
+2026-04-19T11:18:37.8922264Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T11:18:37.8923158Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-19T11:18:37.8923791Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T11:18:37.8924381Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T11:18:37.8924987Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T11:18:37.8925576Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-19T11:18:37.8926485Z   ALPHAVANTAGE_KEY: ***
+2026-04-19T11:18:37.8926890Z   NEWSAPI_KEY: ***
+2026-04-19T11:18:37.8927193Z ##[endgroup]
+2026-04-19T11:18:42.2464676Z Loading Gold Rate CSV...
+2026-04-19T11:18:42.2465200Z   Gold rows: 6284 | Range: 2000-01-04 -> 2026-04-17
+2026-04-19T11:18:42.2465579Z Loading USD/INR CSV...
+2026-04-19T11:18:42.2465832Z   USD/INR rows: 6857 | Range: 2000-01-03 -> 2026-04-17
+2026-04-19T11:18:42.2466148Z   Macro data loaded from cache (0d old, 9599 rows)
+2026-04-19T11:18:42.2466419Z Merging datasets...
+2026-04-19T11:18:42.2466704Z   Merged rows: 6284 | Macro features active: ['DXY', 'VIX', 'TNX', 'OIL']
+2026-04-19T11:18:42.2467050Z   Sentiment rows merged: 7 daily scores
+2026-04-19T11:18:42.2467303Z Building features...
+2026-04-19T11:18:42.2467521Z   Final rows (after dropna): 6271
+2026-04-19T11:18:42.2467765Z Loading Gold Rate CSV...
+2026-04-19T11:18:42.2468007Z   Gold rows: 6284 | Range: 2000-01-04 -> 2026-04-17
+2026-04-19T11:18:42.2468273Z Loading USD/INR CSV...
+2026-04-19T11:18:42.2468517Z   USD/INR rows: 6857 | Range: 2000-01-03 -> 2026-04-17
+2026-04-19T11:18:42.2468820Z   Macro data loaded from cache (0d old, 9599 rows)
+2026-04-19T11:18:42.2469093Z Merging datasets...
+2026-04-19T11:18:42.2469400Z   Merged rows: 6284 | Macro features active: ['DXY', 'VIX', 'TNX', 'OIL']
+2026-04-19T11:18:42.2469763Z   Sentiment rows merged: 7 daily scores
+2026-04-19T11:18:42.2470012Z Building features...
+2026-04-19T11:18:42.2470233Z   Final rows (after dropna): 6271

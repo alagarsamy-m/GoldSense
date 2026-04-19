@@ -9,6 +9,12 @@ on:
       - 'ml/*.py'
       - 'ml/model/**'
       - '.github/workflows/deploy-backend.yml'
+  workflow_run:
+    workflows:
+      - 'Daily Prediction, Snapshot, and Notification Pipeline'
+      - 'Weekly Model Retraining'
+    types:
+      - completed
   workflow_dispatch:
 
 concurrency:
@@ -19,8 +25,23 @@ jobs:
   deploy:
     name: Trigger Render Deployment
     runs-on: ubuntu-latest
+    if: >
+      github.event_name != 'workflow_run' ||
+      (
+        github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.head_branch == 'main'
+      )
 
     steps:
+      - name: Report trigger source
+        run: |
+          echo "Deploy trigger event: ${{ github.event_name }}"
+          if [ "${{ github.event_name }}" = "workflow_run" ]; then
+            echo "Source workflow: ${{ github.event.workflow_run.name }}"
+            echo "Source branch: ${{ github.event.workflow_run.head_branch }}"
+            echo "Source conclusion: ${{ github.event.workflow_run.conclusion }}"
+          fi
+
       - name: Trigger Render deployment
         run: |
           curl -s "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"

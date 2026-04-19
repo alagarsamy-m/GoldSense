@@ -1,0 +1,47 @@
+﻿2026-04-19T11:17:22.5665010Z ##[group]Run cd ml
+2026-04-19T11:17:22.5665273Z [36;1mcd ml[0m
+2026-04-19T11:17:22.5665488Z [36;1mpython evaluate.py[0m
+2026-04-19T11:17:22.5688875Z shell: /usr/bin/bash -e {0}
+2026-04-19T11:17:22.5689124Z env:
+2026-04-19T11:17:22.5689382Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T11:17:22.5689802Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-19T11:17:22.5690207Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T11:17:22.5690591Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T11:17:22.5690948Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T11:17:22.5691310Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-19T11:17:22.5691759Z   ALPHAVANTAGE_KEY: ***
+2026-04-19T11:17:22.5692023Z   NEWSAPI_KEY: ***
+2026-04-19T11:17:22.5692226Z ##[endgroup]
+2026-04-19T11:17:27.2553436Z ================================================================
+2026-04-19T11:17:27.2554157Z GoldSense - Daily Evaluation Pipeline
+2026-04-19T11:17:27.2554594Z ================================================================
+2026-04-19T11:17:27.2555014Z [1/4] Pending forecasts evaluated
+2026-04-19T11:17:27.2555357Z   Logged rows: 14
+2026-04-19T11:17:27.2555639Z [2/4] Generating fresh forecasts
+2026-04-19T11:17:27.2555982Z Loading Gold Rate CSV...
+2026-04-19T11:17:27.2556330Z   Gold rows: 6284 | Range: 2000-01-04 -> 2026-04-17
+2026-04-19T11:17:27.2556736Z Loading USD/INR CSV...
+2026-04-19T11:17:27.2557083Z   USD/INR rows: 6857 | Range: 2000-01-03 -> 2026-04-17
+2026-04-19T11:17:27.2557537Z   Macro data loaded from cache (0d old, 9599 rows)
+2026-04-19T11:17:27.2557937Z Merging datasets...
+2026-04-19T11:17:27.2558395Z   Merged rows: 6284 | Macro features active: ['DXY', 'VIX', 'TNX', 'OIL']
+2026-04-19T11:17:27.2558917Z   Sentiment rows merged: 7 daily scores
+2026-04-19T11:17:27.2559278Z Building features...
+2026-04-19T11:17:27.2559581Z   Final rows (after dropna): 6271
+2026-04-19T11:17:27.2559929Z Loading Gold Rate CSV...
+2026-04-19T11:17:27.2560279Z   Gold rows: 6284 | Range: 2000-01-04 -> 2026-04-17
+2026-04-19T11:17:27.2560675Z Loading USD/INR CSV...
+2026-04-19T11:17:27.2561037Z   USD/INR rows: 6857 | Range: 2000-01-03 -> 2026-04-17
+2026-04-19T11:17:27.2561493Z   Macro data loaded from cache (0d old, 9599 rows)
+2026-04-19T11:17:27.2561883Z Merging datasets...
+2026-04-19T11:17:27.2562294Z   Merged rows: 6284 | Macro features active: ['DXY', 'VIX', 'TNX', 'OIL']
+2026-04-19T11:17:27.2563388Z   Sentiment rows merged: 7 daily scores
+2026-04-19T11:17:27.2563767Z Building features...
+2026-04-19T11:17:27.2564083Z   Final rows (after dropna): 6271
+2026-04-19T11:17:27.2564438Z [3/4] Computing drift and insights
+2026-04-19T11:17:27.2564896Z   Latest: 2026-04-18 | Pred $4,818.19 | Actual $4,879.60 | MAPE 1.26%
+2026-04-19T11:17:27.2565392Z   D1 Drift: D1 direction 40.0% < 45.0%
+2026-04-19T11:17:27.2565746Z [4/4] Writing system status
+2026-04-19T11:17:27.2566110Z ================================================================
+2026-04-19T11:17:27.2566526Z Pipeline complete
+2026-04-19T11:17:27.2566825Z ================================================================
