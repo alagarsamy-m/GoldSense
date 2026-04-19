@@ -209,6 +209,8 @@ jobs:
             ml/model/system_status.json \
             2>/dev/null || true
 
+          git add -A
+
           if git diff --staged --quiet; then
             echo "No artifact changes to commit"
             exit 0
@@ -217,9 +219,22 @@ jobs:
           git commit -m "daily: evaluate + snapshot $(date -u '+%Y-%m-%d')"
 
           for attempt in 1 2 3; do
-            git pull --rebase origin main && git push && exit 0
+            if git pull --rebase --autostash origin main && git push; then
+              echo "Artifact push succeeded on attempt $attempt"
+              exit 0
+            fi
+
+            echo "Attempt $attempt failed. Git status:"
+            git status --porcelain --untracked-files=all || true
+            echo "Recent commits:"
+            git --no-pager log --oneline -n 5 || true
+
             if [ "$attempt" -eq 3 ]; then
               echo "Artifact push failed after 3 attempts"
+              echo "Full git status:"
+              git status --untracked-files=all || true
+              echo "Working tree diff:"
+              git diff || true
               exit 1
             fi
             sleep 5
