@@ -1,0 +1,53 @@
+﻿2026-04-19T10:58:09.9115736Z ##[group]Run git config --local user.email "github-actions[bot]@users.noreply.github.com"
+2026-04-19T10:58:09.9116500Z [36;1mgit config --local user.email "github-actions[bot]@users.noreply.github.com"[0m
+2026-04-19T10:58:09.9117050Z [36;1mgit config --local user.name "github-actions[bot]"[0m
+2026-04-19T10:58:09.9117415Z [36;1mgit add \[0m
+2026-04-19T10:58:09.9117676Z [36;1m  "dataset/Gold Rate.csv" \[0m
+2026-04-19T10:58:09.9118003Z [36;1m  dataset/USD-INR.csv \[0m
+2026-04-19T10:58:09.9118319Z [36;1m  dataset/macro_data.csv \[0m
+2026-04-19T10:58:09.9118638Z [36;1m  dataset/prediction_logs.csv \[0m
+2026-04-19T10:58:09.9118955Z [36;1m  dataset/sentiment_logs.csv \[0m
+2026-04-19T10:58:09.9119294Z [36;1m  frontend/public/snapshots/*.json \[0m
+2026-04-19T10:58:09.9119629Z [36;1m  ml/model/gold_model.pkl \[0m
+2026-04-19T10:58:09.9119937Z [36;1m  ml/model/gold_model_q10.pkl \[0m
+2026-04-19T10:58:09.9120253Z [36;1m  ml/model/gold_model_q90.pkl \[0m
+2026-04-19T10:58:09.9120574Z [36;1m  ml/model/gold_direction_model.pkl \[0m
+2026-04-19T10:58:09.9120975Z [36;1m  ml/model/model_metadata.json \[0m
+2026-04-19T10:58:09.9121311Z [36;1m  ml/model/pending_prediction.json \[0m
+2026-04-19T10:58:09.9121640Z [36;1m  ml/model/system_status.json \[0m
+2026-04-19T10:58:09.9121956Z [36;1m  2>/dev/null || true[0m
+2026-04-19T10:58:09.9122228Z [36;1m[0m
+2026-04-19T10:58:09.9122475Z [36;1mif git diff --staged --quiet; then[0m
+2026-04-19T10:58:09.9123123Z [36;1m  echo "No retrain artifact changes to commit"[0m
+2026-04-19T10:58:09.9123476Z [36;1m  exit 0[0m
+2026-04-19T10:58:09.9123704Z [36;1mfi[0m
+2026-04-19T10:58:09.9123909Z [36;1m[0m
+2026-04-19T10:58:09.9124259Z [36;1mgit commit -m "retrain: model + snapshot update $(date -u '+%Y-%m-%d')"[0m
+2026-04-19T10:58:09.9124677Z [36;1m[0m
+2026-04-19T10:58:09.9124887Z [36;1mfor attempt in 1 2 3; do[0m
+2026-04-19T10:58:09.9125250Z [36;1m  git pull --rebase origin main && git push && exit 0[0m
+2026-04-19T10:58:09.9125629Z [36;1m  if [ "$attempt" -eq 3 ]; then[0m
+2026-04-19T10:58:09.9126006Z [36;1m    echo "Retrain artifact push failed after 3 attempts"[0m
+2026-04-19T10:58:09.9126374Z [36;1m    exit 1[0m
+2026-04-19T10:58:09.9126604Z [36;1m  fi[0m
+2026-04-19T10:58:09.9126819Z [36;1m  sleep 5[0m
+2026-04-19T10:58:09.9127049Z [36;1mdone[0m
+2026-04-19T10:58:09.9152722Z shell: /usr/bin/bash -e {0}
+2026-04-19T10:58:09.9153273Z env:
+2026-04-19T10:58:09.9153604Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T10:58:09.9154319Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-19T10:58:09.9154840Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T10:58:09.9155273Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T10:58:09.9155707Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-19T10:58:09.9156135Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-19T10:58:09.9156496Z ##[endgroup]
+2026-04-19T10:58:10.0069130Z [main b930161] retrain: model + snapshot update 2026-04-19
+2026-04-19T10:58:10.0069715Z  12 files changed, 174 insertions(+), 174 deletions(-)
+2026-04-19T10:58:10.0102774Z error: cannot pull with rebase: You have unstaged changes.
+2026-04-19T10:58:10.0105837Z error: Please commit or stash them.
+2026-04-19T10:58:15.0157302Z error: cannot pull with rebase: You have unstaged changes.
+2026-04-19T10:58:15.0159947Z error: Please commit or stash them.
+2026-04-19T10:58:20.0205453Z error: cannot pull with rebase: You have unstaged changes.
+2026-04-19T10:58:20.0208206Z error: Please commit or stash them.
+2026-04-19T10:58:20.0211939Z Retrain artifact push failed after 3 attempts
+2026-04-19T10:58:20.0227062Z ##[error]Process completed with exit code 1.
