@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-04-19T11:55:37.848189Z",
+  "generated_at": "2026-04-19T19:34:53.875484Z",
   "today": {
-    "generated_at": "2026-04-19T11:55:37.848189Z",
+    "generated_at": "2026-04-19T19:34:53.875484Z",
     "date": "2026-04-19",
     "reference_mode": "live_last",
     "quote_label": "Live last available price",
@@ -9,7 +9,7 @@
     "live_usd": 4879.6,
     "usd_inr_rate": 92.575,
     "verified_date": "2026-04-17",
-    "as_of": "2026-04-19T11:55:41.197043Z",
+    "as_of": "2026-04-19T19:34:56.757338Z",
     "source": "yfinance",
     "market_status": "live",
     "is_live": true,
@@ -28,7 +28,7 @@
     }
   },
   "tomorrow": {
-    "generated_at": "2026-04-19T11:55:37.848189Z",
+    "generated_at": "2026-04-19T19:34:53.875484Z",
     "prediction_date": "2026-04-20",
     "target_date": "2026-04-20",
     "target_type": "calendar_close",
@@ -37,7 +37,7 @@
     "last_data_date": "2026-04-17",
     "last_actual_usd": 4879.6,
     "reference_live_usd": 4879.6,
-    "reference_as_of": "2026-04-19T11:55:40.167413Z",
+    "reference_as_of": "2026-04-19T19:34:55.931469Z",
     "reference_source": "yfinance",
     "reference_market_status": "live",
     "reference_is_live": true,
@@ -70,55 +70,55 @@
       "interval_pct": 2.75
     },
     "direction_confidence": 51.8,
-    "as_of": "2026-04-19T11:55:40.167413Z",
+    "as_of": "2026-04-19T19:34:55.931469Z",
     "source": "model_forecast",
     "market_status": "forecast",
     "is_live": false,
     "sentiment": {
-      "score": 0.3237,
+      "score": 0.1935,
       "label": "Bullish",
-      "confidence": "medium",
+      "confidence": "high",
       "signal": "Neutral",
-      "article_count": 5,
-      "source": "newsapi",
+      "article_count": 50,
+      "source": "alpha_vantage",
       "top_headlines": [
         {
-          "title": "YouTube Gold: Duke\u2019s Greatest Buzzer Beaters",
-          "source": "Duke Basketball Report",
-          "sentiment": 0.856,
-          "label": "Bullish",
-          "url": "https://www.dukebasketballreport.com/main/89460/youtube-gold-dukes-greatest-buzzer-beaters"
-        },
-        {
-          "title": "Ola offers Rs 50K discounts, gold-plated scooter: Deal explained",
-          "source": "The Times of India",
-          "sentiment": 0.848,
-          "label": "Bullish",
-          "url": "https://timesofindia.indiatimes.com/auto/bikes/ola-offers-rs-50k-discounts-gold-plated-scooter-deal-explained/articleshow/130352968.cms"
-        },
-        {
-          "title": "Global interest peaks ahead of Okpekpe 10km race",
-          "source": "The Punch",
-          "sentiment": 0.844,
-          "label": "Bullish",
-          "url": "https://punchng.com/global-interest-peaks-ahead-of-okpekpe-10km-race/"
-        },
-        {
-          "title": "Equities, gold or cash: Where to hide amid the chaos",
-          "source": "BusinessLine",
-          "sentiment": -0.66,
+          "title": "GLD ETF Falls 0.6%",
+          "source": "Moomoo",
+          "sentiment": -0.649,
           "label": "Bearish",
-          "url": "https://www.thehindubusinessline.com/multimedia/video/equities-gold-or-cash-where-to-hide-amid-the-chaos/article70877112.ece"
+          "url": "https://www.moomoo.com/news/post/62340649/gld-etf-falls-0-6"
         },
         {
-          "title": "Dogecoin Gold Plans Revealed As DOGE Jumps Past $0.10\u2014Here\u2019s What To Know",
-          "source": "Bitcoinist",
-          "sentiment": 0.0,
-          "label": "Neutral",
-          "url": "https://bitcoinist.com/dogecoin-gold-plans-revealed-doge-jumps-past-0-10/"
+          "title": "Gold price today rebounds near $4,370 as GLD ETF and gold stocks track bullion higherNEW YORK, January 2, 2026, 09:54 ET \u2014 Regular session",
+          "source": "ts2.tech",
+          "sentiment": 0.545,
+          "label": "Bullish",
+          "url": "https://ts2.tech/en/gold-price-today-rebounds-near-4370-as-gld-etf-and-gold-stocks-track-bullion-highernew-york-january-2-2026-0954-et-regular-session/"
+        },
+        {
+          "title": "GLD ETF Climbs 1.2%",
+          "source": "Moomoo",
+          "sentiment": 0.535,
+          "label": "Bullish",
+          "url": "https://www.moomoo.com/news/post/62203364/gld-etf-climbs-1-2"
+        },
+        {
+          "title": "Gold Bonanza: GLD ETF Surges & Miners Skyrocket \u2013 Will Gold Hit $5,000/oz Next?",
+          "source": "ts2.tech",
+          "sentiment": 0.464,
+          "label": "Bullish",
+          "url": "https://ts2.tech/en/gold-bonanza-gld-etf-surges-miners-skyrocket-will-gold-hit-5000-oz-next/"
+        },
+        {
+          "title": "Ride the Gold and Silver Rally: Choose GLD ETF's Steady Climb or SLV's High-Octane Surge",
+          "source": "Yahoo Finance",
+          "sentiment": 0.455,
+          "label": "Bullish",
+          "url": "https://finance.yahoo.com/news/ride-gold-silver-rally-choose-112101028.html"
         }
       ],
-      "fetched_at": "2026-04-19T11:54:30.535789"
+      "fetched_at": "2026-04-19T19:34:49.337508"
     },
     "model_info": {
       "trained_at": "2026-04-19T11:55:37.387434Z",
@@ -136,7 +136,7 @@
     }
   },
   "week": {
-    "generated_at": "2026-04-19T11:55:37.848189Z",
+    "generated_at": "2026-04-19T19:34:53.875484Z",
     "forecast": [
       {
         "date": "2026-04-13",
@@ -338,7 +338,7 @@
     "market_context": {
       "usd_per_oz": 4879.6,
       "usd_inr_rate": 92.575,
-      "as_of": "2026-04-19T11:55:38.956746Z",
+      "as_of": "2026-04-19T19:34:55.226572Z",
       "source": "yfinance",
       "market_status": "live",
       "is_live": true,
