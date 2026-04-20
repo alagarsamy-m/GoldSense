@@ -32,6 +32,8 @@ from pathlib import Path
 from datetime import date, datetime, timedelta
 from typing import Optional
 
+from market_data import current_local_date
+
 warnings.filterwarnings("ignore")
 logger = logging.getLogger(__name__)
 
@@ -381,7 +383,7 @@ def log_daily_sentiment(result: dict, today: date = None):
     This CSV is used as a training feature once enough data is collected.
     """
     if today is None:
-        today = date.today()
+        today = current_local_date()
 
     row = {
         "date":          str(today),
@@ -476,12 +478,13 @@ def get_gold_sentiment(
 
     result = compute_sentiment_score(articles)
     result["source"]     = source
+    local_today = current_local_date()
     result["fetched_at"] = datetime.utcnow().isoformat()
-    result["date"]       = str(date.today())
+    result["date"]       = str(local_today)
 
     # Persist
     _save_cache(result)
-    log_daily_sentiment(result)
+    log_daily_sentiment(result, local_today)
 
     logger.info(
         f"Sentiment: {result['label']} ({result['score']:+.3f}) "

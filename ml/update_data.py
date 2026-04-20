@@ -18,6 +18,8 @@ from urllib.request import Request, urlopen
 import pandas as pd
 import yfinance as yf
 
+from market_data import current_local_date
+
 ROOT = Path(__file__).parent.parent
 DATASET_DIR = ROOT / "dataset"
 GOLD_CSV = DATASET_DIR / "Gold Rate.csv"
@@ -291,7 +293,7 @@ def update_datasets():
     print("GoldSense - Dataset Update (Yahoo Finance)")
     print("=" * 55)
 
-    today = date.today()
+    today = current_local_date()
 
     print("\n[Gold Rate.csv]")
     gold_last_date = read_last_date(GOLD_CSV)

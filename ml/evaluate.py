@@ -15,7 +15,7 @@ from typing import Any, Optional
 
 import pandas as pd
 
-from market_data import build_mumbai_price_breakdown, is_trading_day, previous_trading_day
+from market_data import build_mumbai_price_breakdown, current_local_date, is_trading_day, previous_trading_day
 from predict import classify_move, run_predictions
 from preprocess import load_gold, load_usdinr, merge_datasets
 
@@ -343,7 +343,7 @@ def evaluate_pending_batches() -> pd.DataFrame:
 
         for entry in batch.get("calendar_horizons", []):
             target_date = date.fromisoformat(entry["target_date"])
-            if target_date >= date.today():
+            if target_date >= current_local_date():
                 remaining_entries.append(entry)
                 continue
             if _log_exists(logs, entry["target_date"], predicted_on, entry["horizon"]):
@@ -371,7 +371,7 @@ def evaluate_pending_batches() -> pd.DataFrame:
 def add_new_prediction_batch(results: dict[str, Any]) -> dict[str, Any]:
     pending = _read_pending_store()
     generated_at = datetime.utcnow().isoformat()
-    generated_on = generated_at[:10]
+    generated_on = str(current_local_date())
     horizons = []
     for index, entry in enumerate(results.get("calendar_horizons", []), start=1):
         horizons.append(

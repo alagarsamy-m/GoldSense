@@ -17,6 +17,7 @@ from pathlib import Path
 from typing import Any, Iterable, Optional
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
+from zoneinfo import ZoneInfo
 
 import pandas as pd
 
@@ -24,6 +25,7 @@ TROY_OUNCE_TO_GRAMS = 31.1035
 DEFAULT_CUSTOMS_DUTY = 0.06
 DEFAULT_GST = 0.03
 DEFAULT_MUMBAI_PREMIUM_PCT = 0.0
+DEFAULT_PUBLIC_TIMEZONE = "Asia/Kolkata"
 ALPHA_VANTAGE_BASE_URL = "https://www.alphavantage.co/query"
 YAHOO_CHART_BASE_URL = "https://query1.finance.yahoo.com/v8/finance/chart"
 REQUEST_TIMEOUT_SECONDS = 12
@@ -68,6 +70,18 @@ def get_gst_rate() -> float:
 
 def get_mumbai_premium_pct() -> float:
     return float(os.environ.get("GOLDSENSE_MUMBAI_PREMIUM_PCT", DEFAULT_MUMBAI_PREMIUM_PCT))
+
+
+def get_public_timezone() -> ZoneInfo:
+    return ZoneInfo(os.environ.get("GOLDSENSE_PUBLIC_TIMEZONE", DEFAULT_PUBLIC_TIMEZONE))
+
+
+def current_local_datetime() -> datetime:
+    return datetime.now(get_public_timezone())
+
+
+def current_local_date() -> date:
+    return current_local_datetime().date()
 
 
 def build_mumbai_price_breakdown(
@@ -123,7 +137,7 @@ def previous_trading_day(day: date) -> date:
 
 
 def current_week_bounds(day: Optional[date] = None) -> tuple[date, date]:
-    day = day or date.today()
+    day = day or current_local_date()
     monday = day - timedelta(days=day.weekday())
     sunday = monday + timedelta(days=6)
     return monday, sunday

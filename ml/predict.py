@@ -18,6 +18,7 @@ import pandas as pd
 from market_data import (
     build_market_context,
     build_mumbai_price_breakdown,
+    current_local_date,
     current_week_dates,
     is_trading_day,
     market_context_from_dataframe,
@@ -91,7 +92,7 @@ def get_today_live_price() -> Optional[dict[str, Any]]:
     prices = build_mumbai_price_breakdown(market.usd_per_oz, market.usd_inr_rate)
 
     return {
-        "date": str(date.today()),
+        "date": str(current_local_date()),
         "reference_mode": "live_last",
         "quote_label": "Live last available price",
         "quote_note": "This is the latest live or delayed market quote, not the official open or final close.",
@@ -259,11 +260,12 @@ def build_calendar_horizon_view(
     forecast_map = {date.fromisoformat(item["target_date"]): item for item in trading_sequence}
     reference_live_usd = float(market["usd_per_oz"])
     reference_fx = float(market["usd_inr_rate"])
-    carry_forward = _carry_forward_entry(date.today(), reference_live_usd, reference_fx, "reference_live")
+    local_today = current_local_date()
+    carry_forward = _carry_forward_entry(local_today, reference_live_usd, reference_fx, "reference_live")
     entries: list[dict[str, Any]] = []
 
     for offset in range(1, count + 1):
-        target_day = date.today() + timedelta(days=offset)
+        target_day = local_today + timedelta(days=offset)
         if is_trading_day(target_day) and target_day in forecast_map:
             entry = dict(forecast_map[target_day])
             entry["market_status"] = "forecast"

@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-04-19T19:34:53.875484Z",
-  "prediction_date": "2026-04-20",
-  "target_date": "2026-04-20",
+  "generated_at": "2026-04-20T04:34:50.261044Z",
+  "prediction_date": "2026-04-21",
+  "target_date": "2026-04-21",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
   "market_closed": false,
   "last_data_date": "2026-04-17",
   "last_actual_usd": 4879.6,
-  "reference_live_usd": 4879.6,
-  "reference_as_of": "2026-04-19T19:34:55.931469Z",
+  "reference_live_usd": 4813.3,
+  "reference_as_of": "2026-04-20T04:34:55.168382Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4882.24,
-  "usd_inr_rate": 92.575,
+  "tomorrow_usd": 4817.49,
+  "usd_inr_rate": 92.805,
   "trend": "stable",
   "direction_vs_today": "stable",
-  "direction_delta_pct": 0.054,
-  "direction_delta_usd": 2.64,
-  "pct_change": 0.054,
-  "tomorrow_price_24k_per_gram": 15865.24,
-  "tomorrow_price_22k_per_gram": 14543.13,
-  "tomorrow_price_24k_per_10g": 158652.37,
-  "tomorrow_price_22k_per_10g": 145431.34,
+  "direction_delta_pct": 0.087,
+  "direction_delta_usd": 4.19,
+  "pct_change": 0.087,
+  "tomorrow_price_24k_per_gram": 15693.73,
+  "tomorrow_price_22k_per_gram": 14385.92,
+  "tomorrow_price_24k_per_10g": 156937.3,
+  "tomorrow_price_22k_per_10g": 143859.19,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -32,64 +32,63 @@
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
   "confidence_interval": {
-    "lower_usd": 4813.38,
-    "upper_usd": 4947.61,
-    "lower_24k_per_gram": 15641.46,
-    "upper_24k_per_gram": 16077.66,
-    "lower_22k_per_gram": 14338.01,
-    "upper_22k_per_gram": 14737.86,
-    "interval_pct": 2.75
+    "lower_usd": 4750.58,
+    "upper_usd": 4894.26,
+    "lower_24k_per_gram": 15475.75,
+    "upper_24k_per_gram": 15943.81,
+    "lower_22k_per_gram": 14186.11,
+    "upper_22k_per_gram": 14615.16,
+    "interval_pct": 2.98
   },
-  "direction_confidence": 51.8,
-  "as_of": "2026-04-19T19:34:55.931469Z",
+  "as_of": "2026-04-20T04:34:55.168382Z",
   "source": "model_forecast",
   "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": 0.1935,
+    "score": 0.1514,
     "label": "Bullish",
     "confidence": "high",
     "signal": "Neutral",
-    "article_count": 50,
-    "source": "alpha_vantage",
+    "article_count": 24,
+    "source": "rss",
     "top_headlines": [
       {
-        "title": "GLD ETF Falls 0.6%",
-        "source": "Moomoo",
-        "sentiment": -0.649,
+        "title": "Equinox Gold vs. Agnico Eagle Mines: Which Mining Stock Is the Smarter Buy Right Now?",
+        "source": "RSS",
+        "sentiment": 0.866,
+        "label": "Bullish",
+        "url": "https://www.fool.com/investing/2026/04/19/equinox-vs-agnico-which-mining-stock-is-th/?.tsrc=rss"
+      },
+      {
+        "title": "Silver Is Outperforming Gold in 2026. Does SLV Deserve a Spot in Your Portfolio?",
+        "source": "RSS",
+        "sentiment": 0.813,
+        "label": "Bullish",
+        "url": "https://www.fool.com/investing/2026/04/19/silver-is-outperforming-gold-in-2026-does-slv-dese/?.tsrc=rss"
+      },
+      {
+        "title": "Crude Oil, Gold Price Outlook: WTI Drops 7% as Hormuz Risks Unwind, Gold Tests 4,880 - FOREX.com",
+        "source": "FOREX.com",
+        "sentiment": -0.784,
         "label": "Bearish",
-        "url": "https://www.moomoo.com/news/post/62340649/gld-etf-falls-0-6"
+        "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPVU1sbFc0TlFud3o0T09NdnMwYTE0RS1jSHg2c2dLQ1FWaVJVWXlLbHFUZ3BoVE1RaHJoQXdJVTg2Q0JsTmF1R0VrMVNuazlnb2hWc2hRaUdPU242b1FsM2lVbXpSdXJsaUN5N1dndXVEc1pCSW90R2NxVUI0VS15UmhONmtwSGVyd0NLNmN5eW1LbnlWblQ0cVc3WDB5THhSSEk1Yzg4T25EQ0FsSGZnQ21ETnFXSER3cURkTE9oQklyNWxOMFHSAdIBQVVfeXFMTWxMY0lYVmhZMGZROTJzTDBxZjVGWEktbkVFMkRLU08yM3A2T3E0LTRYX2lKQVdheUZ5T0w2VjkyeEtGTXJsTTZPNmhZNnNNTWk5Ri0yVU5IR3FpZXhlajVTYTd2eElNRWRHM0N0WDlxeWlHUC13bXhBYUNpWS1wX29ka3ZfX2VGcWh5WE5sUmdYMUNUN0wzcDhudUw4N1UwNXdMLV80UDhQanA3d25HNnMxdFJnYXJJMmNuUm03UmNVdFkzQ3lwQlVRWm9KN3pfNTdB?oc=5"
       },
       {
-        "title": "Gold price today rebounds near $4,370 as GLD ETF and gold stocks track bullion higherNEW YORK, January 2, 2026, 09:54 ET \u2014 Regular session",
-        "source": "ts2.tech",
-        "sentiment": 0.545,
+        "title": "Assessing NovaGold Resources (TSX:NG) Valuation As Gold Price Strength Lifts Sector Sentiment - simplywall.st",
+        "source": "simplywall.st",
+        "sentiment": 0.751,
         "label": "Bullish",
-        "url": "https://ts2.tech/en/gold-price-today-rebounds-near-4370-as-gld-etf-and-gold-stocks-track-bullion-highernew-york-january-2-2026-0954-et-regular-session/"
+        "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPOHZtaU13amRMejE5bUd2NHJvZEd1eFo2TkF3TjUyYWlTS1ZyMTA5RVhTR3FKY2ZwalZFNklGcDZTekRnR3dzY2dYWEtyX3N0WmdBY0JsaGtsUHByZ3ZFa1VRU3g3RXp3endGM2ZyTS01X3k0QVRoSzhrOHFfUzFLRmNTYmU2clpVZ21zaVNVOWl1RUluLTBHQjNtUVNiN2xXRndiQjBkMW1WV0tqZ0E5TF9fN1JrQ1VqdWVZYjZOTWRGbkxsSFo1OEE4TUJfVXBDXzZ1UHJsNNIB3AFBVV95cUxOT0t6UjIwaWluZVQ5V0dvSjlZc2Rhd283aFFIMVVfeWRXMzY0U1JwMlJPdF9BQ3hYWDJkVkl0bVNQZFFwYWs0NnUtSFQybXlscFNpUnpsM05jT1hBTy1laVZSNlQ2OF8tWU9vSVJvVFdaQjVhUWU3Skt2NkNkZGJNSmhTTnVtQy1hSGNYR1BKdC0zSlo0Y003eXB5SkVYSEVZbW5fT1RsRE1NcjhhdndKRXl3dzRQalpidUhDQk91a29FZzBkbkgyVnQxcHMxTEdVR3ViNF9rbWN3Vk1Z?oc=5"
       },
       {
-        "title": "GLD ETF Climbs 1.2%",
-        "source": "Moomoo",
-        "sentiment": 0.535,
+        "title": "India's gold-buying festival sees tepid demand on price surge",
+        "source": "RSS",
+        "sentiment": 0.572,
         "label": "Bullish",
-        "url": "https://www.moomoo.com/news/post/62203364/gld-etf-climbs-1-2"
-      },
-      {
-        "title": "Gold Bonanza: GLD ETF Surges & Miners Skyrocket \u2013 Will Gold Hit $5,000/oz Next?",
-        "source": "ts2.tech",
-        "sentiment": 0.464,
-        "label": "Bullish",
-        "url": "https://ts2.tech/en/gold-bonanza-gld-etf-surges-miners-skyrocket-will-gold-hit-5000-oz-next/"
-      },
-      {
-        "title": "Ride the Gold and Silver Rally: Choose GLD ETF's Steady Climb or SLV's High-Octane Surge",
-        "source": "Yahoo Finance",
-        "sentiment": 0.455,
-        "label": "Bullish",
-        "url": "https://finance.yahoo.com/news/ride-gold-silver-rally-choose-112101028.html"
+        "url": "https://sg.finance.yahoo.com/news/indias-gold-buying-festival-sees-161811009.html?.tsrc=rss"
       }
     ],
-    "fetched_at": "2026-04-19T19:34:49.337508"
+    "fetched_at": "2026-04-20T04:30:27.124017"
   },
   "model_info": {
     "trained_at": "2026-04-19T11:55:37.387434Z",
