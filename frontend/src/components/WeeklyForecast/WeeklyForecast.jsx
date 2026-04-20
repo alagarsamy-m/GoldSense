@@ -75,13 +75,6 @@ export default function WeeklyForecast() {
       setData(week.forecast)
       setLoading(false)
       setError(false)
-
-      try {
-        const apiWeek = normalizeWeek(await getWeekForecast())
-        if (apiWeek.forecast.length) setData(apiWeek.forecast)
-      } catch {
-        // Keep the snapshot data.
-      }
     } catch {
       setLoading(false)
       setError(true)

@@ -28,6 +28,7 @@ class Settings(BaseSettings):
     model_path: str = str(Path(__file__).parent.parent.parent / "ml" / "model" / "gold_model.pkl")
     metadata_path: str = str(Path(__file__).parent.parent.parent / "ml" / "model" / "model_metadata.json")
     logs_csv_path: str = str(Path(__file__).parent.parent.parent / "dataset" / "prediction_logs.csv")
+    snapshot_dir: str = str(Path(__file__).parent.parent.parent / "frontend" / "public" / "snapshots")
 
     allowed_origins: str = "http://localhost:5173,http://localhost:3000,https://gold-sense-five.vercel.app"
     app_name: str = "GoldSense API"

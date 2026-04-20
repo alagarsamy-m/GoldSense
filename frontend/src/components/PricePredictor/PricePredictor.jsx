@@ -69,13 +69,6 @@ export default function PricePredictor() {
       setData(snapshotData)
       setError(null)
       setLoading(false)
-
-      try {
-        const liveData = normalizeTomorrow(await getPredictionTomorrow())
-        if (liveData?.tomorrow_usd != null) setData(liveData)
-      } catch {
-        // Snapshot remains the source of truth when the backend is cold.
-      }
     } catch {
       setError('Unable to load tomorrow\'s prediction right now.')
       setLoading(false)

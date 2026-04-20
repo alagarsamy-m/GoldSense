@@ -57,8 +57,7 @@ async def get_week_forecast():
     direction-vs-today fields for the UI.
     """
     try:
-        forecast = await asyncio.to_thread(GoldService.get_week_forecast)
-        return {"forecast": forecast}
+        return await asyncio.to_thread(GoldService.get_week_payload)
     except FileNotFoundError:
         raise HTTPException(status_code=503, detail="Model is not ready yet. Please wait for the model to be trained.")
     except Exception as e:

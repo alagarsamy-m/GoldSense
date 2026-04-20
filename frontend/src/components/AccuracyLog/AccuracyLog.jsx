@@ -104,13 +104,6 @@ export default function AccuracyLog() {
       )
       setRows(snapshot.full_history)
       getSystemStatus().then(setStatus).catch(() => setStatus(null))
-
-      try {
-        const apiRows = normalizeAccuracy(await getAccuracyLogs(5000))
-        if (apiRows.full_history.length) setRows(apiRows.full_history)
-      } catch {
-        // Keep snapshot data.
-      }
     } catch {
       setRows([])
     } finally {

@@ -42,6 +42,41 @@ class GoldService:
     _sentiment_cache_time: float = 0
 
     @classmethod
+    def _snapshot_path(cls, name: str) -> Path:
+        return Path(settings.snapshot_dir) / f"{name}.json"
+
+    @classmethod
+    def _load_snapshot_payload(cls, name: str) -> dict | None:
+        snapshot_path = cls._snapshot_path(name)
+        if not snapshot_path.exists():
+            return None
+        try:
+            with open(snapshot_path, encoding="utf-8") as handle:
+                return json.load(handle)
+        except Exception:
+            logger.warning("Failed to read snapshot %s", snapshot_path, exc_info=True)
+            return None
+
+    @classmethod
+    def _enrich_prediction_with_metrics(cls, payload: dict) -> dict:
+        result = dict(payload)
+        meta = cls.get_model_info()
+        metrics = meta.get("metrics", {})
+        result["model_rmse"] = result.get("model_rmse", metrics.get("rmse", 0))
+        result["model_mae"] = result.get("model_mae", metrics.get("mae", 0))
+        result["model_mape"] = result.get("model_mape", metrics.get("mape", 0))
+        result["model_direction_accuracy"] = result.get(
+            "model_direction_accuracy",
+            metrics.get("direction_accuracy_pct", 0),
+        )
+        result["model_cv_direction_accuracy"] = result.get(
+            "model_cv_direction_accuracy",
+            meta.get("direction_cv_metrics", {}).get("cv_dir_accuracy", 0),
+        )
+        result["macro_features_active"] = result.get("macro_features_active", meta.get("macro_features", False))
+        return result
+
+    @classmethod
     def preload(cls):
         """Preload model, quantile models, and dataset on startup."""
         import joblib
@@ -108,10 +143,17 @@ class GoldService:
 
     @classmethod
     def get_tomorrow_prediction(cls) -> dict:
-        """Return tomorrow's gold price prediction with confidence intervals. Cached for 15 min."""
+        """Return the published tomorrow forecast, falling back to live recompute only if needed."""
         now = time.time()
         if cls._tomorrow_cache and (now - cls._tomorrow_cache_time) < PREDICTION_CACHE_TTL:
             return cls._tomorrow_cache
+
+        snapshot_payload = cls._load_snapshot_payload("tomorrow")
+        if snapshot_payload and snapshot_payload.get("tomorrow_usd") is not None and snapshot_payload.get("target_date"):
+            result = cls._enrich_prediction_with_metrics(snapshot_payload)
+            cls._tomorrow_cache = result
+            cls._tomorrow_cache_time = now
+            return result
 
         cls._ensure_loaded()
 
@@ -124,13 +166,7 @@ class GoldService:
             cls._model_q10, cls._model_q90, cls._dir_model,
         )
 
-        metrics = meta.get("metrics", {})
-        result["model_rmse"]               = metrics.get("rmse", 0)
-        result["model_mae"]                = metrics.get("mae", 0)
-        result["model_mape"]               = metrics.get("mape", 0)
-        result["model_direction_accuracy"] = metrics.get("direction_accuracy_pct", 0)
-        result["model_cv_direction_accuracy"] = meta.get("direction_cv_metrics", {}).get("cv_dir_accuracy", 0)
-        result["macro_features_active"]    = meta.get("macro_features", False)
+        result = cls._enrich_prediction_with_metrics(result)
 
         cls._tomorrow_cache = result
         cls._tomorrow_cache_time = now
@@ -138,9 +174,15 @@ class GoldService:
 
     @classmethod
     def get_week_forecast(cls) -> list:
-        """Return 7-day price forecast with per-day confidence intervals. Cached for 15 min."""
+        """Return the published weekly forecast rows, falling back to live recompute only if needed."""
         now = time.time()
         if cls._week_cache and (now - cls._week_cache_time) < PREDICTION_CACHE_TTL:
+            return cls._week_cache
+
+        snapshot_payload = cls._load_snapshot_payload("week")
+        if snapshot_payload and isinstance(snapshot_payload.get("forecast"), list) and snapshot_payload["forecast"]:
+            cls._week_cache = snapshot_payload["forecast"]
+            cls._week_cache_time = now
             return cls._week_cache
 
         cls._ensure_loaded()
@@ -157,6 +199,13 @@ class GoldService:
         cls._week_cache = result
         cls._week_cache_time = now
         return result
+
+    @classmethod
+    def get_week_payload(cls) -> dict:
+        snapshot_payload = cls._load_snapshot_payload("week")
+        if snapshot_payload and isinstance(snapshot_payload.get("forecast"), list):
+            return snapshot_payload
+        return {"forecast": cls.get_week_forecast()}
 
     @classmethod
     def _load_logs_frame(cls):
