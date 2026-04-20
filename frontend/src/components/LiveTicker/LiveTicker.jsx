@@ -96,7 +96,9 @@ export default function LiveTicker() {
       : 'Delayed'
   const sourceLabel = data.market_status === 'live'
     ? `${data.source} | auto-refresh 5s`
-    : `${data.source} | verified ${data.verified_date || data.date || '--'}`
+    : data.source === 'dataset_close'
+      ? `last verified close | ${data.verified_date || data.date || '--'}`
+      : `${data.source} | verified ${data.verified_date || data.date || '--'}`
 
   return (
     <div className="z-50 w-full border-b border-amber-500/10 bg-gradient-to-r from-slate-900/98 via-slate-900/95 to-slate-900/98 backdrop-blur-md">

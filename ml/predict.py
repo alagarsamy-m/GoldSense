@@ -162,7 +162,7 @@ def _predict_sequence(
             **breakdown,
         }
 
-        if dir_model is not None and horizon == 1:
+        if dir_model is not None:
             try:
                 direction_probability = float(dir_model.predict_proba(latest_row)[0][1])
                 if direction_probability >= 0.58:
@@ -375,7 +375,9 @@ def build_current_week_view(
             }
             carry_forward_entry = entry
 
-        week_entries.append(_decorate_against_today(entry, market))
+        public_entry = _decorate_against_today(entry, market)
+        public_entry.pop("horizon", None)
+        week_entries.append(public_entry)
 
     return week_entries
 
