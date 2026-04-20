@@ -1,5 +1,5 @@
 {
-  "score": 0.1891,
+  "score": 0.1886,
   "label": "Bullish",
   "confidence": "high",
   "article_count": 50,
@@ -7,40 +7,40 @@
     {
       "title": "GLD ETF Falls 0.6%",
       "source": "Moomoo",
-      "sentiment": -0.62,
+      "sentiment": -0.64,
       "label": "Bearish",
       "url": "https://www.moomoo.com/news/post/62340649/gld-etf-falls-0-6"
     },
     {
       "title": "GLD ETF Climbs 1.2%",
       "source": "Moomoo",
-      "sentiment": 0.52,
+      "sentiment": 0.514,
       "label": "Bullish",
       "url": "https://www.moomoo.com/news/post/62203364/gld-etf-climbs-1-2"
     },
     {
       "title": "Gold price today rebounds near $4,370 as GLD ETF and gold stocks track bullion higherNEW YORK, January 2, 2026, 09:54 ET \u2014 Regular session",
       "source": "ts2.tech",
-      "sentiment": 0.506,
+      "sentiment": 0.502,
       "label": "Bullish",
       "url": "https://ts2.tech/en/gold-price-today-rebounds-near-4370-as-gld-etf-and-gold-stocks-track-bullion-highernew-york-january-2-2026-0954-et-regular-session/"
     },
     {
-      "title": "Ride the Gold and Silver Rally: Choose GLD ETF's Steady Climb or SLV's High-Octane Surge",
-      "source": "Yahoo Finance",
-      "sentiment": 0.49,
-      "label": "Bullish",
-      "url": "https://finance.yahoo.com/news/ride-gold-silver-rally-choose-112101028.html"
-    },
-    {
       "title": "Gold Bonanza: GLD ETF Surges & Miners Skyrocket \u2013 Will Gold Hit $5,000/oz Next?",
       "source": "ts2.tech",
-      "sentiment": 0.455,
+      "sentiment": 0.469,
       "label": "Bullish",
       "url": "https://ts2.tech/en/gold-bonanza-gld-etf-surges-miners-skyrocket-will-gold-hit-5000-oz-next/"
+    },
+    {
+      "title": "Ride the Gold and Silver Rally: Choose GLD ETF's Steady Climb or SLV's High-Octane Surge",
+      "source": "Yahoo Finance",
+      "sentiment": 0.464,
+      "label": "Bullish",
+      "url": "https://finance.yahoo.com/news/ride-gold-silver-rally-choose-112101028.html"
     }
   ],
   "source": "alpha_vantage",
-  "fetched_at": "2026-04-20T04:45:49.905912",
+  "fetched_at": "2026-04-20T05:18:27.531291",
   "date": "2026-04-20"
 }
