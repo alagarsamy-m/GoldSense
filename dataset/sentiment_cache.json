@@ -1,46 +1,46 @@
 {
-  "score": 0.1777,
+  "score": 0.1691,
   "label": "Bullish",
   "confidence": "high",
   "article_count": 50,
   "top_headlines": [
     {
-      "title": "GLD ETF Falls 0.6%",
-      "source": "Moomoo",
-      "sentiment": -0.65,
-      "label": "Bearish",
-      "url": "https://www.moomoo.com/news/post/62340649/gld-etf-falls-0-6"
-    },
-    {
       "title": "GLD ETF Falls 0.9%",
       "source": "Moomoo",
-      "sentiment": -0.615,
+      "sentiment": -0.629,
       "label": "Bearish",
       "url": "https://www.moomoo.com/news/post/68568297/gld-etf-falls-0-9"
     },
     {
-      "title": "Gold price today rebounds near $4,370 as GLD ETF and gold stocks track bullion higherNEW YORK, January 2, 2026, 09:54 ET \u2014 Regular session",
-      "source": "ts2.tech",
-      "sentiment": 0.528,
-      "label": "Bullish",
-      "url": "https://ts2.tech/en/gold-price-today-rebounds-near-4370-as-gld-etf-and-gold-stocks-track-bullion-highernew-york-january-2-2026-0954-et-regular-session/"
+      "title": "GLD ETF Falls 0.6%",
+      "source": "Moomoo",
+      "sentiment": -0.615,
+      "label": "Bearish",
+      "url": "https://www.moomoo.com/news/post/62340649/gld-etf-falls-0-6"
     },
     {
       "title": "GLD ETF Climbs 1.2%",
       "source": "Moomoo",
-      "sentiment": 0.501,
+      "sentiment": 0.537,
       "label": "Bullish",
       "url": "https://www.moomoo.com/news/post/62203364/gld-etf-climbs-1-2"
     },
     {
+      "title": "Gold price today rebounds near $4,370 as GLD ETF and gold stocks track bullion higherNEW YORK, January 2, 2026, 09:54 ET \u2014 Regular session",
+      "source": "ts2.tech",
+      "sentiment": 0.514,
+      "label": "Bullish",
+      "url": "https://ts2.tech/en/gold-price-today-rebounds-near-4370-as-gld-etf-and-gold-stocks-track-bullion-highernew-york-january-2-2026-0954-et-regular-session/"
+    },
+    {
       "title": "Gold Bonanza: GLD ETF Surges & Miners Skyrocket \u2013 Will Gold Hit $5,000/oz Next?",
       "source": "ts2.tech",
-      "sentiment": 0.469,
+      "sentiment": 0.499,
       "label": "Bullish",
       "url": "https://ts2.tech/en/gold-bonanza-gld-etf-surges-miners-skyrocket-will-gold-hit-5000-oz-next/"
     }
   ],
   "source": "alpha_vantage",
-  "fetched_at": "2026-04-22T05:11:52.906193",
-  "date": "2026-04-22"
+  "fetched_at": "2026-04-23T05:15:26.590462",
+  "date": "2026-04-23"
 }
