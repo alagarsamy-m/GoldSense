@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-05-05T05:27:14.982009Z",
-  "prediction_date": "2026-05-06",
-  "target_date": "2026-05-06",
+  "generated_at": "2026-05-06T05:42:40.995169Z",
+  "prediction_date": "2026-05-07",
+  "target_date": "2026-05-07",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
   "market_closed": false,
-  "last_data_date": "2026-05-05",
-  "last_actual_usd": 4548.2,
-  "reference_live_usd": 4548.6,
-  "reference_as_of": "2026-05-05T05:27:16.998019Z",
+  "last_data_date": "2026-05-06",
+  "last_actual_usd": 4658.3,
+  "reference_live_usd": 4658.0,
+  "reference_as_of": "2026-05-06T05:42:43.114790Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4550.33,
-  "usd_inr_rate": 95.348,
+  "tomorrow_usd": 4659.77,
+  "usd_inr_rate": 95.0925,
   "trend": "stable",
   "direction_vs_today": "stable",
   "direction_delta_pct": 0.038,
-  "direction_delta_usd": 1.73,
+  "direction_delta_usd": 1.77,
   "pct_change": 0.038,
-  "tomorrow_price_24k_per_gram": 15229.6,
-  "tomorrow_price_22k_per_gram": 13960.47,
-  "tomorrow_price_24k_per_10g": 152296.0,
-  "tomorrow_price_22k_per_10g": 139604.66,
+  "tomorrow_price_24k_per_gram": 15554.1,
+  "tomorrow_price_22k_per_gram": 14257.93,
+  "tomorrow_price_24k_per_10g": 155541.01,
+  "tomorrow_price_22k_per_10g": 142579.25,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -32,21 +32,21 @@
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
   "confidence_interval": {
-    "lower_usd": 4502.23,
-    "upper_usd": 4621.61,
-    "lower_24k_per_gram": 15068.6,
-    "upper_24k_per_gram": 15468.16,
-    "lower_22k_per_gram": 13812.88,
-    "upper_22k_per_gram": 14179.15,
-    "interval_pct": 2.62
+    "lower_usd": 4603.34,
+    "upper_usd": 4723.42,
+    "lower_24k_per_gram": 15365.71,
+    "upper_24k_per_gram": 15766.54,
+    "lower_22k_per_gram": 14085.24,
+    "upper_22k_per_gram": 14452.66,
+    "interval_pct": 2.58
   },
-  "direction_confidence": 59.7,
-  "as_of": "2026-05-05T05:27:16.998019Z",
+  "direction_confidence": 53.1,
+  "as_of": "2026-05-06T05:42:43.114790Z",
   "source": "model_forecast",
   "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": 0.1778,
+    "score": 0.1758,
     "label": "Bullish",
     "confidence": "high",
     "signal": "Neutral",
@@ -56,40 +56,40 @@
       {
         "title": "SPDR Gold Shares ETF Yields 159 Percent Return Over Five Years",
         "source": "HarianBasis.co",
-        "sentiment": 0.865,
+        "sentiment": 0.876,
         "label": "Bullish",
         "url": "https://www.harianbasis.co/en/spdr-gold-shares-etf-returns-analysis"
       },
       {
-        "title": "GLD ETF Falls 0.6%",
-        "source": "Moomoo",
-        "sentiment": -0.631,
-        "label": "Bearish",
-        "url": "https://www.moomoo.com/news/post/62340649/gld-etf-falls-0-6"
-      },
-      {
         "title": "GLD ETF Falls 0.9%",
         "source": "Moomoo",
-        "sentiment": -0.602,
+        "sentiment": -0.648,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/68568297/gld-etf-falls-0-9"
       },
       {
-        "title": "GLD ETF Climbs 2.2%",
+        "title": "GLD ETF Falls 0.6%",
         "source": "Moomoo",
-        "sentiment": 0.522,
+        "sentiment": -0.624,
+        "label": "Bearish",
+        "url": "https://www.moomoo.com/news/post/62340649/gld-etf-falls-0-6"
+      },
+      {
+        "title": "GLD ETF Climbs 1.2%",
+        "source": "Moomoo",
+        "sentiment": 0.511,
         "label": "Bullish",
-        "url": "https://www.moomoo.com/news/post/68308322/gld-etf-climbs-2-2"
+        "url": "https://www.moomoo.com/news/post/62203364/gld-etf-climbs-1-2"
       },
       {
         "title": "Gold price today rebounds near $4,370 as GLD ETF and gold stocks track bullion higherNEW YORK, January 2, 2026, 09:54 ET \u2014 Regular session",
         "source": "ts2.tech",
-        "sentiment": 0.516,
+        "sentiment": 0.506,
         "label": "Bullish",
         "url": "https://ts2.tech/en/gold-price-today-rebounds-near-4370-as-gld-etf-and-gold-stocks-track-bullion-highernew-york-january-2-2026-0954-et-regular-session/"
       }
     ],
-    "fetched_at": "2026-05-05T05:27:08.717574"
+    "fetched_at": "2026-05-06T05:42:35.188046"
   },
   "model_info": {
     "trained_at": "2026-05-04T04:37:21.877717Z",
