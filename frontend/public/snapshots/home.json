@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-05-30T06:00:13.650795Z",
+  "generated_at": "2026-05-31T06:39:30.000640Z",
   "today": {
-    "generated_at": "2026-05-30T06:00:13.650795Z",
-    "date": "2026-05-30",
+    "generated_at": "2026-05-31T06:39:30.000640Z",
+    "date": "2026-05-31",
     "reference_mode": "live_last",
     "quote_label": "Live last available price",
     "quote_note": "This is the latest live or delayed market quote, not the official open or final close.",
     "live_usd": 4593.0,
     "usd_inr_rate": 94.99,
     "verified_date": "2026-05-29",
-    "as_of": "2026-05-30T06:00:16.351504Z",
+    "as_of": "2026-05-31T06:39:33.394394Z",
     "source": "yfinance",
     "market_status": "live",
     "is_live": true,
@@ -28,31 +28,31 @@
     }
   },
   "tomorrow": {
-    "generated_at": "2026-05-30T06:00:13.650795Z",
-    "prediction_date": "2026-05-31",
-    "target_date": "2026-05-31",
+    "generated_at": "2026-05-31T06:39:30.000640Z",
+    "prediction_date": "2026-06-01",
+    "target_date": "2026-06-01",
     "target_type": "calendar_close",
     "reference_mode": "live_last",
-    "market_closed": true,
+    "market_closed": false,
     "last_data_date": "2026-05-29",
     "last_actual_usd": 4593.0,
     "reference_live_usd": 4593.0,
-    "reference_as_of": "2026-05-30T06:00:15.552887Z",
+    "reference_as_of": "2026-05-31T06:39:32.351785Z",
     "reference_source": "yfinance",
     "reference_market_status": "live",
     "reference_is_live": true,
     "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-    "tomorrow_usd": 4593.0,
+    "tomorrow_usd": 4594.77,
     "usd_inr_rate": 94.99,
     "trend": "stable",
     "direction_vs_today": "stable",
-    "direction_delta_pct": 0.0,
-    "direction_delta_usd": 0.0,
-    "pct_change": 0.0,
-    "tomorrow_price_24k_per_gram": 15314.69,
-    "tomorrow_price_22k_per_gram": 14038.46,
-    "tomorrow_price_24k_per_10g": 153146.88,
-    "tomorrow_price_22k_per_10g": 140384.64,
+    "direction_delta_pct": 0.039,
+    "direction_delta_usd": 1.77,
+    "pct_change": 0.039,
+    "tomorrow_price_24k_per_gram": 15320.59,
+    "tomorrow_price_22k_per_gram": 14043.87,
+    "tomorrow_price_24k_per_10g": 153205.88,
+    "tomorrow_price_22k_per_10g": 140438.73,
     "tomorrow_pricing_formula": {
       "base_formula": "(USD_per_oz * USDINR) / 31.1035",
       "customs_duty_pct": 6.0,
@@ -60,12 +60,22 @@
       "mumbai_premium_pct": 0.0,
       "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
     },
-    "as_of": "2026-05-30T06:00:15.552887Z",
+    "confidence_interval": {
+      "lower_usd": 4529.85,
+      "upper_usd": 4673.12,
+      "lower_24k_per_gram": 15104.11,
+      "upper_24k_per_gram": 15581.84,
+      "lower_22k_per_gram": 13845.43,
+      "upper_22k_per_gram": 14283.36,
+      "interval_pct": 3.12
+    },
+    "direction_confidence": 53.6,
+    "as_of": "2026-05-31T06:39:32.351785Z",
     "source": "model_forecast",
-    "market_status": "market_closed",
+    "market_status": "forecast",
     "is_live": false,
     "sentiment": {
-      "score": 0.1174,
+      "score": 0.1183,
       "label": "Bullish",
       "confidence": "high",
       "signal": "Neutral",
@@ -75,40 +85,40 @@
         {
           "title": "SPDR Gold Shares ETF Yields 159 Percent Return Over Five Years",
           "source": "HarianBasis.co",
-          "sentiment": 0.86,
+          "sentiment": 0.886,
           "label": "Bullish",
           "url": "https://www.harianbasis.co/en/spdr-gold-shares-etf-returns-analysis"
         },
         {
-          "title": "GLD ETF Declines 0.6%",
-          "source": "Moomoo",
-          "sentiment": -0.621,
-          "label": "Bearish",
-          "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
-        },
-        {
           "title": "GLD ETF Falls 0.9%",
           "source": "Moomoo",
-          "sentiment": -0.619,
+          "sentiment": -0.636,
           "label": "Bearish",
           "url": "https://www.moomoo.com/news/post/68568297/gld-etf-falls-0-9"
         },
         {
+          "title": "GLD ETF Declines 0.6%",
+          "source": "Moomoo",
+          "sentiment": -0.607,
+          "label": "Bearish",
+          "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
+        },
+        {
           "title": "Gold price today rebounds near $4,370 as GLD ETF and gold stocks track bullion higherNEW YORK, January 2, 2026, 09:54 ET \u2014 Regular session",
           "source": "ts2.tech",
-          "sentiment": 0.527,
+          "sentiment": 0.524,
           "label": "Bullish",
           "url": "https://ts2.tech/en/gold-price-today-rebounds-near-4370-as-gld-etf-and-gold-stocks-track-bullion-highernew-york-january-2-2026-0954-et-regular-session/"
         },
         {
           "title": "GLD ETF Climbs 2.2%",
           "source": "Moomoo",
-          "sentiment": 0.506,
+          "sentiment": 0.513,
           "label": "Bullish",
           "url": "https://www.moomoo.com/news/post/68308322/gld-etf-climbs-2-2"
         }
       ],
-      "fetched_at": "2026-05-30T06:00:08.202896"
+      "fetched_at": "2026-05-31T06:39:16.068167"
     },
     "model_info": {
       "trained_at": "2026-05-25T05:15:41.437046Z",
@@ -126,7 +136,7 @@
     }
   },
   "week": {
-    "generated_at": "2026-05-30T06:00:13.650795Z",
+    "generated_at": "2026-05-31T06:39:30.000640Z",
     "forecast": [
       {
         "date": "2026-05-25",
@@ -328,7 +338,7 @@
     "market_context": {
       "usd_per_oz": 4593.0,
       "usd_inr_rate": 94.99,
-      "as_of": "2026-05-30T06:00:14.927591Z",
+      "as_of": "2026-05-31T06:39:31.305327Z",
       "source": "yfinance",
       "market_status": "live",
       "is_live": true,
@@ -338,6 +348,34 @@
   },
   "accuracy": {
     "preview": [
+      {
+        "prediction_date": "2026-05-30",
+        "target_date": "2026-05-30",
+        "predicted_on": "2026-05-29",
+        "horizon": "D1",
+        "predicted_price_usd": 4550.2,
+        "actual_price_usd": 4593.0,
+        "difference": 42.8,
+        "pct_error": 0.932,
+        "predicted_price_24k_per_gram": 15232.83,
+        "actual_price_24k_per_gram": 15314.69,
+        "difference_24k_per_gram": 81.86,
+        "pct_error_24k_per_gram": 0.535,
+        "predicted_price_22k_per_gram": 13963.43,
+        "actual_price_22k_per_gram": 14038.46,
+        "difference_22k_per_gram": 75.03,
+        "pct_error_22k_per_gram": 0.534,
+        "predicted_price_24k_per_10g": 152328.32,
+        "actual_price_24k_per_10g": 153146.88,
+        "predicted_price_22k_per_10g": 139634.29,
+        "actual_price_22k_per_10g": 140384.64,
+        "direction_correct": 1,
+        "predicted_trend": "stable",
+        "actual_trend": "stable",
+        "location": "India benchmark",
+        "status": "evaluated",
+        "created_at": "2026-05-31T06:39:18Z"
+      },
       {
         "prediction_date": "2026-05-29",
         "target_date": "2026-05-29",
@@ -505,37 +543,9 @@
         "location": "India benchmark",
         "status": "evaluated",
         "created_at": "2026-05-25T05:14:35Z"
-      },
-      {
-        "prediction_date": "2026-05-23",
-        "target_date": "2026-05-23",
-        "predicted_on": "2026-05-22",
-        "horizon": "D1",
-        "predicted_price_usd": 4519.6,
-        "actual_price_usd": 4523.2,
-        "difference": 3.6,
-        "pct_error": 0.08,
-        "predicted_price_24k_per_gram": 15222.65,
-        "actual_price_24k_per_gram": 15234.69,
-        "difference_24k_per_gram": 12.04,
-        "pct_error_24k_per_gram": 0.079,
-        "predicted_price_22k_per_gram": 13954.09,
-        "actual_price_22k_per_gram": 13965.13,
-        "difference_22k_per_gram": 11.04,
-        "pct_error_22k_per_gram": 0.079,
-        "predicted_price_24k_per_10g": 152226.45,
-        "actual_price_24k_per_10g": 152346.91,
-        "predicted_price_22k_per_10g": 139540.91,
-        "actual_price_22k_per_10g": 139651.33,
-        "direction_correct": 1,
-        "predicted_trend": "stable",
-        "actual_trend": "stable",
-        "location": "India benchmark",
-        "status": "evaluated",
-        "created_at": "2026-05-24T06:14:51Z"
       }
     ],
-    "count": 49
+    "count": 50
   },
   "model_info": {
     "trained_at": "2026-05-25T05:15:41.437046Z",
