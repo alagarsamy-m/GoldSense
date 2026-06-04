@@ -1,4 +1,5 @@
 date,sentiment_score,sentiment_label,confidence,article_count,created_at
+2026-06-04,0.1074,Bullish,high,50,2026-06-04T07:00:15.626598
 2026-06-03,0.106,Bullish,high,50,2026-06-03T07:20:55.888619
 2026-06-02,0.1144,Bullish,high,50,2026-06-02T07:07:17.263315
 2026-06-01,0.1139,Bullish,high,50,2026-06-01T05:53:44.881648
