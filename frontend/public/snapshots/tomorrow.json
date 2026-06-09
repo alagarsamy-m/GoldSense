@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-06-08T07:12:40.506422Z",
-  "prediction_date": "2026-06-09",
-  "target_date": "2026-06-09",
+  "generated_at": "2026-06-09T06:31:49.703838Z",
+  "prediction_date": "2026-06-10",
+  "target_date": "2026-06-10",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
   "market_closed": false,
-  "last_data_date": "2026-06-08",
-  "last_actual_usd": 4333.6,
-  "reference_live_usd": 4322.5,
-  "reference_as_of": "2026-06-08T07:12:42.758539Z",
+  "last_data_date": "2026-06-09",
+  "last_actual_usd": 4366.8,
+  "reference_live_usd": 4367.0,
+  "reference_as_of": "2026-06-09T06:31:51.792502Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4324.18,
-  "usd_inr_rate": 95.6525,
+  "tomorrow_usd": 4368.7,
+  "usd_inr_rate": 95.645,
   "trend": "stable",
   "direction_vs_today": "stable",
   "direction_delta_pct": 0.039,
-  "direction_delta_usd": 1.68,
+  "direction_delta_usd": 1.7,
   "pct_change": 0.039,
-  "tomorrow_price_24k_per_gram": 14518.92,
-  "tomorrow_price_22k_per_gram": 13309.01,
-  "tomorrow_price_24k_per_10g": 145189.15,
-  "tomorrow_price_22k_per_10g": 133090.06,
+  "tomorrow_price_24k_per_gram": 14667.24,
+  "tomorrow_price_22k_per_gram": 13444.97,
+  "tomorrow_price_24k_per_10g": 146672.37,
+  "tomorrow_price_22k_per_10g": 134449.67,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -32,21 +32,21 @@
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
   "confidence_interval": {
-    "lower_usd": 4265.58,
-    "upper_usd": 4409.43,
-    "lower_24k_per_gram": 14322.14,
-    "upper_24k_per_gram": 14805.14,
-    "lower_22k_per_gram": 13128.63,
-    "upper_22k_per_gram": 13571.38,
-    "interval_pct": 3.33
+    "lower_usd": 4312.59,
+    "upper_usd": 4443.17,
+    "lower_24k_per_gram": 14478.85,
+    "upper_24k_per_gram": 14917.25,
+    "lower_22k_per_gram": 13272.28,
+    "upper_22k_per_gram": 13674.14,
+    "interval_pct": 2.99
   },
-  "direction_confidence": 65.6,
-  "as_of": "2026-06-08T07:12:42.758539Z",
+  "direction_confidence": 51.2,
+  "as_of": "2026-06-09T06:31:51.792502Z",
   "source": "model_forecast",
   "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": 0.0889,
+    "score": 0.0936,
     "label": "Bullish",
     "confidence": "high",
     "signal": "Neutral",
@@ -56,40 +56,40 @@
       {
         "title": "SPDR Gold Shares ETF Yields 159 Percent Return Over Five Years",
         "source": "HarianBasis.co",
-        "sentiment": 0.88,
+        "sentiment": 0.898,
         "label": "Bullish",
         "url": "https://www.harianbasis.co/en/spdr-gold-shares-etf-returns-analysis"
       },
       {
-        "title": "GLD ETF Declines 0.6%",
-        "source": "Moomoo",
-        "sentiment": -0.623,
-        "label": "Bearish",
-        "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
-      },
-      {
         "title": "GLD ETF Falls 0.9%",
         "source": "Moomoo",
-        "sentiment": -0.608,
+        "sentiment": -0.636,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/68568297/gld-etf-falls-0-9"
       },
       {
+        "title": "GLD ETF Declines 0.6%",
+        "source": "Moomoo",
+        "sentiment": -0.603,
+        "label": "Bearish",
+        "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
+      },
+      {
         "title": "GLD ETF Climbs 2.2%",
         "source": "Moomoo",
-        "sentiment": 0.539,
+        "sentiment": 0.53,
         "label": "Bullish",
         "url": "https://www.moomoo.com/news/post/68308322/gld-etf-climbs-2-2"
       },
       {
         "title": "GLD ETF Declines 2.3%",
         "source": "Moomoo",
-        "sentiment": -0.448,
+        "sentiment": -0.45,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/67284936/gld-etf-declines-2-3"
       }
     ],
-    "fetched_at": "2026-06-08T07:12:34.741929"
+    "fetched_at": "2026-06-09T06:31:43.069988"
   },
   "model_info": {
     "trained_at": "2026-06-08T05:24:56.551560Z",
