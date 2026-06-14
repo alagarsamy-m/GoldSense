@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-06-13T06:36:40.580015Z",
-  "prediction_date": "2026-06-14",
-  "target_date": "2026-06-14",
+  "generated_at": "2026-06-14T07:05:08.113066Z",
+  "prediction_date": "2026-06-15",
+  "target_date": "2026-06-15",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
-  "market_closed": true,
+  "market_closed": false,
   "last_data_date": "2026-06-12",
   "last_actual_usd": 4238.8,
   "reference_live_usd": 4238.8,
-  "reference_as_of": "2026-06-13T06:36:42.869927Z",
+  "reference_as_of": "2026-06-14T07:05:10.394272Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4238.8,
+  "tomorrow_usd": 4240.45,
   "usd_inr_rate": 95.1,
   "trend": "stable",
   "direction_vs_today": "stable",
-  "direction_delta_pct": 0.0,
-  "direction_delta_usd": 0.0,
-  "pct_change": 0.0,
-  "tomorrow_price_24k_per_gram": 14150.03,
-  "tomorrow_price_22k_per_gram": 12970.86,
-  "tomorrow_price_24k_per_10g": 141500.27,
-  "tomorrow_price_22k_per_10g": 129708.58,
+  "direction_delta_pct": 0.039,
+  "direction_delta_usd": 1.65,
+  "pct_change": 0.039,
+  "tomorrow_price_24k_per_gram": 14155.53,
+  "tomorrow_price_22k_per_gram": 12975.91,
+  "tomorrow_price_24k_per_10g": 141555.35,
+  "tomorrow_price_22k_per_10g": 129759.07,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -31,12 +31,22 @@
     "mumbai_premium_pct": 0.0,
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
-  "as_of": "2026-06-13T06:36:42.869927Z",
+  "confidence_interval": {
+    "lower_usd": 4178.69,
+    "upper_usd": 4326.59,
+    "lower_24k_per_gram": 13949.35,
+    "upper_24k_per_gram": 14443.1,
+    "lower_22k_per_gram": 12786.91,
+    "upper_22k_per_gram": 13239.51,
+    "interval_pct": 3.49
+  },
+  "direction_confidence": 52.1,
+  "as_of": "2026-06-14T07:05:10.394272Z",
   "source": "model_forecast",
-  "market_status": "market_closed",
+  "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": 0.0738,
+    "score": 0.0747,
     "label": "Bullish",
     "confidence": "high",
     "signal": "Neutral",
@@ -46,40 +56,40 @@
       {
         "title": "SPDR Gold Shares ETF Yields 159 Percent Return Over Five Years",
         "source": "HarianBasis.co",
-        "sentiment": 0.865,
+        "sentiment": 0.886,
         "label": "Bullish",
         "url": "https://www.harianbasis.co/en/spdr-gold-shares-etf-returns-analysis"
       },
       {
-        "title": "GLD ETF Falls 0.9%",
-        "source": "Moomoo",
-        "sentiment": -0.648,
-        "label": "Bearish",
-        "url": "https://www.moomoo.com/news/post/68568297/gld-etf-falls-0-9"
-      },
-      {
         "title": "GLD ETF Declines 0.6%",
         "source": "Moomoo",
-        "sentiment": -0.6,
+        "sentiment": -0.645,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
       },
       {
+        "title": "GLD ETF Falls 0.9%",
+        "source": "Moomoo",
+        "sentiment": -0.621,
+        "label": "Bearish",
+        "url": "https://www.moomoo.com/news/post/68568297/gld-etf-falls-0-9"
+      },
+      {
         "title": "GLD ETF Climbs 2.2%",
         "source": "Moomoo",
-        "sentiment": 0.511,
+        "sentiment": 0.5,
         "label": "Bullish",
         "url": "https://www.moomoo.com/news/post/68308322/gld-etf-climbs-2-2"
       },
       {
-        "title": "Why You Should Play Record Gold Prices with the GLD ETF",
-        "source": "inkl",
-        "sentiment": 0.448,
+        "title": "Why Investing in the GLD ETF Lets You Benefit from Surging Gold Prices",
+        "source": "Bitget",
+        "sentiment": 0.428,
         "label": "Bullish",
-        "url": "https://www.inkl.com/news/why-you-should-play-record-gold-prices-with-the-gld-etf"
+        "url": "https://www.bitget.com/news/detail/12560605159099"
       }
     ],
-    "fetched_at": "2026-06-13T06:36:33.580582"
+    "fetched_at": "2026-06-14T07:05:01.355198"
   },
   "model_info": {
     "trained_at": "2026-06-08T05:24:56.551560Z",
