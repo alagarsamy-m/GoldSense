@@ -1,5 +1,5 @@
 {
-  "score": 0.0726,
+  "score": 0.0751,
   "label": "Bullish",
   "confidence": "high",
   "article_count": 50,
@@ -7,40 +7,40 @@
     {
       "title": "SPDR Gold Shares ETF Yields 159 Percent Return Over Five Years",
       "source": "HarianBasis.co",
-      "sentiment": 0.851,
+      "sentiment": 0.895,
       "label": "Bullish",
       "url": "https://www.harianbasis.co/en/spdr-gold-shares-etf-returns-analysis"
     },
     {
       "title": "GLD ETF Declines 0.6%",
       "source": "Moomoo",
-      "sentiment": -0.644,
+      "sentiment": -0.648,
       "label": "Bearish",
       "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
     },
     {
       "title": "GLD ETF Falls 0.9%",
       "source": "Moomoo",
-      "sentiment": -0.637,
+      "sentiment": -0.609,
       "label": "Bearish",
       "url": "https://www.moomoo.com/news/post/68568297/gld-etf-falls-0-9"
     },
     {
       "title": "GLD ETF Climbs 2.2%",
       "source": "Moomoo",
-      "sentiment": 0.509,
+      "sentiment": 0.531,
       "label": "Bullish",
       "url": "https://www.moomoo.com/news/post/68308322/gld-etf-climbs-2-2"
     },
     {
-      "title": "Billionaires Buy an Index Fund That Is Crushing AI Stocks Nvidia and Palantir in 2026",
-      "source": "The Globe and Mail",
-      "sentiment": 0.447,
+      "title": "Gold price breaks $4,600 record; GLD ETF and gold stocks jump on Powell probe",
+      "source": "TechStock\u00b2",
+      "sentiment": 0.44,
       "label": "Bullish",
-      "url": "https://www.theglobeandmail.com/investing/markets/stocks/DB/pressreleases/37316770/billionaires-buy-an-index-fund-that-is-crushing-ai-stocks-nvidia-and-palantir-in-2026/"
+      "url": "https://ts2.tech/en/gold-price-breaks-4600-record-gld-etf-and-gold-stocks-jump-on-powell-probe/"
     }
   ],
   "source": "alpha_vantage",
-  "fetched_at": "2026-06-15T06:14:04.639507",
+  "fetched_at": "2026-06-15T07:44:10.254281",
   "date": "2026-06-15"
 }

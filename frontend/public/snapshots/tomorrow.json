@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T06:15:22.423919Z",
+  "generated_at": "2026-06-15T07:44:14.251015Z",
   "prediction_date": "2026-06-16",
   "target_date": "2026-06-16",
   "target_type": "calendar_close",
@@ -7,23 +7,23 @@
   "market_closed": false,
   "last_data_date": "2026-06-15",
   "last_actual_usd": 4333.1,
-  "reference_live_usd": 4331.7,
-  "reference_as_of": "2026-06-15T06:15:24.377336Z",
+  "reference_live_usd": 4333.6,
+  "reference_as_of": "2026-06-15T07:44:16.127122Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4333.36,
-  "usd_inr_rate": 94.64,
+  "tomorrow_usd": 4335.26,
+  "usd_inr_rate": 94.6575,
   "trend": "stable",
   "direction_vs_today": "stable",
   "direction_delta_pct": 0.038,
   "direction_delta_usd": 1.66,
   "pct_change": 0.038,
-  "tomorrow_price_24k_per_gram": 14395.71,
-  "tomorrow_price_22k_per_gram": 13196.07,
-  "tomorrow_price_24k_per_10g": 143957.13,
-  "tomorrow_price_22k_per_10g": 131960.71,
+  "tomorrow_price_24k_per_gram": 14404.69,
+  "tomorrow_price_22k_per_gram": 13204.3,
+  "tomorrow_price_24k_per_10g": 144046.91,
+  "tomorrow_price_22k_per_10g": 132043.0,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -32,21 +32,21 @@
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
   "confidence_interval": {
-    "lower_usd": 4275.04,
-    "upper_usd": 4402.65,
-    "lower_24k_per_gram": 14201.96,
-    "upper_24k_per_gram": 14625.9,
-    "lower_22k_per_gram": 13018.47,
-    "upper_22k_per_gram": 13407.07,
-    "interval_pct": 2.94
+    "lower_usd": 4277.7,
+    "upper_usd": 4404.58,
+    "lower_24k_per_gram": 14213.44,
+    "upper_24k_per_gram": 14635.02,
+    "lower_22k_per_gram": 13028.98,
+    "upper_22k_per_gram": 13415.43,
+    "interval_pct": 2.93
   },
-  "direction_confidence": 51.0,
-  "as_of": "2026-06-15T06:15:24.377336Z",
+  "direction_confidence": 50.9,
+  "as_of": "2026-06-15T07:44:16.127122Z",
   "source": "model_forecast",
   "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": 0.0726,
+    "score": 0.0751,
     "label": "Bullish",
     "confidence": "high",
     "signal": "Neutral",
@@ -56,40 +56,40 @@
       {
         "title": "SPDR Gold Shares ETF Yields 159 Percent Return Over Five Years",
         "source": "HarianBasis.co",
-        "sentiment": 0.851,
+        "sentiment": 0.895,
         "label": "Bullish",
         "url": "https://www.harianbasis.co/en/spdr-gold-shares-etf-returns-analysis"
       },
       {
         "title": "GLD ETF Declines 0.6%",
         "source": "Moomoo",
-        "sentiment": -0.644,
+        "sentiment": -0.648,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
       },
       {
         "title": "GLD ETF Falls 0.9%",
         "source": "Moomoo",
-        "sentiment": -0.637,
+        "sentiment": -0.609,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/68568297/gld-etf-falls-0-9"
       },
       {
         "title": "GLD ETF Climbs 2.2%",
         "source": "Moomoo",
-        "sentiment": 0.509,
+        "sentiment": 0.531,
         "label": "Bullish",
         "url": "https://www.moomoo.com/news/post/68308322/gld-etf-climbs-2-2"
       },
       {
-        "title": "Billionaires Buy an Index Fund That Is Crushing AI Stocks Nvidia and Palantir in 2026",
-        "source": "The Globe and Mail",
-        "sentiment": 0.447,
+        "title": "Gold price breaks $4,600 record; GLD ETF and gold stocks jump on Powell probe",
+        "source": "TechStock\u00b2",
+        "sentiment": 0.44,
         "label": "Bullish",
-        "url": "https://www.theglobeandmail.com/investing/markets/stocks/DB/pressreleases/37316770/billionaires-buy-an-index-fund-that-is-crushing-ai-stocks-nvidia-and-palantir-in-2026/"
+        "url": "https://ts2.tech/en/gold-price-breaks-4600-record-gld-etf-and-gold-stocks-jump-on-powell-probe/"
       }
     ],
-    "fetched_at": "2026-06-15T06:14:04.639507"
+    "fetched_at": "2026-06-15T07:44:10.254281"
   },
   "model_info": {
     "trained_at": "2026-06-15T06:15:21.833321Z",
