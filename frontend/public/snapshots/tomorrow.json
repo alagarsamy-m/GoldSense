@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T06:21:58.073572Z",
+  "generated_at": "2026-06-22T08:35:54.641356Z",
   "prediction_date": "2026-06-23",
   "target_date": "2026-06-23",
   "target_type": "calendar_close",
@@ -7,23 +7,23 @@
   "market_closed": false,
   "last_data_date": "2026-06-22",
   "last_actual_usd": 4215.0,
-  "reference_live_usd": 4214.2,
-  "reference_as_of": "2026-06-22T06:22:00.136627Z",
+  "reference_live_usd": 4209.3,
+  "reference_as_of": "2026-06-22T08:35:56.409913Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4215.87,
-  "usd_inr_rate": 94.4825,
+  "tomorrow_usd": 4210.97,
+  "usd_inr_rate": 94.7075,
   "trend": "stable",
   "direction_vs_today": "stable",
   "direction_delta_pct": 0.04,
   "direction_delta_usd": 1.67,
   "pct_change": 0.04,
-  "tomorrow_price_24k_per_gram": 13982.1,
-  "tomorrow_price_22k_per_gram": 12816.93,
-  "tomorrow_price_24k_per_10g": 139821.02,
-  "tomorrow_price_22k_per_10g": 128169.27,
+  "tomorrow_price_24k_per_gram": 13999.1,
+  "tomorrow_price_22k_per_gram": 12832.51,
+  "tomorrow_price_24k_per_10g": 139991.03,
+  "tomorrow_price_22k_per_10g": 128325.11,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -32,21 +32,21 @@
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
   "confidence_interval": {
-    "lower_usd": 4163.69,
-    "upper_usd": 4290.4,
-    "lower_24k_per_gram": 13809.03,
-    "upper_24k_per_gram": 14229.27,
-    "lower_22k_per_gram": 12658.27,
-    "upper_22k_per_gram": 13043.5,
+    "lower_usd": 4158.84,
+    "upper_usd": 4285.41,
+    "lower_24k_per_gram": 13825.82,
+    "upper_24k_per_gram": 14246.57,
+    "lower_22k_per_gram": 12673.67,
+    "upper_22k_per_gram": 13059.36,
     "interval_pct": 3.01
   },
   "direction_confidence": 56.0,
-  "as_of": "2026-06-22T06:22:00.136627Z",
+  "as_of": "2026-06-22T08:35:56.409913Z",
   "source": "model_forecast",
   "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": 0.0433,
+    "score": 0.0387,
     "label": "Neutral",
     "confidence": "high",
     "signal": "Neutral",
@@ -56,40 +56,40 @@
       {
         "title": "SPDR Gold Shares ETF Yields 159 Percent Return Over Five Years",
         "source": "HarianBasis.co",
-        "sentiment": 0.851,
+        "sentiment": 0.855,
         "label": "Bullish",
         "url": "https://www.harianbasis.co/en/spdr-gold-shares-etf-returns-analysis"
       },
       {
         "title": "GLD ETF Declines 4.1%",
         "source": "Moomoo",
-        "sentiment": -0.824,
+        "sentiment": -0.811,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/71349462/gld-etf-declines-4-1"
       },
       {
-        "title": "GLD ETF Falls 0.9%",
-        "source": "Moomoo",
-        "sentiment": -0.622,
-        "label": "Bearish",
-        "url": "https://www.moomoo.com/news/post/68568297/gld-etf-falls-0-9"
-      },
-      {
         "title": "GLD ETF Declines 0.6%",
         "source": "Moomoo",
-        "sentiment": -0.619,
+        "sentiment": -0.64,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
       },
       {
+        "title": "GLD ETF Falls 0.9%",
+        "source": "Moomoo",
+        "sentiment": -0.6,
+        "label": "Bearish",
+        "url": "https://www.moomoo.com/news/post/68568297/gld-etf-falls-0-9"
+      },
+      {
         "title": "GLD ETF Climbs 2.2%",
         "source": "Moomoo",
-        "sentiment": 0.514,
+        "sentiment": 0.527,
         "label": "Bullish",
         "url": "https://www.moomoo.com/news/post/68308322/gld-etf-climbs-2-2"
       }
     ],
-    "fetched_at": "2026-06-22T06:20:46.815975"
+    "fetched_at": "2026-06-22T08:35:49.058292"
   },
   "model_info": {
     "trained_at": "2026-06-22T06:21:57.571996Z",
