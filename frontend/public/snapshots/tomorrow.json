@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-06-27T06:07:20.274027Z",
-  "prediction_date": "2026-06-28",
-  "target_date": "2026-06-28",
+  "generated_at": "2026-06-28T06:42:18.587189Z",
+  "prediction_date": "2026-06-29",
+  "target_date": "2026-06-29",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
-  "market_closed": true,
+  "market_closed": false,
   "last_data_date": "2026-06-26",
   "last_actual_usd": 4096.3,
   "reference_live_usd": 4096.3,
-  "reference_as_of": "2026-06-27T06:07:22.374526Z",
+  "reference_as_of": "2026-06-28T06:42:20.529174Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4096.3,
+  "tomorrow_usd": 4097.92,
   "usd_inr_rate": 94.3,
   "trend": "stable",
   "direction_vs_today": "stable",
-  "direction_delta_pct": 0.0,
-  "direction_delta_usd": 0.0,
-  "pct_change": 0.0,
-  "tomorrow_price_24k_per_gram": 13559.3,
-  "tomorrow_price_22k_per_gram": 12429.36,
-  "tomorrow_price_24k_per_10g": 135593.0,
-  "tomorrow_price_22k_per_10g": 124293.59,
+  "direction_delta_pct": 0.04,
+  "direction_delta_usd": 1.62,
+  "pct_change": 0.04,
+  "tomorrow_price_24k_per_gram": 13564.68,
+  "tomorrow_price_22k_per_gram": 12434.29,
+  "tomorrow_price_24k_per_10g": 135646.75,
+  "tomorrow_price_22k_per_10g": 124342.86,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -31,12 +31,22 @@
     "mumbai_premium_pct": 0.0,
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
-  "as_of": "2026-06-27T06:07:22.374526Z",
+  "confidence_interval": {
+    "lower_usd": 4043.63,
+    "upper_usd": 4172.84,
+    "lower_24k_per_gram": 13384.97,
+    "upper_24k_per_gram": 13812.67,
+    "lower_22k_per_gram": 12269.56,
+    "upper_22k_per_gram": 12661.61,
+    "interval_pct": 3.15
+  },
+  "direction_confidence": 57.7,
+  "as_of": "2026-06-28T06:42:20.529174Z",
   "source": "model_forecast",
-  "market_status": "market_closed",
+  "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": 0.0068,
+    "score": -0.0112,
     "label": "Neutral",
     "confidence": "high",
     "signal": "Neutral",
@@ -46,40 +56,40 @@
       {
         "title": "SPDR Gold Shares ETF Yields 159 Percent Return Over Five Years",
         "source": "HarianBasis.co",
-        "sentiment": 0.899,
+        "sentiment": 0.865,
         "label": "Bullish",
         "url": "https://www.harianbasis.co/en/spdr-gold-shares-etf-returns-analysis"
       },
       {
         "title": "GLD ETF Declines 4.1%",
         "source": "Moomoo",
-        "sentiment": -0.822,
+        "sentiment": -0.836,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/71349462/gld-etf-declines-4-1"
       },
       {
-        "title": "GLD ETF Declines 0.6%",
-        "source": "Moomoo",
-        "sentiment": -0.642,
-        "label": "Bearish",
-        "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
-      },
-      {
         "title": "GLD ETF Falls 0.9%",
         "source": "Moomoo",
-        "sentiment": -0.64,
+        "sentiment": -0.649,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/68568297/gld-etf-falls-0-9"
       },
       {
+        "title": "GLD ETF Declines 0.6%",
+        "source": "Moomoo",
+        "sentiment": -0.626,
+        "label": "Bearish",
+        "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
+      },
+      {
         "title": "GLD ETF Climbs 2.2%",
         "source": "Moomoo",
-        "sentiment": 0.527,
+        "sentiment": 0.533,
         "label": "Bullish",
         "url": "https://www.moomoo.com/news/post/68308322/gld-etf-climbs-2-2"
       }
     ],
-    "fetched_at": "2026-06-27T06:07:14.026681"
+    "fetched_at": "2026-06-28T06:42:12.926657"
   },
   "model_info": {
     "trained_at": "2026-06-22T06:21:57.571996Z",

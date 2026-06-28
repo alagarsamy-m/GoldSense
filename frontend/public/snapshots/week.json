@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T06:07:20.274027Z",
+  "generated_at": "2026-06-28T06:42:18.587189Z",
   "forecast": [
     {
       "date": "2026-06-22",
@@ -201,7 +201,7 @@
   "market_context": {
     "usd_per_oz": 4096.3,
     "usd_inr_rate": 94.3,
-    "as_of": "2026-06-27T06:07:21.572441Z",
+    "as_of": "2026-06-28T06:42:19.911527Z",
     "source": "yfinance",
     "market_status": "live",
     "is_live": true,
