@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T05:23:55.965692Z",
+  "generated_at": "2026-06-29T07:11:30.216933Z",
   "prediction_date": "2026-06-30",
   "target_date": "2026-06-30",
   "target_type": "calendar_close",
@@ -7,23 +7,23 @@
   "market_closed": false,
   "last_data_date": "2026-06-29",
   "last_actual_usd": 4068.5,
-  "reference_live_usd": 4069.1,
-  "reference_as_of": "2026-06-29T05:23:57.948641Z",
+  "reference_live_usd": 4073.7,
+  "reference_as_of": "2026-06-29T07:11:32.259188Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4070.67,
-  "usd_inr_rate": 94.3725,
+  "tomorrow_usd": 4075.28,
+  "usd_inr_rate": 94.3375,
   "trend": "stable",
   "direction_vs_today": "stable",
   "direction_delta_pct": 0.039,
-  "direction_delta_usd": 1.57,
+  "direction_delta_usd": 1.58,
   "pct_change": 0.039,
-  "tomorrow_price_24k_per_gram": 13484.84,
-  "tomorrow_price_22k_per_gram": 12361.1,
-  "tomorrow_price_24k_per_10g": 134848.36,
-  "tomorrow_price_22k_per_10g": 123611.0,
+  "tomorrow_price_24k_per_gram": 13495.07,
+  "tomorrow_price_22k_per_gram": 12370.48,
+  "tomorrow_price_24k_per_10g": 134950.73,
+  "tomorrow_price_22k_per_10g": 123704.84,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -32,21 +32,21 @@
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
   "confidence_interval": {
-    "lower_usd": 4008.57,
-    "upper_usd": 4146.81,
-    "lower_24k_per_gram": 13279.09,
-    "upper_24k_per_gram": 13737.05,
-    "lower_22k_per_gram": 12172.5,
-    "upper_22k_per_gram": 12592.29,
+    "lower_usd": 4013.0,
+    "upper_usd": 4151.5,
+    "lower_24k_per_gram": 13288.85,
+    "upper_24k_per_gram": 13747.48,
+    "lower_22k_per_gram": 12181.44,
+    "upper_22k_per_gram": 12601.85,
     "interval_pct": 3.4
   },
   "direction_confidence": 62.7,
-  "as_of": "2026-06-29T05:23:57.948641Z",
+  "as_of": "2026-06-29T07:11:32.259188Z",
   "source": "model_forecast",
   "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": -0.0081,
+    "score": -0.0097,
     "label": "Neutral",
     "confidence": "high",
     "signal": "Neutral",
@@ -56,40 +56,40 @@
       {
         "title": "SPDR Gold Shares ETF Yields 159 Percent Return Over Five Years",
         "source": "HarianBasis.co",
-        "sentiment": 0.852,
+        "sentiment": 0.859,
         "label": "Bullish",
         "url": "https://www.harianbasis.co/en/spdr-gold-shares-etf-returns-analysis"
       },
       {
         "title": "GLD ETF Declines 4.1%",
         "source": "Moomoo",
-        "sentiment": -0.824,
+        "sentiment": -0.811,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/71349462/gld-etf-declines-4-1"
       },
       {
-        "title": "GLD ETF Declines 0.6%",
-        "source": "Moomoo",
-        "sentiment": -0.638,
-        "label": "Bearish",
-        "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
-      },
-      {
         "title": "GLD ETF Falls 0.9%",
         "source": "Moomoo",
-        "sentiment": -0.627,
+        "sentiment": -0.618,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/68568297/gld-etf-falls-0-9"
       },
       {
+        "title": "GLD ETF Declines 0.6%",
+        "source": "Moomoo",
+        "sentiment": -0.613,
+        "label": "Bearish",
+        "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
+      },
+      {
         "title": "GLD ETF Climbs 2.2%",
         "source": "Moomoo",
-        "sentiment": 0.542,
+        "sentiment": 0.512,
         "label": "Bullish",
         "url": "https://www.moomoo.com/news/post/68308322/gld-etf-climbs-2-2"
       }
     ],
-    "fetched_at": "2026-06-29T05:22:43.672064"
+    "fetched_at": "2026-06-29T07:11:25.144086"
   },
   "model_info": {
     "trained_at": "2026-06-29T05:23:55.427622Z",
