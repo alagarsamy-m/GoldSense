@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-07-03T06:07:50.030757Z",
-  "prediction_date": "2026-07-04",
-  "target_date": "2026-07-04",
+  "generated_at": "2026-07-04T05:58:33.941889Z",
+  "prediction_date": "2026-07-05",
+  "target_date": "2026-07-05",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
   "market_closed": true,
   "last_data_date": "2026-07-03",
-  "last_actual_usd": 4184.1,
-  "reference_live_usd": 4184.1,
-  "reference_as_of": "2026-07-03T06:07:52.017026Z",
+  "last_actual_usd": 4187.3,
+  "reference_live_usd": 4187.3,
+  "reference_as_of": "2026-07-04T05:58:35.800590Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4184.1,
-  "usd_inr_rate": 95.3175,
+  "tomorrow_usd": 4187.3,
+  "usd_inr_rate": 95.2,
   "trend": "stable",
   "direction_vs_today": "stable",
   "direction_delta_pct": 0.0,
   "direction_delta_usd": 0.0,
   "pct_change": 0.0,
-  "tomorrow_price_24k_per_gram": 13999.37,
-  "tomorrow_price_22k_per_gram": 12832.76,
-  "tomorrow_price_24k_per_10g": 139993.71,
-  "tomorrow_price_22k_per_10g": 128327.57,
+  "tomorrow_price_24k_per_gram": 13992.81,
+  "tomorrow_price_22k_per_gram": 12826.74,
+  "tomorrow_price_24k_per_10g": 139928.07,
+  "tomorrow_price_22k_per_10g": 128267.4,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -31,12 +31,12 @@
     "mumbai_premium_pct": 0.0,
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
-  "as_of": "2026-07-03T06:07:52.017026Z",
+  "as_of": "2026-07-04T05:58:35.800590Z",
   "source": "model_forecast",
   "market_status": "market_closed",
   "is_live": false,
   "sentiment": {
-    "score": -0.0409,
+    "score": -0.0407,
     "label": "Neutral",
     "confidence": "high",
     "signal": "Neutral",
@@ -46,40 +46,40 @@
       {
         "title": "SPDR Gold Shares ETF Yields 159 Percent Return Over Five Years",
         "source": "HarianBasis.co",
-        "sentiment": 0.895,
+        "sentiment": 0.881,
         "label": "Bullish",
         "url": "https://www.harianbasis.co/en/spdr-gold-shares-etf-returns-analysis"
       },
       {
         "title": "GLD ETF Declines 4.1%",
         "source": "Moomoo",
-        "sentiment": -0.825,
+        "sentiment": -0.808,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/71349462/gld-etf-declines-4-1"
       },
       {
         "title": "GLD ETF Falls 0.9%",
         "source": "Moomoo",
-        "sentiment": -0.646,
+        "sentiment": -0.649,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/68568297/gld-etf-falls-0-9"
       },
       {
         "title": "GLD ETF Declines 0.6%",
         "source": "Moomoo",
-        "sentiment": -0.64,
+        "sentiment": -0.619,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
       },
       {
         "title": "GLD ETF Climbs 2.2%",
         "source": "Moomoo",
-        "sentiment": 0.518,
+        "sentiment": 0.507,
         "label": "Bullish",
         "url": "https://www.moomoo.com/news/post/68308322/gld-etf-climbs-2-2"
       }
     ],
-    "fetched_at": "2026-07-03T06:07:43.902267"
+    "fetched_at": "2026-07-04T05:58:27.995287"
   },
   "model_info": {
     "trained_at": "2026-06-29T05:23:55.427622Z",
