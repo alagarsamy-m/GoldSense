@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-16T05:23:44.572828Z",
+  "generated_at": "2026-07-17T05:26:20.641378Z",
   "forecast": [
     {
       "date": "2026-07-13",
@@ -23,11 +23,11 @@
         "mumbai_premium_pct": 0.0,
         "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
       },
-      "reference_live_usd": 4034.8,
-      "reference_live_price_24k_per_gram": 13638.7,
+      "reference_live_usd": 3979.4,
+      "reference_live_price_24k_per_gram": 13455.21,
       "direction_vs_today": "up",
-      "direction_delta_pct": 0.674,
-      "direction_delta_usd": 27.2
+      "direction_delta_pct": 2.076,
+      "direction_delta_usd": 82.6
     },
     {
       "date": "2026-07-14",
@@ -51,11 +51,11 @@
         "mumbai_premium_pct": 0.0,
         "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
       },
-      "reference_live_usd": 4034.8,
-      "reference_live_price_24k_per_gram": 13638.7,
-      "direction_vs_today": "stable",
-      "direction_delta_pct": -0.193,
-      "direction_delta_usd": -7.8
+      "reference_live_usd": 3979.4,
+      "reference_live_price_24k_per_gram": 13455.21,
+      "direction_vs_today": "up",
+      "direction_delta_pct": 1.196,
+      "direction_delta_usd": 47.6
     },
     {
       "date": "2026-07-15",
@@ -79,11 +79,11 @@
         "mumbai_premium_pct": 0.0,
         "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
       },
-      "reference_live_usd": 4034.8,
-      "reference_live_price_24k_per_gram": 13638.7,
-      "direction_vs_today": "stable",
-      "direction_delta_pct": 0.109,
-      "direction_delta_usd": 4.4
+      "reference_live_usd": 3979.4,
+      "reference_live_price_24k_per_gram": 13455.21,
+      "direction_vs_today": "up",
+      "direction_delta_pct": 1.503,
+      "direction_delta_usd": 59.8
     },
     {
       "date": "2026-07-16",
@@ -107,29 +107,27 @@
         "mumbai_premium_pct": 0.0,
         "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
       },
-      "reference_live_usd": 4034.8,
-      "reference_live_price_24k_per_gram": 13638.7,
-      "direction_vs_today": "stable",
-      "direction_delta_pct": 0.0,
-      "direction_delta_usd": 0.0
+      "reference_live_usd": 3979.4,
+      "reference_live_price_24k_per_gram": 13455.21,
+      "direction_vs_today": "up",
+      "direction_delta_pct": 1.392,
+      "direction_delta_usd": 55.4
     },
     {
-      "target_date": "2026-07-17",
       "date": "2026-07-17",
+      "target_date": "2026-07-17",
       "day": "Fri",
-      "usd": 4036.34,
-      "usd_inr_rate": 96.298,
-      "status": "forecast",
+      "status": "actual",
+      "market_status": "actual",
       "is_trading_day": true,
-      "trend": "up",
-      "pct_change": 0.038,
-      "delta_usd": 1.54,
+      "usd": 3980.0,
+      "usd_inr_rate": 96.335,
       "location": "Mumbai",
-      "base_per_gram": 12496.71,
-      "price_24k_per_gram": 13643.91,
-      "price_22k_per_gram": 12506.92,
-      "price_24k_per_10g": 136439.13,
-      "price_22k_per_10g": 125069.2,
+      "base_per_gram": 12327.01,
+      "price_24k_per_gram": 13458.63,
+      "price_22k_per_gram": 12337.08,
+      "price_24k_per_10g": 134586.35,
+      "price_22k_per_10g": 123370.82,
       "pricing_formula": {
         "base_formula": "(USD_per_oz * USDINR) / 31.1035",
         "customs_duty_pct": 6.0,
@@ -137,40 +135,27 @@
         "mumbai_premium_pct": 0.0,
         "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
       },
-      "direction_confidence": 58.3,
-      "confidence_interval": {
-        "lower_usd": 3983.34,
-        "upper_usd": 4090.9,
-        "lower_24k_per_gram": 13464.75,
-        "upper_24k_per_gram": 13828.34,
-        "lower_22k_per_gram": 12342.69,
-        "upper_22k_per_gram": 12675.97,
-        "interval_pct": 2.66
-      },
-      "market_status": "forecast",
-      "reference_live_usd": 4034.8,
-      "reference_live_price_24k_per_gram": 13638.7,
+      "reference_live_usd": 3979.4,
+      "reference_live_price_24k_per_gram": 13455.21,
       "direction_vs_today": "stable",
-      "direction_delta_pct": 0.038,
-      "direction_delta_usd": 1.54
+      "direction_delta_pct": 0.015,
+      "direction_delta_usd": 0.6
     },
     {
-      "target_date": "2026-07-18",
       "date": "2026-07-18",
+      "target_date": "2026-07-18",
       "day": "Sat",
-      "usd": 4036.34,
-      "usd_inr_rate": 96.298,
       "status": "market_closed",
+      "market_status": "market_closed",
       "is_trading_day": false,
-      "trend": "up",
-      "pct_change": 0.038,
-      "delta_usd": 1.54,
+      "usd": 3980.0,
+      "usd_inr_rate": 96.335,
       "location": "Mumbai",
-      "base_per_gram": 12496.71,
-      "price_24k_per_gram": 13643.91,
-      "price_22k_per_gram": 12506.92,
-      "price_24k_per_10g": 136439.13,
-      "price_22k_per_10g": 125069.2,
+      "base_per_gram": 12327.01,
+      "price_24k_per_gram": 13458.63,
+      "price_22k_per_gram": 12337.08,
+      "price_24k_per_10g": 134586.35,
+      "price_22k_per_10g": 123370.82,
       "pricing_formula": {
         "base_formula": "(USD_per_oz * USDINR) / 31.1035",
         "customs_duty_pct": 6.0,
@@ -178,39 +163,27 @@
         "mumbai_premium_pct": 0.0,
         "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
       },
-      "confidence_interval": {
-        "lower_usd": 3983.34,
-        "upper_usd": 4090.9,
-        "lower_24k_per_gram": 13464.75,
-        "upper_24k_per_gram": 13828.34,
-        "lower_22k_per_gram": 12342.69,
-        "upper_22k_per_gram": 12675.97,
-        "interval_pct": 2.66
-      },
-      "market_status": "market_closed",
-      "reference_live_usd": 4034.8,
-      "reference_live_price_24k_per_gram": 13638.7,
+      "reference_live_usd": 3979.4,
+      "reference_live_price_24k_per_gram": 13455.21,
       "direction_vs_today": "stable",
-      "direction_delta_pct": 0.038,
-      "direction_delta_usd": 1.54
+      "direction_delta_pct": 0.015,
+      "direction_delta_usd": 0.6
     },
     {
-      "target_date": "2026-07-19",
       "date": "2026-07-19",
+      "target_date": "2026-07-19",
       "day": "Sun",
-      "usd": 4036.34,
-      "usd_inr_rate": 96.298,
       "status": "market_closed",
+      "market_status": "market_closed",
       "is_trading_day": false,
-      "trend": "up",
-      "pct_change": 0.038,
-      "delta_usd": 1.54,
+      "usd": 3980.0,
+      "usd_inr_rate": 96.335,
       "location": "Mumbai",
-      "base_per_gram": 12496.71,
-      "price_24k_per_gram": 13643.91,
-      "price_22k_per_gram": 12506.92,
-      "price_24k_per_10g": 136439.13,
-      "price_22k_per_10g": 125069.2,
+      "base_per_gram": 12327.01,
+      "price_24k_per_gram": 13458.63,
+      "price_22k_per_gram": 12337.08,
+      "price_24k_per_10g": 134586.35,
+      "price_22k_per_10g": 123370.82,
       "pricing_formula": {
         "base_formula": "(USD_per_oz * USDINR) / 31.1035",
         "customs_duty_pct": 6.0,
@@ -218,31 +191,21 @@
         "mumbai_premium_pct": 0.0,
         "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
       },
-      "confidence_interval": {
-        "lower_usd": 3983.34,
-        "upper_usd": 4090.9,
-        "lower_24k_per_gram": 13464.75,
-        "upper_24k_per_gram": 13828.34,
-        "lower_22k_per_gram": 12342.69,
-        "upper_22k_per_gram": 12675.97,
-        "interval_pct": 2.66
-      },
-      "market_status": "market_closed",
-      "reference_live_usd": 4034.8,
-      "reference_live_price_24k_per_gram": 13638.7,
+      "reference_live_usd": 3979.4,
+      "reference_live_price_24k_per_gram": 13455.21,
       "direction_vs_today": "stable",
-      "direction_delta_pct": 0.038,
-      "direction_delta_usd": 1.54
+      "direction_delta_pct": 0.015,
+      "direction_delta_usd": 0.6
     }
   ],
   "market_context": {
-    "usd_per_oz": 4034.8,
-    "usd_inr_rate": 96.298,
-    "as_of": "2026-07-16T05:23:46.006156Z",
+    "usd_per_oz": 3979.4,
+    "usd_inr_rate": 96.325,
+    "as_of": "2026-07-17T05:26:21.965136Z",
     "source": "yfinance",
     "market_status": "live",
     "is_live": true,
-    "verified_date": "2026-07-16",
+    "verified_date": "2026-07-17",
     "location": "Mumbai"
   }
 }
