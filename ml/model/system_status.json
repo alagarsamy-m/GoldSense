@@ -1,61 +1,61 @@
 {
-  "updated_at": "2026-07-18T05:08:15.864625Z",
+  "updated_at": "2026-07-19T05:36:01.906225Z",
   "pipeline": "healthy",
-  "total_predictions_logged": 625,
-  "public_history_rows": 98,
+  "total_predictions_logged": 632,
+  "public_history_rows": 99,
   "rolling_metrics": {
     "last_7": {
-      "avg_mape": 0.547,
+      "avg_mape": 0.656,
       "direction_accuracy": 42.9,
       "count": 7
     },
     "last_30": {
-      "avg_mape": 0.97,
-      "direction_accuracy": 33.3,
+      "avg_mape": 0.983,
+      "direction_accuracy": 36.7,
       "count": 30
     }
   },
   "horizon_metrics": {
     "D1": {
-      "avg_mape": 0.97,
-      "direction_accuracy": 33.3,
+      "avg_mape": 0.983,
+      "direction_accuracy": 36.7,
       "count": 30
     },
     "D2": {
-      "avg_mape": 1.5,
-      "direction_accuracy": 33.3,
+      "avg_mape": 1.483,
+      "direction_accuracy": 36.7,
       "count": 30
     },
     "D3": {
-      "avg_mape": 1.881,
-      "direction_accuracy": 33.3,
+      "avg_mape": 1.889,
+      "direction_accuracy": 36.7,
       "count": 30
     },
     "D4": {
-      "avg_mape": 2.163,
-      "direction_accuracy": 33.3,
+      "avg_mape": 2.113,
+      "direction_accuracy": 36.7,
       "count": 30
     },
     "D5": {
-      "avg_mape": 2.284,
-      "direction_accuracy": 33.3,
+      "avg_mape": 2.27,
+      "direction_accuracy": 36.7,
       "count": 30
     },
     "D6": {
-      "avg_mape": 2.528,
-      "direction_accuracy": 33.3,
+      "avg_mape": 2.522,
+      "direction_accuracy": 36.7,
       "count": 30
     },
     "D7": {
-      "avg_mape": 2.831,
-      "direction_accuracy": 33.3,
+      "avg_mape": 2.777,
+      "direction_accuracy": 36.7,
       "count": 30
     }
   },
   "drift": {
     "drift_detected": true,
     "message": "D1 direction 42.9% < 45.0%",
-    "avg_mape": 0.547,
+    "avg_mape": 0.656,
     "dir_accuracy": 42.9,
     "window": 7,
     "retrain_recommended": true
@@ -63,7 +63,7 @@
   "insights": [
     {
       "type": "weekly_horizon",
-      "message": "Best recent horizon D1 at 0.97% MAPE; worst D7 at 2.83% MAPE.",
+      "message": "Best recent horizon D1 at 0.98% MAPE; worst D7 at 2.78% MAPE.",
       "action": "Keep public copy focused on realized daily logs while retaining horizon analytics internally."
     },
     {
@@ -74,24 +74,12 @@
   ],
   "pending_batches": 8,
   "next_prediction": {
-    "generated_at": "2026-07-18T05:08:15.832656",
-    "generated_on": "2026-07-18",
+    "generated_at": "2026-07-19T05:36:01.871340",
+    "generated_on": "2026-07-19",
     "base_verified_date": "2026-07-17",
     "calendar_horizons": [
       {
         "horizon": "D1",
-        "target_date": "2026-07-19",
-        "usd": 4018.8,
-        "usd_inr": 96.28,
-        "price_24k_per_gram": 13582.08,
-        "price_22k_per_gram": 12450.24,
-        "price_24k_per_10g": 135820.81,
-        "price_22k_per_10g": 124502.41,
-        "trend": "stable",
-        "market_status": "market_closed"
-      },
-      {
-        "horizon": "D2",
         "target_date": "2026-07-20",
         "usd": 4020.33,
         "usd_inr": 96.28,
@@ -103,7 +91,7 @@
         "market_status": "forecast"
       },
       {
-        "horizon": "D3",
+        "horizon": "D2",
         "target_date": "2026-07-21",
         "usd": 4021.87,
         "usd_inr": 96.28,
@@ -115,7 +103,7 @@
         "market_status": "forecast"
       },
       {
-        "horizon": "D4",
+        "horizon": "D3",
         "target_date": "2026-07-22",
         "usd": 4023.41,
         "usd_inr": 96.28,
@@ -127,7 +115,7 @@
         "market_status": "forecast"
       },
       {
-        "horizon": "D5",
+        "horizon": "D4",
         "target_date": "2026-07-23",
         "usd": 4024.94,
         "usd_inr": 96.28,
@@ -139,7 +127,7 @@
         "market_status": "forecast"
       },
       {
-        "horizon": "D6",
+        "horizon": "D5",
         "target_date": "2026-07-24",
         "usd": 4026.48,
         "usd_inr": 96.28,
@@ -151,8 +139,20 @@
         "market_status": "forecast"
       },
       {
-        "horizon": "D7",
+        "horizon": "D6",
         "target_date": "2026-07-25",
+        "usd": 4026.48,
+        "usd_inr": 96.28,
+        "price_24k_per_gram": 13608.04,
+        "price_22k_per_gram": 12474.03,
+        "price_24k_per_10g": 136080.35,
+        "price_22k_per_10g": 124740.32,
+        "trend": "stable",
+        "market_status": "market_closed"
+      },
+      {
+        "horizon": "D7",
+        "target_date": "2026-07-26",
         "usd": 4026.48,
         "usd_inr": 96.28,
         "price_24k_per_gram": 13608.04,
