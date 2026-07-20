@@ -1,5 +1,5 @@
 {
-  "score": -0.0211,
+  "score": -0.0235,
   "label": "Neutral",
   "confidence": "high",
   "article_count": 50,
@@ -7,40 +7,40 @@
     {
       "title": "SPDR Gold Shares ETF Yields 159 Percent Return Over Five Years",
       "source": "HarianBasis.co",
-      "sentiment": 0.893,
+      "sentiment": 0.892,
       "label": "Bullish",
       "url": "https://www.harianbasis.co/en/spdr-gold-shares-etf-returns-analysis"
     },
     {
       "title": "GLD ETF Declines 4.1%",
       "source": "Moomoo",
-      "sentiment": -0.814,
+      "sentiment": -0.836,
       "label": "Bearish",
       "url": "https://www.moomoo.com/news/post/71349462/gld-etf-declines-4-1"
     },
     {
       "title": "GLD ETF Declines 0.6%",
       "source": "Moomoo",
-      "sentiment": -0.603,
+      "sentiment": -0.626,
       "label": "Bearish",
       "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
     },
     {
       "title": "GLD ETF Rises 1.4%",
       "source": "Moomoo",
-      "sentiment": 0.536,
+      "sentiment": 0.505,
       "label": "Bullish",
       "url": "https://www.moomoo.com/news/post/72958841/gld-etf-rises-1-4"
     },
     {
-      "title": "SPDR GOLD SHARES ETF UP 2.3%",
+      "title": "GLD ETF Declines 0.7%",
       "source": "Moomoo",
-      "sentiment": 0.439,
-      "label": "Bullish",
-      "url": "https://www.moomoo.com/news/flash/22737515/spdr-gold-shares-etf-up-2-3"
+      "sentiment": -0.444,
+      "label": "Bearish",
+      "url": "https://www.moomoo.com/news/post/71848090/gld-etf-declines-0-7"
     }
   ],
   "source": "alpha_vantage",
-  "fetched_at": "2026-07-19T05:35:55.876822",
-  "date": "2026-07-19"
+  "fetched_at": "2026-07-20T04:30:10.297704",
+  "date": "2026-07-20"
 }
