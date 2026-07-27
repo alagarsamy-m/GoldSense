@@ -1,5 +1,5 @@
 {
-  "score": -0.0263,
+  "score": -0.0255,
   "label": "Neutral",
   "confidence": "high",
   "article_count": 50,
@@ -7,40 +7,40 @@
     {
       "title": "SPDR Gold Shares ETF Yields 159 Percent Return Over Five Years",
       "source": "HarianBasis.co",
-      "sentiment": 0.879,
+      "sentiment": 0.899,
       "label": "Bullish",
       "url": "https://www.harianbasis.co/en/spdr-gold-shares-etf-returns-analysis"
     },
     {
       "title": "GLD ETF Declines 4.1%",
       "source": "Moomoo",
-      "sentiment": -0.815,
+      "sentiment": -0.824,
       "label": "Bearish",
       "url": "https://www.moomoo.com/news/post/71349462/gld-etf-declines-4-1"
     },
     {
       "title": "GLD ETF Declines 0.6%",
       "source": "Moomoo",
-      "sentiment": -0.645,
+      "sentiment": -0.646,
       "label": "Bearish",
       "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
     },
     {
       "title": "GLD ETF Rises 1.4%",
       "source": "Moomoo",
-      "sentiment": 0.502,
+      "sentiment": 0.532,
       "label": "Bullish",
       "url": "https://www.moomoo.com/news/post/72958841/gld-etf-rises-1-4"
     },
     {
-      "title": "Trade Tracker: Steve Weiss sells his GLD ETF Position",
-      "source": "CNBC",
-      "sentiment": -0.45,
-      "label": "Bearish",
-      "url": "https://www.cnbc.com/video/2026/06/26/trade-tracker-steve-weiss-sells-his-gld-etf-position.html"
+      "title": "SPDR GOLD SHARES ETF UP 2.3%",
+      "source": "Moomoo",
+      "sentiment": 0.449,
+      "label": "Bullish",
+      "url": "https://www.moomoo.com/news/flash/22737515/spdr-gold-shares-etf-up-2-3"
     }
   ],
   "source": "alpha_vantage",
-  "fetched_at": "2026-07-26T05:44:32.177757",
-  "date": "2026-07-26"
+  "fetched_at": "2026-07-27T04:30:29.029941",
+  "date": "2026-07-27"
 }
