@@ -1,46 +1,46 @@
 {
-  "score": -0.0128,
-  "label": "Neutral",
+  "score": 0.2552,
+  "label": "Bullish",
   "confidence": "high",
-  "article_count": 50,
+  "article_count": 10,
   "top_headlines": [
     {
-      "title": "SPDR Gold Shares ETF Yields 159 Percent Return Over Five Years",
-      "source": "HarianBasis.co",
-      "sentiment": 0.898,
+      "title": "Chinese Dip-Buying Bolsters Gold as Prices Find Floor at $4,000",
+      "source": "Financial Post",
+      "sentiment": 0.542,
       "label": "Bullish",
-      "url": "https://www.harianbasis.co/en/spdr-gold-shares-etf-returns-analysis"
+      "url": "https://financialpost.com/pmn/business-pmn/chinese-dip-buying-bolsters-gold-as-prices-find-floor-at-4000"
     },
     {
-      "title": "GLD ETF Declines 4.1%",
-      "source": "Moomoo",
-      "sentiment": -0.847,
+      "title": "Chinese dip-buying bolsters gold as prices find floor at $4,000",
+      "source": "Crypto Briefing",
+      "sentiment": -0.494,
       "label": "Bearish",
-      "url": "https://www.moomoo.com/news/post/71349462/gld-etf-declines-4-1"
+      "url": "https://cryptobriefing.com/chinese-dip-buying-bolsters-gold-as-prices-find-floor-at-4000/"
     },
     {
-      "title": "GLD ETF Declines 0.6%",
-      "source": "Moomoo",
-      "sentiment": -0.605,
-      "label": "Bearish",
-      "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
-    },
-    {
-      "title": "GLD ETF Rises 1.4%",
-      "source": "Moomoo",
-      "sentiment": 0.534,
+      "title": "Gold steady as West Asia talks weigh on interest rate outlook",
+      "source": "Bloomberg",
+      "sentiment": 0.791,
       "label": "Bullish",
-      "url": "https://www.moomoo.com/news/post/72958841/gld-etf-rises-1-4"
+      "url": "https://www.bloomberg.com/news/articles/2026-08-03/gold-steady-as-middle-east-talks-weigh-on-interest-rate-outlook"
     },
     {
-      "title": "GLD ETF Declines 0.7%",
-      "source": "Moomoo",
-      "sentiment": -0.449,
-      "label": "Bearish",
-      "url": "https://www.moomoo.com/news/post/71848090/gld-etf-declines-0-7"
+      "title": "The AI Trap: Why Relationships and Distribution Are Your Only Real Moats",
+      "source": "Addicted2success.com",
+      "sentiment": 0.7,
+      "label": "Bullish",
+      "url": "https://addicted2success.com/ai/ai-trap-relationships-distribution-business-moats/"
+    },
+    {
+      "title": "\u2018Get What\u2019s Mine\u2019 \u2013 Nabil Anane Eyes Path Back To Gold, Starting With Suakim At The Inner Circle 25",
+      "source": "Onefc.com",
+      "sentiment": 0.599,
+      "label": "Bullish",
+      "url": "https://www.onefc.com/news/get-whats-mine-nabil-anane-eyes-path-back-to-gold-starting-with-suakim-at-the-inner-circle-25/"
     }
   ],
-  "source": "alpha_vantage",
-  "fetched_at": "2026-08-04T05:28:53.922151",
-  "date": "2026-08-04"
+  "source": "newsapi",
+  "fetched_at": "2026-08-05T05:28:20.532101",
+  "date": "2026-08-05"
 }
