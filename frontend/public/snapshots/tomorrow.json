@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-08-21T03:28:59.219065Z",
-  "prediction_date": "2026-08-22",
-  "target_date": "2026-08-22",
+  "generated_at": "2026-08-22T03:13:47.782545Z",
+  "prediction_date": "2026-08-23",
+  "target_date": "2026-08-23",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
   "market_closed": true,
   "last_data_date": "2026-08-21",
-  "last_actual_usd": 4590.0,
-  "reference_live_usd": 4590.3,
-  "reference_as_of": "2026-08-21T03:29:01.183065Z",
+  "last_actual_usd": 4661.6,
+  "reference_live_usd": 4661.6,
+  "reference_as_of": "2026-08-22T03:13:49.817423Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4590.3,
+  "tomorrow_usd": 4661.6,
   "usd_inr_rate": 95.69,
   "trend": "stable",
   "direction_vs_today": "stable",
   "direction_delta_pct": 0.0,
   "direction_delta_usd": 0.0,
   "pct_change": 0.0,
-  "tomorrow_price_24k_per_gram": 15418.48,
-  "tomorrow_price_22k_per_gram": 14133.6,
-  "tomorrow_price_24k_per_10g": 154184.76,
-  "tomorrow_price_22k_per_10g": 141336.03,
+  "tomorrow_price_24k_per_gram": 15657.97,
+  "tomorrow_price_22k_per_gram": 14353.14,
+  "tomorrow_price_24k_per_10g": 156579.68,
+  "tomorrow_price_22k_per_10g": 143531.37,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -31,12 +31,12 @@
     "mumbai_premium_pct": 0.0,
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
-  "as_of": "2026-08-21T03:29:01.183065Z",
+  "as_of": "2026-08-22T03:13:49.817423Z",
   "source": "model_forecast",
   "market_status": "market_closed",
   "is_live": false,
   "sentiment": {
-    "score": 0.0371,
+    "score": 0.0396,
     "label": "Neutral",
     "confidence": "high",
     "signal": "Neutral",
@@ -46,40 +46,40 @@
       {
         "title": "GLD ETF Declines 4.1%",
         "source": "Moomoo",
-        "sentiment": -0.838,
+        "sentiment": -0.8,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/71349462/gld-etf-declines-4-1"
       },
       {
         "title": "GLD ETF Declines 0.6%",
         "source": "Moomoo",
-        "sentiment": -0.617,
+        "sentiment": -0.627,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
       },
       {
-        "title": "GLD ETF Rises 1.4%",
+        "title": "GLD ETF Rises 1.0%",
         "source": "Moomoo",
-        "sentiment": 0.537,
+        "sentiment": 0.535,
         "label": "Bullish",
-        "url": "https://www.moomoo.com/news/post/72958841/gld-etf-rises-1-4"
+        "url": "https://www.moomoo.com/news/post/74816285/gld-etf-rises-1-0"
       },
       {
         "title": "GLD ETF Gains 4.1%",
         "source": "Moomoo",
-        "sentiment": 0.536,
+        "sentiment": 0.53,
         "label": "Bullish",
         "url": "https://www.moomoo.com/news/post/74178929/gld-etf-gains-4-1?futusource=news_newspage_recommend"
       },
       {
-        "title": "GLD ETF Rises 1.0%",
+        "title": "GLD ETF Rises 1.4%",
         "source": "Moomoo",
-        "sentiment": 0.513,
+        "sentiment": 0.526,
         "label": "Bullish",
-        "url": "https://www.moomoo.com/news/post/74816285/gld-etf-rises-1-0"
+        "url": "https://www.moomoo.com/news/post/72958841/gld-etf-rises-1-4"
       }
     ],
-    "fetched_at": "2026-08-21T03:28:53.289658"
+    "fetched_at": "2026-08-22T03:13:41.646926"
   },
   "model_info": {
     "trained_at": "2026-08-17T02:14:35.823625Z",
