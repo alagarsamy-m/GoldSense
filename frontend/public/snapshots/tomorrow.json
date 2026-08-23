@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-08-22T03:13:47.782545Z",
-  "prediction_date": "2026-08-23",
-  "target_date": "2026-08-23",
+  "generated_at": "2026-08-23T03:28:28.730898Z",
+  "prediction_date": "2026-08-24",
+  "target_date": "2026-08-24",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
-  "market_closed": true,
+  "market_closed": false,
   "last_data_date": "2026-08-21",
-  "last_actual_usd": 4661.6,
-  "reference_live_usd": 4661.6,
-  "reference_as_of": "2026-08-22T03:13:49.817423Z",
+  "last_actual_usd": 4680.6,
+  "reference_live_usd": 4680.6,
+  "reference_as_of": "2026-08-23T03:28:30.979848Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4661.6,
-  "usd_inr_rate": 95.69,
+  "tomorrow_usd": 4682.42,
+  "usd_inr_rate": 95.71,
   "trend": "stable",
   "direction_vs_today": "stable",
-  "direction_delta_pct": 0.0,
-  "direction_delta_usd": 0.0,
-  "pct_change": 0.0,
-  "tomorrow_price_24k_per_gram": 15657.97,
-  "tomorrow_price_22k_per_gram": 14353.14,
-  "tomorrow_price_24k_per_10g": 156579.68,
-  "tomorrow_price_22k_per_10g": 143531.37,
+  "direction_delta_pct": 0.039,
+  "direction_delta_usd": 1.82,
+  "pct_change": 0.039,
+  "tomorrow_price_24k_per_gram": 15731.18,
+  "tomorrow_price_22k_per_gram": 14420.25,
+  "tomorrow_price_24k_per_10g": 157311.82,
+  "tomorrow_price_22k_per_10g": 144202.5,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -31,12 +31,22 @@
     "mumbai_premium_pct": 0.0,
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
-  "as_of": "2026-08-22T03:13:49.817423Z",
+  "confidence_interval": {
+    "lower_usd": 4593.42,
+    "upper_usd": 4751.22,
+    "lower_24k_per_gram": 15432.17,
+    "upper_24k_per_gram": 15962.34,
+    "lower_22k_per_gram": 14146.15,
+    "upper_22k_per_gram": 14632.15,
+    "interval_pct": 3.37
+  },
+  "direction_confidence": 54.6,
+  "as_of": "2026-08-23T03:28:30.979848Z",
   "source": "model_forecast",
-  "market_status": "market_closed",
+  "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": 0.0396,
+    "score": 0.0388,
     "label": "Neutral",
     "confidence": "high",
     "signal": "Neutral",
@@ -46,40 +56,40 @@
       {
         "title": "GLD ETF Declines 4.1%",
         "source": "Moomoo",
-        "sentiment": -0.8,
+        "sentiment": -0.844,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/71349462/gld-etf-declines-4-1"
       },
       {
         "title": "GLD ETF Declines 0.6%",
         "source": "Moomoo",
-        "sentiment": -0.627,
+        "sentiment": -0.602,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
       },
       {
-        "title": "GLD ETF Rises 1.0%",
+        "title": "GLD ETF Rises 1.4%",
         "source": "Moomoo",
-        "sentiment": 0.535,
+        "sentiment": 0.536,
         "label": "Bullish",
-        "url": "https://www.moomoo.com/news/post/74816285/gld-etf-rises-1-0"
+        "url": "https://www.moomoo.com/news/post/72958841/gld-etf-rises-1-4"
       },
       {
         "title": "GLD ETF Gains 4.1%",
         "source": "Moomoo",
-        "sentiment": 0.53,
+        "sentiment": 0.526,
         "label": "Bullish",
         "url": "https://www.moomoo.com/news/post/74178929/gld-etf-gains-4-1?futusource=news_newspage_recommend"
       },
       {
-        "title": "GLD ETF Rises 1.4%",
+        "title": "GLD ETF Rises 1.0%",
         "source": "Moomoo",
-        "sentiment": 0.526,
+        "sentiment": 0.521,
         "label": "Bullish",
-        "url": "https://www.moomoo.com/news/post/72958841/gld-etf-rises-1-4"
+        "url": "https://www.moomoo.com/news/post/74816285/gld-etf-rises-1-0"
       }
     ],
-    "fetched_at": "2026-08-22T03:13:41.646926"
+    "fetched_at": "2026-08-23T03:28:22.055579"
   },
   "model_info": {
     "trained_at": "2026-08-17T02:14:35.823625Z",
