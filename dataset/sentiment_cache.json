@@ -1,5 +1,5 @@
 {
-  "score": 0.0388,
+  "score": 0.0335,
   "label": "Neutral",
   "confidence": "high",
   "article_count": 50,
@@ -7,30 +7,30 @@
     {
       "title": "GLD ETF Declines 4.1%",
       "source": "Moomoo",
-      "sentiment": -0.804,
+      "sentiment": -0.823,
       "label": "Bearish",
       "url": "https://www.moomoo.com/news/post/71349462/gld-etf-declines-4-1"
     },
     {
       "title": "GLD ETF Declines 0.6%",
       "source": "Moomoo",
-      "sentiment": -0.605,
+      "sentiment": -0.61,
       "label": "Bearish",
       "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
     },
     {
       "title": "GLD ETF Rises 1.4%",
       "source": "Moomoo",
-      "sentiment": 0.538,
+      "sentiment": 0.533,
       "label": "Bullish",
       "url": "https://www.moomoo.com/news/post/72958841/gld-etf-rises-1-4"
     },
     {
-      "title": "GLD ETF Rises 1.0%",
+      "title": "SPDR GOLD SHARES ETF UP 2.1%",
       "source": "Moomoo",
-      "sentiment": 0.526,
+      "sentiment": 0.533,
       "label": "Bullish",
-      "url": "https://www.moomoo.com/news/post/74816285/gld-etf-rises-1-0"
+      "url": "https://www.moomoo.com/news/flash/22943993/spdr-gold-shares-etf-up-2-1"
     },
     {
       "title": "GLD ETF Gains 4.1%",
@@ -41,6 +41,6 @@
     }
   ],
   "source": "alpha_vantage",
-  "fetched_at": "2026-08-31T06:23:38.829485",
+  "fetched_at": "2026-08-31T08:47:19.674255",
   "date": "2026-08-31"
 }
