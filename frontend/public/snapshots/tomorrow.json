@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-09-05T07:02:38.930770Z",
-  "prediction_date": "2026-09-06",
-  "target_date": "2026-09-06",
+  "generated_at": "2026-09-06T07:14:06.501069Z",
+  "prediction_date": "2026-09-07",
+  "target_date": "2026-09-07",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
-  "market_closed": true,
+  "market_closed": false,
   "last_data_date": "2026-09-04",
   "last_actual_usd": 4476.6,
   "reference_live_usd": 4476.6,
-  "reference_as_of": "2026-09-05T07:02:41.034980Z",
+  "reference_as_of": "2026-09-06T07:14:08.113179Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4476.6,
+  "tomorrow_usd": 4478.35,
   "usd_inr_rate": 94.49,
   "trend": "stable",
   "direction_vs_today": "stable",
-  "direction_delta_pct": 0.0,
-  "direction_delta_usd": 0.0,
-  "pct_change": 0.0,
-  "tomorrow_price_24k_per_gram": 14848.0,
-  "tomorrow_price_22k_per_gram": 13610.67,
-  "tomorrow_price_24k_per_10g": 148480.0,
-  "tomorrow_price_22k_per_10g": 136106.67,
+  "direction_delta_pct": 0.039,
+  "direction_delta_usd": 1.75,
+  "pct_change": 0.039,
+  "tomorrow_price_24k_per_gram": 14853.82,
+  "tomorrow_price_22k_per_gram": 13616.0,
+  "tomorrow_price_24k_per_10g": 148538.19,
+  "tomorrow_price_22k_per_10g": 136160.01,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -31,12 +31,22 @@
     "mumbai_premium_pct": 0.0,
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
-  "as_of": "2026-09-05T07:02:41.034980Z",
+  "confidence_interval": {
+    "lower_usd": 4398.96,
+    "upper_usd": 4553.69,
+    "lower_24k_per_gram": 14590.49,
+    "upper_24k_per_gram": 15103.71,
+    "lower_22k_per_gram": 13374.62,
+    "upper_22k_per_gram": 13845.07,
+    "interval_pct": 3.46
+  },
+  "direction_confidence": 54.4,
+  "as_of": "2026-09-06T07:14:08.113179Z",
   "source": "model_forecast",
-  "market_status": "market_closed",
+  "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": 0.0389,
+    "score": 0.0385,
     "label": "Neutral",
     "confidence": "high",
     "signal": "Neutral",
@@ -46,40 +56,40 @@
       {
         "title": "GLD ETF Declines 4.1%",
         "source": "Moomoo",
-        "sentiment": -0.81,
+        "sentiment": -0.817,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/71349462/gld-etf-declines-4-1"
       },
       {
         "title": "GLD ETF Declines 0.6%",
         "source": "Moomoo",
-        "sentiment": -0.637,
+        "sentiment": -0.642,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
       },
       {
+        "title": "SPDR GOLD SHARES ETF UP 2.1%",
+        "source": "Moomoo",
+        "sentiment": 0.536,
+        "label": "Bullish",
+        "url": "https://www.moomoo.com/news/flash/22943993/spdr-gold-shares-etf-up-2-1"
+      },
+      {
         "title": "GLD ETF Rises 1.0%",
         "source": "Moomoo",
-        "sentiment": 0.537,
+        "sentiment": 0.532,
         "label": "Bullish",
         "url": "https://www.moomoo.com/news/post/74816285/gld-etf-rises-1-0"
       },
       {
         "title": "GLD ETF Gains 4.1%",
         "source": "Moomoo",
-        "sentiment": 0.531,
+        "sentiment": 0.521,
         "label": "Bullish",
         "url": "https://www.moomoo.com/news/post/74178929/gld-etf-gains-4-1?futusource=news_newspage_recommend"
-      },
-      {
-        "title": "GLD ETF Rises 1.4%",
-        "source": "Moomoo",
-        "sentiment": 0.526,
-        "label": "Bullish",
-        "url": "https://www.moomoo.com/news/post/72958841/gld-etf-rises-1-4"
       }
     ],
-    "fetched_at": "2026-09-05T07:02:32.218297"
+    "fetched_at": "2026-09-06T07:14:01.293676"
   },
   "model_info": {
     "trained_at": "2026-08-31T06:25:03.845405Z",
