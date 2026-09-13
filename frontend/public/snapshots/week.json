@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T07:16:27.850714Z",
+  "generated_at": "2026-09-13T07:35:02.495004Z",
   "forecast": [
     {
       "date": "2026-09-07",
@@ -24,7 +24,7 @@
         "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
       },
       "reference_live_usd": 4408.9,
-      "reference_live_price_24k_per_gram": 14785.95,
+      "reference_live_price_24k_per_gram": 14787.5,
       "direction_vs_today": "up",
       "direction_delta_pct": 1.536,
       "direction_delta_usd": 67.7
@@ -52,7 +52,7 @@
         "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
       },
       "reference_live_usd": 4408.9,
-      "reference_live_price_24k_per_gram": 14785.95,
+      "reference_live_price_24k_per_gram": 14787.5,
       "direction_vs_today": "up",
       "direction_delta_pct": 0.959,
       "direction_delta_usd": 42.3
@@ -80,7 +80,7 @@
         "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
       },
       "reference_live_usd": 4408.9,
-      "reference_live_price_24k_per_gram": 14785.95,
+      "reference_live_price_24k_per_gram": 14787.5,
       "direction_vs_today": "up",
       "direction_delta_pct": 0.891,
       "direction_delta_usd": 39.3
@@ -108,7 +108,7 @@
         "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
       },
       "reference_live_usd": 4408.9,
-      "reference_live_price_24k_per_gram": 14785.95,
+      "reference_live_price_24k_per_gram": 14787.5,
       "direction_vs_today": "up",
       "direction_delta_pct": 1.114,
       "direction_delta_usd": 49.1
@@ -136,7 +136,7 @@
         "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
       },
       "reference_live_usd": 4408.9,
-      "reference_live_price_24k_per_gram": 14785.95,
+      "reference_live_price_24k_per_gram": 14787.5,
       "direction_vs_today": "stable",
       "direction_delta_pct": 0.0,
       "direction_delta_usd": 0.0
@@ -164,7 +164,7 @@
         "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
       },
       "reference_live_usd": 4408.9,
-      "reference_live_price_24k_per_gram": 14785.95,
+      "reference_live_price_24k_per_gram": 14787.5,
       "direction_vs_today": "stable",
       "direction_delta_pct": 0.0,
       "direction_delta_usd": 0.0
@@ -192,7 +192,7 @@
         "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
       },
       "reference_live_usd": 4408.9,
-      "reference_live_price_24k_per_gram": 14785.95,
+      "reference_live_price_24k_per_gram": 14787.5,
       "direction_vs_today": "stable",
       "direction_delta_pct": 0.0,
       "direction_delta_usd": 0.0
@@ -200,8 +200,8 @@
   ],
   "market_context": {
     "usd_per_oz": 4408.9,
-    "usd_inr_rate": 95.54,
-    "as_of": "2026-09-12T07:16:29.154115Z",
+    "usd_inr_rate": 95.55,
+    "as_of": "2026-09-13T07:35:03.515552Z",
     "source": "yfinance",
     "market_status": "live",
     "is_live": true,
