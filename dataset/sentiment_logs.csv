@@ -1,4 +1,5 @@
 date,sentiment_score,sentiment_label,confidence,article_count,created_at
+2026-09-23,0.0425,Neutral,high,50,2026-09-23T07:53:07.411267
 2026-09-22,0.0372,Neutral,high,50,2026-09-22T07:50:51.219102
 2026-09-21,0.0312,Neutral,high,50,2026-09-21T05:38:42.476586
 2026-09-20,0.036,Neutral,high,50,2026-09-20T07:51:38.316741
