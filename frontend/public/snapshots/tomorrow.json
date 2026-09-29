@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-09-28T08:51:18.628389Z",
-  "prediction_date": "2026-09-29",
-  "target_date": "2026-09-29",
+  "generated_at": "2026-09-29T08:49:45.435689Z",
+  "prediction_date": "2026-09-30",
+  "target_date": "2026-09-30",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
   "market_closed": false,
-  "last_data_date": "2026-09-28",
-  "last_actual_usd": 4215.9,
-  "reference_live_usd": 4180.1,
-  "reference_as_of": "2026-09-28T08:51:20.720336Z",
+  "last_data_date": "2026-09-29",
+  "last_actual_usd": 4171.6,
+  "reference_live_usd": 4172.6,
+  "reference_as_of": "2026-09-29T08:49:47.177448Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4181.79,
-  "usd_inr_rate": 95.965,
+  "tomorrow_usd": 4174.29,
+  "usd_inr_rate": 95.9825,
   "trend": "stable",
   "direction_vs_today": "stable",
-  "direction_delta_pct": 0.04,
+  "direction_delta_pct": 0.041,
   "direction_delta_usd": 1.69,
-  "pct_change": 0.04,
-  "tomorrow_price_24k_per_gram": 14086.7,
-  "tomorrow_price_22k_per_gram": 12912.81,
-  "tomorrow_price_24k_per_10g": 140867.03,
-  "tomorrow_price_22k_per_10g": 129128.11,
+  "pct_change": 0.041,
+  "tomorrow_price_24k_per_gram": 14063.99,
+  "tomorrow_price_22k_per_gram": 12891.99,
+  "tomorrow_price_24k_per_10g": 140639.93,
+  "tomorrow_price_22k_per_10g": 128919.94,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -32,21 +32,21 @@
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
   "confidence_interval": {
-    "lower_usd": 4133.82,
-    "upper_usd": 4248.59,
-    "lower_24k_per_gram": 13925.09,
-    "upper_24k_per_gram": 14311.72,
-    "lower_22k_per_gram": 12764.67,
-    "upper_22k_per_gram": 13119.08,
-    "interval_pct": 2.74
+    "lower_usd": 4142.05,
+    "upper_usd": 4248.96,
+    "lower_24k_per_gram": 13955.38,
+    "upper_24k_per_gram": 14315.57,
+    "lower_22k_per_gram": 12792.43,
+    "upper_22k_per_gram": 13122.6,
+    "interval_pct": 2.56
   },
-  "direction_confidence": 63.0,
-  "as_of": "2026-09-28T08:51:20.720336Z",
+  "direction_confidence": 62.1,
+  "as_of": "2026-09-29T08:49:47.177448Z",
   "source": "model_forecast",
   "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": 0.0394,
+    "score": 0.0366,
     "label": "Neutral",
     "confidence": "high",
     "signal": "Neutral",
@@ -56,40 +56,40 @@
       {
         "title": "GLD ETF Declines 4.1%",
         "source": "Moomoo",
-        "sentiment": -0.836,
+        "sentiment": -0.81,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/71349462/gld-etf-declines-4-1"
       },
       {
         "title": "GLD ETF Declines 0.6%",
         "source": "Moomoo",
-        "sentiment": -0.616,
+        "sentiment": -0.632,
         "label": "Bearish",
         "url": "https://www.moomoo.com/news/post/69948684/gld-etf-declines-0-6"
       },
       {
-        "title": "GLD ETF Rises 1.4%",
+        "title": "SPDR GOLD SHARES ETF UP 2.1%",
         "source": "Moomoo",
-        "sentiment": 0.548,
+        "sentiment": 0.539,
         "label": "Bullish",
-        "url": "https://www.moomoo.com/news/post/72958841/gld-etf-rises-1-4"
-      },
-      {
-        "title": "GLD ETF Rises 1.0%",
-        "source": "Moomoo",
-        "sentiment": 0.531,
-        "label": "Bullish",
-        "url": "https://www.moomoo.com/news/post/74816285/gld-etf-rises-1-0"
+        "url": "https://www.moomoo.com/news/flash/22943993/spdr-gold-shares-etf-up-2-1"
       },
       {
         "title": "GLD ETF Gains 4.1%",
         "source": "Moomoo",
-        "sentiment": 0.516,
+        "sentiment": 0.535,
         "label": "Bullish",
         "url": "https://www.moomoo.com/news/post/74178929/gld-etf-gains-4-1?futusource=news_newspage_recommend"
+      },
+      {
+        "title": "GLD ETF Rises 1.0%",
+        "source": "Moomoo",
+        "sentiment": 0.524,
+        "label": "Bullish",
+        "url": "https://www.moomoo.com/news/post/74816285/gld-etf-rises-1-0"
       }
     ],
-    "fetched_at": "2026-09-28T08:51:13.882923"
+    "fetched_at": "2026-09-29T08:49:27.142164"
   },
   "model_info": {
     "trained_at": "2026-09-28T06:06:51.134337Z",
