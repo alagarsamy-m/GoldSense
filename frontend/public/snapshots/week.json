@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T08:24:13.671017Z",
+  "generated_at": "2026-10-04T08:38:09.782272Z",
   "forecast": [
     {
       "date": "2026-09-28",
@@ -201,7 +201,7 @@
   "market_context": {
     "usd_per_oz": 4162.3,
     "usd_inr_rate": 96.3,
-    "as_of": "2026-10-03T08:24:14.965683Z",
+    "as_of": "2026-10-04T08:38:11.158152Z",
     "source": "yfinance",
     "market_status": "live",
     "is_live": true,
