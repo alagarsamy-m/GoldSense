@@ -1,46 +1,46 @@
 {
-  "score": 0.0592,
-  "label": "Bullish",
+  "score": -0.0072,
+  "label": "Neutral",
   "confidence": "medium",
-  "article_count": 6,
+  "article_count": 5,
   "top_headlines": [
     {
-      "title": "Guyana Gold Corp. (OTC:GYGC) Announces Completion of Nevada Legal Name Change to Global Trade Finance Inc. and Outlines Strategic Growth Roadmap Under New Leadership",
-      "source": "Biztoc.com",
-      "sentiment": 0.735,
-      "label": "Bullish",
-      "url": "https://biztoc.com/x/e638b56bef7519e9"
-    },
-    {
-      "title": "Faster software linking with mold",
-      "source": "Lemire.me",
-      "sentiment": -0.572,
+      "title": "Former CIA official accused of stealing $40M in gold bars pleads guilty - NPR",
+      "source": "Slashdot.org",
+      "sentiment": -0.96,
       "label": "Bearish",
-      "url": "https://lemire.me/blog/2026/10/06/linking-node-js-with-mold/"
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186058626"
     },
     {
-      "title": "[Prime] $37.99* | 4-Pk 1KG SUNLU Silk PLA 1.75mm 3D Printer Filament (Various) at Amazon",
-      "source": "Slickdeals.net",
-      "sentiment": 0.34,
+      "title": "\u2018Ten years of your leadership have been fantastic\u2019: Smriti Mandhana\u2019s heartfelt message for Harmanpreet Kaur",
+      "source": "The Times of India",
+      "sentiment": 0.863,
       "label": "Bullish",
-      "url": "https://slickdeals.net/f/20108970-prime-37-99-4-pk-1kg-sunlu-silk-pla-1-75mm-3d-printer-filament-various-at-amazon"
+      "url": "https://timesofindia.indiatimes.com/sports/cricket/news/ten-years-of-your-leadership-have-been-fantastic-smriti-mandhanas-heartfelt-message-for-harmanpreet-kaur/articleshow/134761096.cms"
     },
     {
-      "title": "Today\u2019s Gold Rate in India October 6: Gold prices down in Coimbatore, Nagpur, Visakhapatnam, Surat, Jaipur (Other Cities)",
-      "source": "BusinessLine",
-      "sentiment": 0.0,
-      "label": "Neutral",
-      "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-coimbatore-nagpur-visakhapatnam-surat-jaipur-lucknow-chandigarh-gold-rates-other-cities-october-6-2026/article71550539.ece"
+      "title": "Fortuna reports third quarter 2026 production of 69,665 gold equivalent ounces and advances key growth initiatives",
+      "source": "Financial Post",
+      "sentiment": 0.382,
+      "label": "Bullish",
+      "url": "https://financialpost.com/globe-newswire/fortuna-reports-third-quarter-2026-production-of-69665-gold-equivalent-ounces-and-advances-key-growth-initiatives"
     },
     {
-      "title": "Today\u2019s Gold Rate in India October 6: Gold prices down in Delhi, Mumbai, Kolkata, Chennai, Bengaluru (Metro Cities)",
-      "source": "BusinessLine",
+      "title": "Gold, silver fall on concerns over rising crude oil prices, interest rates",
+      "source": "Business Standard",
+      "sentiment": -0.178,
+      "label": "Bearish",
+      "url": "https://www.business-standard.com/markets/commodities/gold-silver-fall-on-concerns-over-rising-crude-oil-prices-interest-rates-126100700613_1.html"
+    },
+    {
+      "title": "Gold falls 1% ahead of Fed minutes",
+      "source": "Biztoc.com",
       "sentiment": 0.0,
       "label": "Neutral",
-      "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-delhi-mumbai-kolkata-chennai-bengaluru-hyderabad-pune-gold-rates-metro-cities-october-6-2026/article71550538.ece"
+      "url": "https://biztoc.com/x/a0c0c7dbe5956d45"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-07T09:00:46.252103",
-  "date": "2026-10-07"
+  "fetched_at": "2026-10-08T09:16:03.212897",
+  "date": "2026-10-08"
 }
