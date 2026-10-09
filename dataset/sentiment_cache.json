@@ -1,46 +1,46 @@
 {
-  "score": -0.0072,
+  "score": 0.0138,
   "label": "Neutral",
   "confidence": "medium",
-  "article_count": 5,
+  "article_count": 8,
   "top_headlines": [
     {
-      "title": "Former CIA official accused of stealing $40M in gold bars pleads guilty - NPR",
-      "source": "Slashdot.org",
-      "sentiment": -0.96,
-      "label": "Bearish",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186058626"
-    },
-    {
-      "title": "\u2018Ten years of your leadership have been fantastic\u2019: Smriti Mandhana\u2019s heartfelt message for Harmanpreet Kaur",
+      "title": "ET Alpha Wealth Summit 2.0: Equities aren\u2019t enough? Praveena Rai makes a case for commodities",
       "source": "The Times of India",
-      "sentiment": 0.863,
+      "sentiment": 0.923,
       "label": "Bullish",
-      "url": "https://timesofindia.indiatimes.com/sports/cricket/news/ten-years-of-your-leadership-have-been-fantastic-smriti-mandhanas-heartfelt-message-for-harmanpreet-kaur/articleshow/134761096.cms"
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/et-alpha-wealth-summit-2-0-equities-arent-enough-praveena-rai-makes-a-case-for-commodities/articleshow/134785142.cms"
     },
     {
-      "title": "Fortuna reports third quarter 2026 production of 69,665 gold equivalent ounces and advances key growth initiatives",
-      "source": "Financial Post",
-      "sentiment": 0.382,
-      "label": "Bullish",
-      "url": "https://financialpost.com/globe-newswire/fortuna-reports-third-quarter-2026-production-of-69665-gold-equivalent-ounces-and-advances-key-growth-initiatives"
-    },
-    {
-      "title": "Gold, silver fall on concerns over rising crude oil prices, interest rates",
-      "source": "Business Standard",
-      "sentiment": -0.178,
+      "title": "Satirical Golden Statue Of Donald Trump Goes On Display, And The Comments Are Brutal",
+      "source": "Boredpanda.com",
+      "sentiment": -0.844,
       "label": "Bearish",
-      "url": "https://www.business-standard.com/markets/commodities/gold-silver-fall-on-concerns-over-rising-crude-oil-prices-interest-rates-126100700613_1.html"
+      "url": "https://www.boredpanda.com/trump-satirical-golden-statue-european-parliament-strasbourg/"
     },
     {
-      "title": "Gold falls 1% ahead of Fed minutes",
-      "source": "Biztoc.com",
-      "sentiment": 0.0,
-      "label": "Neutral",
-      "url": "https://biztoc.com/x/a0c0c7dbe5956d45"
+      "title": "Ex-CIA Official Pleads Guilty After $193,590,400 Fraud Scheme Tied to Gold Bars and Florida Luxury Homes",
+      "source": "The Daily Hodl",
+      "sentiment": -0.807,
+      "label": "Bearish",
+      "url": "https://dailyhodl.com/2026/10/08/ex-cia-official-pleads-guilty-after-193590400-fraud-scheme-tied-to-gold-bars-and-florida-luxury-homes/"
+    },
+    {
+      "title": "Gold rate today (October 8, 2026): Check 24k, 22k, 20k and 18k gold jewellery prices from Malabar Gold & Diamonds, Joyalukkas, Kalyan Jewellers, Tanishq & IBJA in Delhi, Mumbai, Hyderabad & more cities",
+      "source": "The Times of India",
+      "sentiment": 0.417,
+      "label": "Bullish",
+      "url": "https://economictimes.indiatimes.com/wealth/invest/gold-rate-today-october-8-check-18k-20k-24k-ibja-gold-price-malabar-gold-kalyan-jewelers-joyalukkas-delhi-hyderabad-bengaluru/articleshow/134784373.cms"
+    },
+    {
+      "title": "Total Metals Mobilizes Drill Rig to its High-Grade High Lake Gold Project, Northwestern Ontario",
+      "source": "Financial Post",
+      "sentiment": 0.511,
+      "label": "Bullish",
+      "url": "https://financialpost.com/globe-newswire/total-metals-mobilizes-drill-rig-to-its-high-grade-high-lake-gold-project-northwestern-ontario"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-08T09:16:03.212897",
-  "date": "2026-10-08"
+  "fetched_at": "2026-10-09T09:23:57.783238",
+  "date": "2026-10-09"
 }
