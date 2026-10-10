@@ -1,46 +1,46 @@
 {
-  "score": 0.0138,
-  "label": "Neutral",
+  "score": 0.1829,
+  "label": "Bullish",
   "confidence": "medium",
-  "article_count": 8,
+  "article_count": 9,
   "top_headlines": [
     {
-      "title": "ET Alpha Wealth Summit 2.0: Equities aren\u2019t enough? Praveena Rai makes a case for commodities",
-      "source": "The Times of India",
-      "sentiment": 0.923,
+      "title": "Gold may draw support from decline in Oct Fed rate hike bet: Mirae Asset",
+      "source": "Business Standard",
+      "sentiment": 0.72,
       "label": "Bullish",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/et-alpha-wealth-summit-2-0-equities-arent-enough-praveena-rai-makes-a-case-for-commodities/articleshow/134785142.cms"
+      "url": "https://www.business-standard.com/markets/news/gold-may-draw-support-from-decline-in-oct-fed-rate-hike-bet-mirae-asset-126100900485_1.html"
     },
     {
-      "title": "Satirical Golden Statue Of Donald Trump Goes On Display, And The Comments Are Brutal",
-      "source": "Boredpanda.com",
-      "sentiment": -0.844,
+      "title": "Coins & Bullions Deals on eBay Live for Deals from $1",
+      "source": "Dealnews.com",
+      "sentiment": 0.625,
+      "label": "Bullish",
+      "url": "https://www.dealnews.com/Coins-Bullions-Deals-on-eBay-Live-for-Deals-from-1/22266587.html"
+    },
+    {
+      "title": "Elsinore: Focus Features Has Released The Official Poster",
+      "source": "Bleeding Cool News",
+      "sentiment": 0.509,
+      "label": "Bullish",
+      "url": "https://bleedingcool.com/movies/elsinore-focus-features-has-released-the-official-poster/"
+    },
+    {
+      "title": "Gold demand drops in India as prices rebound",
+      "source": "BusinessLine",
+      "sentiment": -0.178,
       "label": "Bearish",
-      "url": "https://www.boredpanda.com/trump-satirical-golden-statue-european-parliament-strasbourg/"
+      "url": "https://www.thehindubusinessline.com/markets/gold/gold-demand-drops-in-india-as-prices-rebound/article71563050.ece"
     },
     {
-      "title": "Ex-CIA Official Pleads Guilty After $193,590,400 Fraud Scheme Tied to Gold Bars and Florida Luxury Homes",
-      "source": "The Daily Hodl",
-      "sentiment": -0.807,
+      "title": "Kabaddi Star Ritu Negi's Award Snub Sparks Outrage In Himachal",
+      "source": "Rediff.com",
+      "sentiment": -0.178,
       "label": "Bearish",
-      "url": "https://dailyhodl.com/2026/10/08/ex-cia-official-pleads-guilty-after-193590400-fraud-scheme-tied-to-gold-bars-and-florida-luxury-homes/"
-    },
-    {
-      "title": "Gold rate today (October 8, 2026): Check 24k, 22k, 20k and 18k gold jewellery prices from Malabar Gold & Diamonds, Joyalukkas, Kalyan Jewellers, Tanishq & IBJA in Delhi, Mumbai, Hyderabad & more cities",
-      "source": "The Times of India",
-      "sentiment": 0.417,
-      "label": "Bullish",
-      "url": "https://economictimes.indiatimes.com/wealth/invest/gold-rate-today-october-8-check-18k-20k-24k-ibja-gold-price-malabar-gold-kalyan-jewelers-joyalukkas-delhi-hyderabad-bengaluru/articleshow/134784373.cms"
-    },
-    {
-      "title": "Total Metals Mobilizes Drill Rig to its High-Grade High Lake Gold Project, Northwestern Ontario",
-      "source": "Financial Post",
-      "sentiment": 0.511,
-      "label": "Bullish",
-      "url": "https://financialpost.com/globe-newswire/total-metals-mobilizes-drill-rig-to-its-high-grade-high-lake-gold-project-northwestern-ontario"
+      "url": "https://www.rediff.com/sports/report/ritu-negi-dropped-from-himachal-award-list-sparks-row/20261009.htm"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-09T09:23:57.783238",
-  "date": "2026-10-09"
+  "fetched_at": "2026-10-10T08:45:23.445496",
+  "date": "2026-10-10"
 }
