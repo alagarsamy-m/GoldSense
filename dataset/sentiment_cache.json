@@ -1,46 +1,46 @@
 {
-  "score": 0.1829,
+  "score": 0.2328,
   "label": "Bullish",
   "confidence": "medium",
-  "article_count": 9,
+  "article_count": 5,
   "top_headlines": [
     {
-      "title": "Gold may draw support from decline in Oct Fed rate hike bet: Mirae Asset",
-      "source": "Business Standard",
-      "sentiment": 0.72,
+      "title": "WWE SmackDown Results October 9, 2026: Alexa Bliss & Tatum Paxley Win Tag Gold",
+      "source": "Yahoo Entertainment",
+      "sentiment": 0.939,
       "label": "Bullish",
-      "url": "https://www.business-standard.com/markets/news/gold-may-draw-support-from-decline-in-oct-fed-rate-hike-bet-mirae-asset-126100900485_1.html"
+      "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_4903afa8-689a-42c1-9223-300aaed4db84"
     },
     {
-      "title": "Coins & Bullions Deals on eBay Live for Deals from $1",
-      "source": "Dealnews.com",
-      "sentiment": 0.625,
+      "title": "Solati Beard Trimmer & Hair Clipper Grooming Kit (Gold) $18.80",
+      "source": "Slickdeals.net",
+      "sentiment": 0.612,
       "label": "Bullish",
-      "url": "https://www.dealnews.com/Coins-Bullions-Deals-on-eBay-Live-for-Deals-from-1/22266587.html"
+      "url": "https://slickdeals.net/f/20129688-solati-beard-trimmer-hair-clipper-grooming-kit-gold-18-80"
     },
     {
-      "title": "Elsinore: Focus Features Has Released The Official Poster",
-      "source": "Bleeding Cool News",
-      "sentiment": 0.509,
-      "label": "Bullish",
-      "url": "https://bleedingcool.com/movies/elsinore-focus-features-has-released-the-official-poster/"
+      "title": "fxnewsbias 1.2.2",
+      "source": "Pypi.org",
+      "sentiment": 0.0,
+      "label": "Neutral",
+      "url": "https://pypi.org/project/fxnewsbias/1.2.2/"
     },
     {
-      "title": "Gold demand drops in India as prices rebound",
+      "title": "Today\u2019s Gold Rate in India October 10: Gold prices up in Coimbatore, Nagpur, Visakhapatnam, Surat, Jaipur (Other Cities)",
       "source": "BusinessLine",
-      "sentiment": -0.178,
-      "label": "Bearish",
-      "url": "https://www.thehindubusinessline.com/markets/gold/gold-demand-drops-in-india-as-prices-rebound/article71563050.ece"
+      "sentiment": 0.0,
+      "label": "Neutral",
+      "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-coimbatore-nagpur-visakhapatnam-surat-jaipur-lucknow-chandigarh-gold-rates-other-cities-october-10-2026/article71567454.ece"
     },
     {
-      "title": "Kabaddi Star Ritu Negi's Award Snub Sparks Outrage In Himachal",
-      "source": "Rediff.com",
-      "sentiment": -0.178,
-      "label": "Bearish",
-      "url": "https://www.rediff.com/sports/report/ritu-negi-dropped-from-himachal-award-list-sparks-row/20261009.htm"
+      "title": "Today\u2019s Gold Rate in India October 10: Gold prices up in Delhi, Mumbai, Kolkata, Chennai, Bengaluru (Metro Cities)",
+      "source": "BusinessLine",
+      "sentiment": 0.0,
+      "label": "Neutral",
+      "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-delhi-mumbai-kolkata-chennai-bengaluru-hyderabad-pune-gold-rates-metro-cities-october-10-2026/article71567453.ece"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-10T08:45:23.445496",
-  "date": "2026-10-10"
+  "fetched_at": "2026-10-11T09:08:05.917592",
+  "date": "2026-10-11"
 }

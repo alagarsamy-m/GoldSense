@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-10-10T08:45:29.824592Z",
-  "prediction_date": "2026-10-11",
-  "target_date": "2026-10-11",
+  "generated_at": "2026-10-11T09:08:12.720949Z",
+  "prediction_date": "2026-10-12",
+  "target_date": "2026-10-12",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
-  "market_closed": true,
+  "market_closed": false,
   "last_data_date": "2026-10-09",
   "last_actual_usd": 4216.3,
   "reference_live_usd": 4216.3,
-  "reference_as_of": "2026-10-10T08:45:31.991537Z",
+  "reference_as_of": "2026-10-11T09:08:15.006550Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4216.3,
+  "tomorrow_usd": 4217.99,
   "usd_inr_rate": 96.73,
   "trend": "stable",
   "direction_vs_today": "stable",
-  "direction_delta_pct": 0.0,
-  "direction_delta_usd": 0.0,
-  "pct_change": 0.0,
-  "tomorrow_price_24k_per_gram": 14316.16,
-  "tomorrow_price_22k_per_gram": 13123.15,
-  "tomorrow_price_24k_per_10g": 143161.59,
-  "tomorrow_price_22k_per_10g": 131231.46,
+  "direction_delta_pct": 0.04,
+  "direction_delta_usd": 1.69,
+  "pct_change": 0.04,
+  "tomorrow_price_24k_per_gram": 14321.88,
+  "tomorrow_price_22k_per_gram": 13128.39,
+  "tomorrow_price_24k_per_10g": 143218.85,
+  "tomorrow_price_22k_per_10g": 131283.94,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -31,55 +31,65 @@
     "mumbai_premium_pct": 0.0,
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
-  "as_of": "2026-10-10T08:45:31.991537Z",
+  "confidence_interval": {
+    "lower_usd": 4178.1,
+    "upper_usd": 4269.71,
+    "lower_24k_per_gram": 14186.45,
+    "upper_24k_per_gram": 14497.51,
+    "lower_22k_per_gram": 13004.25,
+    "upper_22k_per_gram": 13289.38,
+    "interval_pct": 2.17
+  },
+  "direction_confidence": 61.7,
+  "as_of": "2026-10-11T09:08:15.006550Z",
   "source": "model_forecast",
-  "market_status": "market_closed",
+  "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": 0.1829,
+    "score": 0.2328,
     "label": "Bullish",
     "confidence": "medium",
     "signal": "Neutral",
-    "article_count": 9,
+    "article_count": 5,
     "source": "newsapi",
     "top_headlines": [
       {
-        "title": "Gold may draw support from decline in Oct Fed rate hike bet: Mirae Asset",
-        "source": "Business Standard",
-        "sentiment": 0.72,
+        "title": "WWE SmackDown Results October 9, 2026: Alexa Bliss & Tatum Paxley Win Tag Gold",
+        "source": "Yahoo Entertainment",
+        "sentiment": 0.939,
         "label": "Bullish",
-        "url": "https://www.business-standard.com/markets/news/gold-may-draw-support-from-decline-in-oct-fed-rate-hike-bet-mirae-asset-126100900485_1.html"
+        "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_4903afa8-689a-42c1-9223-300aaed4db84"
       },
       {
-        "title": "Coins & Bullions Deals on eBay Live for Deals from $1",
-        "source": "Dealnews.com",
-        "sentiment": 0.625,
+        "title": "Solati Beard Trimmer & Hair Clipper Grooming Kit (Gold) $18.80",
+        "source": "Slickdeals.net",
+        "sentiment": 0.612,
         "label": "Bullish",
-        "url": "https://www.dealnews.com/Coins-Bullions-Deals-on-eBay-Live-for-Deals-from-1/22266587.html"
+        "url": "https://slickdeals.net/f/20129688-solati-beard-trimmer-hair-clipper-grooming-kit-gold-18-80"
       },
       {
-        "title": "Elsinore: Focus Features Has Released The Official Poster",
-        "source": "Bleeding Cool News",
-        "sentiment": 0.509,
-        "label": "Bullish",
-        "url": "https://bleedingcool.com/movies/elsinore-focus-features-has-released-the-official-poster/"
+        "title": "fxnewsbias 1.2.2",
+        "source": "Pypi.org",
+        "sentiment": 0.0,
+        "label": "Neutral",
+        "url": "https://pypi.org/project/fxnewsbias/1.2.2/"
       },
       {
-        "title": "Gold demand drops in India as prices rebound",
+        "title": "Today\u2019s Gold Rate in India October 10: Gold prices up in Coimbatore, Nagpur, Visakhapatnam, Surat, Jaipur (Other Cities)",
         "source": "BusinessLine",
-        "sentiment": -0.178,
-        "label": "Bearish",
-        "url": "https://www.thehindubusinessline.com/markets/gold/gold-demand-drops-in-india-as-prices-rebound/article71563050.ece"
+        "sentiment": 0.0,
+        "label": "Neutral",
+        "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-coimbatore-nagpur-visakhapatnam-surat-jaipur-lucknow-chandigarh-gold-rates-other-cities-october-10-2026/article71567454.ece"
       },
       {
-        "title": "Kabaddi Star Ritu Negi's Award Snub Sparks Outrage In Himachal",
-        "source": "Rediff.com",
-        "sentiment": -0.178,
-        "label": "Bearish",
-        "url": "https://www.rediff.com/sports/report/ritu-negi-dropped-from-himachal-award-list-sparks-row/20261009.htm"
+        "title": "Today\u2019s Gold Rate in India October 10: Gold prices up in Delhi, Mumbai, Kolkata, Chennai, Bengaluru (Metro Cities)",
+        "source": "BusinessLine",
+        "sentiment": 0.0,
+        "label": "Neutral",
+        "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-delhi-mumbai-kolkata-chennai-bengaluru-hyderabad-pune-gold-rates-metro-cities-october-10-2026/article71567453.ece"
       }
     ],
-    "fetched_at": "2026-10-10T08:45:23.445496"
+    "fetched_at": "2026-10-11T09:08:05.917592"
   },
   "model_info": {
     "trained_at": "2026-10-05T06:25:56.506383Z",

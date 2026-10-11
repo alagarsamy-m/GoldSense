@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-10-10T08:45:29.824592Z",
+  "generated_at": "2026-10-11T09:08:12.720949Z",
   "today": {
-    "generated_at": "2026-10-10T08:45:29.824592Z",
-    "date": "2026-10-10",
+    "generated_at": "2026-10-11T09:08:12.720949Z",
+    "date": "2026-10-11",
     "reference_mode": "live_last",
     "quote_label": "Live last available price",
     "quote_note": "This is the latest live or delayed market quote, not the official open or final close.",
     "live_usd": 4216.3,
     "usd_inr_rate": 96.73,
     "verified_date": "2026-10-09",
-    "as_of": "2026-10-10T08:45:33.191846Z",
+    "as_of": "2026-10-11T09:08:16.255919Z",
     "source": "yfinance",
     "market_status": "live",
     "is_live": true,
@@ -28,31 +28,31 @@
     }
   },
   "tomorrow": {
-    "generated_at": "2026-10-10T08:45:29.824592Z",
-    "prediction_date": "2026-10-11",
-    "target_date": "2026-10-11",
+    "generated_at": "2026-10-11T09:08:12.720949Z",
+    "prediction_date": "2026-10-12",
+    "target_date": "2026-10-12",
     "target_type": "calendar_close",
     "reference_mode": "live_last",
-    "market_closed": true,
+    "market_closed": false,
     "last_data_date": "2026-10-09",
     "last_actual_usd": 4216.3,
     "reference_live_usd": 4216.3,
-    "reference_as_of": "2026-10-10T08:45:31.991537Z",
+    "reference_as_of": "2026-10-11T09:08:15.006550Z",
     "reference_source": "yfinance",
     "reference_market_status": "live",
     "reference_is_live": true,
     "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-    "tomorrow_usd": 4216.3,
+    "tomorrow_usd": 4217.99,
     "usd_inr_rate": 96.73,
     "trend": "stable",
     "direction_vs_today": "stable",
-    "direction_delta_pct": 0.0,
-    "direction_delta_usd": 0.0,
-    "pct_change": 0.0,
-    "tomorrow_price_24k_per_gram": 14316.16,
-    "tomorrow_price_22k_per_gram": 13123.15,
-    "tomorrow_price_24k_per_10g": 143161.59,
-    "tomorrow_price_22k_per_10g": 131231.46,
+    "direction_delta_pct": 0.04,
+    "direction_delta_usd": 1.69,
+    "pct_change": 0.04,
+    "tomorrow_price_24k_per_gram": 14321.88,
+    "tomorrow_price_22k_per_gram": 13128.39,
+    "tomorrow_price_24k_per_10g": 143218.85,
+    "tomorrow_price_22k_per_10g": 131283.94,
     "tomorrow_pricing_formula": {
       "base_formula": "(USD_per_oz * USDINR) / 31.1035",
       "customs_duty_pct": 6.0,
@@ -60,55 +60,65 @@
       "mumbai_premium_pct": 0.0,
       "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
     },
-    "as_of": "2026-10-10T08:45:31.991537Z",
+    "confidence_interval": {
+      "lower_usd": 4178.1,
+      "upper_usd": 4269.71,
+      "lower_24k_per_gram": 14186.45,
+      "upper_24k_per_gram": 14497.51,
+      "lower_22k_per_gram": 13004.25,
+      "upper_22k_per_gram": 13289.38,
+      "interval_pct": 2.17
+    },
+    "direction_confidence": 61.7,
+    "as_of": "2026-10-11T09:08:15.006550Z",
     "source": "model_forecast",
-    "market_status": "market_closed",
+    "market_status": "forecast",
     "is_live": false,
     "sentiment": {
-      "score": 0.1829,
+      "score": 0.2328,
       "label": "Bullish",
       "confidence": "medium",
       "signal": "Neutral",
-      "article_count": 9,
+      "article_count": 5,
       "source": "newsapi",
       "top_headlines": [
         {
-          "title": "Gold may draw support from decline in Oct Fed rate hike bet: Mirae Asset",
-          "source": "Business Standard",
-          "sentiment": 0.72,
+          "title": "WWE SmackDown Results October 9, 2026: Alexa Bliss & Tatum Paxley Win Tag Gold",
+          "source": "Yahoo Entertainment",
+          "sentiment": 0.939,
           "label": "Bullish",
-          "url": "https://www.business-standard.com/markets/news/gold-may-draw-support-from-decline-in-oct-fed-rate-hike-bet-mirae-asset-126100900485_1.html"
+          "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_4903afa8-689a-42c1-9223-300aaed4db84"
         },
         {
-          "title": "Coins & Bullions Deals on eBay Live for Deals from $1",
-          "source": "Dealnews.com",
-          "sentiment": 0.625,
+          "title": "Solati Beard Trimmer & Hair Clipper Grooming Kit (Gold) $18.80",
+          "source": "Slickdeals.net",
+          "sentiment": 0.612,
           "label": "Bullish",
-          "url": "https://www.dealnews.com/Coins-Bullions-Deals-on-eBay-Live-for-Deals-from-1/22266587.html"
+          "url": "https://slickdeals.net/f/20129688-solati-beard-trimmer-hair-clipper-grooming-kit-gold-18-80"
         },
         {
-          "title": "Elsinore: Focus Features Has Released The Official Poster",
-          "source": "Bleeding Cool News",
-          "sentiment": 0.509,
-          "label": "Bullish",
-          "url": "https://bleedingcool.com/movies/elsinore-focus-features-has-released-the-official-poster/"
+          "title": "fxnewsbias 1.2.2",
+          "source": "Pypi.org",
+          "sentiment": 0.0,
+          "label": "Neutral",
+          "url": "https://pypi.org/project/fxnewsbias/1.2.2/"
         },
         {
-          "title": "Gold demand drops in India as prices rebound",
+          "title": "Today\u2019s Gold Rate in India October 10: Gold prices up in Coimbatore, Nagpur, Visakhapatnam, Surat, Jaipur (Other Cities)",
           "source": "BusinessLine",
-          "sentiment": -0.178,
-          "label": "Bearish",
-          "url": "https://www.thehindubusinessline.com/markets/gold/gold-demand-drops-in-india-as-prices-rebound/article71563050.ece"
+          "sentiment": 0.0,
+          "label": "Neutral",
+          "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-coimbatore-nagpur-visakhapatnam-surat-jaipur-lucknow-chandigarh-gold-rates-other-cities-october-10-2026/article71567454.ece"
         },
         {
-          "title": "Kabaddi Star Ritu Negi's Award Snub Sparks Outrage In Himachal",
-          "source": "Rediff.com",
-          "sentiment": -0.178,
-          "label": "Bearish",
-          "url": "https://www.rediff.com/sports/report/ritu-negi-dropped-from-himachal-award-list-sparks-row/20261009.htm"
+          "title": "Today\u2019s Gold Rate in India October 10: Gold prices up in Delhi, Mumbai, Kolkata, Chennai, Bengaluru (Metro Cities)",
+          "source": "BusinessLine",
+          "sentiment": 0.0,
+          "label": "Neutral",
+          "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-delhi-mumbai-kolkata-chennai-bengaluru-hyderabad-pune-gold-rates-metro-cities-october-10-2026/article71567453.ece"
         }
       ],
-      "fetched_at": "2026-10-10T08:45:23.445496"
+      "fetched_at": "2026-10-11T09:08:05.917592"
     },
     "model_info": {
       "trained_at": "2026-10-05T06:25:56.506383Z",
@@ -126,7 +136,7 @@
     }
   },
   "week": {
-    "generated_at": "2026-10-10T08:45:29.824592Z",
+    "generated_at": "2026-10-11T09:08:12.720949Z",
     "forecast": [
       {
         "date": "2026-10-05",
@@ -328,7 +338,7 @@
     "market_context": {
       "usd_per_oz": 4216.3,
       "usd_inr_rate": 96.73,
-      "as_of": "2026-10-10T08:45:31.171148Z",
+      "as_of": "2026-10-11T09:08:14.061134Z",
       "source": "yfinance",
       "market_status": "live",
       "is_live": true,
@@ -338,6 +348,34 @@
   },
   "accuracy": {
     "preview": [
+      {
+        "prediction_date": "2026-10-10",
+        "target_date": "2026-10-10",
+        "predicted_on": "2026-10-09",
+        "horizon": "D1",
+        "predicted_price_usd": 4211.0,
+        "actual_price_usd": 4216.3,
+        "difference": 5.3,
+        "pct_error": 0.126,
+        "predicted_price_24k_per_gram": 14295.95,
+        "actual_price_24k_per_gram": 14313.2,
+        "difference_24k_per_gram": 17.25,
+        "pct_error_24k_per_gram": 0.121,
+        "predicted_price_22k_per_gram": 13104.62,
+        "actual_price_22k_per_gram": 13120.43,
+        "difference_22k_per_gram": 15.81,
+        "pct_error_22k_per_gram": 0.12,
+        "predicted_price_24k_per_10g": 142959.46,
+        "actual_price_24k_per_10g": 143131.99,
+        "predicted_price_22k_per_10g": 131046.17,
+        "actual_price_22k_per_10g": 131204.33,
+        "direction_correct": 1,
+        "predicted_trend": "stable",
+        "actual_trend": "stable",
+        "location": "India benchmark",
+        "status": "evaluated",
+        "created_at": "2026-10-11T09:08:07Z"
+      },
       {
         "prediction_date": "2026-10-09",
         "target_date": "2026-10-09",
@@ -505,37 +543,9 @@
         "location": "India benchmark",
         "status": "evaluated",
         "created_at": "2026-10-05T06:24:37Z"
-      },
-      {
-        "prediction_date": "2026-10-03",
-        "target_date": "2026-10-03",
-        "predicted_on": "2026-10-02",
-        "horizon": "D1",
-        "predicted_price_usd": 4214.4,
-        "actual_price_usd": 4162.3,
-        "difference": -52.1,
-        "pct_error": 1.252,
-        "predicted_price_24k_per_gram": 14246.1,
-        "actual_price_24k_per_gram": 14069.98,
-        "difference_24k_per_gram": -176.12,
-        "pct_error_24k_per_gram": 1.252,
-        "predicted_price_22k_per_gram": 13058.92,
-        "actual_price_22k_per_gram": 12897.48,
-        "difference_22k_per_gram": -161.44,
-        "pct_error_22k_per_gram": 1.252,
-        "predicted_price_24k_per_10g": 142460.96,
-        "actual_price_24k_per_10g": 140699.8,
-        "predicted_price_22k_per_10g": 130589.21,
-        "actual_price_22k_per_10g": 128974.82,
-        "direction_correct": 1,
-        "predicted_trend": "stable",
-        "actual_trend": "stable",
-        "location": "India benchmark",
-        "status": "evaluated",
-        "created_at": "2026-10-04T08:38:05Z"
       }
     ],
-    "count": 182
+    "count": 183
   },
   "model_info": {
     "trained_at": "2026-10-05T06:25:56.506383Z",
