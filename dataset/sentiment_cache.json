@@ -1,16 +1,9 @@
 {
-  "score": 0.0751,
-  "label": "Bullish",
-  "confidence": "medium",
-  "article_count": 5,
+  "score": -0.127,
+  "label": "Bearish",
+  "confidence": "low",
+  "article_count": 3,
   "top_headlines": [
-    {
-      "title": "Covergirl Clean Fresh Yummy Plumper Lip Gloss 0.33oz. Tubes For $3.77-$4.22 From Amazon",
-      "source": "Dansdeals.com",
-      "sentiment": 0.983,
-      "label": "Bullish",
-      "url": "https://www.dansdeals.com/shopping-deals/amazon/covergirl-clean-fresh-yummy-plumper-lip-gloss-0-33oz-tubes-for-3-77-4-22-from-amazon/"
-    },
     {
       "title": "65 Of The Most Brutal Advertising Fails That Will Have You Questioning The Marketing Managers",
       "source": "Boredpanda.com",
@@ -26,21 +19,14 @@
       "url": "https://english.khabarhub.com/2026/11/571561/"
     },
     {
-      "title": "Income tax on gold jewellery: ITAT says CBDT limits cannot cap family holdings, deletes \u20b920.45 lakh addition",
-      "source": "Livemint",
-      "sentiment": 0.0,
-      "label": "Neutral",
-      "url": "https://www.livemint.com/money/personal-finance/income-tax-on-gold-jewellery-itat-says-cbdt-limits-cannot-cap-family-holdings-deletes-20-45-lakh-addition-11791685602604.html"
-    },
-    {
-      "title": "plate9 1.2.7",
-      "source": "Pypi.org",
-      "sentiment": 0.0,
-      "label": "Neutral",
-      "url": "https://pypi.org/project/plate9/1.2.7/"
+      "title": "Wild West Supermarket Simulator-Razor1911",
+      "source": "Rlsbb.cc",
+      "sentiment": 0.226,
+      "label": "Bullish",
+      "url": "https://post.rlsbb.cc/wild-west-supermarket-simulator-razor1911/"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-12T06:44:39.983875",
+  "fetched_at": "2026-10-12T09:32:00.516970",
   "date": "2026-10-12"
 }
