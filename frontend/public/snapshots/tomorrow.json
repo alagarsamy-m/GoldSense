@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-10-11T09:08:12.720949Z",
-  "prediction_date": "2026-10-12",
-  "target_date": "2026-10-12",
+  "generated_at": "2026-10-12T06:45:55.264706Z",
+  "prediction_date": "2026-10-13",
+  "target_date": "2026-10-13",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
   "market_closed": false,
-  "last_data_date": "2026-10-09",
-  "last_actual_usd": 4216.3,
-  "reference_live_usd": 4216.3,
-  "reference_as_of": "2026-10-11T09:08:15.006550Z",
+  "last_data_date": "2026-10-12",
+  "last_actual_usd": 4208.9,
+  "reference_live_usd": 4208.0,
+  "reference_as_of": "2026-10-12T06:45:57.476051Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4217.99,
-  "usd_inr_rate": 96.73,
+  "tomorrow_usd": 4209.75,
+  "usd_inr_rate": 95.7375,
   "trend": "stable",
   "direction_vs_today": "stable",
-  "direction_delta_pct": 0.04,
-  "direction_delta_usd": 1.69,
-  "pct_change": 0.04,
-  "tomorrow_price_24k_per_gram": 14321.88,
-  "tomorrow_price_22k_per_gram": 13128.39,
-  "tomorrow_price_24k_per_10g": 143218.85,
-  "tomorrow_price_22k_per_10g": 131283.94,
+  "direction_delta_pct": 0.042,
+  "direction_delta_usd": 1.75,
+  "pct_change": 0.042,
+  "tomorrow_price_24k_per_gram": 14147.24,
+  "tomorrow_price_22k_per_gram": 12968.31,
+  "tomorrow_price_24k_per_10g": 141472.43,
+  "tomorrow_price_22k_per_10g": 129683.06,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -32,21 +32,21 @@
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
   "confidence_interval": {
-    "lower_usd": 4178.1,
-    "upper_usd": 4269.71,
-    "lower_24k_per_gram": 14186.45,
-    "upper_24k_per_gram": 14497.51,
-    "lower_22k_per_gram": 13004.25,
-    "upper_22k_per_gram": 13289.38,
-    "interval_pct": 2.17
+    "lower_usd": 4165.63,
+    "upper_usd": 4263.54,
+    "lower_24k_per_gram": 13998.97,
+    "upper_24k_per_gram": 14328.01,
+    "lower_22k_per_gram": 12832.39,
+    "upper_22k_per_gram": 13134.01,
+    "interval_pct": 2.33
   },
-  "direction_confidence": 61.7,
-  "as_of": "2026-10-11T09:08:15.006550Z",
+  "direction_confidence": 59.0,
+  "as_of": "2026-10-12T06:45:57.476051Z",
   "source": "model_forecast",
   "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": 0.2328,
+    "score": 0.0751,
     "label": "Bullish",
     "confidence": "medium",
     "signal": "Neutral",
@@ -54,52 +54,52 @@
     "source": "newsapi",
     "top_headlines": [
       {
-        "title": "WWE SmackDown Results October 9, 2026: Alexa Bliss & Tatum Paxley Win Tag Gold",
-        "source": "Yahoo Entertainment",
-        "sentiment": 0.939,
+        "title": "Covergirl Clean Fresh Yummy Plumper Lip Gloss 0.33oz. Tubes For $3.77-$4.22 From Amazon",
+        "source": "Dansdeals.com",
+        "sentiment": 0.983,
         "label": "Bullish",
-        "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_4903afa8-689a-42c1-9223-300aaed4db84"
+        "url": "https://www.dansdeals.com/shopping-deals/amazon/covergirl-clean-fresh-yummy-plumper-lip-gloss-0-33oz-tubes-for-3-77-4-22-from-amazon/"
       },
       {
-        "title": "Solati Beard Trimmer & Hair Clipper Grooming Kit (Gold) $18.80",
-        "source": "Slickdeals.net",
-        "sentiment": 0.612,
-        "label": "Bullish",
-        "url": "https://slickdeals.net/f/20129688-solati-beard-trimmer-hair-clipper-grooming-kit-gold-18-80"
+        "title": "65 Of The Most Brutal Advertising Fails That Will Have You Questioning The Marketing Managers",
+        "source": "Boredpanda.com",
+        "sentiment": -0.903,
+        "label": "Bearish",
+        "url": "https://www.boredpanda.com/hilarious-advertising-fails/"
       },
       {
-        "title": "fxnewsbias 1.2.2",
+        "title": "Gold and silver prices rise in domestic market",
+        "source": "Khabarhub.com",
+        "sentiment": 0.296,
+        "label": "Bullish",
+        "url": "https://english.khabarhub.com/2026/11/571561/"
+      },
+      {
+        "title": "Income tax on gold jewellery: ITAT says CBDT limits cannot cap family holdings, deletes \u20b920.45 lakh addition",
+        "source": "Livemint",
+        "sentiment": 0.0,
+        "label": "Neutral",
+        "url": "https://www.livemint.com/money/personal-finance/income-tax-on-gold-jewellery-itat-says-cbdt-limits-cannot-cap-family-holdings-deletes-20-45-lakh-addition-11791685602604.html"
+      },
+      {
+        "title": "plate9 1.2.7",
         "source": "Pypi.org",
         "sentiment": 0.0,
         "label": "Neutral",
-        "url": "https://pypi.org/project/fxnewsbias/1.2.2/"
-      },
-      {
-        "title": "Today\u2019s Gold Rate in India October 10: Gold prices up in Coimbatore, Nagpur, Visakhapatnam, Surat, Jaipur (Other Cities)",
-        "source": "BusinessLine",
-        "sentiment": 0.0,
-        "label": "Neutral",
-        "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-coimbatore-nagpur-visakhapatnam-surat-jaipur-lucknow-chandigarh-gold-rates-other-cities-october-10-2026/article71567454.ece"
-      },
-      {
-        "title": "Today\u2019s Gold Rate in India October 10: Gold prices up in Delhi, Mumbai, Kolkata, Chennai, Bengaluru (Metro Cities)",
-        "source": "BusinessLine",
-        "sentiment": 0.0,
-        "label": "Neutral",
-        "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-delhi-mumbai-kolkata-chennai-bengaluru-hyderabad-pune-gold-rates-metro-cities-october-10-2026/article71567453.ece"
+        "url": "https://pypi.org/project/plate9/1.2.7/"
       }
     ],
-    "fetched_at": "2026-10-11T09:08:05.917592"
+    "fetched_at": "2026-10-12T06:44:39.983875"
   },
   "model_info": {
-    "trained_at": "2026-10-05T06:25:56.506383Z",
-    "rmse": 75.47014247400024,
-    "mae": 51.23411994835451,
-    "mape": 1.2192380603363717,
+    "trained_at": "2026-10-12T06:45:54.818535Z",
+    "rmse": 75.45521980814588,
+    "mae": 51.074056526660925,
+    "mape": 1.211179821731537,
     "direction_accuracy": 50.95890410958904,
-    "interval_coverage": 67.12328767123287,
-    "cv_direction_accuracy": 53.894342046515966,
-    "cv_mape": 9.585126481184995,
+    "interval_coverage": 68.76712328767123,
+    "cv_direction_accuracy": 53.962592084331206,
+    "cv_mape": 10.775402726925552,
     "macro_features": true,
     "has_confidence_intervals": true,
     "target_type": "calendar_close",

@@ -1,46 +1,46 @@
 {
-  "score": 0.2328,
+  "score": 0.0751,
   "label": "Bullish",
   "confidence": "medium",
   "article_count": 5,
   "top_headlines": [
     {
-      "title": "WWE SmackDown Results October 9, 2026: Alexa Bliss & Tatum Paxley Win Tag Gold",
-      "source": "Yahoo Entertainment",
-      "sentiment": 0.939,
+      "title": "Covergirl Clean Fresh Yummy Plumper Lip Gloss 0.33oz. Tubes For $3.77-$4.22 From Amazon",
+      "source": "Dansdeals.com",
+      "sentiment": 0.983,
       "label": "Bullish",
-      "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_4903afa8-689a-42c1-9223-300aaed4db84"
+      "url": "https://www.dansdeals.com/shopping-deals/amazon/covergirl-clean-fresh-yummy-plumper-lip-gloss-0-33oz-tubes-for-3-77-4-22-from-amazon/"
     },
     {
-      "title": "Solati Beard Trimmer & Hair Clipper Grooming Kit (Gold) $18.80",
-      "source": "Slickdeals.net",
-      "sentiment": 0.612,
-      "label": "Bullish",
-      "url": "https://slickdeals.net/f/20129688-solati-beard-trimmer-hair-clipper-grooming-kit-gold-18-80"
+      "title": "65 Of The Most Brutal Advertising Fails That Will Have You Questioning The Marketing Managers",
+      "source": "Boredpanda.com",
+      "sentiment": -0.903,
+      "label": "Bearish",
+      "url": "https://www.boredpanda.com/hilarious-advertising-fails/"
     },
     {
-      "title": "fxnewsbias 1.2.2",
+      "title": "Gold and silver prices rise in domestic market",
+      "source": "Khabarhub.com",
+      "sentiment": 0.296,
+      "label": "Bullish",
+      "url": "https://english.khabarhub.com/2026/11/571561/"
+    },
+    {
+      "title": "Income tax on gold jewellery: ITAT says CBDT limits cannot cap family holdings, deletes \u20b920.45 lakh addition",
+      "source": "Livemint",
+      "sentiment": 0.0,
+      "label": "Neutral",
+      "url": "https://www.livemint.com/money/personal-finance/income-tax-on-gold-jewellery-itat-says-cbdt-limits-cannot-cap-family-holdings-deletes-20-45-lakh-addition-11791685602604.html"
+    },
+    {
+      "title": "plate9 1.2.7",
       "source": "Pypi.org",
       "sentiment": 0.0,
       "label": "Neutral",
-      "url": "https://pypi.org/project/fxnewsbias/1.2.2/"
-    },
-    {
-      "title": "Today\u2019s Gold Rate in India October 10: Gold prices up in Coimbatore, Nagpur, Visakhapatnam, Surat, Jaipur (Other Cities)",
-      "source": "BusinessLine",
-      "sentiment": 0.0,
-      "label": "Neutral",
-      "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-coimbatore-nagpur-visakhapatnam-surat-jaipur-lucknow-chandigarh-gold-rates-other-cities-october-10-2026/article71567454.ece"
-    },
-    {
-      "title": "Today\u2019s Gold Rate in India October 10: Gold prices up in Delhi, Mumbai, Kolkata, Chennai, Bengaluru (Metro Cities)",
-      "source": "BusinessLine",
-      "sentiment": 0.0,
-      "label": "Neutral",
-      "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-delhi-mumbai-kolkata-chennai-bengaluru-hyderabad-pune-gold-rates-metro-cities-october-10-2026/article71567453.ece"
+      "url": "https://pypi.org/project/plate9/1.2.7/"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-11T09:08:05.917592",
-  "date": "2026-10-11"
+  "fetched_at": "2026-10-12T06:44:39.983875",
+  "date": "2026-10-12"
 }
