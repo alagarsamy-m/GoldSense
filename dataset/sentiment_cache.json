@@ -1,32 +1,46 @@
 {
-  "score": -0.127,
-  "label": "Bearish",
-  "confidence": "low",
-  "article_count": 3,
+  "score": 0.1698,
+  "label": "Bullish",
+  "confidence": "medium",
+  "article_count": 7,
   "top_headlines": [
     {
-      "title": "65 Of The Most Brutal Advertising Fails That Will Have You Questioning The Marketing Managers",
-      "source": "Boredpanda.com",
-      "sentiment": -0.903,
+      "title": "Beverly Rug Lomira Gold Striped Washable Jute 8x10ft Indoor Area Rug for $114 + free shipping",
+      "source": "Dealnews.com",
+      "sentiment": 0.765,
+      "label": "Bullish",
+      "url": "https://www.dealnews.com/Beverly-Rug-Lomira-Gold-Striped-Washable-Jute-8-x10-ft-Indoor-Area-Rug-for-114-free-shipping/22274297.html"
+    },
+    {
+      "title": "Beverly Rug Lomira Gold Striped Washable Jute 8x10ft Indoor Area Rug for $114 + free shipping",
+      "source": "Dealnews.com",
+      "sentiment": 0.765,
+      "label": "Bullish",
+      "url": "https://www.dealnews.com/Beverly-Rug-Lomira-Gold-Striped-Washable-Jute-8-x10-ft-Indoor-Area-Rug-for-114-free-shipping/22274297.html"
+    },
+    {
+      "title": "Welcome to the Magical Mystery Tour of the AI age",
+      "source": "Business Insider",
+      "sentiment": 0.66,
+      "label": "Bullish",
+      "url": "https://www.businessinsider.com/ai-data-center-business-opportunities-entrepreneurial-boom-food-housing-parking-2026-10#article"
+    },
+    {
+      "title": "Gold ETF inflows hit 7-month high in Sept despite 5% fall in bullion",
+      "source": "Business Standard",
+      "sentiment": -0.34,
       "label": "Bearish",
-      "url": "https://www.boredpanda.com/hilarious-advertising-fails/"
+      "url": "https://www.business-standard.com/markets/news/gold-etf-inflows-hit-7-month-high-in-sept-despite-5-fall-in-bullion-126101200525_1.html"
     },
     {
-      "title": "Gold and silver prices rise in domestic market",
-      "source": "Khabarhub.com",
-      "sentiment": 0.296,
+      "title": "Gold, silver gain globally on easing inflation fears, trade lower on MCX",
+      "source": "Business Standard",
+      "sentiment": 0.103,
       "label": "Bullish",
-      "url": "https://english.khabarhub.com/2026/11/571561/"
-    },
-    {
-      "title": "Wild West Supermarket Simulator-Razor1911",
-      "source": "Rlsbb.cc",
-      "sentiment": 0.226,
-      "label": "Bullish",
-      "url": "https://post.rlsbb.cc/wild-west-supermarket-simulator-razor1911/"
+      "url": "https://www.business-standard.com/markets/commodities/gold-silver-gain-globally-on-easing-inflation-fears-trade-lower-on-mcx-126101200530_1.html"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-12T09:32:00.516970",
-  "date": "2026-10-12"
+  "fetched_at": "2026-10-13T09:37:35.381643",
+  "date": "2026-10-13"
 }
