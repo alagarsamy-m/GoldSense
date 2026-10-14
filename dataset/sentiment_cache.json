@@ -1,46 +1,46 @@
 {
-  "score": 0.1698,
+  "score": 0.3331,
   "label": "Bullish",
   "confidence": "medium",
   "article_count": 7,
   "top_headlines": [
     {
-      "title": "Beverly Rug Lomira Gold Striped Washable Jute 8x10ft Indoor Area Rug for $114 + free shipping",
-      "source": "Dealnews.com",
-      "sentiment": 0.765,
+      "title": "Gold rate today (October 13, 2026): Check 24k, 22k, 20k and 18k gold jewellery prices from Malabar Gold & Diamonds, Joyalukkas, Kalyan Jewellers, Tanishq & IBJA in Delhi, Mumbai, Hyderabad & more cities",
+      "source": "The Times of India",
+      "sentiment": 0.805,
       "label": "Bullish",
-      "url": "https://www.dealnews.com/Beverly-Rug-Lomira-Gold-Striped-Washable-Jute-8-x10-ft-Indoor-Area-Rug-for-114-free-shipping/22274297.html"
+      "url": "https://economictimes.indiatimes.com/wealth/invest/gold-silver-rate-today-october-13-2026-18k-20k-24k-delhi-hyderabad-bengaluru-citywise-ibja-gold-price-malabar-gold-kalyan-jewelers-joyalukkas/articleshow/134910155.cms"
     },
     {
-      "title": "Beverly Rug Lomira Gold Striped Washable Jute 8x10ft Indoor Area Rug for $114 + free shipping",
-      "source": "Dealnews.com",
-      "sentiment": 0.765,
+      "title": "Gold ticks up as oil eases; spotlight on US inflation data",
+      "source": "BusinessLine",
+      "sentiment": 0.718,
       "label": "Bullish",
-      "url": "https://www.dealnews.com/Beverly-Rug-Lomira-Gold-Striped-Washable-Jute-8-x10-ft-Indoor-Area-Rug-for-114-free-shipping/22274297.html"
+      "url": "https://www.thehindubusinessline.com/markets/gold/gold-ticks-up-as-oil-eases-spotlight-on-us-inflation-data/article71578314.ece"
     },
     {
-      "title": "Welcome to the Magical Mystery Tour of the AI age",
-      "source": "Business Insider",
-      "sentiment": 0.66,
+      "title": "Gold: Soft Debt Default Using Inflation",
+      "source": "Biztoc.com",
+      "sentiment": 0.71,
       "label": "Bullish",
-      "url": "https://www.businessinsider.com/ai-data-center-business-opportunities-entrepreneurial-boom-food-housing-parking-2026-10#article"
+      "url": "https://biztoc.com/x/2f62c969c550fd10"
     },
     {
-      "title": "Gold ETF inflows hit 7-month high in Sept despite 5% fall in bullion",
-      "source": "Business Standard",
-      "sentiment": -0.34,
+      "title": "Dream Vacations Wins Five 2026 Travel Weekly Magellan Awards, Including Three Gold and Two Silver",
+      "source": "PRNewswire",
+      "sentiment": 0.977,
+      "label": "Bullish",
+      "url": "https://www.prnewswire.com/news-releases/dream-vacations-wins-five-2026-travel-weekly-magellan-awards-including-three-gold-and-two-silver-302906034.html"
+    },
+    {
+      "title": "Software engineer dies by suicide in Hyderabad's Nanakramguda, leaves behind suicide note",
+      "source": "The Times of India",
+      "sentiment": -0.959,
       "label": "Bearish",
-      "url": "https://www.business-standard.com/markets/news/gold-etf-inflows-hit-7-month-high-in-sept-despite-5-fall-in-bullion-126101200525_1.html"
-    },
-    {
-      "title": "Gold, silver gain globally on easing inflation fears, trade lower on MCX",
-      "source": "Business Standard",
-      "sentiment": 0.103,
-      "label": "Bullish",
-      "url": "https://www.business-standard.com/markets/commodities/gold-silver-gain-globally-on-easing-inflation-fears-trade-lower-on-mcx-126101200530_1.html"
+      "url": "https://economictimes.indiatimes.com/news/india/telengana-techie-dies-by-suicide-in-hyderabads-nanakramguda-leaves-behind-suicide-note/articleshow/134911622.cms"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-13T09:37:35.381643",
-  "date": "2026-10-13"
+  "fetched_at": "2026-10-14T07:52:27.798095",
+  "date": "2026-10-14"
 }
