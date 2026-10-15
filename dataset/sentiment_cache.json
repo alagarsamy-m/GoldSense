@@ -1,46 +1,46 @@
 {
-  "score": 0.3331,
+  "score": 0.2007,
   "label": "Bullish",
   "confidence": "medium",
-  "article_count": 7,
+  "article_count": 6,
   "top_headlines": [
     {
-      "title": "Gold rate today (October 13, 2026): Check 24k, 22k, 20k and 18k gold jewellery prices from Malabar Gold & Diamonds, Joyalukkas, Kalyan Jewellers, Tanishq & IBJA in Delhi, Mumbai, Hyderabad & more cities",
+      "title": "India\u2019s hidden gold chest is giving imported bullion a run for its money",
       "source": "The Times of India",
-      "sentiment": 0.805,
+      "sentiment": 0.586,
       "label": "Bullish",
-      "url": "https://economictimes.indiatimes.com/wealth/invest/gold-silver-rate-today-october-13-2026-18k-20k-24k-delhi-hyderabad-bengaluru-citywise-ibja-gold-price-malabar-gold-kalyan-jewelers-joyalukkas/articleshow/134910155.cms"
+      "url": "https://economictimes.indiatimes.com/industry/cons-products/fashion-/-cosmetics-/-jewellery/indias-hidden-gold-chest-is-giving-imported-bullion-a-run-for-its-money/articleshow/134931849.cms"
     },
     {
-      "title": "Gold ticks up as oil eases; spotlight on US inflation data",
-      "source": "BusinessLine",
-      "sentiment": 0.718,
-      "label": "Bullish",
-      "url": "https://www.thehindubusinessline.com/markets/gold/gold-ticks-up-as-oil-eases-spotlight-on-us-inflation-data/article71578314.ece"
-    },
-    {
-      "title": "Gold: Soft Debt Default Using Inflation",
-      "source": "Biztoc.com",
-      "sentiment": 0.71,
-      "label": "Bullish",
-      "url": "https://biztoc.com/x/2f62c969c550fd10"
-    },
-    {
-      "title": "Dream Vacations Wins Five 2026 Travel Weekly Magellan Awards, Including Three Gold and Two Silver",
-      "source": "PRNewswire",
-      "sentiment": 0.977,
-      "label": "Bullish",
-      "url": "https://www.prnewswire.com/news-releases/dream-vacations-wins-five-2026-travel-weekly-magellan-awards-including-three-gold-and-two-silver-302906034.html"
-    },
-    {
-      "title": "Software engineer dies by suicide in Hyderabad's Nanakramguda, leaves behind suicide note",
+      "title": "No jobs, no visas! WFI prez blasts US embassy after wrestlers rejected: 'India lost out on gold medals'",
       "source": "The Times of India",
-      "sentiment": -0.959,
+      "sentiment": -0.881,
       "label": "Bearish",
-      "url": "https://economictimes.indiatimes.com/news/india/telengana-techie-dies-by-suicide-in-hyderabads-nanakramguda-leaves-behind-suicide-note/articleshow/134911622.cms"
+      "url": "https://timesofindia.indiatimes.com/sports/more-sports/wrestling/no-jobs-no-visas-wfi-prez-blasts-us-embassy-after-wrestlers-rejected-india-lost-out-on-gold-medals/articleshow/134935208.cms"
+    },
+    {
+      "title": "Gold and silver rates today: Check 24k, 22k, 20k, 18k gold jewellery prices from Malabar Gold & Diamonds, IBJA, Joyalukkas, Kalyan Jewellers and Tanishq",
+      "source": "The Times of India",
+      "sentiment": 0.417,
+      "label": "Bullish",
+      "url": "https://economictimes.indiatimes.com/wealth/invest/22k-gold-silver-rate-today-october-14-2026-check-24k-20k-18k-14k-gold-jewellery-pricesfrom-malabar-gold-diamonds-ibja-joyalukkas-kalyan-jewellers-andtanishq/articleshow/134934516.cms"
+    },
+    {
+      "title": "Tanishq sees demand for natural diamonds and 18k gold rise as consumers seek value",
+      "source": "Livemint",
+      "sentiment": 0.7,
+      "label": "Bullish",
+      "url": "https://www.livemint.com/industry/tanishq-gold-prices-18k-jewellery-diamond-demand-11791950926289.html"
+    },
+    {
+      "title": "Motionless In White Premiere New Live Video \"R.I.P.\" - Skylar Grey Guests",
+      "source": "Metalunderground.com",
+      "sentiment": 0.153,
+      "label": "Bullish",
+      "url": "http://www.metalunderground.com/news/details.cfm?newsid=162285"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-14T07:52:27.798095",
-  "date": "2026-10-14"
+  "fetched_at": "2026-10-15T07:37:39.221109",
+  "date": "2026-10-15"
 }
