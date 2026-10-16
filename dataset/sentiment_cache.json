@@ -1,46 +1,46 @@
 {
-  "score": 0.2007,
+  "score": 0.4278,
   "label": "Bullish",
   "confidence": "medium",
-  "article_count": 6,
+  "article_count": 5,
   "top_headlines": [
     {
-      "title": "India\u2019s hidden gold chest is giving imported bullion a run for its money",
-      "source": "The Times of India",
-      "sentiment": 0.586,
+      "title": "Resort for a Day Wins 2026 Travel Weekly Gold Magellan Award in Service Category",
+      "source": "PRNewswire",
+      "sentiment": 0.962,
       "label": "Bullish",
-      "url": "https://economictimes.indiatimes.com/industry/cons-products/fashion-/-cosmetics-/-jewellery/indias-hidden-gold-chest-is-giving-imported-bullion-a-run-for-its-money/articleshow/134931849.cms"
+      "url": "https://www.prnewswire.com/news-releases/resort-for-a-day-wins-2026-travel-weekly-gold-magellan-award-in-service-category-302909278.html"
     },
     {
-      "title": "No jobs, no visas! WFI prez blasts US embassy after wrestlers rejected: 'India lost out on gold medals'",
-      "source": "The Times of India",
-      "sentiment": -0.881,
-      "label": "Bearish",
-      "url": "https://timesofindia.indiatimes.com/sports/more-sports/wrestling/no-jobs-no-visas-wfi-prez-blasts-us-embassy-after-wrestlers-rejected-india-lost-out-on-gold-medals/articleshow/134935208.cms"
-    },
-    {
-      "title": "Gold and silver rates today: Check 24k, 22k, 20k, 18k gold jewellery prices from Malabar Gold & Diamonds, IBJA, Joyalukkas, Kalyan Jewellers and Tanishq",
-      "source": "The Times of India",
-      "sentiment": 0.417,
+      "title": "St. Louis Cardinals Ground-Ball Machine Would Fit A's Pitching Approach",
+      "source": "Roundtable.io",
+      "sentiment": 0.888,
       "label": "Bullish",
-      "url": "https://economictimes.indiatimes.com/wealth/invest/22k-gold-silver-rate-today-october-14-2026-check-24k-20k-18k-14k-gold-jewellery-pricesfrom-malabar-gold-diamonds-ibja-joyalukkas-kalyan-jewellers-andtanishq/articleshow/134934516.cms"
+      "url": "https://roundtable.io/sports/mlb/athletics/news/st-louis-cardinals-ground-ball-machine-would-fit-as-pitching-approach"
     },
     {
-      "title": "Tanishq sees demand for natural diamonds and 18k gold rise as consumers seek value",
+      "title": "Red Sox could match rare feat with three Gold Glove winners",
+      "source": "MassLive.com",
+      "sentiment": 0.765,
+      "label": "Bullish",
+      "url": "https://www.masslive.com/redsox/2026/10/three-red-sox-named-as-al-gold-glove-finalists.html"
+    },
+    {
+      "title": "Gold, silver recover after crash: What drove the fall, why prices recovered and what you should watch next | Explained",
       "source": "Livemint",
-      "sentiment": 0.7,
-      "label": "Bullish",
-      "url": "https://www.livemint.com/industry/tanishq-gold-prices-18k-jewellery-diamond-demand-11791950926289.html"
+      "sentiment": -0.477,
+      "label": "Bearish",
+      "url": "https://www.livemint.com/money/personal-finance/gold-silver-recover-after-crash-what-drove-the-fall-why-prices-recovered-and-what-you-should-watch-next-explained-11792042062780.html"
     },
     {
-      "title": "Motionless In White Premiere New Live Video \"R.I.P.\" - Skylar Grey Guests",
-      "source": "Metalunderground.com",
-      "sentiment": 0.153,
-      "label": "Bullish",
-      "url": "http://www.metalunderground.com/news/details.cfm?newsid=162285"
+      "title": "Is SSR Mining (TSX:SSRM) Undervalued On Its New Marigold Mine Plan?",
+      "source": "Biztoc.com",
+      "sentiment": 0.0,
+      "label": "Neutral",
+      "url": "https://biztoc.com/x/02d970becdceed1d"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-15T07:37:39.221109",
-  "date": "2026-10-15"
+  "fetched_at": "2026-10-16T07:24:27.023583",
+  "date": "2026-10-16"
 }
