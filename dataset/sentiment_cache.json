@@ -1,46 +1,46 @@
 {
-  "score": 0.4278,
+  "score": 0.2957,
   "label": "Bullish",
   "confidence": "medium",
-  "article_count": 5,
+  "article_count": 8,
   "top_headlines": [
     {
-      "title": "Resort for a Day Wins 2026 Travel Weekly Gold Magellan Award in Service Category",
-      "source": "PRNewswire",
-      "sentiment": 0.962,
+      "title": "India's Para Badminton Stars Begin Asian Para Games With Wins",
+      "source": "Rediff.com",
+      "sentiment": 0.933,
       "label": "Bullish",
-      "url": "https://www.prnewswire.com/news-releases/resort-for-a-day-wins-2026-travel-weekly-gold-magellan-award-in-service-category-302909278.html"
+      "url": "https://www.rediff.com/sports/report/suhas-ly-makes-winning-start-in-asian-para-games-badminton/20261016.htm"
     },
     {
-      "title": "St. Louis Cardinals Ground-Ball Machine Would Fit A's Pitching Approach",
-      "source": "Roundtable.io",
-      "sentiment": 0.888,
+      "title": "PM Modi praises teenage Asiad medallists, Vaibhav Sooryavanshi's reaction says it all",
+      "source": "The Times of India",
+      "sentiment": 0.926,
       "label": "Bullish",
-      "url": "https://roundtable.io/sports/mlb/athletics/news/st-louis-cardinals-ground-ball-machine-would-fit-as-pitching-approach"
+      "url": "https://timesofindia.indiatimes.com/sports/cricket/news/pm-modi-praises-teenage-asiad-medallists-vaibhav-sooryavanshis-reaction-says-it-all/articleshow/134983165.cms"
     },
     {
-      "title": "Red Sox could match rare feat with three Gold Glove winners",
-      "source": "MassLive.com",
-      "sentiment": 0.765,
+      "title": "Shanti Gold, PC Jeweller & other jewellery stocks rally up to 10% as gold ETF FoF subscriptions face curbs",
+      "source": "The Times of India",
+      "sentiment": 0.402,
       "label": "Bullish",
-      "url": "https://www.masslive.com/redsox/2026/10/three-red-sox-named-as-al-gold-glove-finalists.html"
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/shanti-gold-pc-jeweller-other-jewellery-stocks-rally-up-to-10-as-gold-etf-fof-subscriptions-face-curbs/articleshow/134983846.cms"
     },
     {
-      "title": "Gold, silver recover after crash: What drove the fall, why prices recovered and what you should watch next | Explained",
-      "source": "Livemint",
-      "sentiment": -0.477,
+      "title": "Casio Gives Its Classic G-SHOCK 6900 a Gold Makeover With a Hidden Camo Detail",
+      "source": "The Gadgeteer",
+      "sentiment": 0.382,
+      "label": "Bullish",
+      "url": "https://the-gadgeteer.com/2026/10/16/casio-g-shock-gm-6900cmg-3-gold-camo/"
+    },
+    {
+      "title": "Silver outlook bearish; may fall to $48 if $54.50 support breaks: Analyst",
+      "source": "Business Standard",
+      "sentiment": -0.368,
       "label": "Bearish",
-      "url": "https://www.livemint.com/money/personal-finance/gold-silver-recover-after-crash-what-drove-the-fall-why-prices-recovered-and-what-you-should-watch-next-explained-11792042062780.html"
-    },
-    {
-      "title": "Is SSR Mining (TSX:SSRM) Undervalued On Its New Marigold Mine Plan?",
-      "source": "Biztoc.com",
-      "sentiment": 0.0,
-      "label": "Neutral",
-      "url": "https://biztoc.com/x/02d970becdceed1d"
+      "url": "https://www.business-standard.com/markets/news/silver-outlook-bearish-may-fall-to-48-if-54-50-support-breaks-analyst-126101600371_1.html"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-16T07:24:27.023583",
-  "date": "2026-10-16"
+  "fetched_at": "2026-10-17T07:05:51.919158",
+  "date": "2026-10-17"
 }

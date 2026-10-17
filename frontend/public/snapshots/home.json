@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-10-16T07:24:33.348121Z",
+  "generated_at": "2026-10-17T07:05:57.433493Z",
   "today": {
-    "generated_at": "2026-10-16T07:24:33.348121Z",
-    "date": "2026-10-16",
+    "generated_at": "2026-10-17T07:05:57.433493Z",
+    "date": "2026-10-17",
     "reference_mode": "live_last",
     "quote_label": "Live last available price",
     "quote_note": "This is the latest live or delayed market quote, not the official open or final close.",
-    "live_usd": 4206.4,
-    "usd_inr_rate": 95.0175,
+    "live_usd": 4181.1,
+    "usd_inr_rate": 94.96,
     "verified_date": "2026-10-16",
-    "as_of": "2026-10-16T07:24:36.541698Z",
+    "as_of": "2026-10-17T07:06:00.097886Z",
     "source": "yfinance",
     "market_status": "live",
     "is_live": true,
     "location": "Mumbai",
-    "base_per_gram": 12850.05,
-    "price_24k_per_gram": 14029.69,
-    "price_22k_per_gram": 12860.55,
-    "price_24k_per_10g": 140296.87,
-    "price_22k_per_10g": 128605.47,
+    "base_per_gram": 12765.03,
+    "price_24k_per_gram": 13936.86,
+    "price_22k_per_gram": 12775.46,
+    "price_24k_per_10g": 139368.65,
+    "price_22k_per_10g": 127754.59,
     "pricing_formula": {
       "base_formula": "(USD_per_oz * USDINR) / 31.1035",
       "customs_duty_pct": 6.0,
@@ -28,31 +28,31 @@
     }
   },
   "tomorrow": {
-    "generated_at": "2026-10-16T07:24:33.348121Z",
-    "prediction_date": "2026-10-17",
-    "target_date": "2026-10-17",
+    "generated_at": "2026-10-17T07:05:57.433493Z",
+    "prediction_date": "2026-10-18",
+    "target_date": "2026-10-18",
     "target_type": "calendar_close",
     "reference_mode": "live_last",
     "market_closed": true,
     "last_data_date": "2026-10-16",
-    "last_actual_usd": 4207.3,
-    "reference_live_usd": 4206.4,
-    "reference_as_of": "2026-10-16T07:24:35.518380Z",
+    "last_actual_usd": 4181.1,
+    "reference_live_usd": 4181.1,
+    "reference_as_of": "2026-10-17T07:05:59.144090Z",
     "reference_source": "yfinance",
     "reference_market_status": "live",
     "reference_is_live": true,
     "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-    "tomorrow_usd": 4206.4,
-    "usd_inr_rate": 95.0175,
+    "tomorrow_usd": 4181.1,
+    "usd_inr_rate": 94.96,
     "trend": "stable",
     "direction_vs_today": "stable",
     "direction_delta_pct": 0.0,
     "direction_delta_usd": 0.0,
     "pct_change": 0.0,
-    "tomorrow_price_24k_per_gram": 14029.69,
-    "tomorrow_price_22k_per_gram": 12860.55,
-    "tomorrow_price_24k_per_10g": 140296.87,
-    "tomorrow_price_22k_per_10g": 128605.47,
+    "tomorrow_price_24k_per_gram": 13936.86,
+    "tomorrow_price_22k_per_gram": 12775.46,
+    "tomorrow_price_24k_per_10g": 139368.65,
+    "tomorrow_price_22k_per_10g": 127754.59,
     "tomorrow_pricing_formula": {
       "base_formula": "(USD_per_oz * USDINR) / 31.1035",
       "customs_duty_pct": 6.0,
@@ -60,55 +60,55 @@
       "mumbai_premium_pct": 0.0,
       "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
     },
-    "as_of": "2026-10-16T07:24:35.518380Z",
+    "as_of": "2026-10-17T07:05:59.144090Z",
     "source": "model_forecast",
     "market_status": "market_closed",
     "is_live": false,
     "sentiment": {
-      "score": 0.4278,
+      "score": 0.2957,
       "label": "Bullish",
       "confidence": "medium",
       "signal": "Neutral",
-      "article_count": 5,
+      "article_count": 8,
       "source": "newsapi",
       "top_headlines": [
         {
-          "title": "Resort for a Day Wins 2026 Travel Weekly Gold Magellan Award in Service Category",
-          "source": "PRNewswire",
-          "sentiment": 0.962,
+          "title": "India's Para Badminton Stars Begin Asian Para Games With Wins",
+          "source": "Rediff.com",
+          "sentiment": 0.933,
           "label": "Bullish",
-          "url": "https://www.prnewswire.com/news-releases/resort-for-a-day-wins-2026-travel-weekly-gold-magellan-award-in-service-category-302909278.html"
+          "url": "https://www.rediff.com/sports/report/suhas-ly-makes-winning-start-in-asian-para-games-badminton/20261016.htm"
         },
         {
-          "title": "St. Louis Cardinals Ground-Ball Machine Would Fit A's Pitching Approach",
-          "source": "Roundtable.io",
-          "sentiment": 0.888,
+          "title": "PM Modi praises teenage Asiad medallists, Vaibhav Sooryavanshi's reaction says it all",
+          "source": "The Times of India",
+          "sentiment": 0.926,
           "label": "Bullish",
-          "url": "https://roundtable.io/sports/mlb/athletics/news/st-louis-cardinals-ground-ball-machine-would-fit-as-pitching-approach"
+          "url": "https://timesofindia.indiatimes.com/sports/cricket/news/pm-modi-praises-teenage-asiad-medallists-vaibhav-sooryavanshis-reaction-says-it-all/articleshow/134983165.cms"
         },
         {
-          "title": "Red Sox could match rare feat with three Gold Glove winners",
-          "source": "MassLive.com",
-          "sentiment": 0.765,
+          "title": "Shanti Gold, PC Jeweller & other jewellery stocks rally up to 10% as gold ETF FoF subscriptions face curbs",
+          "source": "The Times of India",
+          "sentiment": 0.402,
           "label": "Bullish",
-          "url": "https://www.masslive.com/redsox/2026/10/three-red-sox-named-as-al-gold-glove-finalists.html"
+          "url": "https://economictimes.indiatimes.com/markets/stocks/news/shanti-gold-pc-jeweller-other-jewellery-stocks-rally-up-to-10-as-gold-etf-fof-subscriptions-face-curbs/articleshow/134983846.cms"
         },
         {
-          "title": "Gold, silver recover after crash: What drove the fall, why prices recovered and what you should watch next | Explained",
-          "source": "Livemint",
-          "sentiment": -0.477,
+          "title": "Casio Gives Its Classic G-SHOCK 6900 a Gold Makeover With a Hidden Camo Detail",
+          "source": "The Gadgeteer",
+          "sentiment": 0.382,
+          "label": "Bullish",
+          "url": "https://the-gadgeteer.com/2026/10/16/casio-g-shock-gm-6900cmg-3-gold-camo/"
+        },
+        {
+          "title": "Silver outlook bearish; may fall to $48 if $54.50 support breaks: Analyst",
+          "source": "Business Standard",
+          "sentiment": -0.368,
           "label": "Bearish",
-          "url": "https://www.livemint.com/money/personal-finance/gold-silver-recover-after-crash-what-drove-the-fall-why-prices-recovered-and-what-you-should-watch-next-explained-11792042062780.html"
-        },
-        {
-          "title": "Is SSR Mining (TSX:SSRM) Undervalued On Its New Marigold Mine Plan?",
-          "source": "Biztoc.com",
-          "sentiment": 0.0,
-          "label": "Neutral",
-          "url": "https://biztoc.com/x/02d970becdceed1d"
+          "url": "https://www.business-standard.com/markets/news/silver-outlook-bearish-may-fall-to-48-if-54-50-support-breaks-analyst-126101600371_1.html"
         }
       ],
-      "fetched_at": "2026-10-16T07:24:27.023583"
+      "fetched_at": "2026-10-17T07:05:51.919158"
     },
     "model_info": {
       "trained_at": "2026-10-12T06:45:54.818535Z",
@@ -126,7 +126,7 @@
     }
   },
   "week": {
-    "generated_at": "2026-10-16T07:24:33.348121Z",
+    "generated_at": "2026-10-17T07:05:57.433493Z",
     "forecast": [
       {
         "date": "2026-10-12",
@@ -150,11 +150,11 @@
           "mumbai_premium_pct": 0.0,
           "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
         },
-        "reference_live_usd": 4206.4,
-        "reference_live_price_24k_per_gram": 14029.69,
-        "direction_vs_today": "stable",
-        "direction_delta_pct": 0.059,
-        "direction_delta_usd": 2.5
+        "reference_live_usd": 4181.1,
+        "reference_live_price_24k_per_gram": 13936.86,
+        "direction_vs_today": "up",
+        "direction_delta_pct": 0.665,
+        "direction_delta_usd": 27.8
       },
       {
         "date": "2026-10-13",
@@ -178,11 +178,11 @@
           "mumbai_premium_pct": 0.0,
           "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
         },
-        "reference_live_usd": 4206.4,
-        "reference_live_price_24k_per_gram": 14029.69,
-        "direction_vs_today": "stable",
-        "direction_delta_pct": 0.04,
-        "direction_delta_usd": 1.7
+        "reference_live_usd": 4181.1,
+        "reference_live_price_24k_per_gram": 13936.86,
+        "direction_vs_today": "up",
+        "direction_delta_pct": 0.646,
+        "direction_delta_usd": 27.0
       },
       {
         "date": "2026-10-14",
@@ -206,11 +206,11 @@
           "mumbai_premium_pct": 0.0,
           "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
         },
-        "reference_live_usd": 4206.4,
-        "reference_live_price_24k_per_gram": 14029.69,
+        "reference_live_usd": 4181.1,
+        "reference_live_price_24k_per_gram": 13936.86,
         "direction_vs_today": "down",
-        "direction_delta_pct": -0.87,
-        "direction_delta_usd": -36.6
+        "direction_delta_pct": -0.27,
+        "direction_delta_usd": -11.3
       },
       {
         "date": "2026-10-15",
@@ -234,11 +234,11 @@
           "mumbai_premium_pct": 0.0,
           "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
         },
-        "reference_live_usd": 4206.4,
-        "reference_live_price_24k_per_gram": 14029.69,
+        "reference_live_usd": 4181.1,
+        "reference_live_price_24k_per_gram": 13936.86,
         "direction_vs_today": "down",
-        "direction_delta_pct": -0.994,
-        "direction_delta_usd": -41.8
+        "direction_delta_pct": -0.395,
+        "direction_delta_usd": -16.5
       },
       {
         "date": "2026-10-16",
@@ -247,14 +247,14 @@
         "status": "actual",
         "market_status": "actual",
         "is_trading_day": true,
-        "usd": 4207.3,
+        "usd": 4181.1,
         "usd_inr_rate": 95.018,
         "location": "Mumbai",
-        "base_per_gram": 12852.87,
-        "price_24k_per_gram": 14032.76,
-        "price_22k_per_gram": 12863.37,
-        "price_24k_per_10g": 140327.63,
-        "price_22k_per_10g": 128633.66,
+        "base_per_gram": 12772.83,
+        "price_24k_per_gram": 13945.38,
+        "price_22k_per_gram": 12783.26,
+        "price_24k_per_10g": 139453.77,
+        "price_22k_per_10g": 127832.62,
         "pricing_formula": {
           "base_formula": "(USD_per_oz * USDINR) / 31.1035",
           "customs_duty_pct": 6.0,
@@ -262,11 +262,11 @@
           "mumbai_premium_pct": 0.0,
           "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
         },
-        "reference_live_usd": 4206.4,
-        "reference_live_price_24k_per_gram": 14029.69,
+        "reference_live_usd": 4181.1,
+        "reference_live_price_24k_per_gram": 13936.86,
         "direction_vs_today": "stable",
-        "direction_delta_pct": 0.021,
-        "direction_delta_usd": 0.9
+        "direction_delta_pct": 0.0,
+        "direction_delta_usd": 0.0
       },
       {
         "date": "2026-10-17",
@@ -275,14 +275,14 @@
         "status": "market_closed",
         "market_status": "market_closed",
         "is_trading_day": false,
-        "usd": 4207.3,
+        "usd": 4181.1,
         "usd_inr_rate": 95.018,
         "location": "Mumbai",
-        "base_per_gram": 12852.87,
-        "price_24k_per_gram": 14032.76,
-        "price_22k_per_gram": 12863.37,
-        "price_24k_per_10g": 140327.63,
-        "price_22k_per_10g": 128633.66,
+        "base_per_gram": 12772.83,
+        "price_24k_per_gram": 13945.38,
+        "price_22k_per_gram": 12783.26,
+        "price_24k_per_10g": 139453.77,
+        "price_22k_per_10g": 127832.62,
         "pricing_formula": {
           "base_formula": "(USD_per_oz * USDINR) / 31.1035",
           "customs_duty_pct": 6.0,
@@ -290,11 +290,11 @@
           "mumbai_premium_pct": 0.0,
           "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
         },
-        "reference_live_usd": 4206.4,
-        "reference_live_price_24k_per_gram": 14029.69,
+        "reference_live_usd": 4181.1,
+        "reference_live_price_24k_per_gram": 13936.86,
         "direction_vs_today": "stable",
-        "direction_delta_pct": 0.021,
-        "direction_delta_usd": 0.9
+        "direction_delta_pct": 0.0,
+        "direction_delta_usd": 0.0
       },
       {
         "date": "2026-10-18",
@@ -303,14 +303,14 @@
         "status": "market_closed",
         "market_status": "market_closed",
         "is_trading_day": false,
-        "usd": 4207.3,
+        "usd": 4181.1,
         "usd_inr_rate": 95.018,
         "location": "Mumbai",
-        "base_per_gram": 12852.87,
-        "price_24k_per_gram": 14032.76,
-        "price_22k_per_gram": 12863.37,
-        "price_24k_per_10g": 140327.63,
-        "price_22k_per_10g": 128633.66,
+        "base_per_gram": 12772.83,
+        "price_24k_per_gram": 13945.38,
+        "price_22k_per_gram": 12783.26,
+        "price_24k_per_10g": 139453.77,
+        "price_22k_per_10g": 127832.62,
         "pricing_formula": {
           "base_formula": "(USD_per_oz * USDINR) / 31.1035",
           "customs_duty_pct": 6.0,
@@ -318,17 +318,17 @@
           "mumbai_premium_pct": 0.0,
           "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
         },
-        "reference_live_usd": 4206.4,
-        "reference_live_price_24k_per_gram": 14029.69,
+        "reference_live_usd": 4181.1,
+        "reference_live_price_24k_per_gram": 13936.86,
         "direction_vs_today": "stable",
-        "direction_delta_pct": 0.021,
-        "direction_delta_usd": 0.9
+        "direction_delta_pct": 0.0,
+        "direction_delta_usd": 0.0
       }
     ],
     "market_context": {
-      "usd_per_oz": 4206.4,
-      "usd_inr_rate": 95.0175,
-      "as_of": "2026-10-16T07:24:34.675269Z",
+      "usd_per_oz": 4181.1,
+      "usd_inr_rate": 94.96,
+      "as_of": "2026-10-17T07:05:58.402900Z",
       "source": "yfinance",
       "market_status": "live",
       "is_live": true,
@@ -338,6 +338,34 @@
   },
   "accuracy": {
     "preview": [
+      {
+        "prediction_date": "2026-10-16",
+        "target_date": "2026-10-16",
+        "predicted_on": "2026-10-15",
+        "horizon": "D1",
+        "predicted_price_usd": 4166.33,
+        "actual_price_usd": 4181.1,
+        "difference": 14.77,
+        "pct_error": 0.353,
+        "predicted_price_24k_per_gram": 13886.16,
+        "actual_price_24k_per_gram": 13945.38,
+        "difference_24k_per_gram": 59.22,
+        "pct_error_24k_per_gram": 0.425,
+        "predicted_price_22k_per_gram": 12728.98,
+        "actual_price_22k_per_gram": 12783.26,
+        "difference_22k_per_gram": 54.28,
+        "pct_error_22k_per_gram": 0.425,
+        "predicted_price_24k_per_10g": 138861.63,
+        "actual_price_24k_per_10g": 139453.77,
+        "predicted_price_22k_per_10g": 127289.83,
+        "actual_price_22k_per_10g": 127832.62,
+        "direction_correct": 0,
+        "predicted_trend": "stable",
+        "actual_trend": "up",
+        "location": "India benchmark",
+        "status": "evaluated",
+        "created_at": "2026-10-17T07:05:53Z"
+      },
       {
         "prediction_date": "2026-10-15",
         "target_date": "2026-10-15",
@@ -505,37 +533,9 @@
         "location": "India benchmark",
         "status": "evaluated",
         "created_at": "2026-10-11T09:08:07Z"
-      },
-      {
-        "prediction_date": "2026-10-09",
-        "target_date": "2026-10-09",
-        "predicted_on": "2026-10-08",
-        "horizon": "D1",
-        "predicted_price_usd": 4153.86,
-        "actual_price_usd": 4216.3,
-        "difference": 62.44,
-        "pct_error": 1.481,
-        "predicted_price_24k_per_gram": 14112.9,
-        "actual_price_24k_per_gram": 14313.2,
-        "difference_24k_per_gram": 200.3,
-        "pct_error_24k_per_gram": 1.399,
-        "predicted_price_22k_per_gram": 12936.82,
-        "actual_price_22k_per_gram": 13120.43,
-        "difference_22k_per_gram": 183.61,
-        "pct_error_22k_per_gram": 1.399,
-        "predicted_price_24k_per_10g": 141128.99,
-        "actual_price_24k_per_10g": 143131.99,
-        "predicted_price_22k_per_10g": 129368.24,
-        "actual_price_22k_per_10g": 131204.33,
-        "direction_correct": 0,
-        "predicted_trend": "stable",
-        "actual_trend": "up",
-        "location": "India benchmark",
-        "status": "evaluated",
-        "created_at": "2026-10-10T08:45:25Z"
       }
     ],
-    "count": 188
+    "count": 189
   },
   "model_info": {
     "trained_at": "2026-10-12T06:45:54.818535Z",
