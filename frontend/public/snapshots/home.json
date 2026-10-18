@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-10-17T07:05:57.433493Z",
+  "generated_at": "2026-10-18T07:20:44.902433Z",
   "today": {
-    "generated_at": "2026-10-17T07:05:57.433493Z",
-    "date": "2026-10-17",
+    "generated_at": "2026-10-18T07:20:44.902433Z",
+    "date": "2026-10-18",
     "reference_mode": "live_last",
     "quote_label": "Live last available price",
     "quote_note": "This is the latest live or delayed market quote, not the official open or final close.",
     "live_usd": 4181.1,
     "usd_inr_rate": 94.96,
     "verified_date": "2026-10-16",
-    "as_of": "2026-10-17T07:06:00.097886Z",
+    "as_of": "2026-10-18T07:20:47.595324Z",
     "source": "yfinance",
     "market_status": "live",
     "is_live": true,
@@ -28,31 +28,31 @@
     }
   },
   "tomorrow": {
-    "generated_at": "2026-10-17T07:05:57.433493Z",
-    "prediction_date": "2026-10-18",
-    "target_date": "2026-10-18",
+    "generated_at": "2026-10-18T07:20:44.902433Z",
+    "prediction_date": "2026-10-19",
+    "target_date": "2026-10-19",
     "target_type": "calendar_close",
     "reference_mode": "live_last",
-    "market_closed": true,
+    "market_closed": false,
     "last_data_date": "2026-10-16",
     "last_actual_usd": 4181.1,
     "reference_live_usd": 4181.1,
-    "reference_as_of": "2026-10-17T07:05:59.144090Z",
+    "reference_as_of": "2026-10-18T07:20:46.770155Z",
     "reference_source": "yfinance",
     "reference_market_status": "live",
     "reference_is_live": true,
     "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-    "tomorrow_usd": 4181.1,
+    "tomorrow_usd": 4182.84,
     "usd_inr_rate": 94.96,
     "trend": "stable",
     "direction_vs_today": "stable",
-    "direction_delta_pct": 0.0,
-    "direction_delta_usd": 0.0,
-    "pct_change": 0.0,
-    "tomorrow_price_24k_per_gram": 13936.86,
-    "tomorrow_price_22k_per_gram": 12775.46,
-    "tomorrow_price_24k_per_10g": 139368.65,
-    "tomorrow_price_22k_per_10g": 127754.59,
+    "direction_delta_pct": 0.042,
+    "direction_delta_usd": 1.74,
+    "pct_change": 0.042,
+    "tomorrow_price_24k_per_gram": 13942.65,
+    "tomorrow_price_22k_per_gram": 12780.76,
+    "tomorrow_price_24k_per_10g": 139426.48,
+    "tomorrow_price_22k_per_10g": 127807.61,
     "tomorrow_pricing_formula": {
       "base_formula": "(USD_per_oz * USDINR) / 31.1035",
       "customs_duty_pct": 6.0,
@@ -60,12 +60,22 @@
       "mumbai_premium_pct": 0.0,
       "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
     },
-    "as_of": "2026-10-17T07:05:59.144090Z",
+    "confidence_interval": {
+      "lower_usd": 4131.81,
+      "upper_usd": 4259.31,
+      "lower_24k_per_gram": 13772.55,
+      "upper_24k_per_gram": 14197.57,
+      "lower_22k_per_gram": 12624.84,
+      "upper_22k_per_gram": 13014.44,
+      "interval_pct": 3.05
+    },
+    "direction_confidence": 55.4,
+    "as_of": "2026-10-18T07:20:46.770155Z",
     "source": "model_forecast",
-    "market_status": "market_closed",
+    "market_status": "forecast",
     "is_live": false,
     "sentiment": {
-      "score": 0.2957,
+      "score": 0.168,
       "label": "Bullish",
       "confidence": "medium",
       "signal": "Neutral",
@@ -73,42 +83,42 @@
       "source": "newsapi",
       "top_headlines": [
         {
-          "title": "India's Para Badminton Stars Begin Asian Para Games With Wins",
+          "title": "Pranavi Urs's Dream Meeting With Rory McIlroy",
           "source": "Rediff.com",
-          "sentiment": 0.933,
+          "sentiment": 0.974,
           "label": "Bullish",
-          "url": "https://www.rediff.com/sports/report/suhas-ly-makes-winning-start-in-asian-para-games-badminton/20261016.htm"
+          "url": "https://www.rediff.com/sports/report/pranavi-urs-meets-rory-mcilroy-discusses-masters-and-asian-games/20261017.htm"
         },
         {
-          "title": "PM Modi praises teenage Asiad medallists, Vaibhav Sooryavanshi's reaction says it all",
+          "title": "Gold set for a weekly drop as traders assess Fed signals",
           "source": "The Times of India",
-          "sentiment": 0.926,
-          "label": "Bullish",
-          "url": "https://timesofindia.indiatimes.com/sports/cricket/news/pm-modi-praises-teenage-asiad-medallists-vaibhav-sooryavanshis-reaction-says-it-all/articleshow/134983165.cms"
-        },
-        {
-          "title": "Shanti Gold, PC Jeweller & other jewellery stocks rally up to 10% as gold ETF FoF subscriptions face curbs",
-          "source": "The Times of India",
-          "sentiment": 0.402,
-          "label": "Bullish",
-          "url": "https://economictimes.indiatimes.com/markets/stocks/news/shanti-gold-pc-jeweller-other-jewellery-stocks-rally-up-to-10-as-gold-etf-fof-subscriptions-face-curbs/articleshow/134983846.cms"
-        },
-        {
-          "title": "Casio Gives Its Classic G-SHOCK 6900 a Gold Makeover With a Hidden Camo Detail",
-          "source": "The Gadgeteer",
-          "sentiment": 0.382,
-          "label": "Bullish",
-          "url": "https://the-gadgeteer.com/2026/10/16/casio-g-shock-gm-6900cmg-3-gold-camo/"
-        },
-        {
-          "title": "Silver outlook bearish; may fall to $48 if $54.50 support breaks: Analyst",
-          "source": "Business Standard",
-          "sentiment": -0.368,
+          "sentiment": -0.509,
           "label": "Bearish",
-          "url": "https://www.business-standard.com/markets/news/silver-outlook-bearish-may-fall-to-48-if-54-50-support-breaks-analyst-126101600371_1.html"
+          "url": "https://economictimes.indiatimes.com/markets/commodities/news/gold-set-for-a-weekly-drop-as-traders-assess-fed-signals/articleshow/135007093.cms"
+        },
+        {
+          "title": "Nike Air Max 90 Mercurial Men's Shoes (Black/Gold Leaf/Pear/White) $84.97 & More + Free Shipping (0 replies)",
+          "source": "Slickdeals.net",
+          "sentiment": 0.908,
+          "label": "Bullish",
+          "url": "https://slickdeals.net/f/20170959-nike-air-max-90-mercurial-men-s-shoes-black-gold-leaf-pear-white-84-97-more-free-shipping"
+        },
+        {
+          "title": "Crows snap Suns' winning run to climb into AFLW finals spots",
+          "source": "ABC News (AU)",
+          "sentiment": 0.778,
+          "label": "Bullish",
+          "url": "https://www.abc.net.au/news/2026-10-17/aflw-crows-suns-bulldogs-carlton-lions-port-eagles-cats/107279312"
+        },
+        {
+          "title": "Gold Rush S17E03 1080p AMZN WEB-DL H264-NTb",
+          "source": "Rlsbb.cc",
+          "sentiment": -0.681,
+          "label": "Bearish",
+          "url": "https://post.rlsbb.cc/gold-rush-s17e03-1080p-amzn-web-dl-h264-ntb/"
         }
       ],
-      "fetched_at": "2026-10-17T07:05:51.919158"
+      "fetched_at": "2026-10-18T07:20:39.011900"
     },
     "model_info": {
       "trained_at": "2026-10-12T06:45:54.818535Z",
@@ -126,7 +136,7 @@
     }
   },
   "week": {
-    "generated_at": "2026-10-17T07:05:57.433493Z",
+    "generated_at": "2026-10-18T07:20:44.902433Z",
     "forecast": [
       {
         "date": "2026-10-12",
@@ -328,7 +338,7 @@
     "market_context": {
       "usd_per_oz": 4181.1,
       "usd_inr_rate": 94.96,
-      "as_of": "2026-10-17T07:05:58.402900Z",
+      "as_of": "2026-10-18T07:20:46.012599Z",
       "source": "yfinance",
       "market_status": "live",
       "is_live": true,
@@ -338,6 +348,34 @@
   },
   "accuracy": {
     "preview": [
+      {
+        "prediction_date": "2026-10-17",
+        "target_date": "2026-10-17",
+        "predicted_on": "2026-10-16",
+        "horizon": "D1",
+        "predicted_price_usd": 4207.2,
+        "actual_price_usd": 4181.1,
+        "difference": -26.1,
+        "pct_error": 0.624,
+        "predicted_price_24k_per_gram": 14032.36,
+        "actual_price_24k_per_gram": 13945.38,
+        "difference_24k_per_gram": -86.98,
+        "pct_error_24k_per_gram": 0.624,
+        "predicted_price_22k_per_gram": 12862.99,
+        "actual_price_22k_per_gram": 12783.26,
+        "difference_22k_per_gram": -79.73,
+        "pct_error_22k_per_gram": 0.624,
+        "predicted_price_24k_per_10g": 140323.56,
+        "actual_price_24k_per_10g": 139453.77,
+        "predicted_price_22k_per_10g": 128629.93,
+        "actual_price_22k_per_10g": 127832.62,
+        "direction_correct": 1,
+        "predicted_trend": "stable",
+        "actual_trend": "stable",
+        "location": "India benchmark",
+        "status": "evaluated",
+        "created_at": "2026-10-18T07:20:40Z"
+      },
       {
         "prediction_date": "2026-10-16",
         "target_date": "2026-10-16",
@@ -505,37 +543,9 @@
         "location": "India benchmark",
         "status": "evaluated",
         "created_at": "2026-10-12T06:44:41Z"
-      },
-      {
-        "prediction_date": "2026-10-10",
-        "target_date": "2026-10-10",
-        "predicted_on": "2026-10-09",
-        "horizon": "D1",
-        "predicted_price_usd": 4211.0,
-        "actual_price_usd": 4216.3,
-        "difference": 5.3,
-        "pct_error": 0.126,
-        "predicted_price_24k_per_gram": 14295.95,
-        "actual_price_24k_per_gram": 14313.2,
-        "difference_24k_per_gram": 17.25,
-        "pct_error_24k_per_gram": 0.121,
-        "predicted_price_22k_per_gram": 13104.62,
-        "actual_price_22k_per_gram": 13120.43,
-        "difference_22k_per_gram": 15.81,
-        "pct_error_22k_per_gram": 0.12,
-        "predicted_price_24k_per_10g": 142959.46,
-        "actual_price_24k_per_10g": 143131.99,
-        "predicted_price_22k_per_10g": 131046.17,
-        "actual_price_22k_per_10g": 131204.33,
-        "direction_correct": 1,
-        "predicted_trend": "stable",
-        "actual_trend": "stable",
-        "location": "India benchmark",
-        "status": "evaluated",
-        "created_at": "2026-10-11T09:08:07Z"
       }
     ],
-    "count": 189
+    "count": 190
   },
   "model_info": {
     "trained_at": "2026-10-12T06:45:54.818535Z",
