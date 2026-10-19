@@ -1,46 +1,46 @@
 {
-  "score": 0.4449,
+  "score": 0.1273,
   "label": "Bullish",
   "confidence": "medium",
-  "article_count": 6,
+  "article_count": 5,
   "top_headlines": [
     {
-      "title": "Support the Mikvah Taharah Toms River And Win A $65,000 Rolex Presidential Day-Date \u2013 18K",
-      "source": "Dansdeals.com",
-      "sentiment": 0.968,
+      "title": "'What a finish!' - Gillespie wins gold for Ireland",
+      "source": "BBC News",
+      "sentiment": 0.872,
       "label": "Bullish",
-      "url": "https://www.dansdeals.com/advertisement/support-the-mikvah-taharah-toms-river-and-win-a-65000-rolex-presidential-day-date-18k-3/"
+      "url": "https://www.bbc.co.uk/sport/cycling/videos/cjy56pk5wg54o"
     },
     {
-      "title": "The world\u2019s best cities for public transport in 2026, according to locals",
-      "source": "Freerepublic.com",
-      "sentiment": 0.938,
+      "title": "In the 1890s, a new gold process helped turn Mercur, Utah, into a boomtown of over 2,500; by 1913, the mine had closed, and the original townsite was abandoned, though mining later resumed",
+      "source": "The Times of India",
+      "sentiment": 0.735,
       "label": "Bullish",
-      "url": "https://freerepublic.com/focus/f-chat/4399580/posts"
+      "url": "https://economictimes.indiatimes.com/news/international/us/in-the-1890s-a-new-gold-process-helped-turn-mercur-utah-into-a-boomtown-of-over-2500-by-1913-the-mine-had-closed-and-the-original-townsite-was-abandoned-though-mining-later-resumed/articleshow/135010822.cms"
     },
     {
-      "title": "5 Reasons Pok\u00e9mon HeartGold & SoulSilver Are The Best Entries",
-      "source": "Screen Rant",
-      "sentiment": 0.856,
-      "label": "Bullish",
-      "url": "https://screenrant.com/best-heart-gold-soul-silver-pokemon-moments/"
-    },
-    {
-      "title": "Gold on Dhanteras: celebrate the ritual, rethink the investment",
-      "source": "Livemint",
-      "sentiment": 0.593,
-      "label": "Bullish",
-      "url": "https://www.livemint.com/money/personal-finance/gold-on-dhanteras-celebrate-the-ritual-rethink-the-investment-11792135802308.html"
-    },
-    {
-      "title": "The Playboy Who Inherited the World\u2019s Most Notorious Mercenary Force",
-      "source": "Biztoc.com",
-      "sentiment": -0.401,
+      "title": "Invaders of the Lost Gold 1982 1080p BluRay H264-RiSEHD",
+      "source": "Rlsbb.cc",
+      "sentiment": -0.494,
       "label": "Bearish",
-      "url": "https://biztoc.com/x/25eebe5b732a9081"
+      "url": "https://post.rlsbb.cc/invaders-of-the-lost-gold-1982-1080p-bluray-h264-risehd/"
+    },
+    {
+      "title": "In the 1930s, mining kept Gold Point, Nevada, at about 200 residents; by 1950, only 23 remained; and by 2011, just 7 people still lived there full time, year-round",
+      "source": "The Times of India",
+      "sentiment": -0.477,
+      "label": "Bearish",
+      "url": "https://economictimes.indiatimes.com/news/international/us/in-the-1930s-mining-kept-gold-point-nevada-at-about-200-residents-by-1950-only-23-remained-and-by-2011-just-7-people-still-lived-there-full-time-year-round/articleshow/135010807.cms"
+    },
+    {
+      "title": "Live: Diamonds clash with Silver Ferns in Constellation Cup opener",
+      "source": "ABC News (AU)",
+      "sentiment": 0.0,
+      "label": "Neutral",
+      "url": "https://www.abc.net.au/news/2026-10-18/constellation-cup-netball-diamonds-silver-ferns/107280774"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-19T05:27:53.175994",
+  "fetched_at": "2026-10-19T07:59:07.033352",
   "date": "2026-10-19"
 }

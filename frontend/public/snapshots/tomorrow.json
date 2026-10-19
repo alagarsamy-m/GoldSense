@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T05:28:41.261907Z",
+  "generated_at": "2026-10-19T07:59:11.470901Z",
   "prediction_date": "2026-10-20",
   "target_date": "2026-10-20",
   "target_type": "calendar_close",
@@ -7,23 +7,23 @@
   "market_closed": false,
   "last_data_date": "2026-10-19",
   "last_actual_usd": 4198.0,
-  "reference_live_usd": 4197.8,
-  "reference_as_of": "2026-10-19T05:28:42.921514Z",
+  "reference_live_usd": 4202.2,
+  "reference_as_of": "2026-10-19T07:59:13.494464Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4199.55,
-  "usd_inr_rate": 94.8225,
+  "tomorrow_usd": 4203.95,
+  "usd_inr_rate": 94.9375,
   "trend": "stable",
   "direction_vs_today": "stable",
   "direction_delta_pct": 0.042,
   "direction_delta_usd": 1.75,
   "pct_change": 0.042,
-  "tomorrow_price_24k_per_gram": 13978.09,
-  "tomorrow_price_22k_per_gram": 12813.25,
-  "tomorrow_price_24k_per_10g": 139780.89,
-  "tomorrow_price_22k_per_10g": 128132.48,
+  "tomorrow_price_24k_per_gram": 14009.71,
+  "tomorrow_price_22k_per_gram": 12842.23,
+  "tomorrow_price_24k_per_10g": 140097.1,
+  "tomorrow_price_22k_per_10g": 128422.35,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -32,64 +32,64 @@
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
   "confidence_interval": {
-    "lower_usd": 4167.63,
-    "upper_usd": 4254.18,
-    "lower_24k_per_gram": 13871.86,
-    "upper_24k_per_gram": 14159.93,
-    "lower_22k_per_gram": 12715.87,
-    "upper_22k_per_gram": 12979.94,
+    "lower_usd": 4171.45,
+    "upper_usd": 4258.2,
+    "lower_24k_per_gram": 13901.4,
+    "upper_24k_per_gram": 14190.49,
+    "lower_22k_per_gram": 12742.95,
+    "upper_22k_per_gram": 13007.95,
     "interval_pct": 2.06
   },
   "direction_confidence": 55.7,
-  "as_of": "2026-10-19T05:28:42.921514Z",
+  "as_of": "2026-10-19T07:59:13.494464Z",
   "source": "model_forecast",
   "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": 0.4449,
+    "score": 0.1273,
     "label": "Bullish",
     "confidence": "medium",
     "signal": "Neutral",
-    "article_count": 6,
+    "article_count": 5,
     "source": "newsapi",
     "top_headlines": [
       {
-        "title": "Support the Mikvah Taharah Toms River And Win A $65,000 Rolex Presidential Day-Date \u2013 18K",
-        "source": "Dansdeals.com",
-        "sentiment": 0.968,
+        "title": "'What a finish!' - Gillespie wins gold for Ireland",
+        "source": "BBC News",
+        "sentiment": 0.872,
         "label": "Bullish",
-        "url": "https://www.dansdeals.com/advertisement/support-the-mikvah-taharah-toms-river-and-win-a-65000-rolex-presidential-day-date-18k-3/"
+        "url": "https://www.bbc.co.uk/sport/cycling/videos/cjy56pk5wg54o"
       },
       {
-        "title": "The world\u2019s best cities for public transport in 2026, according to locals",
-        "source": "Freerepublic.com",
-        "sentiment": 0.938,
+        "title": "In the 1890s, a new gold process helped turn Mercur, Utah, into a boomtown of over 2,500; by 1913, the mine had closed, and the original townsite was abandoned, though mining later resumed",
+        "source": "The Times of India",
+        "sentiment": 0.735,
         "label": "Bullish",
-        "url": "https://freerepublic.com/focus/f-chat/4399580/posts"
+        "url": "https://economictimes.indiatimes.com/news/international/us/in-the-1890s-a-new-gold-process-helped-turn-mercur-utah-into-a-boomtown-of-over-2500-by-1913-the-mine-had-closed-and-the-original-townsite-was-abandoned-though-mining-later-resumed/articleshow/135010822.cms"
       },
       {
-        "title": "5 Reasons Pok\u00e9mon HeartGold & SoulSilver Are The Best Entries",
-        "source": "Screen Rant",
-        "sentiment": 0.856,
-        "label": "Bullish",
-        "url": "https://screenrant.com/best-heart-gold-soul-silver-pokemon-moments/"
-      },
-      {
-        "title": "Gold on Dhanteras: celebrate the ritual, rethink the investment",
-        "source": "Livemint",
-        "sentiment": 0.593,
-        "label": "Bullish",
-        "url": "https://www.livemint.com/money/personal-finance/gold-on-dhanteras-celebrate-the-ritual-rethink-the-investment-11792135802308.html"
-      },
-      {
-        "title": "The Playboy Who Inherited the World\u2019s Most Notorious Mercenary Force",
-        "source": "Biztoc.com",
-        "sentiment": -0.401,
+        "title": "Invaders of the Lost Gold 1982 1080p BluRay H264-RiSEHD",
+        "source": "Rlsbb.cc",
+        "sentiment": -0.494,
         "label": "Bearish",
-        "url": "https://biztoc.com/x/25eebe5b732a9081"
+        "url": "https://post.rlsbb.cc/invaders-of-the-lost-gold-1982-1080p-bluray-h264-risehd/"
+      },
+      {
+        "title": "In the 1930s, mining kept Gold Point, Nevada, at about 200 residents; by 1950, only 23 remained; and by 2011, just 7 people still lived there full time, year-round",
+        "source": "The Times of India",
+        "sentiment": -0.477,
+        "label": "Bearish",
+        "url": "https://economictimes.indiatimes.com/news/international/us/in-the-1930s-mining-kept-gold-point-nevada-at-about-200-residents-by-1950-only-23-remained-and-by-2011-just-7-people-still-lived-there-full-time-year-round/articleshow/135010807.cms"
+      },
+      {
+        "title": "Live: Diamonds clash with Silver Ferns in Constellation Cup opener",
+        "source": "ABC News (AU)",
+        "sentiment": 0.0,
+        "label": "Neutral",
+        "url": "https://www.abc.net.au/news/2026-10-18/constellation-cup-netball-diamonds-silver-ferns/107280774"
       }
     ],
-    "fetched_at": "2026-10-19T05:27:53.175994"
+    "fetched_at": "2026-10-19T07:59:07.033352"
   },
   "model_info": {
     "trained_at": "2026-10-19T05:28:40.823673Z",
