@@ -1,46 +1,46 @@
 {
-  "score": 0.168,
+  "score": 0.4449,
   "label": "Bullish",
   "confidence": "medium",
-  "article_count": 8,
+  "article_count": 6,
   "top_headlines": [
     {
-      "title": "Pranavi Urs's Dream Meeting With Rory McIlroy",
-      "source": "Rediff.com",
-      "sentiment": 0.974,
+      "title": "Support the Mikvah Taharah Toms River And Win A $65,000 Rolex Presidential Day-Date \u2013 18K",
+      "source": "Dansdeals.com",
+      "sentiment": 0.968,
       "label": "Bullish",
-      "url": "https://www.rediff.com/sports/report/pranavi-urs-meets-rory-mcilroy-discusses-masters-and-asian-games/20261017.htm"
+      "url": "https://www.dansdeals.com/advertisement/support-the-mikvah-taharah-toms-river-and-win-a-65000-rolex-presidential-day-date-18k-3/"
     },
     {
-      "title": "Gold set for a weekly drop as traders assess Fed signals",
-      "source": "The Times of India",
-      "sentiment": -0.509,
+      "title": "The world\u2019s best cities for public transport in 2026, according to locals",
+      "source": "Freerepublic.com",
+      "sentiment": 0.938,
+      "label": "Bullish",
+      "url": "https://freerepublic.com/focus/f-chat/4399580/posts"
+    },
+    {
+      "title": "5 Reasons Pok\u00e9mon HeartGold & SoulSilver Are The Best Entries",
+      "source": "Screen Rant",
+      "sentiment": 0.856,
+      "label": "Bullish",
+      "url": "https://screenrant.com/best-heart-gold-soul-silver-pokemon-moments/"
+    },
+    {
+      "title": "Gold on Dhanteras: celebrate the ritual, rethink the investment",
+      "source": "Livemint",
+      "sentiment": 0.593,
+      "label": "Bullish",
+      "url": "https://www.livemint.com/money/personal-finance/gold-on-dhanteras-celebrate-the-ritual-rethink-the-investment-11792135802308.html"
+    },
+    {
+      "title": "The Playboy Who Inherited the World\u2019s Most Notorious Mercenary Force",
+      "source": "Biztoc.com",
+      "sentiment": -0.401,
       "label": "Bearish",
-      "url": "https://economictimes.indiatimes.com/markets/commodities/news/gold-set-for-a-weekly-drop-as-traders-assess-fed-signals/articleshow/135007093.cms"
-    },
-    {
-      "title": "Nike Air Max 90 Mercurial Men's Shoes (Black/Gold Leaf/Pear/White) $84.97 & More + Free Shipping (0 replies)",
-      "source": "Slickdeals.net",
-      "sentiment": 0.908,
-      "label": "Bullish",
-      "url": "https://slickdeals.net/f/20170959-nike-air-max-90-mercurial-men-s-shoes-black-gold-leaf-pear-white-84-97-more-free-shipping"
-    },
-    {
-      "title": "Crows snap Suns' winning run to climb into AFLW finals spots",
-      "source": "ABC News (AU)",
-      "sentiment": 0.778,
-      "label": "Bullish",
-      "url": "https://www.abc.net.au/news/2026-10-17/aflw-crows-suns-bulldogs-carlton-lions-port-eagles-cats/107279312"
-    },
-    {
-      "title": "Gold Rush S17E03 1080p AMZN WEB-DL H264-NTb",
-      "source": "Rlsbb.cc",
-      "sentiment": -0.681,
-      "label": "Bearish",
-      "url": "https://post.rlsbb.cc/gold-rush-s17e03-1080p-amzn-web-dl-h264-ntb/"
+      "url": "https://biztoc.com/x/25eebe5b732a9081"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-18T07:20:39.011900",
-  "date": "2026-10-18"
+  "fetched_at": "2026-10-19T05:27:53.175994",
+  "date": "2026-10-19"
 }
