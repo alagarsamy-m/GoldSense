@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-10-19T07:59:11.470901Z",
-  "prediction_date": "2026-10-20",
-  "target_date": "2026-10-20",
+  "generated_at": "2026-10-20T07:49:08.069212Z",
+  "prediction_date": "2026-10-21",
+  "target_date": "2026-10-21",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
   "market_closed": false,
-  "last_data_date": "2026-10-19",
-  "last_actual_usd": 4198.0,
-  "reference_live_usd": 4202.2,
-  "reference_as_of": "2026-10-19T07:59:13.494464Z",
+  "last_data_date": "2026-10-20",
+  "last_actual_usd": 4143.4,
+  "reference_live_usd": 4144.1,
+  "reference_as_of": "2026-10-20T07:49:09.930389Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4203.95,
-  "usd_inr_rate": 94.9375,
+  "tomorrow_usd": 4145.83,
+  "usd_inr_rate": 94.92,
   "trend": "stable",
   "direction_vs_today": "stable",
   "direction_delta_pct": 0.042,
-  "direction_delta_usd": 1.75,
+  "direction_delta_usd": 1.73,
   "pct_change": 0.042,
-  "tomorrow_price_24k_per_gram": 14009.71,
-  "tomorrow_price_22k_per_gram": 12842.23,
-  "tomorrow_price_24k_per_10g": 140097.1,
-  "tomorrow_price_22k_per_10g": 128422.35,
+  "tomorrow_price_24k_per_gram": 13813.46,
+  "tomorrow_price_22k_per_gram": 12662.34,
+  "tomorrow_price_24k_per_10g": 138134.64,
+  "tomorrow_price_22k_per_10g": 126623.42,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -32,64 +32,64 @@
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
   "confidence_interval": {
-    "lower_usd": 4171.45,
-    "upper_usd": 4258.2,
-    "lower_24k_per_gram": 13901.4,
-    "upper_24k_per_gram": 14190.49,
-    "lower_22k_per_gram": 12742.95,
-    "upper_22k_per_gram": 13007.95,
-    "interval_pct": 2.06
+    "lower_usd": 4123.86,
+    "upper_usd": 4207.45,
+    "lower_24k_per_gram": 13740.26,
+    "upper_24k_per_gram": 14018.79,
+    "lower_22k_per_gram": 12595.24,
+    "upper_22k_per_gram": 12850.56,
+    "interval_pct": 2.02
   },
-  "direction_confidence": 55.7,
-  "as_of": "2026-10-19T07:59:13.494464Z",
+  "direction_confidence": 57.7,
+  "as_of": "2026-10-20T07:49:09.930389Z",
   "source": "model_forecast",
   "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": 0.1273,
+    "score": 0.2727,
     "label": "Bullish",
     "confidence": "medium",
     "signal": "Neutral",
-    "article_count": 5,
+    "article_count": 7,
     "source": "newsapi",
     "top_headlines": [
       {
-        "title": "'What a finish!' - Gillespie wins gold for Ireland",
-        "source": "BBC News",
-        "sentiment": 0.872,
-        "label": "Bullish",
-        "url": "https://www.bbc.co.uk/sport/cycling/videos/cjy56pk5wg54o"
-      },
-      {
-        "title": "In the 1890s, a new gold process helped turn Mercur, Utah, into a boomtown of over 2,500; by 1913, the mine had closed, and the original townsite was abandoned, though mining later resumed",
+        "title": "Gold rate silver rate today (October 19, 2026): Check 24k, 22k, 20k and 18k gold jewellery prices from Malabar Gold & Diamonds, Joyalukkas, Kalyan Jewellers, Tanishq & IBJA in Delhi, Mumbai, Hyderabad & more cities",
         "source": "The Times of India",
-        "sentiment": 0.735,
+        "sentiment": 0.67,
         "label": "Bullish",
-        "url": "https://economictimes.indiatimes.com/news/international/us/in-the-1890s-a-new-gold-process-helped-turn-mercur-utah-into-a-boomtown-of-over-2500-by-1913-the-mine-had-closed-and-the-original-townsite-was-abandoned-though-mining-later-resumed/articleshow/135010822.cms"
+        "url": "https://economictimes.indiatimes.com/wealth/invest/gold-silver-rate-today-october-19-2026-18k-20k-24k-delhi-hyderabad-bengaluru-citywise-ibja-gold-price-malabar-gold-kalyan-jewelers-joyalukkas/articleshow/135041704.cms"
       },
       {
-        "title": "Invaders of the Lost Gold 1982 1080p BluRay H264-RiSEHD",
-        "source": "Rlsbb.cc",
-        "sentiment": -0.494,
-        "label": "Bearish",
-        "url": "https://post.rlsbb.cc/invaders-of-the-lost-gold-1982-1080p-bluray-h264-risehd/"
+        "title": "Britain's prettiest villages to visit this autumn, with winding country lanes, golden leaves and cosy pubs - and hotels from less than \u00a3100 a night",
+        "source": "Dailymail.com",
+        "sentiment": 0.944,
+        "label": "Bullish",
+        "url": "https://www.dailymail.com/travel/article-16214489/Britain-prettiest-villages-visit-autumn.html"
       },
       {
-        "title": "In the 1930s, mining kept Gold Point, Nevada, at about 200 residents; by 1950, only 23 remained; and by 2011, just 7 people still lived there full time, year-round",
+        "title": "Mona Agarwal wins gold, Avani Lekhara silver as India opens Asian Para Games medal tally",
         "source": "The Times of India",
-        "sentiment": -0.477,
-        "label": "Bearish",
-        "url": "https://economictimes.indiatimes.com/news/international/us/in-the-1930s-mining-kept-gold-point-nevada-at-about-200-residents-by-1950-only-23-remained-and-by-2011-just-7-people-still-lived-there-full-time-year-round/articleshow/135010807.cms"
+        "sentiment": 0.943,
+        "label": "Bullish",
+        "url": "https://economictimes.indiatimes.com/news/sports/other-sports/mona-agarwal-wins-gold-avani-lekhara-silver-as-india-opens-asian-para-games-medal-tally/articleshow/135043304.cms"
       },
       {
-        "title": "Live: Diamonds clash with Silver Ferns in Constellation Cup opener",
+        "title": "Man who traded fake gold bars for e-bike ordered to repay $7.5k",
         "source": "ABC News (AU)",
-        "sentiment": 0.0,
-        "label": "Neutral",
-        "url": "https://www.abc.net.au/news/2026-10-18/constellation-cup-netball-diamonds-silver-ferns/107280774"
+        "sentiment": -0.511,
+        "label": "Bearish",
+        "url": "https://www.abc.net.au/news/2026-10-19/man-trades-fake-gold-bullion-for-mountain-bike/107283812"
+      },
+      {
+        "title": "These Velvet Furniture Designs Have One Thing in Common: The Color Never Looks the Same Twice",
+        "source": "Homedit.com",
+        "sentiment": 0.44,
+        "label": "Bullish",
+        "url": "https://www.homedit.com/these-velvet-furniture-designs-have-one-thing-in-common-the-color-never-looks-the-same-twice/"
       }
     ],
-    "fetched_at": "2026-10-19T07:59:07.033352"
+    "fetched_at": "2026-10-20T07:49:02.230889"
   },
   "model_info": {
     "trained_at": "2026-10-19T05:28:40.823673Z",
