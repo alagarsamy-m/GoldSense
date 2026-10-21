@@ -1,46 +1,46 @@
 {
-  "score": 0.2727,
+  "score": 0.4757,
   "label": "Bullish",
-  "confidence": "medium",
-  "article_count": 7,
+  "confidence": "high",
+  "article_count": 10,
   "top_headlines": [
     {
-      "title": "Gold rate silver rate today (October 19, 2026): Check 24k, 22k, 20k and 18k gold jewellery prices from Malabar Gold & Diamonds, Joyalukkas, Kalyan Jewellers, Tanishq & IBJA in Delhi, Mumbai, Hyderabad & more cities",
+      "title": "Gold and silver rates today (October 20, 2026): Check 24k, 22k, 20k and 18k gold jewellery prices from Malabar Gold & Diamonds, Joyalukkas, Kalyan Jewellers, Tanishq & IBJA in Delhi, Mumbai, Hyderabad & more cities",
       "source": "The Times of India",
+      "sentiment": 0.891,
+      "label": "Bullish",
+      "url": "https://economictimes.indiatimes.com/wealth/invest/gold-silver-rate-today-18k-20k-24k-delhi-hyderabad-bengaluru-citywise-ibja-gold-price-malabar-gold-kalyan-jewelers-joyalukkas/articleshow/135062725.cms"
+    },
+    {
+      "title": "Who is Deepthi Jeevanji? Indian para-athlete wins 400m T20 gold with Games record",
+      "source": "The Times of India",
+      "sentiment": 0.886,
+      "label": "Bullish",
+      "url": "https://timesofindia.indiatimes.com/sports/asian-para-games-2026/who-is-deepthi-jeevanji-indian-para-athlete-wins-400m-t20-gold-with-games-record/articleshow/135064291.cms"
+    },
+    {
+      "title": "Sony updates the Walkman as a $5,900 gold-plated MP3 player",
+      "source": "Biztoc.com",
+      "sentiment": 0.813,
+      "label": "Bullish",
+      "url": "https://biztoc.com/x/ffab6f38f21c9be2"
+    },
+    {
+      "title": "She Painted Two 1950s Nightstands to Look Like Gingham Using Four Rounds of Tape",
+      "source": "Homedit.com",
       "sentiment": 0.67,
       "label": "Bullish",
-      "url": "https://economictimes.indiatimes.com/wealth/invest/gold-silver-rate-today-october-19-2026-18k-20k-24k-delhi-hyderabad-bengaluru-citywise-ibja-gold-price-malabar-gold-kalyan-jewelers-joyalukkas/articleshow/135041704.cms"
+      "url": "https://www.homedit.com/she-painted-two-1950s-nightstands-to-look-like-gingham-using-four-rounds-of-tape/"
     },
     {
-      "title": "Britain's prettiest villages to visit this autumn, with winding country lanes, golden leaves and cosy pubs - and hotels from less than \u00a3100 a night",
-      "source": "Dailymail.com",
-      "sentiment": 0.944,
-      "label": "Bullish",
-      "url": "https://www.dailymail.com/travel/article-16214489/Britain-prettiest-villages-visit-autumn.html"
-    },
-    {
-      "title": "Mona Agarwal wins gold, Avani Lekhara silver as India opens Asian Para Games medal tally",
+      "title": "Shrishti Arora bags bronze in women's 10m air pistol SH1 event at Asian Para Games",
       "source": "The Times of India",
-      "sentiment": 0.943,
+      "sentiment": 0.494,
       "label": "Bullish",
-      "url": "https://economictimes.indiatimes.com/news/sports/other-sports/mona-agarwal-wins-gold-avani-lekhara-silver-as-india-opens-asian-para-games-medal-tally/articleshow/135043304.cms"
-    },
-    {
-      "title": "Man who traded fake gold bars for e-bike ordered to repay $7.5k",
-      "source": "ABC News (AU)",
-      "sentiment": -0.511,
-      "label": "Bearish",
-      "url": "https://www.abc.net.au/news/2026-10-19/man-trades-fake-gold-bullion-for-mountain-bike/107283812"
-    },
-    {
-      "title": "These Velvet Furniture Designs Have One Thing in Common: The Color Never Looks the Same Twice",
-      "source": "Homedit.com",
-      "sentiment": 0.44,
-      "label": "Bullish",
-      "url": "https://www.homedit.com/these-velvet-furniture-designs-have-one-thing-in-common-the-color-never-looks-the-same-twice/"
+      "url": "https://timesofindia.indiatimes.com/sports/asian-para-games-2026/shrishti-arora-bags-bronze-in-womens-10m-air-pistol-sh1-event-at-asian-para-games/articleshow/135062475.cms"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-20T07:49:02.230889",
-  "date": "2026-10-20"
+  "fetched_at": "2026-10-21T07:52:42.326145",
+  "date": "2026-10-21"
 }
