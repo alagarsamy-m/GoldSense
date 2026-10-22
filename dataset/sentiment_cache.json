@@ -1,46 +1,46 @@
 {
-  "score": 0.4757,
+  "score": 0.1119,
   "label": "Bullish",
-  "confidence": "high",
-  "article_count": 10,
+  "confidence": "medium",
+  "article_count": 9,
   "top_headlines": [
     {
-      "title": "Gold and silver rates today (October 20, 2026): Check 24k, 22k, 20k and 18k gold jewellery prices from Malabar Gold & Diamonds, Joyalukkas, Kalyan Jewellers, Tanishq & IBJA in Delhi, Mumbai, Hyderabad & more cities",
+      "title": "Indian Para-Athletes Continue Medal Haul At Asian Para Games",
+      "source": "Rediff.com",
+      "sentiment": 0.944,
+      "label": "Bullish",
+      "url": "https://www.rediff.com/sports/report/india-dominates-para-athletics-with-gold-at-asian-para-games/20261021.htm"
+    },
+    {
+      "title": "Medal rush continues in para-athletics; Ayush, Praveen, Khilari add to gold tally",
       "source": "The Times of India",
-      "sentiment": 0.891,
+      "sentiment": 0.934,
       "label": "Bullish",
-      "url": "https://economictimes.indiatimes.com/wealth/invest/gold-silver-rate-today-18k-20k-24k-delhi-hyderabad-bengaluru-citywise-ibja-gold-price-malabar-gold-kalyan-jewelers-joyalukkas/articleshow/135062725.cms"
+      "url": "https://economictimes.indiatimes.com/news/sports/medal-rush-continues-in-para-athletics-ayush-praveen-khilari-add-to-gold-tally/articleshow/135085873.cms"
     },
     {
-      "title": "Who is Deepthi Jeevanji? Indian para-athlete wins 400m T20 gold with Games record",
-      "source": "The Times of India",
-      "sentiment": 0.886,
+      "title": "Indonesian para-swimmer Yavianda wins second gold, breaks Asian record",
+      "source": "Antaranews.com",
+      "sentiment": 0.881,
       "label": "Bullish",
-      "url": "https://timesofindia.indiatimes.com/sports/asian-para-games-2026/who-is-deepthi-jeevanji-indian-para-athlete-wins-400m-t20-gold-with-games-record/articleshow/135064291.cms"
+      "url": "https://en.antaranews.com/news/436973/indonesian-para-swimmer-yavianda-wins-second-gold-breaks-asian-record"
     },
     {
-      "title": "Sony updates the Walkman as a $5,900 gold-plated MP3 player",
-      "source": "Biztoc.com",
-      "sentiment": 0.813,
-      "label": "Bullish",
-      "url": "https://biztoc.com/x/ffab6f38f21c9be2"
+      "title": "Greek NGO chief to stand trial over 92 year old Kolonaki woman\u2019s will forgery, in \u20ac1m inheritance scandal",
+      "source": "Protothema.gr",
+      "sentiment": -0.869,
+      "label": "Bearish",
+      "url": "https://en.protothema.gr/2026/10/21/greek-ngo-chief-to-stand-trial-over-92-year-old-kolonaki-womans-will-forgery-in-e1m-inheritance-scandal/"
     },
     {
-      "title": "She Painted Two 1950s Nightstands to Look Like Gingham Using Four Rounds of Tape",
-      "source": "Homedit.com",
-      "sentiment": 0.67,
-      "label": "Bullish",
-      "url": "https://www.homedit.com/she-painted-two-1950s-nightstands-to-look-like-gingham-using-four-rounds-of-tape/"
-    },
-    {
-      "title": "Shrishti Arora bags bronze in women's 10m air pistol SH1 event at Asian Para Games",
-      "source": "The Times of India",
-      "sentiment": 0.494,
-      "label": "Bullish",
-      "url": "https://timesofindia.indiatimes.com/sports/asian-para-games-2026/shrishti-arora-bags-bronze-in-womens-10m-air-pistol-sh1-event-at-asian-para-games/articleshow/135062475.cms"
+      "title": "Oil rebounds as Middle East supply fears persist",
+      "source": "Hurriyet Daily News",
+      "sentiment": -0.691,
+      "label": "Bearish",
+      "url": "https://www.hurriyetdailynews.com/oil-rebounds-as-middle-east-supply-fears-persist-228407"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-21T07:52:42.326145",
-  "date": "2026-10-21"
+  "fetched_at": "2026-10-22T07:49:05.953264",
+  "date": "2026-10-22"
 }
