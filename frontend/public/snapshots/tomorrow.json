@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-10-22T07:49:12.877108Z",
-  "prediction_date": "2026-10-23",
-  "target_date": "2026-10-23",
+  "generated_at": "2026-10-23T07:48:14.738760Z",
+  "prediction_date": "2026-10-24",
+  "target_date": "2026-10-24",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
-  "market_closed": false,
-  "last_data_date": "2026-10-22",
-  "last_actual_usd": 4105.2,
-  "reference_live_usd": 4105.1,
-  "reference_as_of": "2026-10-22T07:49:15.107985Z",
+  "market_closed": true,
+  "last_data_date": "2026-10-23",
+  "last_actual_usd": 4032.6,
+  "reference_live_usd": 4032.3,
+  "reference_as_of": "2026-10-23T07:48:16.788633Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4106.81,
-  "usd_inr_rate": 94.83,
+  "tomorrow_usd": 4032.3,
+  "usd_inr_rate": 94.9275,
   "trend": "stable",
   "direction_vs_today": "stable",
-  "direction_delta_pct": 0.042,
-  "direction_delta_usd": 1.71,
-  "pct_change": 0.042,
-  "tomorrow_price_24k_per_gram": 13670.49,
-  "tomorrow_price_22k_per_gram": 12531.28,
-  "tomorrow_price_24k_per_10g": 136704.92,
-  "tomorrow_price_22k_per_10g": 125312.84,
+  "direction_delta_pct": 0.0,
+  "direction_delta_usd": 0.0,
+  "pct_change": 0.0,
+  "tomorrow_price_24k_per_gram": 13436.27,
+  "tomorrow_price_22k_per_gram": 12316.58,
+  "tomorrow_price_24k_per_10g": 134362.7,
+  "tomorrow_price_22k_per_10g": 123165.8,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -31,65 +31,55 @@
     "mumbai_premium_pct": 0.0,
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
-  "confidence_interval": {
-    "lower_usd": 4069.44,
-    "upper_usd": 4169.86,
-    "lower_24k_per_gram": 13546.11,
-    "upper_24k_per_gram": 13880.36,
-    "lower_22k_per_gram": 12417.27,
-    "upper_22k_per_gram": 12723.67,
-    "interval_pct": 2.45
-  },
-  "direction_confidence": 57.9,
-  "as_of": "2026-10-22T07:49:15.107985Z",
+  "as_of": "2026-10-23T07:48:16.788633Z",
   "source": "model_forecast",
-  "market_status": "forecast",
+  "market_status": "market_closed",
   "is_live": false,
   "sentiment": {
-    "score": 0.1119,
+    "score": 0.3474,
     "label": "Bullish",
     "confidence": "medium",
     "signal": "Neutral",
-    "article_count": 9,
+    "article_count": 7,
     "source": "newsapi",
     "top_headlines": [
       {
-        "title": "Indian Para-Athletes Continue Medal Haul At Asian Para Games",
-        "source": "Rediff.com",
-        "sentiment": 0.944,
-        "label": "Bullish",
-        "url": "https://www.rediff.com/sports/report/india-dominates-para-athletics-with-gold-at-asian-para-games/20261021.htm"
-      },
-      {
-        "title": "Medal rush continues in para-athletics; Ayush, Praveen, Khilari add to gold tally",
-        "source": "The Times of India",
-        "sentiment": 0.934,
-        "label": "Bullish",
-        "url": "https://economictimes.indiatimes.com/news/sports/medal-rush-continues-in-para-athletics-ayush-praveen-khilari-add-to-gold-tally/articleshow/135085873.cms"
-      },
-      {
-        "title": "Indonesian para-swimmer Yavianda wins second gold, breaks Asian record",
-        "source": "Antaranews.com",
-        "sentiment": 0.881,
-        "label": "Bullish",
-        "url": "https://en.antaranews.com/news/436973/indonesian-para-swimmer-yavianda-wins-second-gold-breaks-asian-record"
-      },
-      {
-        "title": "Greek NGO chief to stand trial over 92 year old Kolonaki woman\u2019s will forgery, in \u20ac1m inheritance scandal",
-        "source": "Protothema.gr",
-        "sentiment": -0.869,
-        "label": "Bearish",
-        "url": "https://en.protothema.gr/2026/10/21/greek-ngo-chief-to-stand-trial-over-92-year-old-kolonaki-womans-will-forgery-in-e1m-inheritance-scandal/"
-      },
-      {
-        "title": "Oil rebounds as Middle East supply fears persist",
-        "source": "Hurriyet Daily News",
+        "title": "Gold, silver extend losses as crude oil prices rise amid West Asia tenions",
+        "source": "Business Standard",
         "sentiment": -0.691,
         "label": "Bearish",
-        "url": "https://www.hurriyetdailynews.com/oil-rebounds-as-middle-east-supply-fears-persist-228407"
+        "url": "https://www.business-standard.com/markets/commodities/gold-silver-extend-losses-as-crude-oil-prices-rise-amid-west-asia-tenions-126102200543_1.html"
+      },
+      {
+        "title": "Asian Para Games: Sheetal Devi clinches compound para-archery gold; Bhavina-Shubham bag bronze in para table-tennis",
+        "source": "The Times of India",
+        "sentiment": 0.891,
+        "label": "Bullish",
+        "url": "https://economictimes.indiatimes.com/news/sports/other-sports/asian-para-games-sheetal-devi-clinches-compound-para-archery-gold-bhavina-shubham-bag-bronze-in-para-table-tennis/articleshow/135111350.cms"
+      },
+      {
+        "title": "Sheetal Devi strikes double gold again! Indian archer repeats 2023 Asian Para Games medal feat in 2026",
+        "source": "The Times of India",
+        "sentiment": 0.875,
+        "label": "Bullish",
+        "url": "https://timesofindia.indiatimes.com/sports/asian-para-games-2026/sheetal-devi-strikes-double-gold-again-indian-archer-repeats-2023-asian-para-games-medal-feat-in-2026/articleshow/135111161.cms"
+      },
+      {
+        "title": "Hip injury, viral fever, vomiting: How Paralympic champion Praveen Kumar fought back to win Asian Para Games gold",
+        "source": "The Times of India",
+        "sentiment": 0.862,
+        "label": "Bullish",
+        "url": "https://timesofindia.indiatimes.com/sports/asian-para-games-2026/hip-injury-viral-fever-vomiting-how-paralympic-champion-praveen-kumar-fought-back-to-win-asian-para-games-gold/articleshow/135110176.cms"
+      },
+      {
+        "title": "$9.98* | 14-Piece Craftsman Drill Bit Set w/ Gold Oxide Coating at Amazon",
+        "source": "Slickdeals.net",
+        "sentiment": 0.691,
+        "label": "Bullish",
+        "url": "https://slickdeals.net/f/20191308-9-98-14-piece-craftsman-drill-bit-set-w-gold-oxide-coating-at-amazon"
       }
     ],
-    "fetched_at": "2026-10-22T07:49:05.953264"
+    "fetched_at": "2026-10-23T07:48:08.458407"
   },
   "model_info": {
     "trained_at": "2026-10-19T05:28:40.823673Z",

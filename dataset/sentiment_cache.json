@@ -1,46 +1,46 @@
 {
-  "score": 0.1119,
+  "score": 0.3474,
   "label": "Bullish",
   "confidence": "medium",
-  "article_count": 9,
+  "article_count": 7,
   "top_headlines": [
     {
-      "title": "Indian Para-Athletes Continue Medal Haul At Asian Para Games",
-      "source": "Rediff.com",
-      "sentiment": 0.944,
-      "label": "Bullish",
-      "url": "https://www.rediff.com/sports/report/india-dominates-para-athletics-with-gold-at-asian-para-games/20261021.htm"
-    },
-    {
-      "title": "Medal rush continues in para-athletics; Ayush, Praveen, Khilari add to gold tally",
-      "source": "The Times of India",
-      "sentiment": 0.934,
-      "label": "Bullish",
-      "url": "https://economictimes.indiatimes.com/news/sports/medal-rush-continues-in-para-athletics-ayush-praveen-khilari-add-to-gold-tally/articleshow/135085873.cms"
-    },
-    {
-      "title": "Indonesian para-swimmer Yavianda wins second gold, breaks Asian record",
-      "source": "Antaranews.com",
-      "sentiment": 0.881,
-      "label": "Bullish",
-      "url": "https://en.antaranews.com/news/436973/indonesian-para-swimmer-yavianda-wins-second-gold-breaks-asian-record"
-    },
-    {
-      "title": "Greek NGO chief to stand trial over 92 year old Kolonaki woman\u2019s will forgery, in \u20ac1m inheritance scandal",
-      "source": "Protothema.gr",
-      "sentiment": -0.869,
-      "label": "Bearish",
-      "url": "https://en.protothema.gr/2026/10/21/greek-ngo-chief-to-stand-trial-over-92-year-old-kolonaki-womans-will-forgery-in-e1m-inheritance-scandal/"
-    },
-    {
-      "title": "Oil rebounds as Middle East supply fears persist",
-      "source": "Hurriyet Daily News",
+      "title": "Gold, silver extend losses as crude oil prices rise amid West Asia tenions",
+      "source": "Business Standard",
       "sentiment": -0.691,
       "label": "Bearish",
-      "url": "https://www.hurriyetdailynews.com/oil-rebounds-as-middle-east-supply-fears-persist-228407"
+      "url": "https://www.business-standard.com/markets/commodities/gold-silver-extend-losses-as-crude-oil-prices-rise-amid-west-asia-tenions-126102200543_1.html"
+    },
+    {
+      "title": "Asian Para Games: Sheetal Devi clinches compound para-archery gold; Bhavina-Shubham bag bronze in para table-tennis",
+      "source": "The Times of India",
+      "sentiment": 0.891,
+      "label": "Bullish",
+      "url": "https://economictimes.indiatimes.com/news/sports/other-sports/asian-para-games-sheetal-devi-clinches-compound-para-archery-gold-bhavina-shubham-bag-bronze-in-para-table-tennis/articleshow/135111350.cms"
+    },
+    {
+      "title": "Sheetal Devi strikes double gold again! Indian archer repeats 2023 Asian Para Games medal feat in 2026",
+      "source": "The Times of India",
+      "sentiment": 0.875,
+      "label": "Bullish",
+      "url": "https://timesofindia.indiatimes.com/sports/asian-para-games-2026/sheetal-devi-strikes-double-gold-again-indian-archer-repeats-2023-asian-para-games-medal-feat-in-2026/articleshow/135111161.cms"
+    },
+    {
+      "title": "Hip injury, viral fever, vomiting: How Paralympic champion Praveen Kumar fought back to win Asian Para Games gold",
+      "source": "The Times of India",
+      "sentiment": 0.862,
+      "label": "Bullish",
+      "url": "https://timesofindia.indiatimes.com/sports/asian-para-games-2026/hip-injury-viral-fever-vomiting-how-paralympic-champion-praveen-kumar-fought-back-to-win-asian-para-games-gold/articleshow/135110176.cms"
+    },
+    {
+      "title": "$9.98* | 14-Piece Craftsman Drill Bit Set w/ Gold Oxide Coating at Amazon",
+      "source": "Slickdeals.net",
+      "sentiment": 0.691,
+      "label": "Bullish",
+      "url": "https://slickdeals.net/f/20191308-9-98-14-piece-craftsman-drill-bit-set-w-gold-oxide-coating-at-amazon"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-22T07:49:05.953264",
-  "date": "2026-10-22"
+  "fetched_at": "2026-10-23T07:48:08.458407",
+  "date": "2026-10-23"
 }

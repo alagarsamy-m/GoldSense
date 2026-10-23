@@ -1,159 +1,164 @@
 {
-  "updated_at": "2026-10-22T07:49:12.277708Z",
+  "updated_at": "2026-10-23T07:48:14.154091Z",
   "pipeline": "healthy",
-  "total_predictions_logged": 1297,
-  "public_history_rows": 194,
+  "total_predictions_logged": 1304,
+  "public_history_rows": 195,
   "rolling_metrics": {
     "last_7": {
-      "avg_mape": 0.444,
-      "direction_accuracy": 57.1,
+      "avg_mape": 0.545,
+      "direction_accuracy": 42.9,
       "count": 7
     },
     "last_30": {
-      "avg_mape": 0.566,
+      "avg_mape": 0.564,
       "direction_accuracy": 53.3,
       "count": 30
     }
   },
   "horizon_metrics": {
     "D1": {
-      "avg_mape": 0.566,
+      "avg_mape": 0.564,
       "direction_accuracy": 53.3,
       "count": 30
     },
     "D2": {
-      "avg_mape": 0.93,
+      "avg_mape": 0.903,
       "direction_accuracy": 53.3,
       "count": 30
     },
     "D3": {
-      "avg_mape": 1.02,
+      "avg_mape": 1.042,
       "direction_accuracy": 53.3,
       "count": 30
     },
     "D4": {
-      "avg_mape": 1.25,
+      "avg_mape": 1.251,
       "direction_accuracy": 53.3,
       "count": 30
     },
     "D5": {
-      "avg_mape": 1.46,
+      "avg_mape": 1.507,
       "direction_accuracy": 53.3,
       "count": 30
     },
     "D6": {
-      "avg_mape": 1.582,
+      "avg_mape": 1.643,
       "direction_accuracy": 53.3,
       "count": 30
     },
     "D7": {
-      "avg_mape": 1.669,
+      "avg_mape": 1.715,
       "direction_accuracy": 53.3,
       "count": 30
     }
   },
   "drift": {
-    "drift_detected": false,
-    "message": "Model within D1 thresholds",
-    "avg_mape": 0.444,
-    "dir_accuracy": 57.1,
+    "drift_detected": true,
+    "message": "D1 direction 42.9% < 45.0%",
+    "avg_mape": 0.545,
+    "dir_accuracy": 42.9,
     "window": 7,
-    "retrain_recommended": false
+    "retrain_recommended": true
   },
   "insights": [
     {
       "type": "weekly_horizon",
-      "message": "Best recent horizon D1 at 0.57% MAPE; worst D7 at 1.67% MAPE.",
+      "message": "Best recent horizon D1 at 0.56% MAPE; worst D7 at 1.72% MAPE.",
       "action": "Keep public copy focused on realized daily logs while retaining horizon analytics internally."
+    },
+    {
+      "type": "direction",
+      "message": "D1 direction accuracy is 42.9%, so price-level accuracy should be emphasized over directional claims.",
+      "action": "Use confidence language and avoid strong rise/fall marketing claims."
     }
   ],
   "pending_batches": 8,
   "next_prediction": {
-    "generated_at": "2026-10-22T07:49:12.243604",
-    "generated_on": "2026-10-22",
-    "base_verified_date": "2026-10-22",
+    "generated_at": "2026-10-23T07:48:14.116766",
+    "generated_on": "2026-10-23",
+    "base_verified_date": "2026-10-23",
     "calendar_horizons": [
       {
         "horizon": "D1",
-        "target_date": "2026-10-23",
-        "usd": 4106.81,
-        "usd_inr": 94.8325,
-        "price_24k_per_gram": 13670.85,
-        "price_22k_per_gram": 12531.61,
-        "price_24k_per_10g": 136708.52,
-        "price_22k_per_10g": 125316.15,
+        "target_date": "2026-10-24",
+        "usd": 4032.1,
+        "usd_inr": 94.9275,
+        "price_24k_per_gram": 13435.6,
+        "price_22k_per_gram": 12315.97,
+        "price_24k_per_10g": 134356.03,
+        "price_22k_per_10g": 123159.7,
         "trend": "stable",
-        "market_status": "forecast"
+        "market_status": "market_closed"
       },
       {
         "horizon": "D2",
-        "target_date": "2026-10-24",
-        "usd": 4106.81,
-        "usd_inr": 94.8325,
-        "price_24k_per_gram": 13670.85,
-        "price_22k_per_gram": 12531.61,
-        "price_24k_per_10g": 136708.52,
-        "price_22k_per_10g": 125316.15,
+        "target_date": "2026-10-25",
+        "usd": 4032.1,
+        "usd_inr": 94.9275,
+        "price_24k_per_gram": 13435.6,
+        "price_22k_per_gram": 12315.97,
+        "price_24k_per_10g": 134356.03,
+        "price_22k_per_10g": 123159.7,
         "trend": "stable",
         "market_status": "market_closed"
       },
       {
         "horizon": "D3",
-        "target_date": "2026-10-25",
-        "usd": 4106.81,
-        "usd_inr": 94.8325,
-        "price_24k_per_gram": 13670.85,
-        "price_22k_per_gram": 12531.61,
-        "price_24k_per_10g": 136708.52,
-        "price_22k_per_10g": 125316.15,
+        "target_date": "2026-10-26",
+        "usd": 4033.78,
+        "usd_inr": 94.9275,
+        "price_24k_per_gram": 13441.2,
+        "price_22k_per_gram": 12321.1,
+        "price_24k_per_10g": 134411.98,
+        "price_22k_per_10g": 123210.98,
         "trend": "stable",
-        "market_status": "market_closed"
+        "market_status": "forecast"
       },
       {
         "horizon": "D4",
-        "target_date": "2026-10-26",
-        "usd": 4108.52,
-        "usd_inr": 94.8325,
-        "price_24k_per_gram": 13676.55,
-        "price_22k_per_gram": 12536.83,
-        "price_24k_per_10g": 136765.45,
-        "price_22k_per_10g": 125368.33,
+        "target_date": "2026-10-27",
+        "usd": 4035.46,
+        "usd_inr": 94.9275,
+        "price_24k_per_gram": 13446.8,
+        "price_22k_per_gram": 12326.23,
+        "price_24k_per_10g": 134467.96,
+        "price_22k_per_10g": 123262.3,
         "trend": "stable",
         "market_status": "forecast"
       },
       {
         "horizon": "D5",
-        "target_date": "2026-10-27",
-        "usd": 4110.23,
-        "usd_inr": 94.8325,
-        "price_24k_per_gram": 13682.24,
-        "price_22k_per_gram": 12542.05,
-        "price_24k_per_10g": 136822.41,
-        "price_22k_per_10g": 125420.54,
+        "target_date": "2026-10-28",
+        "usd": 4037.14,
+        "usd_inr": 94.9275,
+        "price_24k_per_gram": 13452.4,
+        "price_22k_per_gram": 12331.36,
+        "price_24k_per_10g": 134523.96,
+        "price_22k_per_10g": 123313.63,
         "trend": "stable",
         "market_status": "forecast"
       },
       {
         "horizon": "D6",
-        "target_date": "2026-10-28",
-        "usd": 4111.94,
-        "usd_inr": 94.8325,
-        "price_24k_per_gram": 13687.94,
-        "price_22k_per_gram": 12547.28,
-        "price_24k_per_10g": 136879.39,
-        "price_22k_per_10g": 125472.77,
+        "target_date": "2026-10-29",
+        "usd": 4038.82,
+        "usd_inr": 94.9275,
+        "price_24k_per_gram": 13458.0,
+        "price_22k_per_gram": 12336.5,
+        "price_24k_per_10g": 134579.98,
+        "price_22k_per_10g": 123364.98,
         "trend": "stable",
         "market_status": "forecast"
       },
       {
         "horizon": "D7",
-        "target_date": "2026-10-29",
-        "usd": 4113.65,
-        "usd_inr": 94.8325,
-        "price_24k_per_gram": 13693.64,
-        "price_22k_per_gram": 12552.5,
-        "price_24k_per_10g": 136936.39,
-        "price_22k_per_10g": 125525.03,
+        "target_date": "2026-10-30",
+        "usd": 4040.5,
+        "usd_inr": 94.9275,
+        "price_24k_per_gram": 13463.6,
+        "price_22k_per_gram": 12341.64,
+        "price_24k_per_10g": 134636.02,
+        "price_22k_per_10g": 123416.36,
         "trend": "stable",
         "market_status": "forecast"
       }
