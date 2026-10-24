@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-10-23T07:48:14.738760Z",
-  "prediction_date": "2026-10-24",
-  "target_date": "2026-10-24",
+  "generated_at": "2026-10-24T07:30:02.986336Z",
+  "prediction_date": "2026-10-25",
+  "target_date": "2026-10-25",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
   "market_closed": true,
   "last_data_date": "2026-10-23",
-  "last_actual_usd": 4032.6,
-  "reference_live_usd": 4032.3,
-  "reference_as_of": "2026-10-23T07:48:16.788633Z",
+  "last_actual_usd": 4007.9,
+  "reference_live_usd": 4007.9,
+  "reference_as_of": "2026-10-24T07:30:06.204046Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4032.3,
-  "usd_inr_rate": 94.9275,
+  "tomorrow_usd": 4007.9,
+  "usd_inr_rate": 94.94,
   "trend": "stable",
   "direction_vs_today": "stable",
   "direction_delta_pct": 0.0,
   "direction_delta_usd": 0.0,
   "pct_change": 0.0,
-  "tomorrow_price_24k_per_gram": 13436.27,
-  "tomorrow_price_22k_per_gram": 12316.58,
-  "tomorrow_price_24k_per_10g": 134362.7,
-  "tomorrow_price_22k_per_10g": 123165.8,
+  "tomorrow_price_24k_per_gram": 13356.72,
+  "tomorrow_price_22k_per_gram": 12243.66,
+  "tomorrow_price_24k_per_10g": 133567.23,
+  "tomorrow_price_22k_per_10g": 122436.63,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -31,55 +31,55 @@
     "mumbai_premium_pct": 0.0,
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
-  "as_of": "2026-10-23T07:48:16.788633Z",
+  "as_of": "2026-10-24T07:30:06.204046Z",
   "source": "model_forecast",
   "market_status": "market_closed",
   "is_live": false,
   "sentiment": {
-    "score": 0.3474,
-    "label": "Bullish",
+    "score": -0.065,
+    "label": "Bearish",
     "confidence": "medium",
     "signal": "Neutral",
-    "article_count": 7,
+    "article_count": 9,
     "source": "newsapi",
     "top_headlines": [
       {
-        "title": "Gold, silver extend losses as crude oil prices rise amid West Asia tenions",
-        "source": "Business Standard",
-        "sentiment": -0.691,
+        "title": "Gold Falls Below $4,000 for the First Time Since July. What\u2019s Next?",
+        "source": "Biztoc.com",
+        "sentiment": -0.586,
         "label": "Bearish",
-        "url": "https://www.business-standard.com/markets/commodities/gold-silver-extend-losses-as-crude-oil-prices-rise-amid-west-asia-tenions-126102200543_1.html"
+        "url": "https://biztoc.com/x/7fd380f7aa4d2ffd"
       },
       {
-        "title": "Asian Para Games: Sheetal Devi clinches compound para-archery gold; Bhavina-Shubham bag bronze in para table-tennis",
+        "title": "Gold outlook bleak; avoid aggressive selling without stop loss: Analyst",
+        "source": "Business Standard",
+        "sentiment": 0.412,
+        "label": "Bullish",
+        "url": "https://www.business-standard.com/markets/news/gold-outlook-bleak-avoid-aggressive-selling-without-stop-loss-analyst-126102300470_1.html"
+      },
+      {
+        "title": "Gold Slips Toward $4,000 as Oil-Fueled Inflation Fears Lift Fed Hike Bets and Traders Sell to Cover Losses",
+        "source": "Ibtimes.com.au",
+        "sentiment": -0.34,
+        "label": "Bearish",
+        "url": "https://www.ibtimes.com.au/gold-prices-fall-oil-fed-rate-rise-fears-1877267"
+      },
+      {
+        "title": "David Roccos Eating Dirty S02E03 1080p WEBRip x264-CBFM",
+        "source": "Rlsbb.cc",
+        "sentiment": -0.44,
+        "label": "Bearish",
+        "url": "https://post.rlsbb.cc/david-roccos-eating-dirty-s02e03-1080p-webrip-x264-cbfm/"
+      },
+      {
+        "title": "Nippon Silver ETF, other silver ETFs slide up to 4% as silver prices tumble. Here\u2019s why",
         "source": "The Times of India",
-        "sentiment": 0.891,
+        "sentiment": 0.421,
         "label": "Bullish",
-        "url": "https://economictimes.indiatimes.com/news/sports/other-sports/asian-para-games-sheetal-devi-clinches-compound-para-archery-gold-bhavina-shubham-bag-bronze-in-para-table-tennis/articleshow/135111350.cms"
-      },
-      {
-        "title": "Sheetal Devi strikes double gold again! Indian archer repeats 2023 Asian Para Games medal feat in 2026",
-        "source": "The Times of India",
-        "sentiment": 0.875,
-        "label": "Bullish",
-        "url": "https://timesofindia.indiatimes.com/sports/asian-para-games-2026/sheetal-devi-strikes-double-gold-again-indian-archer-repeats-2023-asian-para-games-medal-feat-in-2026/articleshow/135111161.cms"
-      },
-      {
-        "title": "Hip injury, viral fever, vomiting: How Paralympic champion Praveen Kumar fought back to win Asian Para Games gold",
-        "source": "The Times of India",
-        "sentiment": 0.862,
-        "label": "Bullish",
-        "url": "https://timesofindia.indiatimes.com/sports/asian-para-games-2026/hip-injury-viral-fever-vomiting-how-paralympic-champion-praveen-kumar-fought-back-to-win-asian-para-games-gold/articleshow/135110176.cms"
-      },
-      {
-        "title": "$9.98* | 14-Piece Craftsman Drill Bit Set w/ Gold Oxide Coating at Amazon",
-        "source": "Slickdeals.net",
-        "sentiment": 0.691,
-        "label": "Bullish",
-        "url": "https://slickdeals.net/f/20191308-9-98-14-piece-craftsman-drill-bit-set-w-gold-oxide-coating-at-amazon"
+        "url": "https://economictimes.indiatimes.com/markets/stocks/news/nippon-silver-etf-other-silver-etfs-slide-up-to-4-as-silver-prices-tumble-heres-why/articleshow/135137769.cms"
       }
     ],
-    "fetched_at": "2026-10-23T07:48:08.458407"
+    "fetched_at": "2026-10-24T07:29:57.112799"
   },
   "model_info": {
     "trained_at": "2026-10-19T05:28:40.823673Z",
