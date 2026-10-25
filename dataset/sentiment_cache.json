@@ -1,46 +1,46 @@
 {
-  "score": -0.065,
-  "label": "Bearish",
+  "score": 0.302,
+  "label": "Bullish",
   "confidence": "medium",
-  "article_count": 9,
+  "article_count": 7,
   "top_headlines": [
     {
-      "title": "Gold Falls Below $4,000 for the First Time Since July. What\u2019s Next?",
-      "source": "Biztoc.com",
-      "sentiment": -0.586,
-      "label": "Bearish",
-      "url": "https://biztoc.com/x/7fd380f7aa4d2ffd"
-    },
-    {
-      "title": "Gold outlook bleak; avoid aggressive selling without stop loss: Analyst",
-      "source": "Business Standard",
-      "sentiment": 0.412,
-      "label": "Bullish",
-      "url": "https://www.business-standard.com/markets/news/gold-outlook-bleak-avoid-aggressive-selling-without-stop-loss-analyst-126102300470_1.html"
-    },
-    {
-      "title": "Gold Slips Toward $4,000 as Oil-Fueled Inflation Fears Lift Fed Hike Bets and Traders Sell to Cover Losses",
-      "source": "Ibtimes.com.au",
-      "sentiment": -0.34,
-      "label": "Bearish",
-      "url": "https://www.ibtimes.com.au/gold-prices-fall-oil-fed-rate-rise-fears-1877267"
-    },
-    {
-      "title": "David Roccos Eating Dirty S02E03 1080p WEBRip x264-CBFM",
-      "source": "Rlsbb.cc",
-      "sentiment": -0.44,
-      "label": "Bearish",
-      "url": "https://post.rlsbb.cc/david-roccos-eating-dirty-s02e03-1080p-webrip-x264-cbfm/"
-    },
-    {
-      "title": "Nippon Silver ETF, other silver ETFs slide up to 4% as silver prices tumble. Here\u2019s why",
+      "title": "Buy gold, then leave it in a forest: Bizarre investment scam in Norway is making victims lose their savings; banks issue warning",
       "source": "The Times of India",
-      "sentiment": 0.421,
+      "sentiment": -0.973,
+      "label": "Bearish",
+      "url": "https://economictimes.indiatimes.com/news/new-updates/buy-gold-then-leave-it-in-a-forest-bizarre-investment-scam-in-norway-is-making-victims-lose-their-savings-banks-issue-warning/articleshow/135163524.cms"
+    },
+    {
+      "title": "Gold and silver rate today (October 24, 2026): Check 24k, 22k, 20k and 18k gold jewellery prices from IBJA, Malabar Gold & Diamonds, Joyalukkas, Kalyan Jewellers and Tanishq",
+      "source": "The Times of India",
+      "sentiment": 0.821,
       "label": "Bullish",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/nippon-silver-etf-other-silver-etfs-slide-up-to-4-as-silver-prices-tumble-heres-why/articleshow/135137769.cms"
+      "url": "https://economictimes.indiatimes.com/wealth/invest/gold-silver-rate-today-october-24-2026-check-24k-22k-20k-and-18k-gold-jewellery-prices-from-ibja-malabar-gold-diamonds-joyalukkas-kalyan-jewellers-and-tanishq/articleshow/135164785.cms"
+    },
+    {
+      "title": "Supercars Gold Coast: Chaz Mostert dominates wet race for Walkinshaw Toyota",
+      "source": "Motorsport.com",
+      "sentiment": 0.784,
+      "label": "Bullish",
+      "url": "https://www.motorsport.com/v8supercars/news/supercars-gold-coast-chaz-mostert-dominates-wet-race-for-walkinshaw-toyota/10867755/"
+    },
+    {
+      "title": "Paddleboarder triumphs after cancer diagnosis",
+      "source": "BBC News",
+      "sentiment": 0.67,
+      "label": "Bullish",
+      "url": "https://www.bbc.com/news/articles/c65yn9ly8k1po?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bnews%5D-%5Bbizdev%5D-%5Bisapi%5D"
+    },
+    {
+      "title": "India script history with best-ever finish and record 114 medals at Asian Para Games",
+      "source": "The Times of India",
+      "sentiment": 0.625,
+      "label": "Bullish",
+      "url": "https://timesofindia.indiatimes.com/sports/asian-para-games-2026/india-script-history-with-best-ever-fourth-place-finish-and-record-114-medals-at-asian-para-games/articleshow/135163932.cms"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-24T07:29:57.112799",
-  "date": "2026-10-24"
+  "fetched_at": "2026-10-25T07:43:35.848123",
+  "date": "2026-10-25"
 }
