@@ -1,46 +1,32 @@
 {
-  "score": 0.302,
+  "score": 0.2601,
   "label": "Bullish",
-  "confidence": "medium",
-  "article_count": 7,
+  "confidence": "low",
+  "article_count": 3,
   "top_headlines": [
     {
-      "title": "Buy gold, then leave it in a forest: Bizarre investment scam in Norway is making victims lose their savings; banks issue warning",
+      "title": "In 1906, a gold discovery attracted 700 people to Skidoo, California, turning it into a $1.5 million mining hub before the boom ended and residents left just after a decade",
       "source": "The Times of India",
-      "sentiment": -0.973,
+      "sentiment": 0.681,
+      "label": "Bullish",
+      "url": "https://timesofindia.indiatimes.com/world/us/in-1906-a-gold-discovery-attracted-700-people-to-skidoo-california-turning-it-into-a-1-5-million-mining-hub-before-the-boom-ended-and-residents-left-just-after-a-decade/articleshow/135183473.cms"
+    },
+    {
+      "title": "Gold, silver prices today, 25 October: Check retail rate of 24K, 22K gold, 999 silver in Delhi, Mumbai, Kolkata, Chennai",
+      "source": "Livemint",
+      "sentiment": 0.202,
+      "label": "Bullish",
+      "url": "https://www.livemint.com/money/gold-silver-prices-today-25-october-retail-rates-24k-22k-18k-999-silver-delhi-mumbai-kolkata-chennai-bengaluru-hyderabad-11792901342696.html"
+    },
+    {
+      "title": "algotik-tse 1.8.1",
+      "source": "Pypi.org",
+      "sentiment": -0.103,
       "label": "Bearish",
-      "url": "https://economictimes.indiatimes.com/news/new-updates/buy-gold-then-leave-it-in-a-forest-bizarre-investment-scam-in-norway-is-making-victims-lose-their-savings-banks-issue-warning/articleshow/135163524.cms"
-    },
-    {
-      "title": "Gold and silver rate today (October 24, 2026): Check 24k, 22k, 20k and 18k gold jewellery prices from IBJA, Malabar Gold & Diamonds, Joyalukkas, Kalyan Jewellers and Tanishq",
-      "source": "The Times of India",
-      "sentiment": 0.821,
-      "label": "Bullish",
-      "url": "https://economictimes.indiatimes.com/wealth/invest/gold-silver-rate-today-october-24-2026-check-24k-22k-20k-and-18k-gold-jewellery-prices-from-ibja-malabar-gold-diamonds-joyalukkas-kalyan-jewellers-and-tanishq/articleshow/135164785.cms"
-    },
-    {
-      "title": "Supercars Gold Coast: Chaz Mostert dominates wet race for Walkinshaw Toyota",
-      "source": "Motorsport.com",
-      "sentiment": 0.784,
-      "label": "Bullish",
-      "url": "https://www.motorsport.com/v8supercars/news/supercars-gold-coast-chaz-mostert-dominates-wet-race-for-walkinshaw-toyota/10867755/"
-    },
-    {
-      "title": "Paddleboarder triumphs after cancer diagnosis",
-      "source": "BBC News",
-      "sentiment": 0.67,
-      "label": "Bullish",
-      "url": "https://www.bbc.com/news/articles/c65yn9ly8k1po?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bnews%5D-%5Bbizdev%5D-%5Bisapi%5D"
-    },
-    {
-      "title": "India script history with best-ever finish and record 114 medals at Asian Para Games",
-      "source": "The Times of India",
-      "sentiment": 0.625,
-      "label": "Bullish",
-      "url": "https://timesofindia.indiatimes.com/sports/asian-para-games-2026/india-script-history-with-best-ever-fourth-place-finish-and-record-114-medals-at-asian-para-games/articleshow/135163932.cms"
+      "url": "https://pypi.org/project/algotik-tse/1.8.1/"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-25T07:43:35.848123",
-  "date": "2026-10-25"
+  "fetched_at": "2026-10-26T05:34:38.705825",
+  "date": "2026-10-26"
 }
