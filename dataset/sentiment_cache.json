@@ -1,32 +1,46 @@
 {
-  "score": 0.2601,
+  "score": 0.3484,
   "label": "Bullish",
-  "confidence": "low",
-  "article_count": 3,
+  "confidence": "medium",
+  "article_count": 6,
   "top_headlines": [
     {
-      "title": "In 1906, a gold discovery attracted 700 people to Skidoo, California, turning it into a $1.5 million mining hub before the boom ended and residents left just after a decade",
-      "source": "The Times of India",
-      "sentiment": 0.681,
+      "title": "TRX Gold: Buckreef Continues Well, As Both Engine And Growth Path",
+      "source": "Biztoc.com",
+      "sentiment": 0.863,
       "label": "Bullish",
-      "url": "https://timesofindia.indiatimes.com/world/us/in-1906-a-gold-discovery-attracted-700-people-to-skidoo-california-turning-it-into-a-1-5-million-mining-hub-before-the-boom-ended-and-residents-left-just-after-a-decade/articleshow/135183473.cms"
+      "url": "https://biztoc.com/x/e6d5c695a2b6565b"
     },
     {
-      "title": "Gold, silver prices today, 25 October: Check retail rate of 24K, 22K gold, 999 silver in Delhi, Mumbai, Kolkata, Chennai",
-      "source": "Livemint",
-      "sentiment": 0.202,
+      "title": "$29.40* | adidas 40L Excel 6 School Backpack (Jersey Grey/ Onix Grey/ Rose Gold) at Amazon",
+      "source": "Slickdeals.net",
+      "sentiment": 0.91,
       "label": "Bullish",
-      "url": "https://www.livemint.com/money/gold-silver-prices-today-25-october-retail-rates-24k-22k-18k-999-silver-delhi-mumbai-kolkata-chennai-bengaluru-hyderabad-11792901342696.html"
+      "url": "https://slickdeals.net/f/20203599-29-40-adidas-40l-excel-6-school-backpack-jersey-grey-onix-grey-rose-gold-at-amazon"
     },
     {
-      "title": "algotik-tse 1.8.1",
-      "source": "Pypi.org",
-      "sentiment": -0.103,
+      "title": "It wasn't pretty, but No. 17 Texas pulled it off and all must-wins are beauties | Golden",
+      "source": "Austin American-Statesman",
+      "sentiment": 0.817,
+      "label": "Bullish",
+      "url": "https://www.statesman.com/sports/columns/article/texas-football-vs-ole-miss-sec-cfp-longhorns-22483064.php?utm_medium=referral&amp;utm_campaign=yahoo_syndication"
+    },
+    {
+      "title": "Dana White Accuses Islam Makhachev of Holding Up Welterweight Division After UFC 336 Snub",
+      "source": "Yahoo Entertainment",
+      "sentiment": -0.637,
       "label": "Bearish",
-      "url": "https://pypi.org/project/algotik-tse/1.8.1/"
+      "url": "https://sports.yahoo.com/articles/dana-white-accuses-islam-makhachev-072748411.html"
+    },
+    {
+      "title": "Gold price plunges by Rs 11,700 per tola in Nepali market",
+      "source": "Khabarhub.com",
+      "sentiment": 0.0,
+      "label": "Neutral",
+      "url": "https://english.khabarhub.com/2026/25/573069/"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-26T05:34:38.705825",
+  "fetched_at": "2026-10-26T07:59:10.529357",
   "date": "2026-10-26"
 }
