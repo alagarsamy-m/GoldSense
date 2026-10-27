@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-10-26T07:59:15.125035Z",
-  "prediction_date": "2026-10-27",
-  "target_date": "2026-10-27",
+  "generated_at": "2026-10-27T08:08:28.305658Z",
+  "prediction_date": "2026-10-28",
+  "target_date": "2026-10-28",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
   "market_closed": false,
-  "last_data_date": "2026-10-26",
-  "last_actual_usd": 4026.7,
-  "reference_live_usd": 4022.7,
-  "reference_as_of": "2026-10-26T07:59:16.786287Z",
+  "last_data_date": "2026-10-27",
+  "last_actual_usd": 4010.8,
+  "reference_live_usd": 4010.6,
+  "reference_as_of": "2026-10-27T08:08:30.417464Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4024.35,
-  "usd_inr_rate": 95.2,
+  "tomorrow_usd": 4012.24,
+  "usd_inr_rate": 95.175,
   "trend": "stable",
   "direction_vs_today": "stable",
   "direction_delta_pct": 0.041,
-  "direction_delta_usd": 1.65,
+  "direction_delta_usd": 1.64,
   "pct_change": 0.041,
-  "tomorrow_price_24k_per_gram": 13448.27,
-  "tomorrow_price_22k_per_gram": 12327.58,
-  "tomorrow_price_24k_per_10g": 134482.67,
-  "tomorrow_price_22k_per_10g": 123275.78,
+  "tomorrow_price_24k_per_gram": 13404.29,
+  "tomorrow_price_22k_per_gram": 12287.27,
+  "tomorrow_price_24k_per_10g": 134042.95,
+  "tomorrow_price_22k_per_10g": 122872.7,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -32,64 +32,64 @@
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
   "confidence_interval": {
-    "lower_usd": 3983.82,
-    "upper_usd": 4081.44,
-    "lower_24k_per_gram": 13312.83,
-    "upper_24k_per_gram": 13639.04,
-    "lower_22k_per_gram": 12203.43,
-    "upper_22k_per_gram": 12502.45,
-    "interval_pct": 2.43
+    "lower_usd": 3977.29,
+    "upper_usd": 4065.87,
+    "lower_24k_per_gram": 13287.52,
+    "upper_24k_per_gram": 13583.47,
+    "lower_22k_per_gram": 12180.23,
+    "upper_22k_per_gram": 12451.51,
+    "interval_pct": 2.21
   },
-  "direction_confidence": 55.3,
-  "as_of": "2026-10-26T07:59:16.786287Z",
+  "direction_confidence": 58.7,
+  "as_of": "2026-10-27T08:08:30.417464Z",
   "source": "model_forecast",
   "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": 0.3484,
+    "score": 0.4045,
     "label": "Bullish",
     "confidence": "medium",
     "signal": "Neutral",
-    "article_count": 6,
+    "article_count": 8,
     "source": "newsapi",
     "top_headlines": [
       {
-        "title": "TRX Gold: Buckreef Continues Well, As Both Engine And Growth Path",
+        "title": "Precious Metals Buffeted By Higher Interest Rates, Deficits and Geopolitics",
         "source": "Biztoc.com",
-        "sentiment": 0.863,
+        "sentiment": 0.836,
         "label": "Bullish",
-        "url": "https://biztoc.com/x/e6d5c695a2b6565b"
+        "url": "https://biztoc.com/x/67484adf791ba974"
       },
       {
-        "title": "$29.40* | adidas 40L Excel 6 School Backpack (Jersey Grey/ Onix Grey/ Rose Gold) at Amazon",
-        "source": "Slickdeals.net",
-        "sentiment": 0.91,
+        "title": "India's gold import route changing course for a benefit all jewellers want",
+        "source": "The Times of India",
+        "sentiment": 0.778,
         "label": "Bullish",
-        "url": "https://slickdeals.net/f/20203599-29-40-adidas-40l-excel-6-school-backpack-jersey-grey-onix-grey-rose-gold-at-amazon"
+        "url": "https://economictimes.indiatimes.com/industry/cons-products/fashion-/-cosmetics-/-jewellery/gold-prices-indias-gold-import-route-changing-course-for-a-benefit-all-jewellers-want/articleshow/135204055.cms"
       },
       {
-        "title": "It wasn't pretty, but No. 17 Texas pulled it off and all must-wins are beauties | Golden",
-        "source": "Austin American-Statesman",
-        "sentiment": 0.817,
+        "title": "Gold prices rise Rs 700/10 gram; silver gains Rs 1,500/kg ahead of US Fed meet. Key levels to track today",
+        "source": "The Times of India",
+        "sentiment": 0.527,
         "label": "Bullish",
-        "url": "https://www.statesman.com/sports/columns/article/texas-football-vs-ole-miss-sec-cfp-longhorns-22483064.php?utm_medium=referral&amp;utm_campaign=yahoo_syndication"
+        "url": "https://economictimes.indiatimes.com/markets/commodities/news/gold-prices-rise-rs-700/10-gram-silver-gains-rs-1500/kg-ahead-of-us-fed-meet-key-levels-to-track-today/articleshow/135204122.cms"
       },
       {
-        "title": "Dana White Accuses Islam Makhachev of Holding Up Welterweight Division After UFC 336 Snub",
-        "source": "Yahoo Entertainment",
-        "sentiment": -0.637,
-        "label": "Bearish",
-        "url": "https://sports.yahoo.com/articles/dana-white-accuses-islam-makhachev-072748411.html"
+        "title": "Global equity funds attract $28.16 billion as easing yields boost sentiment",
+        "source": "The Times of India",
+        "sentiment": 0.964,
+        "label": "Bullish",
+        "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/global-equity-funds-attract-28-16-billion-as-easing-yields-boost-sentiment/articleshow/135206114.cms"
       },
       {
-        "title": "Gold price plunges by Rs 11,700 per tola in Nepali market",
-        "source": "Khabarhub.com",
-        "sentiment": 0.0,
-        "label": "Neutral",
-        "url": "https://english.khabarhub.com/2026/25/573069/"
+        "title": "Tokenisation can unlock hidden wealth, cut borrowing costs: Mudrex CEO",
+        "source": "Business Standard",
+        "sentiment": 0.807,
+        "label": "Bullish",
+        "url": "https://www.business-standard.com/finance/personal-finance/tokenisation-can-unlock-hidden-wealth-cut-borrowing-costs-mudrex-ceo-126102600426_1.html"
       }
     ],
-    "fetched_at": "2026-10-26T07:59:10.529357"
+    "fetched_at": "2026-10-27T08:08:22.190116"
   },
   "model_info": {
     "trained_at": "2026-10-26T05:35:53.969648Z",

@@ -1,46 +1,46 @@
 {
-  "score": 0.3484,
+  "score": 0.4045,
   "label": "Bullish",
   "confidence": "medium",
-  "article_count": 6,
+  "article_count": 8,
   "top_headlines": [
     {
-      "title": "TRX Gold: Buckreef Continues Well, As Both Engine And Growth Path",
+      "title": "Precious Metals Buffeted By Higher Interest Rates, Deficits and Geopolitics",
       "source": "Biztoc.com",
-      "sentiment": 0.863,
+      "sentiment": 0.836,
       "label": "Bullish",
-      "url": "https://biztoc.com/x/e6d5c695a2b6565b"
+      "url": "https://biztoc.com/x/67484adf791ba974"
     },
     {
-      "title": "$29.40* | adidas 40L Excel 6 School Backpack (Jersey Grey/ Onix Grey/ Rose Gold) at Amazon",
-      "source": "Slickdeals.net",
-      "sentiment": 0.91,
+      "title": "India's gold import route changing course for a benefit all jewellers want",
+      "source": "The Times of India",
+      "sentiment": 0.778,
       "label": "Bullish",
-      "url": "https://slickdeals.net/f/20203599-29-40-adidas-40l-excel-6-school-backpack-jersey-grey-onix-grey-rose-gold-at-amazon"
+      "url": "https://economictimes.indiatimes.com/industry/cons-products/fashion-/-cosmetics-/-jewellery/gold-prices-indias-gold-import-route-changing-course-for-a-benefit-all-jewellers-want/articleshow/135204055.cms"
     },
     {
-      "title": "It wasn't pretty, but No. 17 Texas pulled it off and all must-wins are beauties | Golden",
-      "source": "Austin American-Statesman",
-      "sentiment": 0.817,
+      "title": "Gold prices rise Rs 700/10 gram; silver gains Rs 1,500/kg ahead of US Fed meet. Key levels to track today",
+      "source": "The Times of India",
+      "sentiment": 0.527,
       "label": "Bullish",
-      "url": "https://www.statesman.com/sports/columns/article/texas-football-vs-ole-miss-sec-cfp-longhorns-22483064.php?utm_medium=referral&amp;utm_campaign=yahoo_syndication"
+      "url": "https://economictimes.indiatimes.com/markets/commodities/news/gold-prices-rise-rs-700/10-gram-silver-gains-rs-1500/kg-ahead-of-us-fed-meet-key-levels-to-track-today/articleshow/135204122.cms"
     },
     {
-      "title": "Dana White Accuses Islam Makhachev of Holding Up Welterweight Division After UFC 336 Snub",
-      "source": "Yahoo Entertainment",
-      "sentiment": -0.637,
-      "label": "Bearish",
-      "url": "https://sports.yahoo.com/articles/dana-white-accuses-islam-makhachev-072748411.html"
+      "title": "Global equity funds attract $28.16 billion as easing yields boost sentiment",
+      "source": "The Times of India",
+      "sentiment": 0.964,
+      "label": "Bullish",
+      "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/global-equity-funds-attract-28-16-billion-as-easing-yields-boost-sentiment/articleshow/135206114.cms"
     },
     {
-      "title": "Gold price plunges by Rs 11,700 per tola in Nepali market",
-      "source": "Khabarhub.com",
-      "sentiment": 0.0,
-      "label": "Neutral",
-      "url": "https://english.khabarhub.com/2026/25/573069/"
+      "title": "Tokenisation can unlock hidden wealth, cut borrowing costs: Mudrex CEO",
+      "source": "Business Standard",
+      "sentiment": 0.807,
+      "label": "Bullish",
+      "url": "https://www.business-standard.com/finance/personal-finance/tokenisation-can-unlock-hidden-wealth-cut-borrowing-costs-mudrex-ceo-126102600426_1.html"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-26T07:59:10.529357",
-  "date": "2026-10-26"
+  "fetched_at": "2026-10-27T08:08:22.190116",
+  "date": "2026-10-27"
 }
