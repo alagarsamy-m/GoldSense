@@ -1,46 +1,46 @@
 {
-  "score": 0.4045,
+  "score": 0.2205,
   "label": "Bullish",
-  "confidence": "medium",
-  "article_count": 8,
+  "confidence": "high",
+  "article_count": 14,
   "top_headlines": [
     {
-      "title": "Precious Metals Buffeted By Higher Interest Rates, Deficits and Geopolitics",
-      "source": "Biztoc.com",
-      "sentiment": 0.836,
-      "label": "Bullish",
-      "url": "https://biztoc.com/x/67484adf791ba974"
-    },
-    {
-      "title": "India's gold import route changing course for a benefit all jewellers want",
+      "title": "Gold buying on Dhanteras: Gold prices have fallen by 20% from their peak; is it right time to invest in yellow metal?",
       "source": "The Times of India",
-      "sentiment": 0.778,
+      "sentiment": 0.612,
       "label": "Bullish",
-      "url": "https://economictimes.indiatimes.com/industry/cons-products/fashion-/-cosmetics-/-jewellery/gold-prices-indias-gold-import-route-changing-course-for-a-benefit-all-jewellers-want/articleshow/135204055.cms"
+      "url": "https://economictimes.indiatimes.com/wealth/invest/gold-buying-on-dhanteras-mcx-spot-gold-price-is-20-down-from-its-january-peak-is-it-right-time-to-invest-in-yellow-metal/articleshow/135210867.cms"
     },
     {
-      "title": "Gold prices rise Rs 700/10 gram; silver gains Rs 1,500/kg ahead of US Fed meet. Key levels to track today",
+      "title": "West Asia crisis so far may cost govt Rs 1.35 lakh crore, spending cuts unlikely: ICRA Chief Economist Aditi Nayar",
       "source": "The Times of India",
-      "sentiment": 0.527,
-      "label": "Bullish",
-      "url": "https://economictimes.indiatimes.com/markets/commodities/news/gold-prices-rise-rs-700/10-gram-silver-gains-rs-1500/kg-ahead-of-us-fed-meet-key-levels-to-track-today/articleshow/135204122.cms"
+      "sentiment": -0.937,
+      "label": "Bearish",
+      "url": "https://economictimes.indiatimes.com/news/economy/indicators/west-asia-crisis-so-far-may-cost-govt-rs-1-35-lakh-crore-spending-cuts-unlikely-icra-chief-economist-aditi-nayar/articleshow/135228166.cms"
     },
     {
-      "title": "Global equity funds attract $28.16 billion as easing yields boost sentiment",
+      "title": "What is the best way to invest in gold monthly with a modest salary?",
       "source": "The Times of India",
-      "sentiment": 0.964,
+      "sentiment": 0.937,
       "label": "Bullish",
-      "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/global-equity-funds-attract-28-16-billion-as-easing-yields-boost-sentiment/articleshow/135206114.cms"
+      "url": "https://economictimes.indiatimes.com/wealth/invest/what-is-the-best-way-to-invest-in-gold-monthly-with-a-modest-salary/articleshow/135227089.cms"
     },
     {
-      "title": "Tokenisation can unlock hidden wealth, cut borrowing costs: Mudrex CEO",
-      "source": "Business Standard",
-      "sentiment": 0.807,
+      "title": "Uh what?! \u2014 New Gold Star Members can get a $45 Digital Costco Shop Card with a $65 Costco membership*",
+      "source": "Macworld",
+      "sentiment": 0.784,
       "label": "Bullish",
-      "url": "https://www.business-standard.com/finance/personal-finance/tokenisation-can-unlock-hidden-wealth-cut-borrowing-costs-mudrex-ceo-126102600426_1.html"
+      "url": "https://www.macworld.com/article/3269940/uh-what-new-gold-star-members-can-get-a-45-digital-costco-shop-card-with-a-65-costco-membership.html"
+    },
+    {
+      "title": "milligold-mcp 0.2.0",
+      "source": "Pypi.org",
+      "sentiment": 0.402,
+      "label": "Bullish",
+      "url": "https://pypi.org/project/milligold-mcp/0.2.0/"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-27T08:08:22.190116",
-  "date": "2026-10-27"
+  "fetched_at": "2026-10-28T08:48:12.360713",
+  "date": "2026-10-28"
 }
