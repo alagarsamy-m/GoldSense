@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-10-30T08:50:05.585636Z",
-  "prediction_date": "2026-10-31",
-  "target_date": "2026-10-31",
+  "generated_at": "2026-10-31T08:38:03.332406Z",
+  "prediction_date": "2026-11-01",
+  "target_date": "2026-11-01",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
   "market_closed": true,
   "last_data_date": "2026-10-30",
-  "last_actual_usd": 3996.4,
-  "reference_live_usd": 3995.5,
-  "reference_as_of": "2026-10-30T08:50:07.140359Z",
+  "last_actual_usd": 3898.9,
+  "reference_live_usd": 3898.9,
+  "reference_as_of": "2026-10-31T08:38:05.179706Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 3995.5,
-  "usd_inr_rate": 95.0325,
+  "tomorrow_usd": 3898.9,
+  "usd_inr_rate": 94.95,
   "trend": "stable",
   "direction_vs_today": "stable",
   "direction_delta_pct": 0.0,
   "direction_delta_usd": 0.0,
   "pct_change": 0.0,
-  "tomorrow_price_24k_per_gram": 13328.37,
-  "tomorrow_price_22k_per_gram": 12217.67,
-  "tomorrow_price_24k_per_10g": 133283.72,
-  "tomorrow_price_22k_per_10g": 122176.75,
+  "tomorrow_price_24k_per_gram": 12994.84,
+  "tomorrow_price_22k_per_gram": 11911.94,
+  "tomorrow_price_24k_per_10g": 129948.39,
+  "tomorrow_price_22k_per_10g": 119119.35,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -31,55 +31,55 @@
     "mumbai_premium_pct": 0.0,
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
-  "as_of": "2026-10-30T08:50:07.140359Z",
+  "as_of": "2026-10-31T08:38:05.179706Z",
   "source": "model_forecast",
   "market_status": "market_closed",
   "is_live": false,
   "sentiment": {
-    "score": 0.1271,
+    "score": 0.233,
     "label": "Bullish",
     "confidence": "medium",
     "signal": "Neutral",
-    "article_count": 6,
+    "article_count": 9,
     "source": "newsapi",
     "top_headlines": [
       {
-        "title": "Gold rate and silver rate today (October 29, 2026): Check 24k, 22k, 20k and 18k gold jewellery prices from Malabar Gold & Diamonds, Joyalukkas, Kalyan Jewellers, Tanishq & IBJA in Delhi, Mumbai, Hyderabad & more cities",
-        "source": "The Times of India",
-        "sentiment": 0.421,
+        "title": "Silver drops 3% as Fed hike bets weigh",
+        "source": "Biztoc.com",
+        "sentiment": 0.572,
         "label": "Bullish",
-        "url": "https://economictimes.indiatimes.com/wealth/invest/gold-rate-and-silver-rate-today-october-29-2026-check-24k-22k-20k-and-18k-gold-jewellery-prices-from-malabar-gold-diamonds-joyalukkas-kalyan-jewellers-tanishq-ibja-in-delhi-mumbai-hyderabad-more-cities/articleshow/135295765.cms"
+        "url": "https://biztoc.com/x/665ab5ea05da98b9"
       },
       {
-        "title": "$9.98* | 14-Piece Craftsman Drill Bit Set w/ Gold Oxide Coating at Amazon",
-        "source": "Slickdeals.net",
-        "sentiment": 0.691,
+        "title": "Skechers Releases Limited-Edition White and Gold SKX_2 Elite Boot Celebrating Harry Kane\u2019s Ballon d\u2019Or Win",
+        "source": "Financial Post",
+        "sentiment": 0.818,
         "label": "Bullish",
-        "url": "https://slickdeals.net/f/20226240-9-98-14-piece-craftsman-drill-bit-set-w-gold-oxide-coating-at-amazon"
+        "url": "https://financialpost.com/pmn/business-wire-news-releases-pmn/skechers-releases-limited-edition-white-and-gold-skx_2-elite-boot-celebrating-harry-kanes-ballon-dor-win"
       },
       {
-        "title": "Gold ETFs manage \u20b91.9 trillion despite Sept correction; top 5 control 80%",
-        "source": "Business Standard",
-        "sentiment": -0.151,
-        "label": "Bearish",
-        "url": "https://www.business-standard.com/finance/personal-finance/gold-etfs-manage-1-9-trillion-despite-sept-correction-top-5-control-80-126102900680_1.html"
+        "title": "Skechers Celebrates Harry Kane\u2019s Ballon d\u2019Or With A Limited Run of 73 Gold Boots for His 73\u00a0Goals",
+        "source": "WWD",
+        "sentiment": 0.67,
+        "label": "Bullish",
+        "url": "http://wwd.com/footwear-news/sneaker-news/harry-kane-skechers-ballon-d-or-boot-release-date-1239390233/"
       },
       {
-        "title": "Gold taxation explained: How much tax you pay on selling gold jewellery, ETFs, fund of funds and SGBs",
-        "source": "The Times of India",
-        "sentiment": -0.0,
-        "label": "Neutral",
-        "url": "https://economictimes.indiatimes.com/wealth/tax/gold-taxation-how-much-income-tax-you-pay-on-selling-gold-jewellery-etfs-funds-of-funds-and-sgbs/articleshow/135297885.cms"
-      },
-      {
-        "title": "Today\u2019s Gold Rate in India October 29: Gold prices up in Coimbatore, Nagpur, Visakhapatnam, Surat, Jaipur",
+        "title": "Gold futures decline to \u20b91.41 lakh/10 gram",
         "source": "BusinessLine",
-        "sentiment": 0.0,
-        "label": "Neutral",
-        "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-coimbatore-nagpur-visakhapatnam-surat-jaipur-lucknow-chandigarh-gold-rates-other-cities-october-29-2026/article71639624.ece"
+        "sentiment": -0.296,
+        "label": "Bearish",
+        "url": "https://www.thehindubusinessline.com/markets/gold/gold-futures-decline-to-141-lakh10-gram/article71644216.ece"
+      },
+      {
+        "title": "Everyone Rubs the Same Spot (9 Photos)",
+        "source": "Streetartutopia.com",
+        "sentiment": 0.459,
+        "label": "Bullish",
+        "url": "https://streetartutopia.com/2026/10/30/statues-rubbed-for-luck-bronze-sculptures/"
       }
     ],
-    "fetched_at": "2026-10-30T08:50:00.526300"
+    "fetched_at": "2026-10-31T08:37:57.947388"
   },
   "model_info": {
     "trained_at": "2026-10-26T05:35:53.969648Z",
