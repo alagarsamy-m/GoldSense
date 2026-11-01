@@ -1,46 +1,46 @@
 {
-  "score": 0.233,
-  "label": "Bullish",
+  "score": 0.0263,
+  "label": "Neutral",
   "confidence": "medium",
-  "article_count": 9,
+  "article_count": 5,
   "top_headlines": [
     {
-      "title": "Silver drops 3% as Fed hike bets weigh",
-      "source": "Biztoc.com",
-      "sentiment": 0.572,
-      "label": "Bullish",
-      "url": "https://biztoc.com/x/665ab5ea05da98b9"
-    },
-    {
-      "title": "Skechers Releases Limited-Edition White and Gold SKX_2 Elite Boot Celebrating Harry Kane\u2019s Ballon d\u2019Or Win",
-      "source": "Financial Post",
-      "sentiment": 0.818,
-      "label": "Bullish",
-      "url": "https://financialpost.com/pmn/business-wire-news-releases-pmn/skechers-releases-limited-edition-white-and-gold-skx_2-elite-boot-celebrating-harry-kanes-ballon-dor-win"
-    },
-    {
-      "title": "Skechers Celebrates Harry Kane\u2019s Ballon d\u2019Or With A Limited Run of 73 Gold Boots for His 73\u00a0Goals",
-      "source": "WWD",
-      "sentiment": 0.67,
-      "label": "Bullish",
-      "url": "http://wwd.com/footwear-news/sneaker-news/harry-kane-skechers-ballon-d-or-boot-release-date-1239390233/"
-    },
-    {
-      "title": "Gold futures decline to \u20b91.41 lakh/10 gram",
-      "source": "BusinessLine",
-      "sentiment": -0.296,
+      "title": "LeBron James fans hit out at critic for saying Lakers are \u2018much better without him\u2019 only to lose to Warriors",
+      "source": "HITC - Football, Gaming, Movies, TV, Music",
+      "sentiment": -0.778,
       "label": "Bearish",
-      "url": "https://www.thehindubusinessline.com/markets/gold/gold-futures-decline-to-141-lakh10-gram/article71644216.ece"
+      "url": "https://www.hitc.com/lebron-james-fans-hit-out-at-critic-for-saying-lakers-are-much-better-without-him-only-to-lose-to-warriors/"
     },
     {
-      "title": "Everyone Rubs the Same Spot (9 Photos)",
-      "source": "Streetartutopia.com",
-      "sentiment": 0.459,
+      "title": "Meet the 7 horses in Breeders' Cup Classic 2026 field at Keeneland",
+      "source": "Courier Journal",
+      "sentiment": 0.477,
       "label": "Bullish",
-      "url": "https://streetartutopia.com/2026/10/30/statues-rubbed-for-luck-bronze-sculptures/"
+      "url": "https://www.courier-journal.com/story/sports/horses/horse-racing/2026/10/31/breeders-cup-classic-2026-field-horses-odds-for-race-at-keeneland/92516626007/"
+    },
+    {
+      "title": "China reports sharp increase in gold, nickel and strategic minerals",
+      "source": "Biztoc.com",
+      "sentiment": 0.477,
+      "label": "Bullish",
+      "url": "https://biztoc.com/x/a7cd6b8614e32662"
+    },
+    {
+      "title": "Today\u2019s Gold Rate: Gold prices down in Coimbatore, Nagpur, Visakhapatnam, Surat, Jaipur",
+      "source": "BusinessLine",
+      "sentiment": 0.0,
+      "label": "Neutral",
+      "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-coimbatore-nagpur-visakhapatnam-surat-jaipur-lucknow-chandigarh-gold-rates-other-cities-october-31-2026/article71648666.ece"
+    },
+    {
+      "title": "Today\u2019s Gold Rate: Gold prices down in Delhi, Mumbai, Kolkata, Chennai, Bengaluru",
+      "source": "BusinessLine",
+      "sentiment": 0.0,
+      "label": "Neutral",
+      "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-delhi-mumbai-kolkata-chennai-bengaluru-hyderabad-pune-gold-rates-metro-cities-october-31-2026/article71648665.ece"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-10-31T08:37:57.947388",
-  "date": "2026-10-31"
+  "fetched_at": "2026-11-01T09:29:01.279014",
+  "date": "2026-11-01"
 }
