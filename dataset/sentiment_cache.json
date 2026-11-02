@@ -1,46 +1,46 @@
 {
-  "score": 0.0263,
-  "label": "Neutral",
+  "score": -0.1858,
+  "label": "Bearish",
   "confidence": "medium",
-  "article_count": 5,
+  "article_count": 6,
   "top_headlines": [
     {
-      "title": "LeBron James fans hit out at critic for saying Lakers are \u2018much better without him\u2019 only to lose to Warriors",
-      "source": "HITC - Football, Gaming, Movies, TV, Music",
-      "sentiment": -0.778,
+      "title": "Gold, silver lose sheen",
+      "source": "BusinessLine",
+      "sentiment": -0.823,
       "label": "Bearish",
-      "url": "https://www.hitc.com/lebron-james-fans-hit-out-at-critic-for-saying-lakers-are-much-better-without-him-only-to-lose-to-warriors/"
+      "url": "https://www.thehindubusinessline.com/portfolio/personal-finance/gold-silver-lose-sheen/article71652176.ece"
     },
     {
-      "title": "Meet the 7 horses in Breeders' Cup Classic 2026 field at Keeneland",
-      "source": "Courier Journal",
-      "sentiment": 0.477,
-      "label": "Bullish",
-      "url": "https://www.courier-journal.com/story/sports/horses/horse-racing/2026/10/31/breeders-cup-classic-2026-field-horses-odds-for-race-at-keeneland/92516626007/"
-    },
-    {
-      "title": "China reports sharp increase in gold, nickel and strategic minerals",
-      "source": "Biztoc.com",
-      "sentiment": 0.477,
-      "label": "Bullish",
-      "url": "https://biztoc.com/x/a7cd6b8614e32662"
-    },
-    {
-      "title": "Today\u2019s Gold Rate: Gold prices down in Coimbatore, Nagpur, Visakhapatnam, Surat, Jaipur",
+      "title": "Why gold has become a strategic asset for Indian investors",
       "source": "BusinessLine",
-      "sentiment": 0.0,
-      "label": "Neutral",
-      "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-coimbatore-nagpur-visakhapatnam-surat-jaipur-lucknow-chandigarh-gold-rates-other-cities-october-31-2026/article71648666.ece"
+      "sentiment": 0.382,
+      "label": "Bullish",
+      "url": "https://www.thehindubusinessline.com/markets/gold/why-gold-has-become-a-strategic-asset-for-indian-investors/article71650132.ece"
     },
     {
-      "title": "Today\u2019s Gold Rate: Gold prices down in Delhi, Mumbai, Kolkata, Chennai, Bengaluru",
-      "source": "BusinessLine",
-      "sentiment": 0.0,
+      "title": "This Compact TRIVISA Pocket Knife Pairs a Crossbar Lock With a Rose-Gold Blade",
+      "source": "The Gadgeteer",
+      "sentiment": -0.296,
+      "label": "Bearish",
+      "url": "https://the-gadgeteer.com/2026/11/01/trivisa-dragonfly-cg-crossbar-lock-edc-knife/"
+    },
+    {
+      "title": "Gold and silver prices decline",
+      "source": "Khabarhub.com",
+      "sentiment": 0.202,
+      "label": "Bullish",
+      "url": "https://english.khabarhub.com/2026/01/573928/"
+    },
+    {
+      "title": "Suns miss top four by a whisker despite win over Giants",
+      "source": "ABC News (AU)",
+      "sentiment": -0.05,
       "label": "Neutral",
-      "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-delhi-mumbai-kolkata-chennai-bengaluru-hyderabad-pune-gold-rates-metro-cities-october-31-2026/article71648665.ece"
+      "url": "https://www.abc.net.au/news/2026-11-01/suns-miss-top-four-by-a-whisker-despite-win-over-giants/107333824"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-01T09:29:01.279014",
-  "date": "2026-11-01"
+  "fetched_at": "2026-11-02T06:58:44.182823",
+  "date": "2026-11-02"
 }
