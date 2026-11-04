@@ -1,46 +1,46 @@
 {
-  "score": 0.0449,
-  "label": "Neutral",
+  "score": 0.153,
+  "label": "Bullish",
   "confidence": "high",
-  "article_count": 10,
+  "article_count": 12,
   "top_headlines": [
     {
-      "title": "MCX Gold vs MCX Silver rates today, 2 Nov: Check how precious metals are performing on Monday amid Sensex, Nifty surge",
-      "source": "Livemint",
-      "sentiment": 0.908,
+      "title": "Gold rate today (November 3, 2026): Check 24k, 22k, 20k and 18k gold jewellery prices from Malabar Gold & Diamonds, Kalyan Jewellers, Tanishq & IBJA in Delhi, Mumbai, Hyderabad & more cities",
+      "source": "The Times of India",
+      "sentiment": 0.494,
       "label": "Bullish",
-      "url": "https://www.livemint.com/money/personal-finance/mcx-gold-vs-mcx-silver-rates-today-2-nov-check-how-precious-metals-are-performing-on-monday-amid-sensex-nifty-surge-11793601809697.html"
+      "url": "https://economictimes.indiatimes.com/wealth/invest/gold-rate-today-november-3-2026-check-24k-22k-20k-and-18k-gold-jewellery-prices-from-malabar-gold-diamonds-kalyan-jewellers-tanishq-ibja-in-delhi-mumbai-hyderabad-more-cities/articleshow/135488247.cms"
     },
     {
-      "title": "Man crushed beneath boulder while fossicking",
-      "source": "ABC News (AU)",
-      "sentiment": -0.823,
-      "label": "Bearish",
-      "url": "https://www.abc.net.au/news/2026-11-02/cairns-man-dies-while-fossicking-cape-york/107338456"
-    },
-    {
-      "title": "Coil \u2013 Gold is the Metal (With the Broadest Shoulders) (2026)",
-      "source": "Exystence.net",
-      "sentiment": 0.552,
+      "title": "Blue Jays predicted to sign Yankees' two-time Gold Glove winner to replace George Springer",
+      "source": "Sporting News",
+      "sentiment": 0.691,
       "label": "Bullish",
-      "url": "https://exystence.net/blog/2026/11/02/coil-gold-is-the-metal-with-the-broadest-shoulders-2026/"
+      "url": "https://www.sportingnews.com/us/mlb/toronto-blue-jays/news/blue-jays-predicted-sign-yankees-two-time-gold-glove-winner-replace-george-springer/e943dba69f079afeca9a093d"
     },
     {
-      "title": "Gold rises on softer oil; markets parse Fed signals",
-      "source": "BusinessLine",
-      "sentiment": -0.273,
-      "label": "Bearish",
-      "url": "https://www.thehindubusinessline.com/markets/gold/gold-rises-on-softer-oil-markets-parse-fed-signals/article71655715.ece"
-    },
-    {
-      "title": "'Incredible' That Bitcoin Outperformed Gold Last Week Despite $6.3 Billion Binance Hack, Says Analyst",
+      "title": "Silver drops 3.5% ahead of US midterm elections",
       "source": "Biztoc.com",
-      "sentiment": -0.294,
-      "label": "Bearish",
-      "url": "https://biztoc.com/x/bf5ce19ca2b64ae5"
+      "sentiment": 0.34,
+      "label": "Bullish",
+      "url": "https://biztoc.com/x/74d076885ac8055c"
+    },
+    {
+      "title": "Gold demand down 30% in September quarter as high prices hurt jewellery sales",
+      "source": "BusinessLine",
+      "sentiment": 0.318,
+      "label": "Bullish",
+      "url": "https://www.thehindubusinessline.com/markets/gold/gold-demand-down-30-in-september-quarter-as-high-prices-hurt-jewellery-sales/article71660046.ece"
+    },
+    {
+      "title": "Medicine with a Ring",
+      "source": "Freerepublic.com",
+      "sentiment": 0.534,
+      "label": "Bullish",
+      "url": "https://freerepublic.com/focus/f-chat/4401599/posts"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-03T09:48:16.481283",
-  "date": "2026-11-03"
+  "fetched_at": "2026-11-04T09:35:12.533892",
+  "date": "2026-11-04"
 }
