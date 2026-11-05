@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-11-04T09:35:18.808893Z",
-  "prediction_date": "2026-11-05",
-  "target_date": "2026-11-05",
+  "generated_at": "2026-11-05T09:42:24.972917Z",
+  "prediction_date": "2026-11-06",
+  "target_date": "2026-11-06",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
   "market_closed": false,
-  "last_data_date": "2026-11-04",
-  "last_actual_usd": 4055.2,
-  "reference_live_usd": 4056.6,
-  "reference_as_of": "2026-11-04T09:35:20.923995Z",
+  "last_data_date": "2026-11-05",
+  "last_actual_usd": 4139.5,
+  "reference_live_usd": 4139.5,
+  "reference_as_of": "2026-11-05T09:42:26.459948Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4058.31,
-  "usd_inr_rate": 94.6675,
+  "tomorrow_usd": 4141.25,
+  "usd_inr_rate": 94.5225,
   "trend": "stable",
   "direction_vs_today": "stable",
   "direction_delta_pct": 0.042,
-  "direction_delta_usd": 1.71,
+  "direction_delta_usd": 1.75,
   "pct_change": 0.042,
-  "tomorrow_price_24k_per_gram": 13485.91,
-  "tomorrow_price_22k_per_gram": 12362.08,
-  "tomorrow_price_24k_per_10g": 134859.07,
-  "tomorrow_price_22k_per_10g": 123620.81,
+  "tomorrow_price_24k_per_gram": 13740.42,
+  "tomorrow_price_22k_per_gram": 12595.39,
+  "tomorrow_price_24k_per_10g": 137404.25,
+  "tomorrow_price_22k_per_10g": 125953.89,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -32,64 +32,64 @@
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
   "confidence_interval": {
-    "lower_usd": 4015.2,
-    "upper_usd": 4119.19,
-    "lower_24k_per_gram": 13342.65,
-    "upper_24k_per_gram": 13688.22,
-    "lower_22k_per_gram": 12230.77,
-    "upper_22k_per_gram": 12547.54,
-    "interval_pct": 2.56
+    "lower_usd": 4088.88,
+    "upper_usd": 4212.11,
+    "lower_24k_per_gram": 13566.68,
+    "upper_24k_per_gram": 13975.55,
+    "lower_22k_per_gram": 12436.12,
+    "upper_22k_per_gram": 12810.92,
+    "interval_pct": 2.98
   },
-  "direction_confidence": 55.9,
-  "as_of": "2026-11-04T09:35:20.923995Z",
+  "direction_confidence": 55.8,
+  "as_of": "2026-11-05T09:42:26.459948Z",
   "source": "model_forecast",
   "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": 0.153,
-    "label": "Bullish",
+    "score": 0.0188,
+    "label": "Neutral",
     "confidence": "high",
     "signal": "Neutral",
-    "article_count": 12,
+    "article_count": 14,
     "source": "newsapi",
     "top_headlines": [
       {
-        "title": "Gold rate today (November 3, 2026): Check 24k, 22k, 20k and 18k gold jewellery prices from Malabar Gold & Diamonds, Kalyan Jewellers, Tanishq & IBJA in Delhi, Mumbai, Hyderabad & more cities",
-        "source": "The Times of India",
-        "sentiment": 0.494,
-        "label": "Bullish",
-        "url": "https://economictimes.indiatimes.com/wealth/invest/gold-rate-today-november-3-2026-check-24k-22k-20k-and-18k-gold-jewellery-prices-from-malabar-gold-diamonds-kalyan-jewellers-tanishq-ibja-in-delhi-mumbai-hyderabad-more-cities/articleshow/135488247.cms"
-      },
-      {
-        "title": "Blue Jays predicted to sign Yankees' two-time Gold Glove winner to replace George Springer",
-        "source": "Sporting News",
-        "sentiment": 0.691,
-        "label": "Bullish",
-        "url": "https://www.sportingnews.com/us/mlb/toronto-blue-jays/news/blue-jays-predicted-sign-yankees-two-time-gold-glove-winner-replace-george-springer/e943dba69f079afeca9a093d"
-      },
-      {
-        "title": "Silver drops 3.5% ahead of US midterm elections",
+        "title": "Gold, silver and precious metals prices jump, dollar dips as Democrats take control of Congress",
         "source": "Biztoc.com",
-        "sentiment": 0.34,
+        "sentiment": 0.938,
         "label": "Bullish",
-        "url": "https://biztoc.com/x/74d076885ac8055c"
+        "url": "https://biztoc.com/x/2a82a6cf170d9808"
       },
       {
-        "title": "Gold demand down 30% in September quarter as high prices hurt jewellery sales",
-        "source": "BusinessLine",
-        "sentiment": 0.318,
-        "label": "Bullish",
-        "url": "https://www.thehindubusinessline.com/markets/gold/gold-demand-down-30-in-september-quarter-as-high-prices-hurt-jewellery-sales/article71660046.ece"
+        "title": "Gold prices may have crashed globally but gold smuggling in India has jumped to 50 tonnes from 3 tonnes in a year as 15% import duty widens the price gap; demand remains 29% lower year-on-year",
+        "source": "The Times of India",
+        "sentiment": -0.916,
+        "label": "Bearish",
+        "url": "https://timesofindia.indiatimes.com/business/india-business/gold-prices-may-have-crashed-globally-but-gold-smuggling-in-india-has-jumped-to-50-tonnes-from-3-tonnes-in-a-year-as-15-import-duty-widens-the-price-gap-demand-remains-29-lower-year-on-year/articleshow/135528689.cms"
       },
       {
-        "title": "Medicine with a Ring",
-        "source": "Freerepublic.com",
-        "sentiment": 0.534,
+        "title": "\u2018High Court ruling on 33-kg gold smuggling undermines organised crime cases\u2019",
+        "source": "Peoplesreview.com.np",
+        "sentiment": -0.971,
+        "label": "Bearish",
+        "url": "https://peoplesreview.com.np/2026/11/04/high-court-ruling-on-33-kg-gold-smuggling-undermines-organised-crime-cases/"
+      },
+      {
+        "title": "Madapuram temple guard custodial death: Madras HC dismisses pleas of 4 cops, sets 9-month trial deadline",
+        "source": "The Times of India",
+        "sentiment": -0.886,
+        "label": "Bearish",
+        "url": "https://timesofindia.indiatimes.com/city/madurai/madapuram-temple-guard-custodial-death-madras-hc-dismisses-pleas-of-4-cops-sets-9-month-trial-deadline/articleshow/135530841.cms"
+      },
+      {
+        "title": "Glittering Prospects: Why Gold is the ultimate sweet spot this Dhanteras",
+        "source": "The Times of India",
+        "sentiment": 0.751,
         "label": "Bullish",
-        "url": "https://freerepublic.com/focus/f-chat/4401599/posts"
+        "url": "https://economictimes.indiatimes.com/markets/commodities/news/glittering-prospects-why-gold-is-the-ultimate-sweet-spot-this-dhanteras/articleshow/135530054.cms"
       }
     ],
-    "fetched_at": "2026-11-04T09:35:12.533892"
+    "fetched_at": "2026-11-05T09:42:20.052249"
   },
   "model_info": {
     "trained_at": "2026-11-02T06:59:44.924467Z",
