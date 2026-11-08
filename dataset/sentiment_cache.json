@@ -1,46 +1,46 @@
 {
-  "score": 0.0911,
+  "score": 0.4997,
   "label": "Bullish",
   "confidence": "high",
-  "article_count": 13,
+  "article_count": 16,
   "top_headlines": [
     {
-      "title": "Gold price today on Dhanteras: Prices fall sharply; check 24K, 22K city-wise rates in Delhi, Mumbai, Pune and more",
+      "title": "Cubs\u2019 Pete Crow-Armstrong wins NL Platinum Glove Award",
+      "source": "ClutchPoints",
+      "sentiment": 0.981,
+      "label": "Bullish",
+      "url": "https://clutchpoints.com/mlb/chicago-cubs/cubs-news-pete-crow-armstrong-wins-nl-platinum-glove-award"
+    },
+    {
+      "title": "Blue Jays Win 2026 Team Gold Glove Award",
+      "source": "Heavy.com",
+      "sentiment": 0.963,
+      "label": "Bullish",
+      "url": "https://heavy.com/sports/mlb/toronto-blue-jays/blue-jays-win-2026-gold-glove/"
+    },
+    {
+      "title": "Stocks vs Gold: Which asset could create more wealth in the Samvat 2083?",
       "source": "The Times of India",
-      "sentiment": -0.48,
-      "label": "Bearish",
-      "url": "https://timesofindia.indiatimes.com/business/india-business/gold-price-today-on-dhanteras-check-gold-rate-in-your-city-on-november-06-2026-delhi-mumbai-bangalore-chennai-kolkata-hyderabad-ahmedabad-jaipur/articleshow/135599911.cms"
-    },
-    {
-      "title": "Dhanteras, Diwali 2026 shopping tips: Buying gold and silver jewellery? 3 hallmark checks and how to use BIS Care app",
-      "source": "Livemint",
-      "sentiment": 0.834,
+      "sentiment": 0.938,
       "label": "Bullish",
-      "url": "https://www.livemint.com/money/personal-finance/dhanteras-diwali-2026-shopping-tips-buying-gold-and-silver-jewellery-3-hallmark-checks-and-how-to-use-bis-care-app-11793948934186.html"
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/stocks-vs-gold-which-asset-could-create-more-wealth-in-the-samvat-2083/articleshow/135629827.cms"
     },
     {
-      "title": "Dhanteras gold, silver investments grow nearly 4X since 2005: Kotak Neo",
-      "source": "Business Standard",
-      "sentiment": 0.723,
-      "label": "Bullish",
-      "url": "https://www.business-standard.com/markets/news/dhanteras-gold-silver-investments-grow-nearly-4x-since-2005-kotak-neo-126110600794_1.html"
-    },
-    {
-      "title": "Gold price on Dhanteras: 60% return in 2025, 13% in 2026 - what\u2019s the outlook for yellow metal for the next year?",
+      "title": "Sa Re Ga Ma Pa: Kumar Sanu gifts his expensive gold watch to contestant Sehajdeep on Dhanteras",
       "source": "The Times of India",
-      "sentiment": 0.342,
+      "sentiment": 0.931,
       "label": "Bullish",
-      "url": "https://timesofindia.indiatimes.com/business/india-business/gold-on-dhanteras-60-return-in-2025-13-in-2026-whats-the-outlook-for-yellow-metal-for-the-next-year/articleshow/135598223.cms"
+      "url": "https://timesofindia.indiatimes.com/tv/news/hindi/sa-re-ga-ma-pa-kumar-sanu-gifts-his-expensive-gold-watch-to-contestant-sehajdeep-on-dhanteras/articleshow/135632132.cms"
     },
     {
-      "title": "Metro Exodus (PC Digital Download): Gold Edition $4, Standard $3",
-      "source": "Slickdeals.net",
-      "sentiment": 0.542,
+      "title": "What AbraSilver Resource Stock's Diablillos Development Progress Means For Shareholders",
+      "source": "Biztoc.com",
+      "sentiment": 0.848,
       "label": "Bullish",
-      "url": "https://slickdeals.net/f/20263164-metro-exodus-drm-free-pc-digital-download-gold-3-99-standard-2-99"
+      "url": "https://biztoc.com/x/22bfbe5c8123868b"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-07T09:00:42.514572",
-  "date": "2026-11-07"
+  "fetched_at": "2026-11-08T09:17:46.351916",
+  "date": "2026-11-08"
 }
