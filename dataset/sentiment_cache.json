@@ -1,46 +1,46 @@
 {
-  "score": 0.2019,
+  "score": 0.24,
   "label": "Bullish",
-  "confidence": "medium",
-  "article_count": 7,
+  "confidence": "high",
+  "article_count": 11,
   "top_headlines": [
     {
-      "title": "Bullion may remain under pressure as markets track US-Iran war, inflation",
-      "source": "Business Standard",
-      "sentiment": -0.883,
+      "title": "Gold prices crash 24% globally but fall only 20% in India: Why domestic buyers aren't seeing the full price correction",
+      "source": "Livemint",
+      "sentiment": -0.625,
       "label": "Bearish",
-      "url": "https://www.business-standard.com/markets/commodities/bullion-may-remain-under-pressure-as-markets-track-us-iran-war-inflation-126110800179_1.html"
+      "url": "https://www.livemint.com/money/personal-finance/gold-prices-crash-24-globally-but-fall-only-20-in-india-why-domestic-buyers-arent-seeing-the-full-price-correction-11794125564701.html"
     },
     {
-      "title": "Jake Mannarino dives to FHSAA championship; Winter Park, Oviedo swim to 3rd places",
-      "source": "Orlando Sentinel",
-      "sentiment": 0.869,
+      "title": "Red Wings Prospect Lighting Up World Junior Prelim",
+      "source": "Yahoo Entertainment",
+      "sentiment": 0.92,
       "label": "Bullish",
-      "url": "https://www.orlandosentinel.com/2026/11/08/jake-mannarino-dives-to-fhsaa-championship-winter-park-oviedo-swim-to-3rd-places/"
+      "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_19427b45-93f9-43fd-b9dd-c023aaa50a3e"
     },
     {
-      "title": "Gold, silver price outlook: US-Iran tensions, inflation data to set the tone next week",
+      "title": "NASA unveils $10B Moon base contract as SpaceX, Blue Origin join lunar gold rush - Fox Business",
+      "source": "Slashdot.org",
+      "sentiment": 0.844,
+      "label": "Bullish",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186650162"
+    },
+    {
+      "title": "Jonatan Christie donates Asian Games bonus to fire victims",
+      "source": "Antaranews.com",
+      "sentiment": 0.772,
+      "label": "Bullish",
+      "url": "https://en.antaranews.com/news/441135/jonatan-christie-donates-asian-games-bonus-to-fire-victims"
+    },
+    {
+      "title": "Gold, Muhurat trading and big business: The economics of Diwali and how they've changed",
       "source": "The Times of India",
-      "sentiment": 0.477,
+      "sentiment": 0.691,
       "label": "Bullish",
-      "url": "https://timesofindia.indiatimes.com/business/india-business/gold-silver-price-outlook-us-iran-tensions-inflation-data-to-set-the-tone-next-week/articleshow/135652978.cms"
-    },
-    {
-      "title": "Gold and silver prices remain stable in domestic market",
-      "source": "Khabarhub.com",
-      "sentiment": 0.459,
-      "label": "Bullish",
-      "url": "https://english.khabarhub.com/2026/08/574905/"
-    },
-    {
-      "title": "Gold, silver outlook hinges on US-Iran tensions, global inflation data next week",
-      "source": "BusinessLine",
-      "sentiment": 0.25,
-      "label": "Bullish",
-      "url": "https://www.thehindubusinessline.com/markets/gold-silver-outlook-hinges-on-us-iran-tensions-global-inflation-data-next-week/article71680614.ece"
+      "url": "https://timesofindia.indiatimes.com/business/india-business/gold-muhurat-trading-and-big-business-the-economics-of-diwali-and-how-theyve-changed/articleshow/135653731.cms"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-09T07:24:34.080085",
+  "fetched_at": "2026-11-09T10:00:20.381671",
   "date": "2026-11-09"
 }

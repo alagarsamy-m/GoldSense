@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T07:25:24.528576Z",
+  "generated_at": "2026-11-09T10:00:24.433867Z",
   "prediction_date": "2026-11-10",
   "target_date": "2026-11-10",
   "target_type": "calendar_close",
@@ -7,23 +7,23 @@
   "market_closed": false,
   "last_data_date": "2026-11-09",
   "last_actual_usd": 4112.0,
-  "reference_live_usd": 4111.8,
-  "reference_as_of": "2026-11-09T07:25:26.170595Z",
+  "reference_live_usd": 4103.8,
+  "reference_as_of": "2026-11-09T10:00:26.387782Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 4113.5,
-  "usd_inr_rate": 94.085,
+  "tomorrow_usd": 4105.49,
+  "usd_inr_rate": 93.935,
   "trend": "stable",
   "direction_vs_today": "stable",
   "direction_delta_pct": 0.041,
-  "direction_delta_usd": 1.7,
+  "direction_delta_usd": 1.69,
   "pct_change": 0.041,
-  "tomorrow_price_24k_per_gram": 13585.18,
-  "tomorrow_price_22k_per_gram": 12453.09,
-  "tomorrow_price_24k_per_10g": 135851.84,
-  "tomorrow_price_22k_per_10g": 124530.86,
+  "tomorrow_price_24k_per_gram": 13537.14,
+  "tomorrow_price_22k_per_gram": 12409.04,
+  "tomorrow_price_24k_per_10g": 135371.36,
+  "tomorrow_price_22k_per_10g": 124090.41,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -32,64 +32,64 @@
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
   "confidence_interval": {
-    "lower_usd": 4054.38,
-    "upper_usd": 4191.32,
-    "lower_24k_per_gram": 13389.93,
-    "upper_24k_per_gram": 13842.21,
-    "lower_22k_per_gram": 12274.1,
-    "upper_22k_per_gram": 12688.69,
-    "interval_pct": 3.33
+    "lower_usd": 4045.94,
+    "upper_usd": 4183.84,
+    "lower_24k_per_gram": 13340.77,
+    "upper_24k_per_gram": 13795.47,
+    "lower_22k_per_gram": 12229.04,
+    "upper_22k_per_gram": 12645.85,
+    "interval_pct": 3.36
   },
-  "direction_confidence": 50.6,
-  "as_of": "2026-11-09T07:25:26.170595Z",
+  "direction_confidence": 51.1,
+  "as_of": "2026-11-09T10:00:26.387782Z",
   "source": "model_forecast",
   "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": 0.2019,
+    "score": 0.24,
     "label": "Bullish",
-    "confidence": "medium",
+    "confidence": "high",
     "signal": "Neutral",
-    "article_count": 7,
+    "article_count": 11,
     "source": "newsapi",
     "top_headlines": [
       {
-        "title": "Bullion may remain under pressure as markets track US-Iran war, inflation",
-        "source": "Business Standard",
-        "sentiment": -0.883,
+        "title": "Gold prices crash 24% globally but fall only 20% in India: Why domestic buyers aren't seeing the full price correction",
+        "source": "Livemint",
+        "sentiment": -0.625,
         "label": "Bearish",
-        "url": "https://www.business-standard.com/markets/commodities/bullion-may-remain-under-pressure-as-markets-track-us-iran-war-inflation-126110800179_1.html"
+        "url": "https://www.livemint.com/money/personal-finance/gold-prices-crash-24-globally-but-fall-only-20-in-india-why-domestic-buyers-arent-seeing-the-full-price-correction-11794125564701.html"
       },
       {
-        "title": "Jake Mannarino dives to FHSAA championship; Winter Park, Oviedo swim to 3rd places",
-        "source": "Orlando Sentinel",
-        "sentiment": 0.869,
+        "title": "Red Wings Prospect Lighting Up World Junior Prelim",
+        "source": "Yahoo Entertainment",
+        "sentiment": 0.92,
         "label": "Bullish",
-        "url": "https://www.orlandosentinel.com/2026/11/08/jake-mannarino-dives-to-fhsaa-championship-winter-park-oviedo-swim-to-3rd-places/"
+        "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_19427b45-93f9-43fd-b9dd-c023aaa50a3e"
       },
       {
-        "title": "Gold, silver price outlook: US-Iran tensions, inflation data to set the tone next week",
+        "title": "NASA unveils $10B Moon base contract as SpaceX, Blue Origin join lunar gold rush - Fox Business",
+        "source": "Slashdot.org",
+        "sentiment": 0.844,
+        "label": "Bullish",
+        "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186650162"
+      },
+      {
+        "title": "Jonatan Christie donates Asian Games bonus to fire victims",
+        "source": "Antaranews.com",
+        "sentiment": 0.772,
+        "label": "Bullish",
+        "url": "https://en.antaranews.com/news/441135/jonatan-christie-donates-asian-games-bonus-to-fire-victims"
+      },
+      {
+        "title": "Gold, Muhurat trading and big business: The economics of Diwali and how they've changed",
         "source": "The Times of India",
-        "sentiment": 0.477,
+        "sentiment": 0.691,
         "label": "Bullish",
-        "url": "https://timesofindia.indiatimes.com/business/india-business/gold-silver-price-outlook-us-iran-tensions-inflation-data-to-set-the-tone-next-week/articleshow/135652978.cms"
-      },
-      {
-        "title": "Gold and silver prices remain stable in domestic market",
-        "source": "Khabarhub.com",
-        "sentiment": 0.459,
-        "label": "Bullish",
-        "url": "https://english.khabarhub.com/2026/08/574905/"
-      },
-      {
-        "title": "Gold, silver outlook hinges on US-Iran tensions, global inflation data next week",
-        "source": "BusinessLine",
-        "sentiment": 0.25,
-        "label": "Bullish",
-        "url": "https://www.thehindubusinessline.com/markets/gold-silver-outlook-hinges-on-us-iran-tensions-global-inflation-data-next-week/article71680614.ece"
+        "url": "https://timesofindia.indiatimes.com/business/india-business/gold-muhurat-trading-and-big-business-the-economics-of-diwali-and-how-theyve-changed/articleshow/135653731.cms"
       }
     ],
-    "fetched_at": "2026-11-09T07:24:34.080085"
+    "fetched_at": "2026-11-09T10:00:20.381671"
   },
   "model_info": {
     "trained_at": "2026-11-09T07:25:24.084958Z",
