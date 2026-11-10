@@ -1,46 +1,46 @@
 {
-  "score": 0.24,
+  "score": 0.6057,
   "label": "Bullish",
-  "confidence": "high",
-  "article_count": 11,
+  "confidence": "medium",
+  "article_count": 6,
   "top_headlines": [
     {
-      "title": "Gold prices crash 24% globally but fall only 20% in India: Why domestic buyers aren't seeing the full price correction",
-      "source": "Livemint",
-      "sentiment": -0.625,
-      "label": "Bearish",
-      "url": "https://www.livemint.com/money/personal-finance/gold-prices-crash-24-globally-but-fall-only-20-in-india-why-domestic-buyers-arent-seeing-the-full-price-correction-11794125564701.html"
+      "title": "Katherine Ryan shares rare photos with husband Bobby Kootstra and her four children as they celebrate baby daughter Holland's gold-themed christening",
+      "source": "Dailymail.com",
+      "sentiment": 0.866,
+      "label": "Bullish",
+      "url": "https://www.dailymail.com/tvshowbiz/article-16277531/Katherine-Ryan-shares-rare-photos-husband-Bobby-Kootstra-four-children-celebrate-baby-daughter-Hollands-gold-themed-christening.html"
     },
     {
-      "title": "Red Wings Prospect Lighting Up World Junior Prelim",
-      "source": "Yahoo Entertainment",
-      "sentiment": 0.92,
+      "title": "A chance encounter with wushu at her community centre led Ng Zhe Nin to Youth Olympic gold",
+      "source": "CNA",
+      "sentiment": 0.71,
       "label": "Bullish",
-      "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_19427b45-93f9-43fd-b9dd-c023aaa50a3e"
+      "url": "https://www.channelnewsasia.com/singapore/ng-zhe-nin-youth-olympic-gold-wushu-taijiquan-interview-6535681"
     },
     {
-      "title": "NASA unveils $10B Moon base contract as SpaceX, Blue Origin join lunar gold rush - Fox Business",
-      "source": "Slashdot.org",
-      "sentiment": 0.844,
+      "title": "Real Madrid to launch special kit for 125th anniversary",
+      "source": "Managing Madrid",
+      "sentiment": 0.66,
       "label": "Bullish",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186650162"
+      "url": "https://www.managingmadrid.com/115267/real-madrid-to-launch-special-kit-for-125th-anniversary"
     },
     {
-      "title": "Jonatan Christie donates Asian Games bonus to fire victims",
-      "source": "Antaranews.com",
-      "sentiment": 0.772,
+      "title": "Precious metals start week with gains as crude oil prices decline",
+      "source": "Hurriyet Daily News",
+      "sentiment": 0.586,
       "label": "Bullish",
-      "url": "https://en.antaranews.com/news/441135/jonatan-christie-donates-asian-games-bonus-to-fire-victims"
+      "url": "https://www.hurriyetdailynews.com/precious-metals-start-week-with-gains-as-crude-oil-prices-decline-229180"
     },
     {
-      "title": "Gold, Muhurat trading and big business: The economics of Diwali and how they've changed",
-      "source": "The Times of India",
-      "sentiment": 0.691,
+      "title": "Hands-On With Two Rado DiaStar Original Skeleton Watches: Have You Ever Seen A Gold UFO?",
+      "source": "Fratellowatches.com",
+      "sentiment": 0.495,
       "label": "Bullish",
-      "url": "https://timesofindia.indiatimes.com/business/india-business/gold-muhurat-trading-and-big-business-the-economics-of-diwali-and-how-theyve-changed/articleshow/135653731.cms"
+      "url": "https://www.fratellowatches.com/hands-on-with-two-rado-diastar-original-skeleton-watches/"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-09T10:00:20.381671",
-  "date": "2026-11-09"
+  "fetched_at": "2026-11-10T10:10:40.767077",
+  "date": "2026-11-10"
 }
