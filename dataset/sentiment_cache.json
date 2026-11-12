@@ -1,46 +1,46 @@
 {
-  "score": 0.1062,
+  "score": 0.4475,
   "label": "Bullish",
   "confidence": "medium",
-  "article_count": 6,
+  "article_count": 9,
   "top_headlines": [
     {
-      "title": "Bhai Dooj 2026 financial gift: Gold ETFs for your sibling? How it differs from mutual funds? Process, rules explained",
-      "source": "Livemint",
-      "sentiment": 0.504,
-      "label": "Bullish",
-      "url": "https://www.livemint.com/money/personal-finance/bhai-dooj-2026-financial-gift-gold-etfs-for-your-sibling-how-it-differs-from-mutual-funds-process-rules-explained-11794295936814.html"
-    },
-    {
-      "title": "Seniors Nationwide Scammed Into Handing Over Gold",
+      "title": "Silver jumps 3% as precious metals rebound",
       "source": "Biztoc.com",
-      "sentiment": -0.848,
-      "label": "Bearish",
-      "url": "https://biztoc.com/x/8d6d55a9f9b1aa84"
-    },
-    {
-      "title": "Esha Singh, Manu Bhaker Secure Final Spots, Team Gold",
-      "source": "Rediff.com",
-      "sentiment": 0.827,
+      "sentiment": 0.818,
       "label": "Bullish",
-      "url": "https://www.rediff.com/sports/report/esha-leads-india-to-25m-pistol-gold-joins-manu-in-final/20261110.htm"
+      "url": "https://biztoc.com/x/fff8cacc2b4b7175"
     },
     {
-      "title": "65\u6b73\u4ee5\u4e0a\u306e\u30c0\u30f3\u30b5\u30fc\u7d04200\u4eba\u304c\u5168\u56fd\u304b\u3089\u96c6\u7d50\uff01\u300c\u7b2c5\u56de FIDA GOLD CUP\u300d\u3092\u958b\u50ac",
-      "source": "Prtimes.jp",
-      "sentiment": 0.0,
-      "label": "Neutral",
-      "url": "https://prtimes.jp/main/html/rd/p/000000019.000106536.html"
+      "title": "\u2018I feel I have won the Olympic gold once again\u2019: MM Somaya gets medal back as Bengaluru Police crack theft case",
+      "source": "The Times of India",
+      "sentiment": 0.919,
+      "label": "Bullish",
+      "url": "https://timesofindia.indiatimes.com/sports/hockey/top-stories/i-feel-i-have-won-the-olympic-gold-once-again-mm-somaya-gets-medal-back-as-bengaluru-police-crack-theft-case/articleshow/135732101.cms"
     },
     {
-      "title": "Today\u2019s Gold Rate in India November 10: Gold prices down in Coimbatore, Nagpur, Visakhapatnam, Surat, Jaipur",
-      "source": "BusinessLine",
-      "sentiment": 0.0,
-      "label": "Neutral",
-      "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-coimbatore-nagpur-visakhapatnam-surat-jaipur-lucknow-chandigarh-gold-rates-other-cities-november-10-2026/article71685446.ece"
+      "title": "Hockey Legend M M Somaya's Stolen Olympic Gold Medal Recovered",
+      "source": "Rediff.com",
+      "sentiment": 0.915,
+      "label": "Bullish",
+      "url": "https://www.rediff.com/sports/report/hockey-legend-m-m-somayas-stolen-olympic-gold-medal-recovered-by-bengaluru-police/20261111.htm"
+    },
+    {
+      "title": "500 gm gold limit for married women: Supreme Court says they must still explain its source - here's why | What to do now",
+      "source": "Livemint",
+      "sentiment": 0.863,
+      "label": "Bullish",
+      "url": "https://www.livemint.com/money/personal-finance/500-gm-gold-limit-for-married-women-supreme-court-says-they-must-still-explain-its-source-heres-why-what-to-do-now-11794383225613.html"
+    },
+    {
+      "title": "Coins & Bullions Deals on eBay Live for Deals from $1 + free shipping",
+      "source": "Dealnews.com",
+      "sentiment": 0.813,
+      "label": "Bullish",
+      "url": "https://www.dealnews.com/Coins-Bullions-Deals-on-eBay-Live-for-Deals-from-1-free-shipping/22379859.html"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-11T09:40:59.670075",
-  "date": "2026-11-11"
+  "fetched_at": "2026-11-12T10:01:07.362378",
+  "date": "2026-11-12"
 }
