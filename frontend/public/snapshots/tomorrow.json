@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-11-12T10:01:14.116993Z",
-  "prediction_date": "2026-11-13",
-  "target_date": "2026-11-13",
+  "generated_at": "2026-11-13T09:49:32.138272Z",
+  "prediction_date": "2026-11-14",
+  "target_date": "2026-11-14",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
-  "market_closed": false,
-  "last_data_date": "2026-11-12",
-  "last_actual_usd": 3948.1,
-  "reference_live_usd": 3948.1,
-  "reference_as_of": "2026-11-12T10:01:16.265628Z",
+  "market_closed": true,
+  "last_data_date": "2026-11-13",
+  "last_actual_usd": 3904.7,
+  "reference_live_usd": 3904.6,
+  "reference_as_of": "2026-11-13T09:49:34.069403Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 3949.73,
-  "usd_inr_rate": 94.033,
+  "tomorrow_usd": 3904.6,
+  "usd_inr_rate": 94.25,
   "trend": "stable",
   "direction_vs_today": "stable",
-  "direction_delta_pct": 0.041,
-  "direction_delta_usd": 1.63,
-  "pct_change": 0.041,
-  "tomorrow_price_24k_per_gram": 13037.12,
-  "tomorrow_price_22k_per_gram": 11950.69,
-  "tomorrow_price_24k_per_10g": 130371.18,
-  "tomorrow_price_22k_per_10g": 119506.92,
+  "direction_delta_pct": 0.0,
+  "direction_delta_usd": 0.0,
+  "pct_change": 0.0,
+  "tomorrow_price_24k_per_gram": 12917.89,
+  "tomorrow_price_22k_per_gram": 11841.4,
+  "tomorrow_price_24k_per_10g": 129178.95,
+  "tomorrow_price_22k_per_10g": 118414.03,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -31,65 +31,55 @@
     "mumbai_premium_pct": 0.0,
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
-  "confidence_interval": {
-    "lower_usd": 3900.86,
-    "upper_usd": 4026.38,
-    "lower_24k_per_gram": 12875.8,
-    "upper_24k_per_gram": 13290.13,
-    "lower_22k_per_gram": 11802.81,
-    "upper_22k_per_gram": 12182.62,
-    "interval_pct": 3.18
-  },
-  "direction_confidence": 62.3,
-  "as_of": "2026-11-12T10:01:16.265628Z",
+  "as_of": "2026-11-13T09:49:34.069403Z",
   "source": "model_forecast",
-  "market_status": "forecast",
+  "market_status": "market_closed",
   "is_live": false,
   "sentiment": {
-    "score": 0.4475,
+    "score": 0.1824,
     "label": "Bullish",
     "confidence": "medium",
     "signal": "Neutral",
-    "article_count": 9,
+    "article_count": 5,
     "source": "newsapi",
     "top_headlines": [
       {
-        "title": "Silver jumps 3% as precious metals rebound",
-        "source": "Biztoc.com",
-        "sentiment": 0.818,
-        "label": "Bullish",
-        "url": "https://biztoc.com/x/fff8cacc2b4b7175"
-      },
-      {
-        "title": "\u2018I feel I have won the Olympic gold once again\u2019: MM Somaya gets medal back as Bengaluru Police crack theft case",
+        "title": "Indians buy 52 tonnes of gold as prices fall from Rs 1.8 lakh peak to Rs 1.42 lakh",
         "source": "The Times of India",
-        "sentiment": 0.919,
+        "sentiment": 0.691,
         "label": "Bullish",
-        "url": "https://timesofindia.indiatimes.com/sports/hockey/top-stories/i-feel-i-have-won-the-olympic-gold-once-again-mm-somaya-gets-medal-back-as-bengaluru-police-crack-theft-case/articleshow/135732101.cms"
+        "url": "https://timesofindia.indiatimes.com/business/india-business/as-gold-falls-from-rs-1-8-lakh-peak-to-rs-1-42-lakh-per-10-grams-indians-buy-30-more-spending-rs-72000-crore-on-52-tonnes-silver-demand-rises-10/articleshow/135759585.cms"
       },
       {
-        "title": "Hockey Legend M M Somaya's Stolen Olympic Gold Medal Recovered",
-        "source": "Rediff.com",
-        "sentiment": 0.915,
+        "title": "Daring heist in MP: How burglars drilled through a 9-inch-thick wall, bypassed security and escaped with gold and diamond jewellery worth Rs 15 crore from showroom",
+        "source": "The Times of India",
+        "sentiment": 0.586,
         "label": "Bullish",
-        "url": "https://www.rediff.com/sports/report/hockey-legend-m-m-somayas-stolen-olympic-gold-medal-recovered-by-bengaluru-police/20261111.htm"
+        "url": "https://timesofindia.indiatimes.com/city/bhopal/daring-heist-in-mp-how-burglars-drilled-through-a-9-inch-thick-wall-bypassed-security-and-escaped-with-gold-and-diamond-jewellery-worth-rs-15-crore-from-showroom/articleshow/135763623.cms"
       },
       {
-        "title": "500 gm gold limit for married women: Supreme Court says they must still explain its source - here's why | What to do now",
-        "source": "Livemint",
-        "sentiment": 0.863,
-        "label": "Bullish",
-        "url": "https://www.livemint.com/money/personal-finance/500-gm-gold-limit-for-married-women-supreme-court-says-they-must-still-explain-its-source-heres-why-what-to-do-now-11794383225613.html"
+        "title": "Sperrin Mountains gold mine inquiry wraps up after 52 days of evidence",
+        "source": "The Irish Times",
+        "sentiment": -0.202,
+        "label": "Bearish",
+        "url": "https://www.irishtimes.com/ireland/2026/11/12/sperrin-mountains-gold-mine-inquiry-wraps-up-after-52-days-of-evidence/"
       },
       {
-        "title": "Coins & Bullions Deals on eBay Live for Deals from $1 + free shipping",
-        "source": "Dealnews.com",
-        "sentiment": 0.813,
+        "title": "Singapore opens gold vault to foreign central banks in race to become Asia\u2019s gold hub",
+        "source": "Biztoc.com",
+        "sentiment": 0.077,
         "label": "Bullish",
-        "url": "https://www.dealnews.com/Coins-Bullions-Deals-on-eBay-Live-for-Deals-from-1-free-shipping/22379859.html"
+        "url": "https://biztoc.com/x/c9add1cf75fa28ad"
+      },
+      {
+        "title": "Today\u2019s Gold Rate in India November 12: Gold prices down in Delhi, Mumbai, Kolkata, Chennai and Bengaluru",
+        "source": "BusinessLine",
+        "sentiment": 0.0,
+        "label": "Neutral",
+        "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-delhi-mumbai-kolkata-chennai-bengaluru-hyderabad-pune-gold-rates-metro-cities-november-12-2026/article71692844.ece"
       }
     ],
-    "fetched_at": "2026-11-12T10:01:07.362378"
+    "fetched_at": "2026-11-13T09:49:26.373528"
   },
   "model_info": {
     "trained_at": "2026-11-09T07:25:24.084958Z",

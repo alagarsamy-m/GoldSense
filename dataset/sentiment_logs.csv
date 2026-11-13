@@ -1,4 +1,5 @@
 date,sentiment_score,sentiment_label,confidence,article_count,created_at
+2026-11-13,0.1824,Bullish,medium,5,2026-11-13T09:49:26.373946
 2026-11-12,0.4475,Bullish,medium,9,2026-11-12T10:01:07.362838
 2026-11-11,0.1062,Bullish,medium,6,2026-11-11T09:40:59.670705
 2026-11-10,0.6057,Bullish,medium,6,2026-11-10T10:10:40.767652

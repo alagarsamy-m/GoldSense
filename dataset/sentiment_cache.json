@@ -1,46 +1,46 @@
 {
-  "score": 0.4475,
+  "score": 0.1824,
   "label": "Bullish",
   "confidence": "medium",
-  "article_count": 9,
+  "article_count": 5,
   "top_headlines": [
     {
-      "title": "Silver jumps 3% as precious metals rebound",
-      "source": "Biztoc.com",
-      "sentiment": 0.818,
-      "label": "Bullish",
-      "url": "https://biztoc.com/x/fff8cacc2b4b7175"
-    },
-    {
-      "title": "\u2018I feel I have won the Olympic gold once again\u2019: MM Somaya gets medal back as Bengaluru Police crack theft case",
+      "title": "Indians buy 52 tonnes of gold as prices fall from Rs 1.8 lakh peak to Rs 1.42 lakh",
       "source": "The Times of India",
-      "sentiment": 0.919,
+      "sentiment": 0.691,
       "label": "Bullish",
-      "url": "https://timesofindia.indiatimes.com/sports/hockey/top-stories/i-feel-i-have-won-the-olympic-gold-once-again-mm-somaya-gets-medal-back-as-bengaluru-police-crack-theft-case/articleshow/135732101.cms"
+      "url": "https://timesofindia.indiatimes.com/business/india-business/as-gold-falls-from-rs-1-8-lakh-peak-to-rs-1-42-lakh-per-10-grams-indians-buy-30-more-spending-rs-72000-crore-on-52-tonnes-silver-demand-rises-10/articleshow/135759585.cms"
     },
     {
-      "title": "Hockey Legend M M Somaya's Stolen Olympic Gold Medal Recovered",
-      "source": "Rediff.com",
-      "sentiment": 0.915,
+      "title": "Daring heist in MP: How burglars drilled through a 9-inch-thick wall, bypassed security and escaped with gold and diamond jewellery worth Rs 15 crore from showroom",
+      "source": "The Times of India",
+      "sentiment": 0.586,
       "label": "Bullish",
-      "url": "https://www.rediff.com/sports/report/hockey-legend-m-m-somayas-stolen-olympic-gold-medal-recovered-by-bengaluru-police/20261111.htm"
+      "url": "https://timesofindia.indiatimes.com/city/bhopal/daring-heist-in-mp-how-burglars-drilled-through-a-9-inch-thick-wall-bypassed-security-and-escaped-with-gold-and-diamond-jewellery-worth-rs-15-crore-from-showroom/articleshow/135763623.cms"
     },
     {
-      "title": "500 gm gold limit for married women: Supreme Court says they must still explain its source - here's why | What to do now",
-      "source": "Livemint",
-      "sentiment": 0.863,
-      "label": "Bullish",
-      "url": "https://www.livemint.com/money/personal-finance/500-gm-gold-limit-for-married-women-supreme-court-says-they-must-still-explain-its-source-heres-why-what-to-do-now-11794383225613.html"
+      "title": "Sperrin Mountains gold mine inquiry wraps up after 52 days of evidence",
+      "source": "The Irish Times",
+      "sentiment": -0.202,
+      "label": "Bearish",
+      "url": "https://www.irishtimes.com/ireland/2026/11/12/sperrin-mountains-gold-mine-inquiry-wraps-up-after-52-days-of-evidence/"
     },
     {
-      "title": "Coins & Bullions Deals on eBay Live for Deals from $1 + free shipping",
-      "source": "Dealnews.com",
-      "sentiment": 0.813,
+      "title": "Singapore opens gold vault to foreign central banks in race to become Asia\u2019s gold hub",
+      "source": "Biztoc.com",
+      "sentiment": 0.077,
       "label": "Bullish",
-      "url": "https://www.dealnews.com/Coins-Bullions-Deals-on-eBay-Live-for-Deals-from-1-free-shipping/22379859.html"
+      "url": "https://biztoc.com/x/c9add1cf75fa28ad"
+    },
+    {
+      "title": "Today\u2019s Gold Rate in India November 12: Gold prices down in Delhi, Mumbai, Kolkata, Chennai and Bengaluru",
+      "source": "BusinessLine",
+      "sentiment": 0.0,
+      "label": "Neutral",
+      "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-delhi-mumbai-kolkata-chennai-bengaluru-hyderabad-pune-gold-rates-metro-cities-november-12-2026/article71692844.ece"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-12T10:01:07.362378",
-  "date": "2026-11-12"
+  "fetched_at": "2026-11-13T09:49:26.373528",
+  "date": "2026-11-13"
 }
