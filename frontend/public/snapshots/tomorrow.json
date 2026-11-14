@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-11-13T09:49:32.138272Z",
-  "prediction_date": "2026-11-14",
-  "target_date": "2026-11-14",
+  "generated_at": "2026-11-14T09:12:55.058639Z",
+  "prediction_date": "2026-11-15",
+  "target_date": "2026-11-15",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
   "market_closed": true,
   "last_data_date": "2026-11-13",
-  "last_actual_usd": 3904.7,
-  "reference_live_usd": 3904.6,
-  "reference_as_of": "2026-11-13T09:49:34.069403Z",
+  "last_actual_usd": 3886.3,
+  "reference_live_usd": 3886.3,
+  "reference_as_of": "2026-11-14T09:12:56.692991Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 3904.6,
-  "usd_inr_rate": 94.25,
+  "tomorrow_usd": 3886.3,
+  "usd_inr_rate": 94.24,
   "trend": "stable",
   "direction_vs_today": "stable",
   "direction_delta_pct": 0.0,
   "direction_delta_usd": 0.0,
   "pct_change": 0.0,
-  "tomorrow_price_24k_per_gram": 12917.89,
-  "tomorrow_price_22k_per_gram": 11841.4,
-  "tomorrow_price_24k_per_10g": 129178.95,
-  "tomorrow_price_22k_per_10g": 118414.03,
+  "tomorrow_price_24k_per_gram": 12855.99,
+  "tomorrow_price_22k_per_gram": 11784.65,
+  "tomorrow_price_24k_per_10g": 128559.87,
+  "tomorrow_price_22k_per_10g": 117846.55,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -31,55 +31,48 @@
     "mumbai_premium_pct": 0.0,
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
-  "as_of": "2026-11-13T09:49:34.069403Z",
+  "as_of": "2026-11-14T09:12:56.692991Z",
   "source": "model_forecast",
   "market_status": "market_closed",
   "is_live": false,
   "sentiment": {
-    "score": 0.1824,
+    "score": 0.2758,
     "label": "Bullish",
-    "confidence": "medium",
+    "confidence": "low",
     "signal": "Neutral",
-    "article_count": 5,
+    "article_count": 4,
     "source": "newsapi",
     "top_headlines": [
       {
-        "title": "Indians buy 52 tonnes of gold as prices fall from Rs 1.8 lakh peak to Rs 1.42 lakh",
-        "source": "The Times of India",
-        "sentiment": 0.691,
+        "title": "Gold oversold, but further fall to $3,750 likely: Mirae Asset Sharekhan",
+        "source": "Business Standard",
+        "sentiment": 0.788,
         "label": "Bullish",
-        "url": "https://timesofindia.indiatimes.com/business/india-business/as-gold-falls-from-rs-1-8-lakh-peak-to-rs-1-42-lakh-per-10-grams-indians-buy-30-more-spending-rs-72000-crore-on-52-tonnes-silver-demand-rises-10/articleshow/135759585.cms"
+        "url": "https://www.business-standard.com/markets/news/gold-oversold-but-further-fall-to-3-750-likely-mirae-asset-sharekhan-126111300668_1.html"
       },
       {
-        "title": "Daring heist in MP: How burglars drilled through a 9-inch-thick wall, bypassed security and escaped with gold and diamond jewellery worth Rs 15 crore from showroom",
-        "source": "The Times of India",
-        "sentiment": 0.586,
+        "title": "India's Youth Olympics Success: 10 Medals, Two Boxing Golds",
+        "source": "Rediff.com",
+        "sentiment": 0.718,
         "label": "Bullish",
-        "url": "https://timesofindia.indiatimes.com/city/bhopal/daring-heist-in-mp-how-burglars-drilled-through-a-9-inch-thick-wall-bypassed-security-and-escaped-with-gold-and-diamond-jewellery-worth-rs-15-crore-from-showroom/articleshow/135763623.cms"
+        "url": "https://www.rediff.com/sports/report/indias-youth-olympics-historic-10-medals-two-boxing-golds/20261113.htm"
       },
       {
-        "title": "Sperrin Mountains gold mine inquiry wraps up after 52 days of evidence",
-        "source": "The Irish Times",
-        "sentiment": -0.202,
+        "title": "From Ashes To New Premiere New Music Video For \"After Death\"",
+        "source": "Metalunderground.com",
+        "sentiment": -0.599,
         "label": "Bearish",
-        "url": "https://www.irishtimes.com/ireland/2026/11/12/sperrin-mountains-gold-mine-inquiry-wraps-up-after-52-days-of-evidence/"
+        "url": "http://www.metalunderground.com/news/details.cfm?newsid=162482"
       },
       {
-        "title": "Singapore opens gold vault to foreign central banks in race to become Asia\u2019s gold hub",
-        "source": "Biztoc.com",
-        "sentiment": 0.077,
-        "label": "Bullish",
-        "url": "https://biztoc.com/x/c9add1cf75fa28ad"
-      },
-      {
-        "title": "Today\u2019s Gold Rate in India November 12: Gold prices down in Delhi, Mumbai, Kolkata, Chennai and Bengaluru",
+        "title": "Today\u2019s Gold Rate in India November 13: Gold prices down in Coimbatore, Nagpur, Visakhapatnam, Surat, Jaipur",
         "source": "BusinessLine",
         "sentiment": 0.0,
         "label": "Neutral",
-        "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-delhi-mumbai-kolkata-chennai-bengaluru-hyderabad-pune-gold-rates-metro-cities-november-12-2026/article71692844.ece"
+        "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-coimbatore-nagpur-visakhapatnam-surat-jaipur-lucknow-chandigarh-gold-rates-other-cities-november-13-2026/article71697105.ece"
       }
     ],
-    "fetched_at": "2026-11-13T09:49:26.373528"
+    "fetched_at": "2026-11-14T09:12:50.453952"
   },
   "model_info": {
     "trained_at": "2026-11-09T07:25:24.084958Z",

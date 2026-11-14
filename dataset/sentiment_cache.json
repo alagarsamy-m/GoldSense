@@ -1,46 +1,39 @@
 {
-  "score": 0.1824,
+  "score": 0.2758,
   "label": "Bullish",
-  "confidence": "medium",
-  "article_count": 5,
+  "confidence": "low",
+  "article_count": 4,
   "top_headlines": [
     {
-      "title": "Indians buy 52 tonnes of gold as prices fall from Rs 1.8 lakh peak to Rs 1.42 lakh",
-      "source": "The Times of India",
-      "sentiment": 0.691,
+      "title": "Gold oversold, but further fall to $3,750 likely: Mirae Asset Sharekhan",
+      "source": "Business Standard",
+      "sentiment": 0.788,
       "label": "Bullish",
-      "url": "https://timesofindia.indiatimes.com/business/india-business/as-gold-falls-from-rs-1-8-lakh-peak-to-rs-1-42-lakh-per-10-grams-indians-buy-30-more-spending-rs-72000-crore-on-52-tonnes-silver-demand-rises-10/articleshow/135759585.cms"
+      "url": "https://www.business-standard.com/markets/news/gold-oversold-but-further-fall-to-3-750-likely-mirae-asset-sharekhan-126111300668_1.html"
     },
     {
-      "title": "Daring heist in MP: How burglars drilled through a 9-inch-thick wall, bypassed security and escaped with gold and diamond jewellery worth Rs 15 crore from showroom",
-      "source": "The Times of India",
-      "sentiment": 0.586,
+      "title": "India's Youth Olympics Success: 10 Medals, Two Boxing Golds",
+      "source": "Rediff.com",
+      "sentiment": 0.718,
       "label": "Bullish",
-      "url": "https://timesofindia.indiatimes.com/city/bhopal/daring-heist-in-mp-how-burglars-drilled-through-a-9-inch-thick-wall-bypassed-security-and-escaped-with-gold-and-diamond-jewellery-worth-rs-15-crore-from-showroom/articleshow/135763623.cms"
+      "url": "https://www.rediff.com/sports/report/indias-youth-olympics-historic-10-medals-two-boxing-golds/20261113.htm"
     },
     {
-      "title": "Sperrin Mountains gold mine inquiry wraps up after 52 days of evidence",
-      "source": "The Irish Times",
-      "sentiment": -0.202,
+      "title": "From Ashes To New Premiere New Music Video For \"After Death\"",
+      "source": "Metalunderground.com",
+      "sentiment": -0.599,
       "label": "Bearish",
-      "url": "https://www.irishtimes.com/ireland/2026/11/12/sperrin-mountains-gold-mine-inquiry-wraps-up-after-52-days-of-evidence/"
+      "url": "http://www.metalunderground.com/news/details.cfm?newsid=162482"
     },
     {
-      "title": "Singapore opens gold vault to foreign central banks in race to become Asia\u2019s gold hub",
-      "source": "Biztoc.com",
-      "sentiment": 0.077,
-      "label": "Bullish",
-      "url": "https://biztoc.com/x/c9add1cf75fa28ad"
-    },
-    {
-      "title": "Today\u2019s Gold Rate in India November 12: Gold prices down in Delhi, Mumbai, Kolkata, Chennai and Bengaluru",
+      "title": "Today\u2019s Gold Rate in India November 13: Gold prices down in Coimbatore, Nagpur, Visakhapatnam, Surat, Jaipur",
       "source": "BusinessLine",
       "sentiment": 0.0,
       "label": "Neutral",
-      "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-delhi-mumbai-kolkata-chennai-bengaluru-hyderabad-pune-gold-rates-metro-cities-november-12-2026/article71692844.ece"
+      "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-coimbatore-nagpur-visakhapatnam-surat-jaipur-lucknow-chandigarh-gold-rates-other-cities-november-13-2026/article71697105.ece"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-13T09:49:26.373528",
-  "date": "2026-11-13"
+  "fetched_at": "2026-11-14T09:12:50.453952",
+  "date": "2026-11-14"
 }
