@@ -1,39 +1,46 @@
 {
-  "score": 0.2758,
+  "score": 0.3172,
   "label": "Bullish",
-  "confidence": "low",
-  "article_count": 4,
+  "confidence": "high",
+  "article_count": 10,
   "top_headlines": [
     {
-      "title": "Gold oversold, but further fall to $3,750 likely: Mirae Asset Sharekhan",
-      "source": "Business Standard",
-      "sentiment": 0.788,
+      "title": "Harvard Froze Its Bitcoin ETF Stake at 3,044,612 Shares as Its Gold Bet Tripled",
+      "source": "Dcforecasts.com",
+      "sentiment": 0.67,
       "label": "Bullish",
-      "url": "https://www.business-standard.com/markets/news/gold-oversold-but-further-fall-to-3-750-likely-mirae-asset-sharekhan-126111300668_1.html"
+      "url": "https://www.dcforecasts.com/bitcoin-news/harvard-bitcoin-ibit-stake-13f-q3-2026-gold/"
     },
     {
-      "title": "India's Youth Olympics Success: 10 Medals, Two Boxing Golds",
-      "source": "Rediff.com",
-      "sentiment": 0.718,
+      "title": "Refurb: Corsair RM850x Cybenetics Gold Fully Modular ATX Power Supply $58.80 + Free S&H",
+      "source": "Slickdeals.net",
+      "sentiment": 0.938,
       "label": "Bullish",
-      "url": "https://www.rediff.com/sports/report/indias-youth-olympics-historic-10-medals-two-boxing-golds/20261113.htm"
+      "url": "https://slickdeals.net/f/20305461-refurb-corsair-rm850x-cybenetics-gold-fully-modular-atx-power-supply-58-80-free-s-h"
     },
     {
-      "title": "From Ashes To New Premiere New Music Video For \"After Death\"",
-      "source": "Metalunderground.com",
-      "sentiment": -0.599,
-      "label": "Bearish",
-      "url": "http://www.metalunderground.com/news/details.cfm?newsid=162482"
+      "title": "Syfy's 4-Season Masterpiece Is A Rare Example Of A TV Remake Beating The Movie",
+      "source": "Screen Rant",
+      "sentiment": 0.875,
+      "label": "Bullish",
+      "url": "https://screenrant.com/12-monkeys-tv-series-beats-movie/"
     },
     {
-      "title": "Today\u2019s Gold Rate in India November 13: Gold prices down in Coimbatore, Nagpur, Visakhapatnam, Surat, Jaipur",
-      "source": "BusinessLine",
-      "sentiment": 0.0,
-      "label": "Neutral",
-      "url": "https://www.thehindubusinessline.com/gold-rate-today/gold-price-today-in-coimbatore-nagpur-visakhapatnam-surat-jaipur-lucknow-chandigarh-gold-rates-other-cities-november-13-2026/article71697105.ece"
+      "title": "$24.99: MSI MAG A650GN II Gaming Power Supply - 80 Plus Gold - 650W - Non-Modular - Low Noise ATX PSU at Woot!",
+      "source": "Slickdeals.net",
+      "sentiment": 0.868,
+      "label": "Bullish",
+      "url": "https://slickdeals.net/f/20307873-24-99-msi-mag-a650gn-ii-gaming-power-supply-80-plus-gold-650w-non-modular-low-noise-atx-psu-at-woot"
+    },
+    {
+      "title": "Lara Gillespie named Sportswoman of the Month for October",
+      "source": "The Irish Times",
+      "sentiment": 0.796,
+      "label": "Bullish",
+      "url": "https://www.irishtimes.com/sport/cycling/2026/11/14/lara-gillespie-named-sportswoman-of-the-month-for-october/"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-14T09:12:50.453952",
-  "date": "2026-11-14"
+  "fetched_at": "2026-11-15T09:42:07.270956",
+  "date": "2026-11-15"
 }
