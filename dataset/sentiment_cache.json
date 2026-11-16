@@ -1,8 +1,8 @@
 {
-  "score": -0.1282,
-  "label": "Bearish",
+  "score": 0.1292,
+  "label": "Bullish",
   "confidence": "medium",
-  "article_count": 8,
+  "article_count": 9,
   "top_headlines": [
     {
       "title": "Gold rate in this UP city sees major crash; price plunges over \u20b96,611 in just 3 days, slips below \u20b91.36 lakh mark",
@@ -10,13 +10,6 @@
       "sentiment": -0.624,
       "label": "Bearish",
       "url": "https://www.livemint.com/money/gold-rate-up-city-meerut-sees-major-crash-price-plunges-over-rs-6611-in-just-3-days-slips-below-rs-1-36-lakh-mark-silver-11794721026951.html"
-    },
-    {
-      "title": "Moment alleged thief steals $9million worth of gold bars from elderly victim in broad daylight after deceiving him with bold scam",
-      "source": "Dailymail.com",
-      "sentiment": -0.935,
-      "label": "Bearish",
-      "url": "https://www.dailymail.com/news/article-16293639/Manhattan-gold-bar-thief-millions.html"
     },
     {
       "title": "A metal detectorist found three Bronze Age gold bracelets near Malmesbury in England; dated to between 1150 and 800 BC, the objects have now been declared treasure and are going on public display for the first time",
@@ -33,14 +26,21 @@
       "url": "https://slickdeals.net/f/20312508-329-99-42mm-apple-watch-series-12-gps-smartwatch-light-gold-aluminum-case-w-sport-band-at-amazon"
     },
     {
-      "title": "Clean books, thin margins: The new reality of Indian banking",
-      "source": "Business Standard",
-      "sentiment": -0.637,
-      "label": "Bearish",
-      "url": "https://www.business-standard.com/opinion/columns/clean-books-thin-margins-the-new-reality-of-indian-banking-126111500177_1.html"
+      "title": "Student strikes gold at Commonwealth karate event",
+      "source": "BBC News",
+      "sentiment": 0.599,
+      "label": "Bullish",
+      "url": "https://www.bbc.com/news/articles/cm174lpn1kdzo?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bnews%5D-%5Bbizdev%5D-%5Bisapi%5D"
+    },
+    {
+      "title": "IPO-bound Muthoot Fincorp doubles Q2 profit to Rs 779 crore, bucks trend of rising bad loans",
+      "source": "The Times of India",
+      "sentiment": 0.562,
+      "label": "Bullish",
+      "url": "https://economictimes.indiatimes.com/industry/banking/finance/ipo-bound-muthoot-fincorp-doubles-q2-profit-to-rs-779-crore-bucks-trend-of-rising-bad-loans/articleshow/135869162.cms"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-16T07:27:50.305965",
+  "fetched_at": "2026-11-16T09:59:19.947644",
   "date": "2026-11-16"
 }

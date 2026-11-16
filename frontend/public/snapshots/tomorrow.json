@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T07:28:54.338428Z",
+  "generated_at": "2026-11-16T09:59:23.142063Z",
   "prediction_date": "2026-11-17",
   "target_date": "2026-11-17",
   "target_type": "calendar_close",
@@ -7,23 +7,23 @@
   "market_closed": false,
   "last_data_date": "2026-11-16",
   "last_actual_usd": 3859.6,
-  "reference_live_usd": 3857.6,
-  "reference_as_of": "2026-11-16T07:28:56.461024Z",
+  "reference_live_usd": 3857.9,
+  "reference_as_of": "2026-11-16T09:59:24.351391Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 3859.23,
-  "usd_inr_rate": 94.0375,
+  "tomorrow_usd": 3859.53,
+  "usd_inr_rate": 93.9275,
   "trend": "stable",
   "direction_vs_today": "stable",
   "direction_delta_pct": 0.042,
   "direction_delta_usd": 1.63,
   "pct_change": 0.042,
-  "tomorrow_price_24k_per_gram": 12738.99,
-  "tomorrow_price_22k_per_gram": 11677.41,
-  "tomorrow_price_24k_per_10g": 127389.93,
-  "tomorrow_price_22k_per_10g": 116774.1,
+  "tomorrow_price_24k_per_gram": 12725.08,
+  "tomorrow_price_22k_per_gram": 11664.66,
+  "tomorrow_price_24k_per_10g": 127250.81,
+  "tomorrow_price_22k_per_10g": 116646.57,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -32,25 +32,25 @@
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
   "confidence_interval": {
-    "lower_usd": 3825.56,
-    "upper_usd": 3941.3,
-    "lower_24k_per_gram": 12627.86,
-    "upper_24k_per_gram": 13009.92,
-    "lower_22k_per_gram": 11575.54,
-    "upper_22k_per_gram": 11925.76,
-    "interval_pct": 3.0
+    "lower_usd": 3825.07,
+    "upper_usd": 3941.61,
+    "lower_24k_per_gram": 12611.49,
+    "upper_24k_per_gram": 12995.71,
+    "lower_22k_per_gram": 11560.54,
+    "upper_22k_per_gram": 11912.74,
+    "interval_pct": 3.02
   },
-  "direction_confidence": 61.6,
-  "as_of": "2026-11-16T07:28:56.461024Z",
+  "direction_confidence": 61.1,
+  "as_of": "2026-11-16T09:59:24.351391Z",
   "source": "model_forecast",
   "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": -0.1282,
-    "label": "Bearish",
+    "score": 0.1292,
+    "label": "Bullish",
     "confidence": "medium",
     "signal": "Neutral",
-    "article_count": 8,
+    "article_count": 9,
     "source": "newsapi",
     "top_headlines": [
       {
@@ -59,13 +59,6 @@
         "sentiment": -0.624,
         "label": "Bearish",
         "url": "https://www.livemint.com/money/gold-rate-up-city-meerut-sees-major-crash-price-plunges-over-rs-6611-in-just-3-days-slips-below-rs-1-36-lakh-mark-silver-11794721026951.html"
-      },
-      {
-        "title": "Moment alleged thief steals $9million worth of gold bars from elderly victim in broad daylight after deceiving him with bold scam",
-        "source": "Dailymail.com",
-        "sentiment": -0.935,
-        "label": "Bearish",
-        "url": "https://www.dailymail.com/news/article-16293639/Manhattan-gold-bar-thief-millions.html"
       },
       {
         "title": "A metal detectorist found three Bronze Age gold bracelets near Malmesbury in England; dated to between 1150 and 800 BC, the objects have now been declared treasure and are going on public display for the first time",
@@ -82,14 +75,21 @@
         "url": "https://slickdeals.net/f/20312508-329-99-42mm-apple-watch-series-12-gps-smartwatch-light-gold-aluminum-case-w-sport-band-at-amazon"
       },
       {
-        "title": "Clean books, thin margins: The new reality of Indian banking",
-        "source": "Business Standard",
-        "sentiment": -0.637,
-        "label": "Bearish",
-        "url": "https://www.business-standard.com/opinion/columns/clean-books-thin-margins-the-new-reality-of-indian-banking-126111500177_1.html"
+        "title": "Student strikes gold at Commonwealth karate event",
+        "source": "BBC News",
+        "sentiment": 0.599,
+        "label": "Bullish",
+        "url": "https://www.bbc.com/news/articles/cm174lpn1kdzo?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bnews%5D-%5Bbizdev%5D-%5Bisapi%5D"
+      },
+      {
+        "title": "IPO-bound Muthoot Fincorp doubles Q2 profit to Rs 779 crore, bucks trend of rising bad loans",
+        "source": "The Times of India",
+        "sentiment": 0.562,
+        "label": "Bullish",
+        "url": "https://economictimes.indiatimes.com/industry/banking/finance/ipo-bound-muthoot-fincorp-doubles-q2-profit-to-rs-779-crore-bucks-trend-of-rising-bad-loans/articleshow/135869162.cms"
       }
     ],
-    "fetched_at": "2026-11-16T07:27:50.305965"
+    "fetched_at": "2026-11-16T09:59:19.947644"
   },
   "model_info": {
     "trained_at": "2026-11-16T07:28:53.842950Z",
