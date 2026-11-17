@@ -1,46 +1,46 @@
 {
-  "score": 0.1292,
+  "score": 0.5039,
   "label": "Bullish",
   "confidence": "medium",
-  "article_count": 9,
+  "article_count": 5,
   "top_headlines": [
     {
-      "title": "Gold rate in this UP city sees major crash; price plunges over \u20b96,611 in just 3 days, slips below \u20b91.36 lakh mark",
-      "source": "Livemint",
-      "sentiment": -0.624,
+      "title": "India has up to 607 tonnes of primary gold metal but imported over 800 tonnes of gold in FY26 worth a record $71.98 billion; now world\u2019s fifth largest gold importer to focus on ramping up gold mining",
+      "source": "The Times of India",
+      "sentiment": 0.631,
+      "label": "Bullish",
+      "url": "https://timesofindia.indiatimes.com/business/india-business/india-has-up-to-607-tonnes-of-primary-gold-metal-but-imported-over-800-tonnes-of-gold-in-fy26-worth-a-record-71-98-billion-now-worlds-fifth-largest-gold-importer-to-focus-on-ramping-up-gold-mining/articleshow/135875061.cms"
+    },
+    {
+      "title": "JCPenney Jewelry & Watches Black Friday Deals: Up to 85% off + free shipping on most items",
+      "source": "Dealnews.com",
+      "sentiment": 0.859,
+      "label": "Bullish",
+      "url": "https://www.dealnews.com/JCPenney-Jewelry-Watches-Black-Friday-Deals-Up-to-85-off-free-shipping-on-most-items/22402899.html"
+    },
+    {
+      "title": "Forget the Maldives! Discover the Indian Ocean paradise where elephants wear gold, tea grows above the clouds and luxury hideaways await in the hills",
+      "source": "Dailymail.com",
+      "sentiment": 0.844,
+      "label": "Bullish",
+      "url": "https://www.dailymail.com/travel/article-16289843/sri-lanka-family-holiday-maldives.html"
+    },
+    {
+      "title": "This Is Not A Murder Mystery S01E06 1080p AMZN WEB-DL H264-Kitsune",
+      "source": "Rlsbb.cc",
+      "sentiment": 0.665,
+      "label": "Bullish",
+      "url": "https://post.rlsbb.cc/this-is-not-a-murder-mystery-s01e06-1080p-amzn-web-dl-h264-kitsune/"
+    },
+    {
+      "title": "Three sisters win bitter \u00a31.6million inheritance battle against 'entitled' brother who grabbed half father's fortune and hid \u00a3500,000 of the family's gold bars",
+      "source": "Dailymail.com",
+      "sentiment": -0.586,
       "label": "Bearish",
-      "url": "https://www.livemint.com/money/gold-rate-up-city-meerut-sees-major-crash-price-plunges-over-rs-6611-in-just-3-days-slips-below-rs-1-36-lakh-mark-silver-11794721026951.html"
-    },
-    {
-      "title": "A metal detectorist found three Bronze Age gold bracelets near Malmesbury in England; dated to between 1150 and 800 BC, the objects have now been declared treasure and are going on public display for the first time",
-      "source": "The Times of India",
-      "sentiment": 0.71,
-      "label": "Bullish",
-      "url": "https://timesofindia.indiatimes.com/science/archaeology/a-metal-detectorist-found-three-bronze-age-gold-bracelets-near-malmesbury-in-england-dated-to-between-1150-and-800-bc-the-objects-have-now-been-declared-treasure-and-are-going-on-public-display-for-the-first-time/articleshow/135849737.cms"
-    },
-    {
-      "title": "$329.99* | 42mm Apple Watch Series 12 GPS Smartwatch (Light Gold Aluminum Case w/ Sport Band) at Amazon",
-      "source": "Slickdeals.net",
-      "sentiment": 0.691,
-      "label": "Bullish",
-      "url": "https://slickdeals.net/f/20312508-329-99-42mm-apple-watch-series-12-gps-smartwatch-light-gold-aluminum-case-w-sport-band-at-amazon"
-    },
-    {
-      "title": "Student strikes gold at Commonwealth karate event",
-      "source": "BBC News",
-      "sentiment": 0.599,
-      "label": "Bullish",
-      "url": "https://www.bbc.com/news/articles/cm174lpn1kdzo?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bnews%5D-%5Bbizdev%5D-%5Bisapi%5D"
-    },
-    {
-      "title": "IPO-bound Muthoot Fincorp doubles Q2 profit to Rs 779 crore, bucks trend of rising bad loans",
-      "source": "The Times of India",
-      "sentiment": 0.562,
-      "label": "Bullish",
-      "url": "https://economictimes.indiatimes.com/industry/banking/finance/ipo-bound-muthoot-fincorp-doubles-q2-profit-to-rs-779-crore-bucks-trend-of-rising-bad-loans/articleshow/135869162.cms"
+      "url": "https://www.dailymail.com/news/article-16295803/sisters-win-inheritance-battle.html"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-16T09:59:19.947644",
-  "date": "2026-11-16"
+  "fetched_at": "2026-11-17T10:56:05.157849",
+  "date": "2026-11-17"
 }
