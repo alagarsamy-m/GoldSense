@@ -1,46 +1,46 @@
 {
-  "score": 0.5039,
+  "score": 0.0828,
   "label": "Bullish",
   "confidence": "medium",
-  "article_count": 5,
+  "article_count": 6,
   "top_headlines": [
     {
-      "title": "India has up to 607 tonnes of primary gold metal but imported over 800 tonnes of gold in FY26 worth a record $71.98 billion; now world\u2019s fifth largest gold importer to focus on ramping up gold mining",
-      "source": "The Times of India",
-      "sentiment": 0.631,
-      "label": "Bullish",
-      "url": "https://timesofindia.indiatimes.com/business/india-business/india-has-up-to-607-tonnes-of-primary-gold-metal-but-imported-over-800-tonnes-of-gold-in-fy26-worth-a-record-71-98-billion-now-worlds-fifth-largest-gold-importer-to-focus-on-ramping-up-gold-mining/articleshow/135875061.cms"
-    },
-    {
-      "title": "JCPenney Jewelry & Watches Black Friday Deals: Up to 85% off + free shipping on most items",
-      "source": "Dealnews.com",
-      "sentiment": 0.859,
-      "label": "Bullish",
-      "url": "https://www.dealnews.com/JCPenney-Jewelry-Watches-Black-Friday-Deals-Up-to-85-off-free-shipping-on-most-items/22402899.html"
-    },
-    {
-      "title": "Forget the Maldives! Discover the Indian Ocean paradise where elephants wear gold, tea grows above the clouds and luxury hideaways await in the hills",
-      "source": "Dailymail.com",
-      "sentiment": 0.844,
-      "label": "Bullish",
-      "url": "https://www.dailymail.com/travel/article-16289843/sri-lanka-family-holiday-maldives.html"
-    },
-    {
-      "title": "This Is Not A Murder Mystery S01E06 1080p AMZN WEB-DL H264-Kitsune",
-      "source": "Rlsbb.cc",
-      "sentiment": 0.665,
-      "label": "Bullish",
-      "url": "https://post.rlsbb.cc/this-is-not-a-murder-mystery-s01e06-1080p-amzn-web-dl-h264-kitsune/"
-    },
-    {
-      "title": "Three sisters win bitter \u00a31.6million inheritance battle against 'entitled' brother who grabbed half father's fortune and hid \u00a3500,000 of the family's gold bars",
-      "source": "Dailymail.com",
-      "sentiment": -0.586,
+      "title": "More than 200 people jailed over crackdown on illegal gold mining",
+      "source": "Abcnews.com",
+      "sentiment": -0.93,
       "label": "Bearish",
-      "url": "https://www.dailymail.com/news/article-16295803/sisters-win-inheritance-battle.html"
+      "url": "https://abcnews.com/International/wireStory/guinea-sentences-200-people-prison-crackdown-illegal-gold-138202919"
+    },
+    {
+      "title": "They painted oak cabinets Brilliant White with rose gold crystal handles: same granite, a luxury look",
+      "source": "Thecoolist.com",
+      "sentiment": 0.848,
+      "label": "Bullish",
+      "url": "https://www.thecoolist.com/they-painted-oak-cabinets-brilliant-white-with-rose-gold-crystal-handles-same-granite-a-luxury-look/"
+    },
+    {
+      "title": "They painted their oak cabinets Brilliant White and added rose gold crystal handles: now the kitchen looks custom-built",
+      "source": "Thecoolist.com",
+      "sentiment": 0.848,
+      "label": "Bullish",
+      "url": "https://www.thecoolist.com/they-painted-their-oak-cabinets-brilliant-white-and-added-rose-gold-crystal-handles-now-the-kitchen-looks-custom-built/"
+    },
+    {
+      "title": "Tether Capital invests $15 million in Nomad, eyes wider access to USDT and XAUT in Brazil",
+      "source": "Biztoc.com",
+      "sentiment": 0.361,
+      "label": "Bullish",
+      "url": "https://biztoc.com/x/be57456017b73486"
+    },
+    {
+      "title": "World of Warcraft: Forever's in-game economy has been ravaged by an exploit that allowed players to farm thousands of gold",
+      "source": "Eurogamer.net",
+      "sentiment": -0.612,
+      "label": "Bearish",
+      "url": "https://www.eurogamer.net/world-of-warcraft-forever-gold-farm-exploit"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-17T10:56:05.157849",
-  "date": "2026-11-17"
+  "fetched_at": "2026-11-18T10:27:49.701371",
+  "date": "2026-11-18"
 }
