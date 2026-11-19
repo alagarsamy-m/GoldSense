@@ -1,46 +1,39 @@
 {
-  "score": 0.0828,
+  "score": 0.0615,
   "label": "Bullish",
-  "confidence": "medium",
-  "article_count": 6,
+  "confidence": "low",
+  "article_count": 4,
   "top_headlines": [
     {
-      "title": "More than 200 people jailed over crackdown on illegal gold mining",
-      "source": "Abcnews.com",
-      "sentiment": -0.93,
+      "title": "Free Pack - Rewards by PolyOne Studio",
+      "source": "Unity.com",
+      "sentiment": 0.958,
+      "label": "Bullish",
+      "url": "https://assetstore.unity.com/packages/3d/props/free-pack-rewards-430860"
+    },
+    {
+      "title": "173 Gold Trophy Nursing Homes Were Cited for Abuse or Neglect as CMS Rolls Out Shorter Inspections",
+      "source": "Medical Daily",
+      "sentiment": -0.937,
       "label": "Bearish",
-      "url": "https://abcnews.com/International/wireStory/guinea-sentences-200-people-prison-crackdown-illegal-gold-138202919"
+      "url": "https://www.medicaldaily.com/nursing-homes-gold-trophy-abuse-neglect-citations-481371"
     },
     {
-      "title": "They painted oak cabinets Brilliant White with rose gold crystal handles: same granite, a luxury look",
-      "source": "Thecoolist.com",
-      "sentiment": 0.848,
+      "title": "A century-old gold mine in South Dakota is being turned into a huge underground lab, where scientists will study tiny particles to understand how the universe began and why matter exists",
+      "source": "The Times of India",
+      "sentiment": 0.586,
       "label": "Bullish",
-      "url": "https://www.thecoolist.com/they-painted-oak-cabinets-brilliant-white-with-rose-gold-crystal-handles-same-granite-a-luxury-look/"
+      "url": "https://timesofindia.indiatimes.com/world/us/a-century-old-gold-mine-in-south-dakota-is-being-turned-into-a-huge-underground-lab-where-scientists-will-study-tiny-particles-to-understand-how-the-universe-began-and-why-matter-exists/articleshow/135959121.cms"
     },
     {
-      "title": "They painted their oak cabinets Brilliant White and added rose gold crystal handles: now the kitchen looks custom-built",
-      "source": "Thecoolist.com",
-      "sentiment": 0.848,
-      "label": "Bullish",
-      "url": "https://www.thecoolist.com/they-painted-their-oak-cabinets-brilliant-white-and-added-rose-gold-crystal-handles-now-the-kitchen-looks-custom-built/"
-    },
-    {
-      "title": "Tether Capital invests $15 million in Nomad, eyes wider access to USDT and XAUT in Brazil",
-      "source": "Biztoc.com",
-      "sentiment": 0.361,
-      "label": "Bullish",
-      "url": "https://biztoc.com/x/be57456017b73486"
-    },
-    {
-      "title": "World of Warcraft: Forever's in-game economy has been ravaged by an exploit that allowed players to farm thousands of gold",
+      "title": "Blizzard suspends World of Warcraft: Forever gold exploit abusers, puts trading blocks on their accounts and removes ill-gotten funds for good measure",
       "source": "Eurogamer.net",
-      "sentiment": -0.612,
+      "sentiment": -0.361,
       "label": "Bearish",
-      "url": "https://www.eurogamer.net/world-of-warcraft-forever-gold-farm-exploit"
+      "url": "https://www.eurogamer.net/world-of-warcraft-forever-gold-exploit-abusers-suspended-trade-blocked"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-18T10:27:49.701371",
-  "date": "2026-11-18"
+  "fetched_at": "2026-11-19T10:34:41.926250",
+  "date": "2026-11-19"
 }
