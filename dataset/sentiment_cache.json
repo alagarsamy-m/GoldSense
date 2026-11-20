@@ -1,39 +1,46 @@
 {
-  "score": 0.0615,
-  "label": "Bullish",
-  "confidence": "low",
-  "article_count": 4,
+  "score": -0.0088,
+  "label": "Neutral",
+  "confidence": "medium",
+  "article_count": 6,
   "top_headlines": [
     {
-      "title": "Free Pack - Rewards by PolyOne Studio",
-      "source": "Unity.com",
-      "sentiment": 0.958,
-      "label": "Bullish",
-      "url": "https://assetstore.unity.com/packages/3d/props/free-pack-rewards-430860"
-    },
-    {
-      "title": "173 Gold Trophy Nursing Homes Were Cited for Abuse or Neglect as CMS Rolls Out Shorter Inspections",
-      "source": "Medical Daily",
-      "sentiment": -0.937,
+      "title": "15% fall in gold prices could trigger panic, warn lenders",
+      "source": "BusinessLine",
+      "sentiment": -0.832,
       "label": "Bearish",
-      "url": "https://www.medicaldaily.com/nursing-homes-gold-trophy-abuse-neglect-citations-481371"
+      "url": "https://www.thehindubusinessline.com/markets/gold/15-fall-in-gold-prices-could-trigger-panic-warn-lenders/article71719017.ece"
     },
     {
-      "title": "A century-old gold mine in South Dakota is being turned into a huge underground lab, where scientists will study tiny particles to understand how the universe began and why matter exists",
+      "title": "Gold was at Rs 1.81 lakh at the start of 2026, and now it has crashed almost 29% to Rs 1.29 lakh per 10 grams; why is gold falling and how much more will it drop?",
       "source": "The Times of India",
-      "sentiment": 0.586,
-      "label": "Bullish",
-      "url": "https://timesofindia.indiatimes.com/world/us/a-century-old-gold-mine-in-south-dakota-is-being-turned-into-a-huge-underground-lab-where-scientists-will-study-tiny-particles-to-understand-how-the-universe-began-and-why-matter-exists/articleshow/135959121.cms"
+      "sentiment": -0.537,
+      "label": "Bearish",
+      "url": "https://timesofindia.indiatimes.com/business/india-business/gold-was-at-rs-1-81-lakh-at-the-start-of-2026-and-now-it-has-crashed-almost-29-to-rs-1-29-lakh-per-10-grams-why-is-gold-falling-and-how-much-more-will-it-drop/articleshow/135981326.cms"
     },
     {
-      "title": "Blizzard suspends World of Warcraft: Forever gold exploit abusers, puts trading blocks on their accounts and removes ill-gotten funds for good measure",
-      "source": "Eurogamer.net",
-      "sentiment": -0.361,
-      "label": "Bearish",
-      "url": "https://www.eurogamer.net/world-of-warcraft-forever-gold-exploit-abusers-suspended-trade-blocked"
+      "title": "\"She\u2019s an amazing mum\u201d: Anthony Joshua gets emotional as he opens up about ex girlfriend Nicole Osbourne after welcoming their second child",
+      "source": "The Times of India",
+      "sentiment": 0.955,
+      "label": "Bullish",
+      "url": "https://timesofindia.indiatimes.com/sports/international-sports/shes-an-amazing-mum-anthony-joshua-gets-emotional-as-he-opens-up-about-ex-girlfriend-nicole-osbourne-after-welcoming-their-second-child/articleshow/135984984.cms"
+    },
+    {
+      "title": "Agnico Eagle Mines Targets Up to 30% Gold Production Growth as Spending Tops $3.5 Billion",
+      "source": "Biztoc.com",
+      "sentiment": 0.929,
+      "label": "Bullish",
+      "url": "https://biztoc.com/x/0492a69b271ba992"
+    },
+    {
+      "title": "Malaysian weightlifting champion Hafizuddin loses arm after motorbike crash",
+      "source": "Al Jazeera English",
+      "sentiment": 0.557,
+      "label": "Bullish",
+      "url": "https://www.aljazeera.com/sports/2026/11/19/malaysian-weightlifting-champion-hafizuddin-loses-arm-after-motorbike-crash"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-19T10:34:41.926250",
-  "date": "2026-11-19"
+  "fetched_at": "2026-11-20T10:15:33.914523",
+  "date": "2026-11-20"
 }
