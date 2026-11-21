@@ -1,46 +1,46 @@
 {
-  "score": -0.0088,
-  "label": "Neutral",
+  "score": 0.2282,
+  "label": "Bullish",
   "confidence": "medium",
-  "article_count": 6,
+  "article_count": 8,
   "top_headlines": [
     {
-      "title": "15% fall in gold prices could trigger panic, warn lenders",
-      "source": "BusinessLine",
-      "sentiment": -0.832,
-      "label": "Bearish",
-      "url": "https://www.thehindubusinessline.com/markets/gold/15-fall-in-gold-prices-could-trigger-panic-warn-lenders/article71719017.ece"
-    },
-    {
-      "title": "Gold was at Rs 1.81 lakh at the start of 2026, and now it has crashed almost 29% to Rs 1.29 lakh per 10 grams; why is gold falling and how much more will it drop?",
-      "source": "The Times of India",
-      "sentiment": -0.537,
-      "label": "Bearish",
-      "url": "https://timesofindia.indiatimes.com/business/india-business/gold-was-at-rs-1-81-lakh-at-the-start-of-2026-and-now-it-has-crashed-almost-29-to-rs-1-29-lakh-per-10-grams-why-is-gold-falling-and-how-much-more-will-it-drop/articleshow/135981326.cms"
-    },
-    {
-      "title": "\"She\u2019s an amazing mum\u201d: Anthony Joshua gets emotional as he opens up about ex girlfriend Nicole Osbourne after welcoming their second child",
-      "source": "The Times of India",
-      "sentiment": 0.955,
+      "title": "Gold and silver allocation: DSP Mutual Fund announces change in stance for DSP Multi Asset Omni Fund of Funds \u2014 Details",
+      "source": "Livemint",
+      "sentiment": 0.827,
       "label": "Bullish",
-      "url": "https://timesofindia.indiatimes.com/sports/international-sports/shes-an-amazing-mum-anthony-joshua-gets-emotional-as-he-opens-up-about-ex-girlfriend-nicole-osbourne-after-welcoming-their-second-child/articleshow/135984984.cms"
+      "url": "https://www.livemint.com/money/gold-silver-allocation-dsp-mutual-fund-change-stance-dsp-multi-asset-omni-fund-of-funds-details-11795162151674.html"
     },
     {
-      "title": "Agnico Eagle Mines Targets Up to 30% Gold Production Growth as Spending Tops $3.5 Billion",
+      "title": "You pay for 22K gold but may get 20K: What is Chinese rhenium powder mix scam? Key checks to make before buying gold",
+      "source": "Livemint",
+      "sentiment": -0.962,
+      "label": "Bearish",
+      "url": "https://www.livemint.com/money/personal-finance/you-pay-for-22k-gold-but-may-get-20k-what-is-chinese-rhenium-powder-mix-scam-key-checks-to-make-before-buying-gold-11795165678556.html"
+    },
+    {
+      "title": "Remi Collet:  PHP version 8.6 is released!",
+      "source": "Remirepo.net",
+      "sentiment": 0.807,
+      "label": "Bullish",
+      "url": "https://blog.remirepo.net/post/2026/11/20/PHP-version-8.6-is-released"
+    },
+    {
+      "title": "Stocks, gold and silver fall after blockbuster Anthropic IPO",
       "source": "Biztoc.com",
-      "sentiment": 0.929,
+      "sentiment": 0.797,
       "label": "Bullish",
-      "url": "https://biztoc.com/x/0492a69b271ba992"
+      "url": "https://biztoc.com/x/732fdd530697c83d"
     },
     {
-      "title": "Malaysian weightlifting champion Hafizuddin loses arm after motorbike crash",
-      "source": "Al Jazeera English",
-      "sentiment": 0.557,
-      "label": "Bullish",
-      "url": "https://www.aljazeera.com/sports/2026/11/19/malaysian-weightlifting-champion-hafizuddin-loses-arm-after-motorbike-crash"
+      "title": "GJC alerts BIS over suspected gold adulteration, urges jewellers to tighten quality checks",
+      "source": "BusinessLine",
+      "sentiment": -0.7,
+      "label": "Bearish",
+      "url": "https://www.thehindubusinessline.com/companies/gjc-alerts-bis-over-suspected-gold-adulteration-urges-jewellers-to-tighten-quality-checks/article71723585.ece"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-20T10:15:33.914523",
-  "date": "2026-11-20"
+  "fetched_at": "2026-11-21T10:00:41.405617",
+  "date": "2026-11-21"
 }
