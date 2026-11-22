@@ -1,46 +1,46 @@
 {
-  "score": 0.2282,
-  "label": "Bullish",
+  "score": -0.0078,
+  "label": "Neutral",
   "confidence": "medium",
   "article_count": 8,
   "top_headlines": [
     {
-      "title": "Gold and silver allocation: DSP Mutual Fund announces change in stance for DSP Multi Asset Omni Fund of Funds \u2014 Details",
-      "source": "Livemint",
-      "sentiment": 0.827,
-      "label": "Bullish",
-      "url": "https://www.livemint.com/money/gold-silver-allocation-dsp-mutual-fund-change-stance-dsp-multi-asset-omni-fund-of-funds-details-11795162151674.html"
-    },
-    {
-      "title": "You pay for 22K gold but may get 20K: What is Chinese rhenium powder mix scam? Key checks to make before buying gold",
-      "source": "Livemint",
-      "sentiment": -0.962,
+      "title": "Gold Rush S17E08 1080p AMZN WEB-DL H264-Kitsune",
+      "source": "Rlsbb.cc",
+      "sentiment": -0.557,
       "label": "Bearish",
-      "url": "https://www.livemint.com/money/personal-finance/you-pay-for-22k-gold-but-may-get-20k-what-is-chinese-rhenium-powder-mix-scam-key-checks-to-make-before-buying-gold-11795165678556.html"
+      "url": "https://post.rlsbb.cc/gold-rush-s17e08-1080p-amzn-web-dl-h264-kitsune/"
     },
     {
-      "title": "Remi Collet:  PHP version 8.6 is released!",
-      "source": "Remirepo.net",
-      "sentiment": 0.807,
-      "label": "Bullish",
-      "url": "https://blog.remirepo.net/post/2026/11/20/PHP-version-8.6-is-released"
-    },
-    {
-      "title": "Stocks, gold and silver fall after blockbuster Anthropic IPO",
-      "source": "Biztoc.com",
-      "sentiment": 0.797,
-      "label": "Bullish",
-      "url": "https://biztoc.com/x/732fdd530697c83d"
-    },
-    {
-      "title": "GJC alerts BIS over suspected gold adulteration, urges jewellers to tighten quality checks",
-      "source": "BusinessLine",
-      "sentiment": -0.7,
+      "title": "Gold prices crash nearly 10% in a week: Mega reasons behind massive yellow metal rate fall \u2013 List",
+      "source": "Livemint",
+      "sentiment": -0.296,
       "label": "Bearish",
-      "url": "https://www.thehindubusinessline.com/companies/gjc-alerts-bis-over-suspected-gold-adulteration-urges-jewellers-to-tighten-quality-checks/article71723585.ece"
+      "url": "https://www.livemint.com/money/personal-finance/gold-prices-crash-nearly-10-in-a-week-mega-reasons-behind-massive-yellow-metal-rate-fall-list-11795249539231.html"
+    },
+    {
+      "title": "Gold, debt and equity: Which portfolio mix offers better returns with lower volatility? 25 years of data provide answer",
+      "source": "Livemint",
+      "sentiment": 0.529,
+      "label": "Bullish",
+      "url": "https://www.livemint.com/money/personal-finance/gold-debt-and-equity-which-portfolio-mix-offers-better-returns-with-lower-volatility-25-years-of-data-provide-answer-11795246256111.html"
+    },
+    {
+      "title": "Kavya Maran gifts gold rings to employees after wedding with Anirudh Ravichander - Watch Video",
+      "source": "The Times of India",
+      "sentiment": 0.511,
+      "label": "Bullish",
+      "url": "https://timesofindia.indiatimes.com/entertainment/tamil/movies/news/kavya-maran-gifts-gold-rings-to-employees-after-wedding-with-anirudh-ravichander-watch-video/articleshow/136048633.cms"
+    },
+    {
+      "title": "CBI recovers Rs 1.86 crore in cash, gold, silver from arrested CGST superintendent's house",
+      "source": "The Times of India",
+      "sentiment": -0.202,
+      "label": "Bearish",
+      "url": "https://timesofindia.indiatimes.com/city/chandigarh/cbi-recovers-rs-1-86-crore-in-cash-gold-silver-from-arrested-cgst-superintendents-house/articleshow/136048824.cms"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-21T10:00:41.405617",
-  "date": "2026-11-21"
+  "fetched_at": "2026-11-22T10:01:16.979037",
+  "date": "2026-11-22"
 }
