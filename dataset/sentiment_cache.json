@@ -1,22 +1,29 @@
 {
-  "score": -0.0077,
+  "score": -0.0132,
   "label": "Neutral",
-  "confidence": "high",
-  "article_count": 10,
+  "confidence": "medium",
+  "article_count": 9,
   "top_headlines": [
-    {
-      "title": "Gold and silver have crashed. Should investors buy the dip or wait?",
-      "source": "Livemint",
-      "sentiment": 0.743,
-      "label": "Bullish",
-      "url": "https://www.livemint.com/money/personal-finance/gold-silver-etf-crash-should-investors-buy-the-dip-11795255637502.html"
-    },
     {
       "title": "Tamil Nadu horror: 54-year-old woman raped, murdered inside train coach at Nagercoil; gold ring helps police crack case",
       "source": "The Times of India",
       "sentiment": -0.985,
       "label": "Bearish",
       "url": "https://timesofindia.indiatimes.com/city/chennai/tamil-nadu-horror-54-year-old-woman-raped-murdered-inside-train-coach-at-nagercoil-gold-ring-helps-police-crack-case/articleshow/136069581.cms"
+    },
+    {
+      "title": "Iraqi bodybuilding champion Sajad Jawad dies days after winning the Asian crown",
+      "source": "Al Jazeera English",
+      "sentiment": 0.925,
+      "label": "Bullish",
+      "url": "https://www.aljazeera.com/sports/2026/11/22/iraqi-bodybuilding-champion-sajad-jawad-dies-days-after-winning-the-asian-crown"
+    },
+    {
+      "title": "A 61-year-old Pennsylvania supermarket employee bought a scratch-off ticket on her lunch break, and when it lost, she bought another, which won $1 million; she plans to keep working at the store where she bought it",
+      "source": "The Times of India",
+      "sentiment": 0.889,
+      "label": "Bullish",
+      "url": "https://timesofindia.indiatimes.com/world/us/a-61-year-old-pennsylvania-supermarket-employee-bought-a-scratch-off-ticket-on-her-lunch-break-and-when-it-lost-she-bought-another-which-won-1-million-she-plans-to-keep-working-at-the-store-where-she-bought-it/articleshow/136070648.cms"
     },
     {
       "title": "Why gold\u2019s five-year winning streak is under threat after dramatic selloff",
@@ -31,16 +38,9 @@
       "sentiment": 0.34,
       "label": "Bullish",
       "url": "https://www.hurriyetdailynews.com/turkiyes-jewelry-exports-could-exceed-20-billion-sector-head-229688"
-    },
-    {
-      "title": "Aya Gold And 2 Other Silver Stocks To Watch",
-      "source": "Biztoc.com",
-      "sentiment": -0.318,
-      "label": "Bearish",
-      "url": "https://biztoc.com/x/03eb721d4c8f33a4"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-23T08:24:47.099558",
+  "fetched_at": "2026-11-23T10:59:28.842647",
   "date": "2026-11-23"
 }
