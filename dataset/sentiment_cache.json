@@ -1,46 +1,46 @@
 {
-  "score": -0.0078,
+  "score": -0.0077,
   "label": "Neutral",
-  "confidence": "medium",
-  "article_count": 8,
+  "confidence": "high",
+  "article_count": 10,
   "top_headlines": [
     {
-      "title": "Gold Rush S17E08 1080p AMZN WEB-DL H264-Kitsune",
-      "source": "Rlsbb.cc",
-      "sentiment": -0.557,
-      "label": "Bearish",
-      "url": "https://post.rlsbb.cc/gold-rush-s17e08-1080p-amzn-web-dl-h264-kitsune/"
-    },
-    {
-      "title": "Gold prices crash nearly 10% in a week: Mega reasons behind massive yellow metal rate fall \u2013 List",
+      "title": "Gold and silver have crashed. Should investors buy the dip or wait?",
       "source": "Livemint",
-      "sentiment": -0.296,
-      "label": "Bearish",
-      "url": "https://www.livemint.com/money/personal-finance/gold-prices-crash-nearly-10-in-a-week-mega-reasons-behind-massive-yellow-metal-rate-fall-list-11795249539231.html"
-    },
-    {
-      "title": "Gold, debt and equity: Which portfolio mix offers better returns with lower volatility? 25 years of data provide answer",
-      "source": "Livemint",
-      "sentiment": 0.529,
+      "sentiment": 0.743,
       "label": "Bullish",
-      "url": "https://www.livemint.com/money/personal-finance/gold-debt-and-equity-which-portfolio-mix-offers-better-returns-with-lower-volatility-25-years-of-data-provide-answer-11795246256111.html"
+      "url": "https://www.livemint.com/money/personal-finance/gold-silver-etf-crash-should-investors-buy-the-dip-11795255637502.html"
     },
     {
-      "title": "Kavya Maran gifts gold rings to employees after wedding with Anirudh Ravichander - Watch Video",
+      "title": "Tamil Nadu horror: 54-year-old woman raped, murdered inside train coach at Nagercoil; gold ring helps police crack case",
       "source": "The Times of India",
-      "sentiment": 0.511,
-      "label": "Bullish",
-      "url": "https://timesofindia.indiatimes.com/entertainment/tamil/movies/news/kavya-maran-gifts-gold-rings-to-employees-after-wedding-with-anirudh-ravichander-watch-video/articleshow/136048633.cms"
-    },
-    {
-      "title": "CBI recovers Rs 1.86 crore in cash, gold, silver from arrested CGST superintendent's house",
-      "source": "The Times of India",
-      "sentiment": -0.202,
+      "sentiment": -0.985,
       "label": "Bearish",
-      "url": "https://timesofindia.indiatimes.com/city/chandigarh/cbi-recovers-rs-1-86-crore-in-cash-gold-silver-from-arrested-cgst-superintendents-house/articleshow/136048824.cms"
+      "url": "https://timesofindia.indiatimes.com/city/chennai/tamil-nadu-horror-54-year-old-woman-raped-murdered-inside-train-coach-at-nagercoil-gold-ring-helps-police-crack-case/articleshow/136069581.cms"
+    },
+    {
+      "title": "Why gold\u2019s five-year winning streak is under threat after dramatic selloff",
+      "source": "Economictimes.com",
+      "sentiment": -0.778,
+      "label": "Bearish",
+      "url": "https://m.economictimes.com/markets/commodities/why-golds-five-year-winning-streak-is-under-threat-after-dramatic-selloff/articleshow/136070323.cms"
+    },
+    {
+      "title": "T\u00fcrkiye\u2019s jewelry exports could exceed $20 billion: Sector head",
+      "source": "Hurriyet Daily News",
+      "sentiment": 0.34,
+      "label": "Bullish",
+      "url": "https://www.hurriyetdailynews.com/turkiyes-jewelry-exports-could-exceed-20-billion-sector-head-229688"
+    },
+    {
+      "title": "Aya Gold And 2 Other Silver Stocks To Watch",
+      "source": "Biztoc.com",
+      "sentiment": -0.318,
+      "label": "Bearish",
+      "url": "https://biztoc.com/x/03eb721d4c8f33a4"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-22T10:01:16.979037",
-  "date": "2026-11-22"
+  "fetched_at": "2026-11-23T08:24:47.099558",
+  "date": "2026-11-23"
 }
