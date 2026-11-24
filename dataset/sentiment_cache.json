@@ -1,46 +1,25 @@
 {
-  "score": -0.0132,
-  "label": "Neutral",
-  "confidence": "medium",
-  "article_count": 9,
+  "score": -0.5822,
+  "label": "Bearish",
+  "confidence": "low",
+  "article_count": 2,
   "top_headlines": [
     {
-      "title": "Tamil Nadu horror: 54-year-old woman raped, murdered inside train coach at Nagercoil; gold ring helps police crack case",
-      "source": "The Times of India",
-      "sentiment": -0.985,
+      "title": "NBFC AUM may reach \u20b968 trillion by FY28; unsecured loans a risk: CRISIL",
+      "source": "Business Standard",
+      "sentiment": -0.67,
       "label": "Bearish",
-      "url": "https://timesofindia.indiatimes.com/city/chennai/tamil-nadu-horror-54-year-old-woman-raped-murdered-inside-train-coach-at-nagercoil-gold-ring-helps-police-crack-case/articleshow/136069581.cms"
+      "url": "https://www.business-standard.com/industry/banking/nbfc-aum-may-reach-68-trillion-by-fy28-unsecured-loans-a-risk-crisil-126112300950_1.html"
     },
     {
-      "title": "Iraqi bodybuilding champion Sajad Jawad dies days after winning the Asian crown",
-      "source": "Al Jazeera English",
-      "sentiment": 0.925,
-      "label": "Bullish",
-      "url": "https://www.aljazeera.com/sports/2026/11/22/iraqi-bodybuilding-champion-sajad-jawad-dies-days-after-winning-the-asian-crown"
-    },
-    {
-      "title": "A 61-year-old Pennsylvania supermarket employee bought a scratch-off ticket on her lunch break, and when it lost, she bought another, which won $1 million; she plans to keep working at the store where she bought it",
-      "source": "The Times of India",
-      "sentiment": 0.889,
-      "label": "Bullish",
-      "url": "https://timesofindia.indiatimes.com/world/us/a-61-year-old-pennsylvania-supermarket-employee-bought-a-scratch-off-ticket-on-her-lunch-break-and-when-it-lost-she-bought-another-which-won-1-million-she-plans-to-keep-working-at-the-store-where-she-bought-it/articleshow/136070648.cms"
-    },
-    {
-      "title": "Why gold\u2019s five-year winning streak is under threat after dramatic selloff",
-      "source": "Economictimes.com",
-      "sentiment": -0.778,
+      "title": "Star Wars Outlaws Gold Edition (Switch 2, Game-Key Card) $15",
+      "source": "Slickdeals.net",
+      "sentiment": -0.494,
       "label": "Bearish",
-      "url": "https://m.economictimes.com/markets/commodities/why-golds-five-year-winning-streak-is-under-threat-after-dramatic-selloff/articleshow/136070323.cms"
-    },
-    {
-      "title": "T\u00fcrkiye\u2019s jewelry exports could exceed $20 billion: Sector head",
-      "source": "Hurriyet Daily News",
-      "sentiment": 0.34,
-      "label": "Bullish",
-      "url": "https://www.hurriyetdailynews.com/turkiyes-jewelry-exports-could-exceed-20-billion-sector-head-229688"
+      "url": "https://slickdeals.net/f/20375862-star-wars-outlaws-gold-edition-nintendo-switch-2-15-amazon"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-23T10:59:28.842647",
-  "date": "2026-11-23"
+  "fetched_at": "2026-11-24T12:46:20.814949",
+  "date": "2026-11-24"
 }
