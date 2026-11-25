@@ -1,25 +1,46 @@
 {
-  "score": -0.5822,
-  "label": "Bearish",
-  "confidence": "low",
-  "article_count": 2,
+  "score": 0.5797,
+  "label": "Bullish",
+  "confidence": "medium",
+  "article_count": 5,
   "top_headlines": [
     {
-      "title": "NBFC AUM may reach \u20b968 trillion by FY28; unsecured loans a risk: CRISIL",
-      "source": "Business Standard",
-      "sentiment": -0.67,
-      "label": "Bearish",
-      "url": "https://www.business-standard.com/industry/banking/nbfc-aum-may-reach-68-trillion-by-fy28-unsecured-loans-a-risk-crisil-126112300950_1.html"
+      "title": "Gold Peak Ultra Plus Industrial Alkaline AA Batteries 40-Pack for $10 + free shipping w/ Prime",
+      "source": "Dealnews.com",
+      "sentiment": 0.955,
+      "label": "Bullish",
+      "url": "https://www.dealnews.com/Gold-Peak-Ultra-Plus-Industrial-Alkaline-AA-Batteries-40-Pack-for-10-free-shipping-w-Prime/22427611.html"
     },
     {
-      "title": "Star Wars Outlaws Gold Edition (Switch 2, Game-Key Card) $15",
-      "source": "Slickdeals.net",
-      "sentiment": -0.494,
+      "title": "Forte Minerals Secures Community Access Agreement for Exploration at the Alto Ruri High Sulphidation Gold Project, Peru",
+      "source": "Biztoc.com",
+      "sentiment": 0.807,
+      "label": "Bullish",
+      "url": "https://biztoc.com/x/59dfde25c961e849"
+    },
+    {
+      "title": "The price of gold today, Nov. 23, 2026 \u2014 and the best places to buy",
+      "source": "Biztoc.com",
+      "sentiment": 0.765,
+      "label": "Bullish",
+      "url": "https://biztoc.com/x/1b6aab352ee02eb5"
+    },
+    {
+      "title": "4.6 million worth of gold items belonging to the person who came from Italy for a short vacation were stolen at the lodge.",
+      "source": "Gossiplankanews.com",
+      "sentiment": 0.735,
+      "label": "Bullish",
+      "url": "https://english.gossiplankanews.com/2026/11/46-million-worth-of-gold-items.html"
+    },
+    {
+      "title": "33 Of The Most Memorable Rescues By This Brazilian Cop, From Baby Toucans To Abandoned Puppies",
+      "source": "Boredpanda.com",
+      "sentiment": -0.363,
       "label": "Bearish",
-      "url": "https://slickdeals.net/f/20375862-star-wars-outlaws-gold-edition-nintendo-switch-2-15-amazon"
+      "url": "https://www.boredpanda.com/heartwarming-animal-rescues-tenentebernardobax/"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-24T12:46:20.814949",
-  "date": "2026-11-24"
+  "fetched_at": "2026-11-25T11:32:05.383275",
+  "date": "2026-11-25"
 }

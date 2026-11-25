@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-11-24T12:46:26.317778Z",
-  "prediction_date": "2026-11-25",
-  "target_date": "2026-11-25",
+  "generated_at": "2026-11-25T11:32:11.400706Z",
+  "prediction_date": "2026-11-26",
+  "target_date": "2026-11-26",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
   "market_closed": false,
-  "last_data_date": "2026-11-24",
-  "last_actual_usd": 3630.7,
-  "reference_live_usd": 3630.1,
-  "reference_as_of": "2026-11-24T12:46:27.726252Z",
+  "last_data_date": "2026-11-25",
+  "last_actual_usd": 3552.5,
+  "reference_live_usd": 3552.7,
+  "reference_as_of": "2026-11-25T11:32:13.406226Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 3631.62,
-  "usd_inr_rate": 92.9,
+  "tomorrow_usd": 3554.19,
+  "usd_inr_rate": 92.22,
   "trend": "stable",
   "direction_vs_today": "stable",
   "direction_delta_pct": 0.042,
-  "direction_delta_usd": 1.52,
+  "direction_delta_usd": 1.49,
   "pct_change": 0.042,
-  "tomorrow_price_24k_per_gram": 11842.68,
-  "tomorrow_price_22k_per_gram": 10855.79,
-  "tomorrow_price_24k_per_10g": 118426.85,
-  "tomorrow_price_22k_per_10g": 108557.94,
+  "tomorrow_price_24k_per_gram": 11505.34,
+  "tomorrow_price_22k_per_gram": 10546.56,
+  "tomorrow_price_24k_per_10g": 115053.42,
+  "tomorrow_price_22k_per_10g": 105465.63,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -32,43 +32,64 @@
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
   "confidence_interval": {
-    "lower_usd": 3578.04,
-    "upper_usd": 3735.36,
-    "lower_24k_per_gram": 11667.94,
-    "upper_24k_per_gram": 12180.98,
-    "lower_22k_per_gram": 10695.61,
-    "upper_22k_per_gram": 11165.89,
-    "interval_pct": 4.33
+    "lower_usd": 3509.0,
+    "upper_usd": 3667.93,
+    "lower_24k_per_gram": 11359.05,
+    "upper_24k_per_gram": 11873.52,
+    "lower_22k_per_gram": 10412.46,
+    "upper_22k_per_gram": 10884.06,
+    "interval_pct": 4.47
   },
-  "direction_confidence": 55.5,
-  "as_of": "2026-11-24T12:46:27.726252Z",
+  "direction_confidence": 62.8,
+  "as_of": "2026-11-25T11:32:13.406226Z",
   "source": "model_forecast",
   "market_status": "forecast",
   "is_live": false,
   "sentiment": {
-    "score": -0.5822,
-    "label": "Bearish",
-    "confidence": "low",
+    "score": 0.5797,
+    "label": "Bullish",
+    "confidence": "medium",
     "signal": "Neutral",
-    "article_count": 2,
+    "article_count": 5,
     "source": "newsapi",
     "top_headlines": [
       {
-        "title": "NBFC AUM may reach \u20b968 trillion by FY28; unsecured loans a risk: CRISIL",
-        "source": "Business Standard",
-        "sentiment": -0.67,
-        "label": "Bearish",
-        "url": "https://www.business-standard.com/industry/banking/nbfc-aum-may-reach-68-trillion-by-fy28-unsecured-loans-a-risk-crisil-126112300950_1.html"
+        "title": "Gold Peak Ultra Plus Industrial Alkaline AA Batteries 40-Pack for $10 + free shipping w/ Prime",
+        "source": "Dealnews.com",
+        "sentiment": 0.955,
+        "label": "Bullish",
+        "url": "https://www.dealnews.com/Gold-Peak-Ultra-Plus-Industrial-Alkaline-AA-Batteries-40-Pack-for-10-free-shipping-w-Prime/22427611.html"
       },
       {
-        "title": "Star Wars Outlaws Gold Edition (Switch 2, Game-Key Card) $15",
-        "source": "Slickdeals.net",
-        "sentiment": -0.494,
+        "title": "Forte Minerals Secures Community Access Agreement for Exploration at the Alto Ruri High Sulphidation Gold Project, Peru",
+        "source": "Biztoc.com",
+        "sentiment": 0.807,
+        "label": "Bullish",
+        "url": "https://biztoc.com/x/59dfde25c961e849"
+      },
+      {
+        "title": "The price of gold today, Nov. 23, 2026 \u2014 and the best places to buy",
+        "source": "Biztoc.com",
+        "sentiment": 0.765,
+        "label": "Bullish",
+        "url": "https://biztoc.com/x/1b6aab352ee02eb5"
+      },
+      {
+        "title": "4.6 million worth of gold items belonging to the person who came from Italy for a short vacation were stolen at the lodge.",
+        "source": "Gossiplankanews.com",
+        "sentiment": 0.735,
+        "label": "Bullish",
+        "url": "https://english.gossiplankanews.com/2026/11/46-million-worth-of-gold-items.html"
+      },
+      {
+        "title": "33 Of The Most Memorable Rescues By This Brazilian Cop, From Baby Toucans To Abandoned Puppies",
+        "source": "Boredpanda.com",
+        "sentiment": -0.363,
         "label": "Bearish",
-        "url": "https://slickdeals.net/f/20375862-star-wars-outlaws-gold-edition-nintendo-switch-2-15-amazon"
+        "url": "https://www.boredpanda.com/heartwarming-animal-rescues-tenentebernardobax/"
       }
     ],
-    "fetched_at": "2026-11-24T12:46:20.814949"
+    "fetched_at": "2026-11-25T11:32:05.383275"
   },
   "model_info": {
     "trained_at": "2026-11-23T08:26:04.680510Z",
