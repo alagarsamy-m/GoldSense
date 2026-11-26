@@ -1,46 +1,46 @@
 {
-  "score": 0.5797,
+  "score": 0.4997,
   "label": "Bullish",
   "confidence": "medium",
   "article_count": 5,
   "top_headlines": [
     {
-      "title": "Gold Peak Ultra Plus Industrial Alkaline AA Batteries 40-Pack for $10 + free shipping w/ Prime",
-      "source": "Dealnews.com",
-      "sentiment": 0.955,
+      "title": "Fortnite is bringing back every gold reward from Treasure Hunters before Chapter 8, and players will have two chances to get 15 times the usual odds of finding a gold skin",
+      "source": "The Times of India",
+      "sentiment": 0.927,
       "label": "Bullish",
-      "url": "https://www.dealnews.com/Gold-Peak-Ultra-Plus-Industrial-Alkaline-AA-Batteries-40-Pack-for-10-free-shipping-w-Prime/22427611.html"
+      "url": "https://timesofindia.indiatimes.com/technology/gaming/fortnite-is-bringing-back-every-gold-reward-from-treasure-hunters-before-chapter-8-and-players-will-have-two-chances-to-get-15-times-the-usual-odds-of-finding-a-gold-skin/articleshow/136158738.cms"
     },
     {
-      "title": "Forte Minerals Secures Community Access Agreement for Exploration at the Alto Ruri High Sulphidation Gold Project, Peru",
-      "source": "Biztoc.com",
-      "sentiment": 0.807,
+      "title": "Hailey Bieber sizzles in a gold bikini as Justin treats her to a firework display on tropical break to celebrate her 30th birthday",
+      "source": "Dailymail.com",
+      "sentiment": 0.881,
       "label": "Bullish",
-      "url": "https://biztoc.com/x/59dfde25c961e849"
+      "url": "https://www.dailymail.com/tvshowbiz/article-16320581/Hailey-Bieber-sizzles-gold-bikini-Justin-treats-firework-display-tropical-break-celebrate-30th-birthday.html"
     },
     {
-      "title": "The price of gold today, Nov. 23, 2026 \u2014 and the best places to buy",
-      "source": "Biztoc.com",
-      "sentiment": 0.765,
+      "title": "Trump Says He\u2019ll Meet with Abdul El-Sayed After His Medicare for All Pitch and Thinks They Could Find Middle Ground",
+      "source": "Thoughtcatalog.com",
+      "sentiment": 0.44,
       "label": "Bullish",
-      "url": "https://biztoc.com/x/1b6aab352ee02eb5"
+      "url": "https://thoughtcatalog.com/jeremy-london/2026/11/trump-says-hell-meet-with-abdul-el-sayed-after-his-medicare-for-all-pitch-and-thinks-they-could-find-middle-ground/"
     },
     {
-      "title": "4.6 million worth of gold items belonging to the person who came from Italy for a short vacation were stolen at the lodge.",
-      "source": "Gossiplankanews.com",
-      "sentiment": 0.735,
+      "title": "YouTube Gold: The Dream Begins At Houston",
+      "source": "Yahoo Entertainment",
+      "sentiment": 0.25,
       "label": "Bullish",
-      "url": "https://english.gossiplankanews.com/2026/11/46-million-worth-of-gold-items.html"
+      "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_6c545199-4d23-4832-a72e-b0c6c4f08334"
     },
     {
-      "title": "33 Of The Most Memorable Rescues By This Brazilian Cop, From Baby Toucans To Abandoned Puppies",
-      "source": "Boredpanda.com",
-      "sentiment": -0.363,
-      "label": "Bearish",
-      "url": "https://www.boredpanda.com/heartwarming-animal-rescues-tenentebernardobax/"
+      "title": "\u2018People are going hungry\u2019: Guinea\u2019s gold mining crackdown",
+      "source": "Al Jazeera English",
+      "sentiment": 0.0,
+      "label": "Neutral",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/11/25/people-are-going-hungry-guineas-gold-mining-crackdown"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-25T11:32:05.383275",
-  "date": "2026-11-25"
+  "fetched_at": "2026-11-26T11:14:10.475030",
+  "date": "2026-11-26"
 }
