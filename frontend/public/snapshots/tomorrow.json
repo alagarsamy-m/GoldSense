@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-11-26T11:14:17.989977Z",
-  "prediction_date": "2026-11-27",
-  "target_date": "2026-11-27",
+  "generated_at": "2026-11-27T11:07:42.602059Z",
+  "prediction_date": "2026-11-28",
+  "target_date": "2026-11-28",
   "target_type": "calendar_close",
   "reference_mode": "live_last",
-  "market_closed": false,
-  "last_data_date": "2026-11-26",
-  "last_actual_usd": 3587.5,
-  "reference_live_usd": 3587.0,
-  "reference_as_of": "2026-11-26T11:14:20.179012Z",
+  "market_closed": true,
+  "last_data_date": "2026-11-27",
+  "last_actual_usd": 3707.9,
+  "reference_live_usd": 3707.4,
+  "reference_as_of": "2026-11-27T11:07:44.886013Z",
   "reference_source": "yfinance",
   "reference_market_status": "live",
   "reference_is_live": true,
   "today_quote_note": "Direction compares tomorrow's estimated close against today's live last price.",
-  "tomorrow_usd": 3588.5,
-  "usd_inr_rate": 92.54,
+  "tomorrow_usd": 3707.4,
+  "usd_inr_rate": 92.98,
   "trend": "stable",
   "direction_vs_today": "stable",
-  "direction_delta_pct": 0.042,
-  "direction_delta_usd": 1.5,
-  "pct_change": 0.042,
-  "tomorrow_price_24k_per_gram": 11656.73,
-  "tomorrow_price_22k_per_gram": 10685.34,
-  "tomorrow_price_24k_per_10g": 116567.3,
-  "tomorrow_price_22k_per_10g": 106853.36,
+  "direction_delta_pct": 0.0,
+  "direction_delta_usd": 0.0,
+  "pct_change": 0.0,
+  "tomorrow_price_24k_per_gram": 12100.21,
+  "tomorrow_price_22k_per_gram": 11091.86,
+  "tomorrow_price_24k_per_10g": 121002.07,
+  "tomorrow_price_22k_per_10g": 110918.57,
   "tomorrow_pricing_formula": {
     "base_formula": "(USD_per_oz * USDINR) / 31.1035",
     "customs_duty_pct": 6.0,
@@ -31,65 +31,48 @@
     "mumbai_premium_pct": 0.0,
     "notes": "Mumbai spot is modelled from international gold, FX, duty, GST, and a configurable city premium."
   },
-  "confidence_interval": {
-    "lower_usd": 3538.45,
-    "upper_usd": 3692.49,
-    "lower_24k_per_gram": 11494.13,
-    "upper_24k_per_gram": 11994.53,
-    "lower_22k_per_gram": 10536.28,
-    "upper_22k_per_gram": 10994.98,
-    "interval_pct": 4.29
-  },
-  "direction_confidence": 57.2,
-  "as_of": "2026-11-26T11:14:20.179012Z",
+  "as_of": "2026-11-27T11:07:44.886013Z",
   "source": "model_forecast",
-  "market_status": "forecast",
+  "market_status": "market_closed",
   "is_live": false,
   "sentiment": {
-    "score": 0.4997,
+    "score": 0.6108,
     "label": "Bullish",
-    "confidence": "medium",
+    "confidence": "low",
     "signal": "Neutral",
-    "article_count": 5,
+    "article_count": 4,
     "source": "newsapi",
     "top_headlines": [
       {
-        "title": "Fortnite is bringing back every gold reward from Treasure Hunters before Chapter 8, and players will have two chances to get 15 times the usual odds of finding a gold skin",
-        "source": "The Times of India",
-        "sentiment": 0.927,
+        "title": "PhHN Daily: Flyers Fool\u2019s Gold; Zacha Talks Trade Rumors; Happy Thanksgiving!",
+        "source": "Phillyhockeynow.com",
+        "sentiment": 0.9,
         "label": "Bullish",
-        "url": "https://timesofindia.indiatimes.com/technology/gaming/fortnite-is-bringing-back-every-gold-reward-from-treasure-hunters-before-chapter-8-and-players-will-have-two-chances-to-get-15-times-the-usual-odds-of-finding-a-gold-skin/articleshow/136158738.cms"
+        "url": "https://phillyhockeynow.com/flyers-news-nhl-trade-rumors-pavel-zacha-michael-misa-simon-edvinsson-evgeni-malkin-wild-penguins/"
       },
       {
-        "title": "Hailey Bieber sizzles in a gold bikini as Justin treats her to a firework display on tropical break to celebrate her 30th birthday",
-        "source": "Dailymail.com",
-        "sentiment": 0.881,
-        "label": "Bullish",
-        "url": "https://www.dailymail.com/tvshowbiz/article-16320581/Hailey-Bieber-sizzles-gold-bikini-Justin-treats-firework-display-tropical-break-celebrate-30th-birthday.html"
-      },
-      {
-        "title": "Trump Says He\u2019ll Meet with Abdul El-Sayed After His Medicare for All Pitch and Thinks They Could Find Middle Ground",
-        "source": "Thoughtcatalog.com",
+        "title": "Gold ETFs: Same gold prices, why are two funds gaining while others have negative 1-year returns? Key factors to check",
+        "source": "Livemint",
         "sentiment": 0.44,
         "label": "Bullish",
-        "url": "https://thoughtcatalog.com/jeremy-london/2026/11/trump-says-hell-meet-with-abdul-el-sayed-after-his-medicare-for-all-pitch-and-thinks-they-could-find-middle-ground/"
+        "url": "https://www.livemint.com/money/personal-finance/gold-etfs-same-gold-prices-why-are-two-funds-gaining-while-others-have-negative-1-year-returns-key-factors-to-check-11795684999656.html"
       },
       {
-        "title": "YouTube Gold: The Dream Begins At Houston",
-        "source": "Yahoo Entertainment",
-        "sentiment": 0.25,
+        "title": "Macy\u2019s has jewelry, boots, more great gifts on major sale for Black Friday",
+        "source": "New York Post",
+        "sentiment": 0.659,
         "label": "Bullish",
-        "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_6c545199-4d23-4832-a72e-b0c6c4f08334"
+        "url": "https://nypost.com/shopping/macys-black-friday-sale-deals-2026/"
       },
       {
-        "title": "\u2018People are going hungry\u2019: Guinea\u2019s gold mining crackdown",
-        "source": "Al Jazeera English",
-        "sentiment": 0.0,
-        "label": "Neutral",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/11/25/people-are-going-hungry-guineas-gold-mining-crackdown"
+        "title": "Chennai industrialist donates 121 kg of gold ornaments worth \u20b9206 crore to Tirumala",
+        "source": "BusinessLine",
+        "sentiment": 0.586,
+        "label": "Bullish",
+        "url": "https://www.thehindubusinessline.com/news/chennai-industrialist-donates-121-kg-of-gold-ornaments-worth-206-crore-to-tirumala/article71746084.ece"
       }
     ],
-    "fetched_at": "2026-11-26T11:14:10.475030"
+    "fetched_at": "2026-11-27T11:07:35.929820"
   },
   "model_info": {
     "trained_at": "2026-11-23T08:26:04.680510Z",
