@@ -1,39 +1,46 @@
 {
-  "score": 0.6108,
+  "score": 0.5485,
   "label": "Bullish",
-  "confidence": "low",
-  "article_count": 4,
+  "confidence": "medium",
+  "article_count": 6,
   "top_headlines": [
     {
-      "title": "PhHN Daily: Flyers Fool\u2019s Gold; Zacha Talks Trade Rumors; Happy Thanksgiving!",
-      "source": "Phillyhockeynow.com",
-      "sentiment": 0.9,
+      "title": "MEXC Launches Golden Gratitude Gala With a 10M USDT Prize Pool, Including a Gold Bar and BTC",
+      "source": "newsBTC",
+      "sentiment": 0.967,
       "label": "Bullish",
-      "url": "https://phillyhockeynow.com/flyers-news-nhl-trade-rumors-pavel-zacha-michael-misa-simon-edvinsson-evgeni-malkin-wild-penguins/"
+      "url": "https://www.newsbtc.com/news/mexc-launches-golden-gratitude-gala-with-a-10m-usdt-prize-pool-including-a-gold-bar-and-btc/"
     },
     {
-      "title": "Gold ETFs: Same gold prices, why are two funds gaining while others have negative 1-year returns? Key factors to check",
+      "title": "Oura Ring 5 Smart Ring Black Friday Deals at Best Buy for $100 off, from $299 + free shipping",
+      "source": "Dealnews.com",
+      "sentiment": 0.962,
+      "label": "Bullish",
+      "url": "https://www.dealnews.com/Oura-Ring-5-Smart-Ring-Black-Friday-Deals-at-Best-Buy-for-100-off-from-299-free-shipping/22436954.html"
+    },
+    {
+      "title": "What is Gold ETF-to-jewellery bridge buying strategy? Should you opt for it amid falling gold prices? Experts explain",
       "source": "Livemint",
-      "sentiment": 0.44,
+      "sentiment": 0.433,
       "label": "Bullish",
-      "url": "https://www.livemint.com/money/personal-finance/gold-etfs-same-gold-prices-why-are-two-funds-gaining-while-others-have-negative-1-year-returns-key-factors-to-check-11795684999656.html"
+      "url": "https://www.livemint.com/money/personal-finance/what-is-gold-etf-to-jewellery-bridge-buying-strategy-should-you-opt-for-it-amid-falling-gold-prices-experts-explain-11795771887395.html"
     },
     {
-      "title": "Macy\u2019s has jewelry, boots, more great gifts on major sale for Black Friday",
-      "source": "New York Post",
-      "sentiment": 0.659,
+      "title": "Bluey's Quest for The Gold Pen (Nintendo Switch) $19.93 + Free Shipping w/ Walmart+ or on $35+",
+      "source": "Slickdeals.net",
+      "sentiment": 0.765,
       "label": "Bullish",
-      "url": "https://nypost.com/shopping/macys-black-friday-sale-deals-2026/"
+      "url": "https://slickdeals.net/f/20414757-bluey-s-quest-for-the-gold-pen-nintendo-switch-19-93-free-shipping-w-walmart-or-on-35"
     },
     {
-      "title": "Chennai industrialist donates 121 kg of gold ornaments worth \u20b9206 crore to Tirumala",
-      "source": "BusinessLine",
-      "sentiment": 0.586,
+      "title": "Beat Michigan! Put ball in Jeremiah Smith's hand to send him out with 'gold pants' | Opinion",
+      "source": "Yahoo Entertainment",
+      "sentiment": 0.718,
       "label": "Bullish",
-      "url": "https://www.thehindubusinessline.com/news/chennai-industrialist-donates-121-kg-of-gold-ornaments-worth-206-crore-to-tirumala/article71746084.ece"
+      "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_f93e7baa-3780-4aa5-a6ef-05d9e71788c3"
     }
   ],
   "source": "newsapi",
-  "fetched_at": "2026-11-27T11:07:35.929820",
-  "date": "2026-11-27"
+  "fetched_at": "2026-11-28T10:42:30.175078",
+  "date": "2026-11-28"
 }
